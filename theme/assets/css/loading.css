@@ -1,0 +1,321 @@
+/* ===========================================
+   LOADING WITH VIDEO - FULL SCREEN VERSION
+   =========================================== */
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    z-index: 999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+/* Contenedor principal - OCUPA TODA LA PANTALLA */
+.video-loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+}
+
+/* VIDEO - SE ADAPTA AL CONTENEDOR SIN RECORTAR */
+.video-loader video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* MANTIENE PROPORCIONES SIN RECORTAR */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Si quieres que el video cubra toda la pantalla (puede recortar bordes) */
+.video-loader video.cover-mode {
+    object-fit: cover; /* CUBRE TODA EL ÁREA (puede recortar bordes) */
+}
+
+/* CONTENEDOR PARA EL VIDEO CON TAMAÑO MÁXIMO */
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 800px; /* TAMAÑO MÁXIMO DEL VIDEO */
+    max-height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Logo sobre el video */
+.loader-logo {
+    position: absolute;
+    bottom: 40px;
+    text-align: center;
+    animation: fadeInUp 1s ease 0.5s both;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.loader-logo img {
+    max-width: 120px;
+    height: auto;
+    opacity: 1;
+}
+
+/* Fallback spinner */
+.fallback-loader {
+    display: none;
+    text-align: center;
+    animation: fadeIn 1s ease;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    z-index: 20;
+    position: relative;
+}
+
+.fallback-loader .loader {
+    width: 80px;
+    height: 80px;
+    border: 8px solid rgba(52, 152, 219, 0.1);
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+    margin: 0 auto 20px;
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.fallback-loader p {
+    color: #2c3e50;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 15px;
+    letter-spacing: 1px;
+    animation: pulse 2s infinite;
+}
+
+/* Progreso de carga */
+.loading-progress {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #2c3e50;
+    font-weight: 600;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    animation: fadeIn 1s ease 0.3s both;
+}
+
+/* ===========================================
+   ANIMACIONES
+   =========================================== */
+
+@keyframes spin {
+    0% { 
+        transform: rotate(0deg); 
+    }
+    100% { 
+        transform: rotate(360deg); 
+    }
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+    }
+    to { 
+        opacity: 1; 
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { 
+        opacity: 1; 
+    }
+    50% { 
+        opacity: 0.6; 
+    }
+}
+
+@keyframes logoFloat {
+    0%, 100% { 
+        transform: translateY(0) scale(1); 
+    }
+    50% { 
+        transform: translateY(-5px) scale(1.02); 
+    }
+}
+
+/* Aplica animación flotante al logo */
+.loader-logo img {
+    animation: logoFloat 3s ease-in-out infinite;
+}
+
+/* ===========================================
+   ESTADOS ESPECIALES
+   =========================================== */
+
+/* Cuando hay error en el video */
+.video-loader video.error + .fallback-loader {
+    display: block;
+}
+
+.video-loader video.error {
+    display: none;
+}
+
+/* Transición suave al ocultar */
+#preloader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Clase para video con fondo oscuro */
+.video-loader.dark-bg {
+    background: #1a1a1a;
+}
+
+.loader-logo.dark-bg {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+/* ===========================================
+   RESPONSIVE DESIGN
+   =========================================== */
+
+@media (max-width: 1200px) {
+    .video-container {
+        max-width: 700px;
+        max-height: 500px;
+    }
+}
+
+@media (max-width: 992px) {
+    .video-container {
+        max-width: 600px;
+        max-height: 450px;
+    }
+    
+    .loader-logo {
+        bottom: 30px;
+        padding: 12px 25px;
+    }
+    
+    .loader-logo img {
+        max-width: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .video-container {
+        max-width: 500px;
+        max-height: 400px;
+    }
+    
+    .loader-logo {
+        bottom: 25px;
+        padding: 10px 20px;
+    }
+    
+    .loader-logo img {
+        max-width: 80px;
+    }
+    
+    .fallback-loader {
+        padding: 20px;
+    }
+    
+    .fallback-loader .loader {
+        width: 60px;
+        height: 60px;
+        border-width: 6px;
+    }
+    
+    .fallback-loader p {
+        font-size: 16px;
+    }
+    
+    .loading-progress {
+        top: 20px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .video-container {
+        max-width: 400px;
+        max-height: 300px;
+    }
+    
+    .loader-logo {
+        bottom: 20px;
+        padding: 8px 15px;
+    }
+    
+    .loader-logo img {
+        max-width: 70px;
+    }
+    
+    .fallback-loader {
+        padding: 15px;
+    }
+    
+    .fallback-loader .loader {
+        width: 50px;
+        height: 50px;
+        border-width: 5px;
+    }
+    
+    .fallback-loader p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 400px) {
+    .video-container {
+        max-width: 320px;
+        max-height: 240px;
+    }
+    
+    .loader-logo {
+        bottom: 15px;
+        padding: 6px 12px;
+    }
+    
+    .loader-logo img {
+        max-width: 60px;
+    }
+}

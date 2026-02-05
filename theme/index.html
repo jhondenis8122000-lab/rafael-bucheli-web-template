@@ -1,10 +1,10 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="es">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Edification - Responsive Education HTML5 Template</title>
+    <title>Unidad Educativa Rafael Bucheli - Formando Líderes del Futuro</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico in the root directory -->
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="assets/css/default-css.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
+    <!-- loading css -->
+    <link rel="stylesheet" href="assets/css/loading.css">
     <!--color css-->
     <link rel="stylesheet" id="triggerColor" href="assets/css/triggerplate/color-0.css">
     <!-- modernizr css -->
@@ -26,11 +28,27 @@
 
 <body>
     <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+            <p class="browserupgrade">Estás usando un navegador <strong>obsoleto</strong>. Por favor <a href="http://browsehappy.com/">actualiza tu navegador</a> para mejorar tu experiencia.</p>
         <![endif]-->
+    
     <!-- preloader area start -->
     <div id="preloader">
-        <div class="loader"></div>
+        <div class="video-loader">
+            <video autoplay muted playsinline loop preload="auto">
+                <source src="assets/videos/loading-animation.mp4" type="video/mp4">
+                <!-- Fallback to spinner if no video -->
+                <div class="fallback-loader">
+                    <div class="loader"></div>
+                    <p>Cargando...</p>
+                </div>
+            </video>
+            <!-- Logo -->
+            <div class="loader-logo">
+                <img src="assets/images/icon/logo.png" alt="UE Rafael Bucheli">
+            </div>
+            <!-- Loading progress -->
+            <div class="loading-progress">Cargando 0%</div>
+        </div>
     </div>
     <!-- prealoader area end -->
     
@@ -49,24 +67,24 @@
                         <div class="main-menu menu-style2">
                             <nav>
                                 <ul id="m_menu_active">
-                                    <li class="active"><a href="javascript:void(0);">Home</a>
+                                    <li class="active"><a href="javascript:void(0);">Inicio</a>
                                         <ul class="submenu">
-                                            <li class="active"><a href="index.html">Home One</a></li>
-                                            <li><a href="index2.html">Home Two</a></li>
-                                            <li><a href="index3.html">Home Three</a></li>
+                                            <li class="active"><a href="index.html">Inicio Uno</a></li>
+                                            <li><a href="index2.html">Inicio Dos</a></li>
+                                            <li><a href="index3.html">Inicio Tres</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="javascript:void(0);">Courses</a>
+                                    <li><a href="about.html">Nosotros</a></li>
+                                    <li><a href="javascript:void(0);">Niveles</a>
                                         <ul class="submenu">
-                                            <li><a href="courses.html">courses</a></li>
-                                            <li><a href="course-details.html">course details</a></li>
+                                            <li><a href="courses.html">niveles</a></li>
+                                            <li><a href="course-details.html">detalles de nivel</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="javascript:void(0);">teacher</a>
+                                    <li><a href="javascript:void(0);">docentes</a>
                                         <ul class="submenu">
-                                            <li><a href="teachers.html">teachers</a></li>
-                                            <li><a href="teacher-details.html">teacher details</a></li>
+                                            <li><a href="teachers.html">docentes</a></li>
+                                            <li><a href="teacher-details.html">detalles de docente</a></li>
                                         </ul>
                                     </li>
                                     <li class="middle-logo">
@@ -75,14 +93,14 @@
                                             <img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="logo">
                                         </a>
                                     </li>
-                                    <li><a href="#">Events</a></li>
-                                    <li><a href="javascript:void(0);">blog</a>
+                                    <li><a href="#">Eventos</a></li>
+                                    <li><a href="javascript:void(0);">noticias</a>
                                         <ul class="submenu">
-                                            <li><a href="blog.html">blog</a></li>
-                                            <li><a href="blog-details.html">blog details</a></li>
+                                            <li><a href="blog.html">noticias</a></li>
+                                            <li><a href="blog-details.html">detalles de noticia</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="contact.html">Contacto</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -90,8 +108,8 @@
                     <div class="col-lg-2 col-sm-5">
                         <div class="header-bottom-right-style-2">
                             <ul>
-                                <li><a data-toggle="modal" data-target="#exampleModal" class="btn btn-light btn-round" href="#">Log in</a></li>
-                                <li><a data-toggle="modal" data-target="#exampleModal2"  class="btn btn-primary btn-round" class="active" href="#">Sign Up</a></li>
+                                <li><a data-toggle="modal" data-target="#exampleModal" class="btn btn-light btn-round" href="#">LOG IN</a></li>
+                                <li><a data-toggle="modal" data-target="#exampleModal2"  class="btn btn-primary btn-round" class="active" href="#">SIGN UP</a></li>
                             </ul>
                         </div>
                         <!-- Button trigger modal -->  
@@ -99,18 +117,18 @@
                           <div class="modal-dialog" role="document">
                             <div class="modal-content p-5">
                               <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Login Here</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Ingresa Aquí</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                                 </button>
                               </div>
                               <div class="modal-body">
                                 <form> 
-                                    <input type="email" placeholder="Enter Your Email.." required="">
-                                    <input type="password" placeholder="Enter Your Paddword">
-                                    <label class="checkbox-inline mr-5"><input type="checkbox" value="">Remember Me</label> 
-                                    <a class="primary-color" href="#"><u>Forgot password</u></a>
-                                    <input class="btn btn-primary btn-sm" type="submit" value="Login">
+                                    <input type="email" placeholder="Ingresa tu correo.." required="">
+                                    <input type="password" placeholder="Ingresa tu contraseña">
+                                    <label class="checkbox-inline mr-5"><input type="checkbox" value="">Recordarme</label> 
+                                    <a class="primary-color" href="#"><u>¿Olvidaste tu contraseña?</u></a>
+                                    <input class="btn btn-primary btn-sm" type="submit" value="Ingresar">
                                 </form> 
                               </div> 
                             </div>
@@ -121,7 +139,7 @@
                           <div class="modal-dialog" role="document">
                             <div class="modal-content p-5">
                               <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Please Sign Up Here</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Regístrate Aquí</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                                 </button>
@@ -130,16 +148,16 @@
                                 <form class="signup-form text-center">
                                     <div class="row">
                                         <div class="col-lg-6">
-                                            <input type="text" placeholder="First Name">
+                                            <input type="text" placeholder="Nombres">
                                         </div>
                                         <div class="col-lg-6">
-                                            <input type="text" placeholder="Last Name">
+                                            <input type="text" placeholder="Apellidos">
                                         </div>
                                     </div>
-                                    <input type="email" placeholder="Enter Your Email.." required="">
-                                    <input type="password" placeholder="Enter Your Password">
-                                    <label class="checkbox-inline"><input type="checkbox" value="">I Agree</label> 
-                                    <input class="btn btn-primary btn-sm" type="submit" value="Register Now">
+                                    <input type="email" placeholder="Ingresa tu correo.." required="">
+                                    <input type="password" placeholder="Ingresa tu contraseña">
+                                    <label class="checkbox-inline"><input type="checkbox" value="">Acepto</label> 
+                                    <input class="btn btn-primary btn-sm" type="submit" value="Registrarse Ahora">
                                 </form> 
                               </div> 
                             </div>
@@ -155,30 +173,33 @@
         <!-- header two area end -->
     </header>
     <!-- header area end -->
+    
     <!-- offset search area start -->
     <div class="offset-search">
         <form action="#">
-            <input type="text" name="search" placeholder="Sarch here...">
+            <input type="text" name="search" placeholder="Buscar aquí...">
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
     </div>
     <!-- offset search area end -->
+    
     <!-- body overlay area start -->
     <div class="body_overlay"></div>
     <!-- body overlay area end -->
+    
     <!-- hero area start -->
     <div class="hero-area has-color">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
                     <div class="hero-content">
-                        <h3>Admission'20</h3>
-                        <h1 class="mb-5"><span class="primary-color">Build your Successful</span><b class="line-break"></b>Future with Edification</h1>
-                        <p class="text-white-50">Find Your Preferred Courses & Improve Your Skills</p>
+                        <h3>Admisiones 2025-2026</h3>
+                        <h1 class="mb-5"><span class="primary-color">Construye tu Futuro</span><b class="line-break"></b>Exitoso con Rafael Bucheli</h1>
+                        <p class="text-white-50">Encuentra tus Niveles Preferidos y Mejora tus Habilidades</p>
                         <form action="#">
                             <div class="form-input mt-5">
-                                <input type="text" name="search" required placeholder="Enter your keyword...">
-                                <button class="btn btn-primary btn-round" type="submit">Seacrh</button>
+                                <input type="text" name="search" required placeholder="Ingresa tu palabra clave...">
+                                <button class="btn btn-primary btn-round" type="submit">Buscar</button>
                                 <i class="fa fa-search"></i>
                             </div>
                         </form>
@@ -189,32 +210,14 @@
     </div>
     <!-- hero area end -->
 
-    <!-- about area start -->
-    <!-- <div class="about-area-style2 ptb--120">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                    <div class="about-content-style2 text-center has-color">
-                        <div class="section-title-style mb-4">
-                            <h2>Welcome to <b class="line-break"></b><span class="text-color">Edification</span> University</h2>
-                        </div>
-                        <p class="text-white-70">Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-                        <a class="btn btn-light btn-round mt-3" href="#">Read more</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- about area end -->
-
     <!-- course area start -->
     <div class="course-area  ptb--120">
         <div class="container">
             <div class="row">
                 <div class="col-md-10 offset-md-1">
                     <div class="section-title-style2 black-title title-tb text-center">
-                        <span>build your career</span>
-                        <h2 class="primary-color">Featured Courses</h2>
+                        <span>construye tu carrera</span>
+                        <h2 class="primary-color">Niveles Destacados</h2>
                     </div>
                 </div>
             </div>
@@ -223,12 +226,12 @@
                 <div class="card mb-5">
                     <div class="course-thumb">
                         <img src="assets/images/course/cs-img1.jpg" alt="image">
-                        <span class="cs-price primary-bg">$150</span>
+                        <span class="cs-price primary-bg">Metodología Montessori</span>
                     </div>
                     <div class="card-body  p-25"> 
                         <div class="course-meta-title mb-4">
                             <div class="course-meta-text">
-                                <h4><a href="course-details.html">Application Design Course</a></h4>
+                                <h4><a href="course-details.html">Kindergarten</a></h4>
                                 <ul class="course-meta-stats">
                                     <li><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></li>
                                     <li>36 <i class="fa fa-comment"></i></li>
@@ -237,19 +240,19 @@
                             </div> 
                             <a href="course-details.html"><img class="course-meta-thumbnail rounded-circle" src="assets/images/author/auth1.jpg" alt="image"> </a>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sciunt. Neque quisquam est, qui dolorem ipsum tatem.</p> 
+                        <p>Aplicamos la metodología Montessori para promover el desarrollo integral de cada niño desde sus primeros años de vida.</p> 
                         <ul class="course-meta-details list-inline  w-100">
                             <li> 
-                             <p>Course</p>
-                             <span>3 Year</span>
+                             <p>Nivel</p>
+                             <span>3 Años</span>
                             </li>
                             <li>
-                             <p>Class Size</p>
+                             <p>Tamaño de Clase</p>
                               <span>18</span>
                             </li> 
                             <li>
-                             <p>Duration</p>
-                              <span>1 hour</span>
+                             <p>Duración</p>
+                              <span>7:30 am - 1:00 pm</span>
                             </li>      
                         </ul>  
                   </div><!-- card-body -->
@@ -258,12 +261,12 @@
                 <div class="card mb-5">
                     <div class="course-thumb">
                         <img src="assets/images/course/cs-img2.jpg" alt="image">
-                        <span class="cs-price primary-bg">$150</span>
+                        <span class="cs-price primary-bg">Metodología Singapur</span>
                     </div>
                     <div class="card-body  p-25"> 
                         <div class="course-meta-title mb-4">
                             <div class="course-meta-text">
-                                <h4><a href="course-details.html">Data Structure & Algorithm</a></h4>
+                                <h4><a href="course-details.html">Primaria</a></h4>
                                 <ul class="course-meta-stats">
                                     <li><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></li>
                                     <li>36 <i class="fa fa-comment"></i></li>
@@ -272,19 +275,19 @@
                             </div> 
                             <a href="course-details.html"><img class="course-meta-thumbnail rounded-circle" src="assets/images/author/auth1.jpg" alt="image"> </a>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sciunt. Neque quisquam est, qui dolorem ipsum tatem.</p> 
+                        <p>Implementamos la innovadora metodología Singapur para transformar el aprendizaje en una experiencia dinámica.</p> 
                         <ul class="course-meta-details list-inline  w-100">
                             <li> 
-                             <p>Course</p>
-                             <span>3 Year</span>
+                             <p>Nivel</p>
+                             <span>7 Años</span>
                             </li>
                             <li>
-                             <p>Class Size</p>
-                              <span>18</span>
+                             <p>Tamaño de Clase</p>
+                              <span>25</span>
                             </li> 
                             <li>
-                             <p>Duration</p>
-                              <span>1 hour</span>
+                             <p>Duración</p>
+                              <span>7:00 am - 2:00 pm</span>
                             </li>      
                         </ul>  
                   </div><!-- card-body -->
@@ -293,12 +296,12 @@
                 <div class="card mb-5">
                     <div class="course-thumb">
                         <img src="assets/images/course/cs-img3.jpg" alt="image">
-                        <span class="cs-price primary-bg">$150</span>
+                        <span class="cs-price primary-bg">Metodología TBL</span>
                     </div>
                     <div class="card-body  p-25"> 
                         <div class="course-meta-title mb-4">
                             <div class="course-meta-text">
-                                <h4><a href="course-details.html">Android App Development</a></h4>
+                                <h4><a href="course-details.html">Secundaria</a></h4>
                                 <ul class="course-meta-stats">
                                     <li><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></li>
                                     <li>36 <i class="fa fa-comment"></i></li>
@@ -307,19 +310,19 @@
                             </div> 
                             <a href="course-details.html"><img class="course-meta-thumbnail rounded-circle" src="assets/images/author/auth1.jpg" alt="image"> </a>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sciunt. Neque quisquam est, qui dolorem ipsum tatem.</p> 
+                        <p>La metodología TBL transforma el aprendizaje en una experiencia dinámica y colaborativa para el futuro.</p> 
                         <ul class="course-meta-details list-inline  w-100">
                             <li> 
-                             <p>Course</p>
-                             <span>3 Year</span>
+                             <p>Nivel</p>
+                             <span>6 Años</span>
                             </li>
                             <li>
-                             <p>Class Size</p>
-                              <span>18</span>
+                             <p>Tamaño de Clase</p>
+                              <span>30</span>
                             </li> 
                             <li>
-                             <p>Duration</p>
-                              <span>1 hour</span>
+                             <p>Duración</p>
+                              <span>7:00 am - 3:00 pm</span>
                             </li>      
                         </ul>  
                   </div><!-- card-body -->
@@ -335,8 +338,8 @@
             <div class="row">
                 <div class="col-md-10 offset-md-1">
                     <div class="section-title-style2 white-title text-center">
-                        <span>Take A Look</span>
-                        <h2>Video Tour on Edification </h2>
+                        <span>Echa un Vistazo</span>
+                        <h2>Tour de Video de Rafael Bucheli</h2>
                     </div>
                 </div>
             </div>
@@ -353,8 +356,8 @@
             <div class="row">
                 <div class="col-md-10 offset-md-1">
                     <div class="section-title-style2 black-title title-tb text-center">
-                        <span>Learn from the best</span>
-                        <h2 class="primary-color">Our teachers</h2>
+                        <span>Aprende de los mejores</span>
+                        <h2 class="primary-color">Nuestros docentes</h2>
                     </div>
                 </div>
             </div>
@@ -362,9 +365,9 @@
               <div class="card mb-5"> 
                 <img src="assets/images/teacher/teacher-member1.jpg" alt="image"> 
                 <div class="card-body teacher-content p-25">  
-                  <h4 class="card-title mb-4"><a href="teacher-details.html">Patrick Garner Dony</a></h4>
-                  <span class="primary-color d-block mb-4">Economist</span>
-                  <p class="card-text">We’re a philosophical bunch here at School site and we have thought long and hard about.</p> 
+                  <h4 class="card-title mb-4"><a href="teacher-details.html">María González</a></h4>
+                  <span class="primary-color d-block mb-4">Directora Académica</span>
+                  <p class="card-text">Somos un grupo filosófico aquí en Rafael Bucheli y hemos pensado mucho y bien sobre la educación.</p> 
                   <ul class="list-inline ">
                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -378,9 +381,9 @@
               <div class="card mb-5"> 
                 <img src="assets/images/teacher/teacher-member2.jpg" alt="image"> 
                 <div class="card-body teacher-content p-25">  
-                  <h4 class="card-title mb-4"><a href="teacher-details.html">Cameron Brown</a></h4>
-                  <span class="primary-color  d-block mb-4">Financier</span>
-                  <p class="card-text">We’re a philosophical bunch here at School site and we have thought long and hard about.</p> 
+                  <h4 class="card-title mb-4"><a href="teacher-details.html">Carlos Mendoza</a></h4>
+                  <span class="primary-color  d-block mb-4">Coordinador Secundaria</span>
+                  <p class="card-text">Somos un grupo filosófico aquí en Rafael Bucheli y hemos pensado mucho y bien sobre la educación.</p> 
                   <ul class="list-inline ">
                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -394,9 +397,9 @@
               <div class="card mb-5"> 
                 <img src="assets/images/teacher/teacher-member3.jpg" alt="image"> 
                 <div class="card-body teacher-content p-25">  
-                  <h4 class="card-title mb-4"><a href="teacher-details.html">Joseph Mack Monika</a></h4>
-                  <span class="primary-color d-block mb-4">Languages</span>
-                  <p class="card-text">We’re a philosophical bunch here at School site and we have thought long and hard about.</p> 
+                  <h4 class="card-title mb-4"><a href="teacher-details.html">Ana Rodríguez</a></h4>
+                  <span class="primary-color d-block mb-4">Especialista en Idiomas</span>
+                  <p class="card-text">Somos un grupo filosófico aquí en Rafael Bucheli y hemos pensado mucho y bien sobre la educación.</p> 
                   <ul class="list-inline ">
                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -409,9 +412,9 @@
               <div class="card mb-5"> 
                 <img src="assets/images/teacher/teacher-member4.jpg" alt="image"> 
                 <div class="card-body teacher-content p-25">  
-                  <h4 class="card-title mb-4"><a href="teacher-details.html">Patrick Garner Dony</a></h4>
-                  <span class="primary-color d-block mb-4">Economist</span>
-                  <p class="card-text">We’re a philosophical bunch here at School site and we have thought long and hard about.</p> 
+                  <h4 class="card-title mb-4"><a href="teacher-details.html">Patricia López</a></h4>
+                  <span class="primary-color d-block mb-4">Economista</span>
+                  <p class="card-text">Somos un grupo filosófico aquí en Rafael Bucheli y hemos pensado mucho y bien sobre la educación.</p> 
                   <ul class="list-inline ">
                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -432,8 +435,8 @@
             <div class="row">
                 <div class="col-md-10 offset-md-1">
                     <div class="section-title-style2 black-title text-center">
-                        <span>Join with us</span>
-                        <h2>Upcoming Events</h2>
+                        <span>Únete a nosotros</span>
+                        <h2>Próximos Eventos</h2>
                     </div>
                 </div>
             </div>
@@ -442,11 +445,11 @@
                     <div class="media align-items-center mb-5">
                         <div class="media-head primary-bg">
                             <span><sub>MAR</sub>25</span>
-                            <p>2018</p>
+                            <p>2026</p>
                         </div>
                         <div class="media-body">
-                            <h4><a href="#">Affiliate Marketing</a></h4>
-                            <p><i class="fa fa-clock-o"></i>05:23 AM - 09:23 AM</p>
+                            <h4><a href="#">Jornada de Puertas Abiertas</a></h4>
+                            <p><i class="fa fa-clock-o"></i>08:00 AM - 12:00 PM</p>
                         </div>
                     </div> <!-- media -->
                 </div><!-- col-md-6 -->
@@ -454,11 +457,11 @@
                     <div class="media align-items-center mb-5">
                         <div class="media-head primary-bg">
                             <span><sub>OCT</sub>25</span>
-                            <p>2018</p>
+                            <p>2026</p>
                         </div>
                         <div class="media-body">
-                            <h4><a href="#">Facebook Marketing</a></h4>
-                            <p><i class="fa fa-clock-o"></i>05:23 AM - 09:23 AM</p>
+                            <h4><a href="#">Taller para Padres</a></h4>
+                            <p><i class="fa fa-clock-o"></i>03:00 PM - 05:00 PM</p>
                         </div>
                     </div> <!-- media -->
                 </div><!-- col-md-6 --> 
@@ -466,23 +469,23 @@
                     <div class="media align-items-center mb-5">
                         <div class="media-head primary-bg">
                             <span><sub>NOV</sub>25</span>
-                            <p>2018</p>
+                            <p>2026</p>
                         </div>
                         <div class="media-body">
-                            <h4><a href="#">Edustar Autumn</a></h4>
-                            <p><i class="fa fa-clock-o"></i>05:23 AM - 09:23 AM</p>
+                            <h4><a href="#">Feria Científica Anual</a></h4>
+                            <p><i class="fa fa-clock-o"></i>09:00 AM - 02:00 PM</p>
                         </div>
                     </div> <!-- media -->
                 </div><!-- col-md-6 -->  
                 <div class="col-md-6">
                     <div class="media align-items-center mb-5">
                         <div class="media-head primary-bg">
-                            <span><sub>DEC</sub>25</span>
-                            <p>2018</p>
+                            <span><sub>DIC</sub>25</span>
+                            <p>2026</p>
                         </div>
                         <div class="media-body">
-                            <h4><a href="#">Workshop PHP</a></h4>
-                            <p><i class="fa fa-clock-o"></i>05:23 AM - 09:23 AM</p>
+                            <h4><a href="#">Taller de Programación</a></h4>
+                            <p><i class="fa fa-clock-o"></i>10:00 AM - 12:00 PM</p>
                         </div>
                     </div> <!-- media -->
                 </div><!-- col-md-6 -->   
@@ -499,30 +502,30 @@
                     <div class="tst-carousel owl-carousel">
                         <div class="testimonial-content pb--40">
                             <div class="section-title sec-style-two">
-                                <span class="text-uppercase primary-color mb-0">Happy students</span>
-                                <h2>Testimonial</h2>
+                                <span class="text-uppercase primary-color mb-0">Estudiantes felices</span>
+                                <h2>Testimonios</h2>
                             </div>
-                            <h3>‘‘ Vous devez profiter de la vie. Toujours aimez, les personnespositives penser. ‘‘</h3>
-                            <h4>Kawsar Ahhamed</h4>
-                            <span>App Developer</span>
+                            <h3>"Debes disfrutar la vida. Siempre ama, piensa positivamente."</h3>
+                            <h4>Laura Fernández</h4>
+                            <span>Madre de estudiante</span>
                         </div>  
                         <div class="testimonial-content pb--40">
                             <div class="section-title sec-style-two">
-                                <span class="text-uppercase primary-color mb-0">Happy students</span>
-                                <h2>Testimonial</h2>
+                                <span class="text-uppercase primary-color mb-0">Estudiantes felices</span>
+                                <h2>Testimonios</h2>
                             </div>
-                            <h3>‘‘ Vous devez profiter de la vie. Toujours aimez, les personnespositives penser. ‘‘</h3>
-                            <h4>Kawsar Ahhamed</h4>
-                            <span>App Developer</span>
+                            <h3>"Debes disfrutar la vida. Siempre ama, piensa positivamente."</h3>
+                            <h4>Carlos Mendoza</h4>
+                            <span>Padre de estudiante</span>
                         </div>  
                         <div class="testimonial-content pb--40">
                             <div class="section-title sec-style-two">
-                                <span class="text-uppercase primary-color mb-0">Happy students </span>
-                                <h2>Testimonial</h2>
+                                <span class="text-uppercase primary-color mb-0">Estudiantes felices</span>
+                                <h2>Testimonios</h2>
                             </div>
-                            <h3>‘‘ Vous devez profiter de la vie. Toujours aimez, les personnespositives penser. ‘‘</h3>
-                            <h4>Kawsar Ahhamed</h4>
-                            <span>App Developer</span>
+                            <h3>"Debes disfrutar la vida. Siempre ama, piensa positivamente."</h3>
+                            <h4>Ana Rodríguez</h4>
+                            <span>Madre de estudiante</span>
                         </div> 
                     </div>
                 </div><!-- row -->
@@ -536,8 +539,8 @@
             <div class="row">
                 <div class="col-md-10 offset-md-1">
                     <div class="section-title-style2 black-title title-tb text-center">
-                        <span>Top stories</span>
-                        <h2>Blog & News</h2>
+                        <span>Historias destacadas</span>
+                        <h2>Noticias y Blog</h2>
                     </div>
                 </div>
             </div>
@@ -548,24 +551,24 @@
                     <img class="card-img-top" src="assets/images/blog/blog-thumbnail1.jpg" alt="image">
                     <div class="card-body p-25"> 
                         <ul class="list-inline primary-color mb-3">
-                            <li><i class="fa fa-clock-o"></i> AUGUST 6, 2017</li>
-                            <li><i class="fa fa-comments"></i> 3 Comments</li>
+                            <li><i class="fa fa-clock-o"></i> AGOSTO 6, 2025</li>
+                            <li><i class="fa fa-comments"></i> 3 Comentarios</li>
                         </ul>
-                      <h4 class="card-title mb-4"><a href="blog.html">The Death Of architechture</a></h4>
-                      <p class="card-text">We’re a philosophical bunch here at School site and we have thought long and hard about.</p> 
-                      <a class="btn btn-primary btn-round btn-sm" href="blog-details.html"> Read More </a>
+                      <h4 class="card-title mb-4"><a href="blog.html">La Innovación Educativa</a></h4>
+                      <p class="card-text">Somos un grupo filosófico aquí en Rafael Bucheli y hemos pensado mucho y bien sobre la educación.</p> 
+                      <a class="btn btn-primary btn-round btn-sm" href="blog-details.html"> Leer Más </a>
                     </div>
                   </div><!-- card -->                
                   <div class="card mb-5"> 
                     <img class="card-img-top" src="assets/images/blog/blog-thumbnail2.jpg" alt="image">
                     <div class="card-body p-25"> 
                         <ul class="list-inline primary-color mb-3">
-                            <li><i class="fa fa-clock-o"></i> AUGUST 6, 2017</li>
-                            <li><i class="fa fa-comments"></i> 3 Comments</li>
+                            <li><i class="fa fa-clock-o"></i> AGOSTO 6, 2025</li>
+                            <li><i class="fa fa-comments"></i> 3 Comentarios</li>
                         </ul>
                       <h4 class="card-title mb-4"><a href="blog.html">Aenean id ullamcorper</a></h4>
-                      <p class="card-text">We’re a philosophical bunch here at School site and we have thought long and hard about.</p> 
-                      <a class="btn btn-primary btn-round btn-sm" href="blog-details.html"> Read More </a>
+                      <p class="card-text">Somos un grupo filosófico aquí en Rafael Bucheli y hemos pensado mucho y bien sobre la educación.</p> 
+                      <a class="btn btn-primary btn-round btn-sm" href="blog-details.html"> Leer Más </a>
                     </div>
                   </div><!-- card -->
        
@@ -573,24 +576,24 @@
                     <img class="card-img-top" src="assets/images/blog/blog-thumbnail3.jpg" alt="image">
                     <div class="card-body p-25"> 
                         <ul class="list-inline primary-color mb-3">
-                            <li><i class="fa fa-clock-o"></i> AUGUST 6, 2017</li>
-                            <li><i class="fa fa-comments"></i> 3 Comments</li>
+                            <li><i class="fa fa-clock-o"></i> AGOSTO 6, 2025</li>
+                            <li><i class="fa fa-comments"></i> 3 Comentarios</li>
                         </ul>
-                      <h4 class="card-title mb-4"><a href="blog.html">The Death Of architechture</a></h4>
-                      <p class="card-text">We’re a philosophical bunch here at School site and we have thought long and hard about.</p> 
-                      <a class="btn btn-primary btn-round btn-sm" href="blog-details.html"> Read More </a>
+                      <h4 class="card-title mb-4"><a href="blog.html">La Innovación Educativa</a></h4>
+                      <p class="card-text">Somos un grupo filosófico aquí en Rafael Bucheli y hemos pensado mucho y bien sobre la educación.</p> 
+                      <a class="btn btn-primary btn-round btn-sm" href="blog-details.html"> Leer Más </a>
                     </div>
                   </div><!-- card -->         
                   <div class="card mb-5"> 
                     <img class="card-img-top" src="assets/images/blog/blog-thumbnail1.jpg" alt="image">
                     <div class="card-body p-25"> 
                         <ul class="list-inline primary-color mb-3">
-                            <li><i class="fa fa-clock-o"></i> AUGUST 6, 2017</li>
-                            <li><i class="fa fa-comments"></i> 3 Comments</li>
+                            <li><i class="fa fa-clock-o"></i> AGOSTO 6, 2025</li>
+                            <li><i class="fa fa-comments"></i> 3 Comentarios</li>
                         </ul>
-                      <h4 class="card-title mb-4"><a href="blog.html">The Death Of architechture</a></h4>
-                      <p class="card-text">We’re a philosophical bunch here at School site and we have thought long and hard about.</p> 
-                      <a class="btn btn-primary btn-round btn-sm" href="blog-details.html"> Read More </a>
+                      <h4 class="card-title mb-4"><a href="blog.html">La Innovación Educativa</a></h4>
+                      <p class="card-text">Somos un grupo filosófico aquí en Rafael Bucheli y hemos pensado mucho y bien sobre la educación.</p> 
+                      <a class="btn btn-primary btn-round btn-sm" href="blog-details.html"> Leer Más </a>
                     </div>
                   </div><!-- card -->    
                 </div><!-- blog-carousel -->
@@ -605,13 +608,13 @@
             <div class="row align-items-center">
                 <div class="col-md-9">
                     <div class="cta-content">
-                        <p class="mb-2">Click to Join the Advance Workshop</p>
-                        <h2>Training in advance networking</h2>
+                        <p class="mb-2">Haz clic para unirte al Taller Avanzado</p>
+                        <h2>Formación en redes avanzadas</h2>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="cta-btn">
-                        <a class="btn btn-light btn-round" href="#">Join Now</a>
+                        <a class="btn btn-light btn-round" href="#">Únete Ahora</a>
                     </div>
                 </div>
             </div>
@@ -628,16 +631,16 @@
                         <div class="widget widget-company">
                             <a href="index.html"><img src="assets/images/icon/logo.png" alt="image"></a>
                             <div class="address">
-                                <h6>Office Address</h6>
-                                <p>London Oxford Street, 012 United Kingdom.</p>
+                                <h6>Dirección</h6>
+                                <p>Unidad Educativa Rafael Bucheli, Quito, Ecuador.</p>
                             </div>
                             <div class="address">
-                                <h6>Business Phone</h6>
-                                <p>+012 3456 7890</p>
+                                <h6>Teléfono</h6>
+                                <p>(02) 303-5139</p>
                             </div>
                             <div class="address">
-                                <h6>Business Email</h6>
-                                <p>Business@themerocket.net</p>
+                                <h6>Correo Electrónico</h6>
+                                <p>secretaria@rafaelbucheli.edu.ec</p>
                             </div>
                             <ul class="social">
                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -649,31 +652,31 @@
                     </div>
                     <div class="col-md-3">
                         <div class="widget footer-link">
-                            <h4 class="fwidget-title mb-5 pb-3 primary-color">Footer Menu</h4> 
+                            <h4 class="fwidget-title mb-5 pb-3 primary-color">Menú del Pie</h4> 
                             <ul>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Case Studies</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>About Us</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Our Story</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Blog Post</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Work with Us</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i>Casos de Estudio</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i>Nosotros</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i>Nuestra Historia</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i>Publicaciones</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i>Trabaja con Nosotros</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="widget widget-opening">
-                            <h4 class="fwidget-title mb-5 pb-3 primary-color">Working Day & time</h4>
-                            <p>Architecto beatae vitae dicta sunt ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</p>
+                            <h4 class="fwidget-title mb-5 pb-3 primary-color">Días y Horas de Trabajo</h4>
+                            <p>Arquitecto beatae vitae dicta sunt ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</p>
                             <ul>
-                                <li><span>Mon - Tus :</span>6.00 am - 10.00 pm</li>
-                                <li><span>Wed - Tur :</span>8.00 am - 6.00 pm</li>
-                                <li><span>Friday :</span>3.00 pm - 8.00 pm</li>
-                                <li><span>Sunday :</span>Closed</li>
+                                <li><span>Lun - Mar :</span>6.00 am - 10.00 pm</li>
+                                <li><span>Mié - Jue :</span>8.00 am - 6.00 pm</li>
+                                <li><span>Viernes :</span>3.00 pm - 8.00 pm</li>
+                                <li><span>Domingo :</span>Cerrado</li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>Copyright © 2019 <span><a class="primary-color" href="https://themeforest.net/user/pixelthemez/portfolio" target="_blank">Edification</a> </span> - All Rights Reserved. Made by <span><a class="primary-color" href="https://furioustheme.com/" target="_blank">Furioustheme</a></span></p>
+                    <p>Copyright © 2026 <span><a class="primary-color" href="https://themeforest.net/user/pixelthemez/portfolio" target="_blank">Rafael Bucheli</a> </span> - Todos los derechos reservados. Hecho por <span><a class="primary-color" href="https://rafaelbucheli.com/" target="_blank">RafaelBucheli</a></span></p>
                 </div>
             </div>
         </div>
@@ -690,6 +693,8 @@
     <script src="assets/js/jquery.slicknav.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/scripts.js"></script>
+    <!-- loading js -->
+    <script src="assets/js/loading.js"></script>
 </body>
 
 </html>
