@@ -31,27 +31,26 @@
             <p class="browserupgrade">Estás usando un navegador <strong>obsoleto</strong>. Por favor <a href="http://browsehappy.com/">actualiza tu navegador</a> para mejorar tu experiencia.</p>
         <![endif]-->
     
-    <!-- preloader area start -->
+    <!-- loading area start -->
     <div id="preloader">
-        <div class="video-loader">
-            <video autoplay muted playsinline loop preload="auto">
+        <div class="video-container">
+            <!-- Video de fondo -->
+            <video id="loadingVideo" playsinline muted loop preload="auto">
                 <source src="assets/videos/loading-animation.mp4" type="video/mp4">
-                <!-- Fallback to spinner if no video -->
-                <div class="fallback-loader">
-                    <div class="loader"></div>
-                    <p>Cargando...</p>
+                <source src="assets/videos/loading-animation.webm" type="video/webm">
+                <!-- Fallback si no hay video -->
+                <div class="video-fallback">
+                    <img src="assets/images/icon/logo.png" alt="Cargando">
                 </div>
             </video>
-            <!-- Logo -->
-            <div class="loader-logo">
-                <img src="assets/images/icon/logo.png" alt="UE Rafael Bucheli">
+
+            <!-- Botón para saltar (opcional) -->
+            <div class="skip-button">
+                <button id="skipLoading">Saltar</button>
             </div>
-            <!-- Loading progress -->
-            <div class="loading-progress">Cargando 0%</div>
         </div>
     </div>
-    <!-- prealoader area end -->
-    
+    <!-- loading area end -->
     <!-- header area start -->
     <header id="header">
         <!-- header two area start -->

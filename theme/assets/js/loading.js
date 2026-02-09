@@ -1,218 +1,181 @@
-/**
- * LOADING CONTROL - EDIFICATION TEMPLATE
- * Video loading with fallback spinner
- */
+/* ===========================================
+   LOADING.JS - Minimalista y eficiente
+   =========================================== */
 
-(function($) {
+(function() {
     'use strict';
-    
-    // Configuration
+
+    // Configuración
     const CONFIG = {
-        MIN_LOADING_TIME: 2000,     // Minimum 2 seconds
-        MAX_LOADING_TIME: 7000,     // Maximum 7 seconds (safety timeout)
-        FADE_DURATION: 700,         // Fade out duration
-        DEBUG: false                // Set to true for console logs
+        minLoadingTime: 2500,        // Mínimo 2.5 segundos
+        maxLoadingTime: 8000,        // Máximo 8 segundos
+        showSkipAfter: 2000          // Mostrar skip después de 2s
     };
-    
-    let startTime;
-    let loadingTimeout;
-    let progressInterval;
-    
-    /**
-     * Initialize loading system
-     */
-    function initLoading() {
-        if (CONFIG.DEBUG) console.log('🚀 Initializing Edification loading...');
+
+    // Elementos
+    let elements = {};
+    let startTime = Date.now();
+    let minTimeElapsed = false;
+    let videoReady = false;
+    let contentLoaded = false;
+
+    // Inicialización
+    function init() {
+        // Bloquear scroll
+        document.body.classList.add('loading-active');
         
-        startTime = Date.now();
-        setupVideoListeners();
-        setupFallback();
-        startProgressSimulation();
-        
-        // Handle page load
-        $(window).on('load', handlePageLoaded);
-        
-        // Safety timeout
-        loadingTimeout = setTimeout(function() {
-            if (CONFIG.DEBUG) console.log('⏰ Safety timeout reached');
-            hidePreloader();
-        }, CONFIG.MAX_LOADING_TIME);
-    }
-    
-    /**
-     * Setup video event listeners
-     */
-    function setupVideoListeners() {
-        const video = $('.video-loader video')[0];
-        
-        if (video) {
-            // When video metadata is loaded
-            video.addEventListener('loadedmetadata', function() {
-                if (CONFIG.DEBUG) {
-                    console.log('📊 VIDEO INFO:');
-                    console.log('⏱️ Duration:', this.duration.toFixed(2), 'seconds');
-                    console.log('📏 Resolution:', this.videoWidth + 'x' + this.videoHeight);
-                }
-            });
-            
-            // When video data is loaded
-            video.addEventListener('loadeddata', function() {
-                if (CONFIG.DEBUG) console.log('✅ Video loaded successfully');
-                // Try to play the video
-                video.play().catch(function(e) {
-                    if (CONFIG.DEBUG) console.log('⚠️ Video play error:', e);
-                });
-            });
-            
-            // Video error handling
-            video.addEventListener('error', function() {
-                if (CONFIG.DEBUG) console.log('❌ Video error, showing fallback');
-                showFallback();
-            });
-            
-            // Preload the video
-            video.load();
-        } else {
-            if (CONFIG.DEBUG) console.log('📹 Video element not found');
-            showFallback();
-        }
-    }
-    
-    /**
-     * Setup fallback system
-     */
-    function setupFallback() {
-        const video = $('.video-loader video');
-        const fallback = $('.fallback-loader');
-        
-        // Hide fallback initially
-        fallback.hide();
-        
-        // Check if video exists and has source
-        if (video.length === 0 || !video.attr('src')) {
-            setTimeout(function() {
-                showFallback();
-            }, 1500);
-        }
-    }
-    
-    /**
-     * Show fallback spinner
-     */
-    function showFallback() {
-        const video = $('.video-loader video');
-        const fallback = $('.fallback-loader');
-        
-        video.hide();
-        fallback.show();
-        
-        if (CONFIG.DEBUG) console.log('🔄 Showing fallback spinner');
-    }
-    
-    /**
-     * Simulate loading progress
-     */
-    function startProgressSimulation() {
-        const progressElement = $('.loading-progress');
-        
-        if (progressElement.length) {
-            let progress = 0;
-            
-            progressInterval = setInterval(function() {
-                progress += Math.random() * 8 + 2; // 2-10% increments
-                if (progress > 95) progress = 95;
-                
-                progressElement.text(`Loading ${Math.round(progress)}%`);
-                
-                if (progress >= 100) {
-                    clearInterval(progressInterval);
-                }
-            }, 150);
-        }
-    }
-    
-    /**
-     * Handle when page is fully loaded
-     */
-    function handlePageLoaded() {
-        const elapsedTime = Date.now() - startTime;
-        const remainingTime = Math.max(0, CONFIG.MIN_LOADING_TIME - elapsedTime);
-        
-        if (CONFIG.DEBUG) {
-            console.log(`📈 Page loaded in ${elapsedTime}ms`);
-            console.log(`⏳ Waiting ${remainingTime}ms before hiding`);
-        }
-        
-        // Clear safety timeout
-        if (loadingTimeout) clearTimeout(loadingTimeout);
-        
-        // Clear progress interval
-        if (progressInterval) clearInterval(progressInterval);
-        
-        // Wait minimum time before hiding
-        setTimeout(function() {
-            hidePreloader();
-        }, remainingTime);
-    }
-    
-    /**
-     * Hide preloader with animation
-     */
-    function hidePreloader() {
-        const preloader = $('#preloader');
-        const video = $('.video-loader video')[0];
-        
-        if (!preloader.length) {
-            if (CONFIG.DEBUG) console.log('❌ Preloader not found');
+        // Obtener elementos
+        elements = {
+            preloader: document.getElementById('preloader'),
+            video: document.getElementById('loadingVideo'),
+            logoCenter: document.querySelector('.logo-center'),
+            skipButton: document.querySelector('.skip-button'),
+            skipBtn: document.getElementById('skipLoading')
+        };
+
+        // Verificar elementos críticos
+        if (!elements.preloader) {
+            completeLoading();
             return;
         }
-        
-        // Stop video if playing
-        if (video && !video.paused) {
-            video.pause();
-            if (CONFIG.DEBUG) console.log('⏸️ Video paused');
+
+        // Configurar timers
+        startTimers();
+
+        // Configurar video
+        setupVideo();
+
+        // Configurar skip
+        setupSkipButton();
+
+        // Escuchar carga de página
+        if (document.readyState === 'complete') {
+            contentLoaded = true;
+        } else {
+            window.addEventListener('load', () => {
+                contentLoaded = true;
+                checkCompletion();
+            });
         }
-        
-        // Update progress to 100%
-        const progressElement = $('.loading-progress');
-        if (progressElement.length) {
-            progressElement.text('Loading 100%');
-        }
-        
-        // Fade out animation
-        preloader.addClass('fade-out');
-        
-        if (CONFIG.DEBUG) console.log('✨ Hiding preloader...');
-        
-        // Remove from DOM after animation
-        setTimeout(function() {
-            preloader.remove();
-            if (CONFIG.DEBUG) console.log('✅ Preloader removed');
-            
-            // Trigger custom event
-            $(document).trigger('loading:complete');
-            
-        }, CONFIG.FADE_DURATION);
     }
-    
-    /**
-     * Public function to hide loading manually
-     */
-    window.hideEdificationLoading = function() {
-        hidePreloader();
-    };
-    
-    /**
-     * Public function to show loading manually (if needed)
-     */
-    window.showEdificationLoading = function() {
-        // Could be implemented for AJAX calls
-        console.log('Show loading function available for custom use');
-    };
-    
-    // Initialize when DOM is ready
-    $(document).ready(function() {
-        initLoading();
-    });
-    
-})(jQuery);
+
+    // Configurar video
+    function setupVideo() {
+        if (!elements.video) {
+            videoReady = true;
+            checkCompletion();
+            return;
+        }
+
+        // Intentar reproducir automáticamente
+        const playPromise = elements.video.play();
+        
+        if (playPromise !== undefined) {
+            playPromise
+                .then(() => {
+                    videoReady = true;
+                    console.log('✅ Video reproduciéndose');
+                })
+                .catch(error => {
+                    console.log('ℹ️ Autoplay no permitido, usando muted');
+                    // Intentar con muted
+                    elements.video.muted = true;
+                    elements.video.play()
+                        .then(() => {
+                            videoReady = true;
+                        })
+                        .catch(() => {
+                            videoReady = true; // Continuar aunque no se pueda reproducir
+                        });
+                });
+        }
+
+        // Cuando el video termine
+        elements.video.addEventListener('ended', () => {
+            videoReady = true;
+            checkCompletion();
+        });
+
+        // En caso de error
+        elements.video.addEventListener('error', () => {
+            videoReady = true;
+            checkCompletion();
+        });
+
+        // Timeout para video
+        setTimeout(() => {
+            if (!videoReady) {
+                videoReady = true;
+                checkCompletion();
+            }
+        }, 5000);
+    }
+
+    // Timers
+    function startTimers() {
+        // Tiempo mínimo
+        setTimeout(() => {
+            minTimeElapsed = true;
+            checkCompletion();
+        }, CONFIG.minLoadingTime);
+
+        // Mostrar botón skip
+        setTimeout(() => {
+            if (elements.skipButton) {
+                elements.skipButton.classList.add('visible');
+            }
+        }, CONFIG.showSkipAfter);
+
+        // Timeout máximo de seguridad
+        setTimeout(() => {
+            completeLoading();
+        }, CONFIG.maxLoadingTime);
+    }
+
+    // Configurar botón skip
+    function setupSkipButton() {
+        if (elements.skipBtn) {
+            elements.skipBtn.addEventListener('click', completeLoading);
+        }
+    }
+
+    // Verificar si se puede completar
+    function checkCompletion() {
+        if (minTimeElapsed && videoReady && contentLoaded) {
+            completeLoading();
+        }
+    }
+
+    // Completar loading
+    function completeLoading() {
+        // Aplicar fade out
+        if (elements.preloader) {
+            elements.preloader.classList.add('fade-out');
+        }
+
+        // Esperar transición y ocultar
+        setTimeout(() => {
+            if (elements.preloader) {
+                elements.preloader.style.display = 'none';
+            }
+            
+            // Desbloquear body
+            document.body.classList.remove('loading-active');
+            
+            // Emitir evento
+            document.dispatchEvent(new CustomEvent('loadingCompletado', {
+                detail: { duration: Date.now() - startTime }
+            }));
+            
+            console.log('✅ Loading completado en ' + (Date.now() - startTime) + 'ms');
+        }, 600);
+    }
+
+    // Iniciar cuando el DOM esté listo
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        setTimeout(init, 100); // Pequeño delay para asegurar
+    }
+
+})();
