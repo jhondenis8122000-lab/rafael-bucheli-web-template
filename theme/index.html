@@ -51,6 +51,7 @@
         </div>
     </div>
     <!-- loading area end -->
+    
     <!-- header area start -->
     <header id="header">
         <!-- header two area start -->
@@ -66,13 +67,7 @@
                         <div class="main-menu menu-style2">
                             <nav>
                                 <ul id="m_menu_active">
-                                    <li class="active"><a href="javascript:void(0);">Inicio</a>
-                                   <!--     <ul class="submenu">
-                                            <li class="active"><a href="index.html">Inicio Uno</a></li>
-                                            <li><a href="index2.html">Inicio Dos</a></li>
-                                            <li><a href="index3.html">Inicio Tres</a></li>
-                                        </ul>-->
-                                    </li>
+                                    <li class="active"><a href="javascript:void(0);">Inicio</a></li>
                                     <li><a href="javascript:void(0);">Oferta</a>
                                         <ul class="submenu">
                                             <li><a href="courses.html">Academia</a></li>
@@ -80,12 +75,6 @@
                                         </ul>
                                     </li>
                                     <li><a href="about.html">Admisiones</a></li>
-                                   <!-- <li><a href="javascript:void(0);">Admisiones</a>
-                                        <ul class="submenu">
-                                            <li><a href="teachers.html">docentes</a></li>
-                                            <li><a href="teacher-details.html">detalles de docente</a></li>
-                                        </ul>
-                                    </li>-->
                                     <li class="middle-logo">
                                         <a href="index.html">
                                             <img src="assets/images/icon/logo-middle.png" alt="logo">
@@ -96,8 +85,8 @@
                                     <li><a href="javascript:void(0);">Nosotros</a>
                                         <ul class="submenu">
                                             <li><a href="blog.html">Vision y Mision</a></li>
-                                            <li><a href="blog-details.html">Poryectos</a></li>
-                                             <li><a href="blog-details.html">Blog</a></li>
+                                            <li><a href="blog-details.html">Proyectos</a></li>
+                                            <li><a href="blog-details.html">Blog</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="contact.html">Contacto</a></li>
@@ -108,60 +97,38 @@
                     <div class="col-lg-2 col-sm-5">
                         <div class="header-bottom-right-style-2">
                             <ul>
-                                <li><a data-toggle="modal" data-target="#exampleModal" class="btn btn-light btn-round" href="#">LOG IN</a></li>
-                                <li><a data-toggle="modal" data-target="#exampleModal2"  class="btn btn-primary btn-round" class="active" href="#">SIGN UP</a></li>
+                                <li><a data-toggle="modal" data-target="#exampleModal2" class="btn btn-primary btn-round" href="#">SIGN UP</a></li>
                             </ul>
                         </div>
-                        <!-- Button trigger modal -->  
-                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                          <div class="modal-dialog" role="document">
-                            <div class="modal-content p-5">
-                              <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Ingresa Aquí</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                              <div class="modal-body">
-                                <form> 
-                                    <input type="email" placeholder="Ingresa tu correo.." required="">
-                                    <input type="password" placeholder="Ingresa tu contraseña">
-                                    <label class="checkbox-inline mr-5"><input type="checkbox" value="">Recordarme</label> 
-                                    <a class="primary-color" href="#"><u>¿Olvidaste tu contraseña?</u></a>
-                                    <input class="btn btn-primary btn-sm" type="submit" value="Ingresar">
-                                </form> 
-                              </div> 
-                            </div>
-                          </div>
-                        </div> 
-
+                        
+                        <!-- Modal SIGN UP -->
                         <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                          <div class="modal-dialog" role="document">
-                            <div class="modal-content p-5">
-                              <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Regístrate Aquí</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                              <div class="modal-body"> 
-                                <form class="signup-form text-center">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <input type="text" placeholder="Nombres">
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <input type="text" placeholder="Apellidos">
-                                        </div>
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content p-5">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Regístrate Aquí</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
                                     </div>
-                                    <input type="email" placeholder="Ingresa tu correo.." required="">
-                                    <input type="password" placeholder="Ingresa tu contraseña">
-                                    <label class="checkbox-inline"><input type="checkbox" value="">Acepto</label> 
-                                    <input class="btn btn-primary btn-sm" type="submit" value="Registrarse Ahora">
-                                </form> 
-                              </div> 
+                                    <div class="modal-body"> 
+                                        <form class="signup-form text-center">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <input type="text" placeholder="Nombres">
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <input type="text" placeholder="Apellidos">
+                                                </div>
+                                            </div>
+                                            <input type="email" placeholder="Ingresa tu correo.." required="">
+                                            <input type="password" placeholder="Ingresa tu contraseña">
+                                            <label class="checkbox-inline"><input type="checkbox" value="">Acepto</label> 
+                                            <input class="btn btn-primary btn-sm" type="submit" value="Registrarse Ahora">
+                                        </form> 
+                                    </div> 
+                                </div>
                             </div>
-                          </div>
                         </div>
                     </div><!-- col-lg-2 -->
                     <div class="col-12 d-block d-lg-none">
@@ -187,111 +154,223 @@
     <div class="body_overlay"></div>
     <!-- body overlay area end -->
     
-<!-- hero area start - VERSIÓN PREMIUM CORREGIDA -->
-<div class="hero-area premium-hero has-color">
-    
-    <!-- Partículas decorativas -->
-    <div class="hero-particles">
-        <div class="particle particle-1"></div>
-        <div class="particle particle-2"></div>
-        <div class="particle particle-3"></div>
-        <div class="particle particle-4"></div>
-    </div>
-    
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-10 offset-lg-1">
-                <div class="hero-content text-center">
-                    
-                    <!-- Badge premium animado -->
-                    <div class="hero-badge animate-slideInDown">
-                        <span class="badge-premium">
-                             ADMISIONES 2025-2026 
-                        </span>
-                    </div>
-                    
-                    <!-- Título principal ÉPICO -->
-                    <div class="hero-title-wrapper">
-                        <h1 class="hero-title">
-                            <span class="primary-color">
-                                Construye tu Futuro
-                            </span>
-                        </h1>
-                        <div class="typing-container">
-                            <span class="hero-subtitle typing-premium">exitoso con Rafael Bucheli</span>
+    <!-- hero area start - SLIDER CON VIDEO (educacion.mp4) -->
+
+        
+        <div class="owl-carousel image-slider-carousel">
+            
+            <!-- SLIDE 1 - ADMISIONES CON VIDEO DE FONDO -->
+            <div class="image-slide-item video-slide">
+                <!-- VIDEO DE FONDO - educacion.mp4 -->
+                <video autoplay muted loop playsinline class="slide-background-video">
+                    <source src="assets/videos/educacion.mp4" type="video/mp4">
+                    <!-- Fallback por si no carga el video -->
+                    <img src="assets/images/bg/slider.jpg" alt="background">
+                </video>
+                <div class="slide-overlay"></div>
+                
+                <!-- Partículas decorativas -->
+                <div class="hero-particles">
+                    <div class="particle particle-1"></div>
+                    <div class="particle particle-2"></div>
+                    <div class="particle particle-3"></div>
+                    <div class="particle particle-4"></div>
+                </div>
+                
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 offset-lg-1">
+                            <div class="hero-content text-center">
+                                
+                                <!-- Badge premium animado -->
+                                <div class="hero-badge animate-slideInDown">
+ 
+                                </div>
+                                
+                                <!-- Título principal -->
+                                <div class="hero-title-wrapper">
+                                    <h1 class="hero-title">
+                                        <span class="primary-color">
+                                            Construye tu Futuro
+                                        </span>
+                                    </h1>
+                                    <div class="typing-container">
+                                        <span class="hero-subtitle typing-premium">exitoso con Rafael Bucheli</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Descripción premium -->
+                                <p class="hero-description animate-fadeInLeft">
+                                    Descubre una educación de excelencia con metodologías innovadoras
+                                    <span class="highlight-dots">...</span>
+                                </p>
+
+                                <!-- Tarjeta de estadísticas 3D -->
+                                <div class="hero-stats-card-3d animate-zoomIn">
+                                    <div class="stats-grid-premium">
+                                        <div class="stat-item-premium">
+                                            <span class="stat-number-premium counter" data-target="45">0</span>
+                                            <span class="stat-label-premium">Años de Excelencia</span>
+                                        </div>
+                                        <div class="stat-item-premium">
+                                            <span class="stat-number-premium counter" data-target="1200">0</span>
+                                            <span class="stat-label-premium">Estudiantes Felices</span>
+                                        </div>
+                                        <div class="stat-item-premium">
+                                            <span class="stat-number-premium counter" data-target="98">0</span>
+                                            <span class="stat-label-premium">% Éxito Académico</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Botones premium -->
+                                <div class="hero-buttons-wrapper-premium">
+                                    <a href="admisiones.html" class="btn btn-primary btn-lg btn-round hero-btn-3d btn-shine-premium">
+                                        Inscribirse
+                                    </a>
+                                    <a href="contacto.html" class="btn btn-outline-light btn-lg btn-round hero-btn-3d btn-pulse-premium">
+                                        <span class="btn-icon">📞</span>
+                                        Contactar Ahora
+                                    </a>
+                                </div>
+
+                                <!-- Flip Card 3D Informativa -->
+                                <div class="flip-card-3d">
+                                    <div class="flip-card-inner-premium">
+                                        <div class="flip-card-front-premium">
+                                            <i class="fa fa-graduation-cap"></i>
+                                            <span>✨ ¿Sabías que...? ✨</span>
+                                        </div>
+                                        <div class="flip-card-back-premium">
+                                            <p>🎓 95% de nuestros graduados<br>ingresan a universidades top</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Descripción premium -->
-                    <p class="hero-description animate-fadeInLeft">
-                        Descubre una educación de excelencia con metodologías innovadoras
-                        <span class="highlight-dots">...</span>
-                    </p>
-
-                    <!-- Tarjeta de estadísticas 3D -->
-                    <div class="hero-stats-card-3d animate-zoomIn">
-                        <div class="stats-grid-premium">
-                            <div class="stat-item-premium">
-                                <span class="stat-number-premium counter" data-target="45">0</span>
-                                <span class="stat-label-premium">Años de Excelencia</span>
-                            </div>
-                            <div class="stat-item-premium">
-                                <span class="stat-number-premium counter" data-target="1200">0</span>
-                                <span class="stat-label-premium">Estudiantes Felices</span>
-                            </div>
-                            <div class="stat-item-premium">
-                                <span class="stat-number-premium counter" data-target="98">0</span>
-                                <span class="stat-label-premium">% Éxito Académico</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Botones premium - TEXTO SIEMPRE VISIBLE -->
-                    <div class="hero-buttons-wrapper-premium">
-                        <a href="admisiones.html" 
-                           class="btn btn-primary btn-lg btn-round hero-btn-3d btn-shine-premium">
-                    
-                           Ver Admisiones 2026
-                        </a>
-
-                        <a href="contacto.html" 
-                           class="btn btn-outline-light btn-lg btn-round hero-btn-3d btn-pulse-premium">
-                           <span class="btn-icon">📞</span>
-                           Contactar Ahora
-                        </a>
-                    </div>
-
-                    <!-- Flip Card 3D Informativa -->
-                    <div class="flip-card-3d">
-                        <div class="flip-card-inner-premium">
-                            <div class="flip-card-front-premium">
-                                <i class="fa fa-graduation-cap"></i>
-                                <span>✨ ¿Sabías que...? ✨</span>
-                            </div>
-                            <div class="flip-card-back-premium">
-                                <p>🎓 95% de nuestros graduados<br>ingresan a universidades top</p>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
+            
+            <!-- SLIDE 2 - INNOVACIÓN EDUCATIVA (IMAGEN) -->
+            <div class="image-slide-item" style="background-image: url('assets/images/bg/take-toure-bg.jpg');">
+                <div class="slide-overlay"></div>
+                
+                <!-- Partículas decorativas -->
+                <div class="hero-particles">
+                    <div class="particle particle-1"></div>
+                    <div class="particle particle-2"></div>
+                    <div class="particle particle-3"></div>
+                    <div class="particle particle-4"></div>
+                </div>
+                
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 offset-lg-1">
+                            <div class="hero-content text-center">
+                                
+                                <div class="hero-badge animate-slideInDown">
+                                    <span class="badge-premium">
+                                        🔬 INNOVACIÓN EDUCATIVA
+                                    </span>
+                                </div>
+                                
+                                <div class="hero-title-wrapper">
+                                    <h1 class="hero-title">
+                                        <span class="primary-color">Metodologías</span> de Vanguardia
+                                    </h1>
+                                    <div class="typing-container">
+                                        <span class="hero-subtitle typing-premium">Montessori · Singapur · TBL</span>
+                                    </div>
+                                </div>
+                                
+                                <p class="hero-description animate-fadeInLeft">
+                                    Aprendizaje personalizado y tecnología de última generación
+                                </p>
+
+                                <div class="hero-buttons-wrapper-premium">
+                                    <a href="courses.html" class="btn btn-primary btn-lg btn-round hero-btn-3d btn-shine-premium">
+                                        Conocer metodologías
+                                    </a>
+                                    <a href="admisiones.html" class="btn btn-outline-light btn-lg btn-round hero-btn-3d btn-pulse-premium">
+                                        Agendar visita
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SLIDE 3 - COMUNIDAD EDUCATIVA (IMAGEN) -->
+            <div class="image-slide-item" style="background-image: url('assets/images/teacher/teacher-member1.jpg');">
+                <div class="slide-overlay"></div>
+                
+                <!-- Partículas decorativas -->
+                <div class="hero-particles">
+                    <div class="particle particle-1"></div>
+                    <div class="particle particle-2"></div>
+                    <div class="particle particle-3"></div>
+                    <div class="particle particle-4"></div>
+                </div>
+                
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 offset-lg-1">
+                            <div class="hero-content text-center">
+                                
+                                <div class="hero-badge animate-slideInDown">
+                                    <span class="badge-premium">
+                                        👥 +1200 FAMILIAS
+                                    </span>
+                                </div>
+                                
+                                <div class="hero-title-wrapper">
+                                    <h1 class="hero-title">
+                                        <span class="primary-color">45 años</span> formando líderes
+                                    </h1>
+                                    <div class="typing-container">
+                                        <span class="hero-subtitle typing-premium">Confían en nosotros</span>
+                                    </div>
+                                </div>
+                                
+                                <p class="hero-description animate-fadeInLeft">
+                                    Únete a nuestra comunidad educativa y transforma el futuro
+                                </p>
+
+                                <div class="hero-buttons-wrapper-premium">
+                                    <a href="about.html" class="btn btn-primary btn-lg btn-round hero-btn-3d btn-shine-premium">
+                                        Conócenos
+                                    </a>
+                                    <a href="contacto.html" class="btn btn-outline-light btn-lg btn-round hero-btn-3d btn-pulse-premium">
+                                        Contactar
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
         </div>
-    </div>
+        
+        <!-- Scroll Indicator 
+        <div class="scroll-indicator-premium">
+            <a href="#course-area" class="scroll-link-premium">
+                <span class="mouse-3d">
+                    <span class="wheel-premium"></span>
+                </span>
+                <span class="scroll-text-premium">Descubre más</span>
+            </a>
+        </div> -->
     
-    <!-- Scroll Indicator Premium -->
-    <div class="scroll-indicator-premium">
-        <a href="#course-area" class="scroll-link-premium">
-            <span class="mouse-3d">
-                <span class="wheel-premium"></span>
-            </span>
-            <span class="scroll-text-premium">Descubre más</span>
-        </a>
-    </div>
-</div>
-<!-- hero area end -->
+    <!-- hero area end -->
+
     <!-- course area start -->
-    <div class="course-area  ptb--120">
+    <div class="course-area ptb--120">
         <div class="container">
             <div class="row">
                 <div class="col-md-10 offset-md-1">
@@ -308,7 +387,7 @@
                         <img src="assets/images/course/cs-img1.jpg" alt="image">
                         <span class="cs-price primary-bg">Metodología Montessori</span>
                     </div>
-                    <div class="card-body  p-25"> 
+                    <div class="card-body p-25"> 
                         <div class="course-meta-title mb-4">
                             <div class="course-meta-text">
                                 <h4><a href="course-details.html">Kindergarten</a></h4>
@@ -321,29 +400,29 @@
                             <a href="course-details.html"><img class="course-meta-thumbnail rounded-circle" src="assets/images/author/auth1.jpg" alt="image"> </a>
                         </div>
                         <p>Aplicamos la metodología Montessori para promover el desarrollo integral de cada niño desde sus primeros años de vida.</p> 
-                        <ul class="course-meta-details list-inline  w-100">
+                        <ul class="course-meta-details list-inline w-100">
                             <li> 
-                             <p>Nivel</p>
-                             <span>3 Años</span>
+                                <p>Nivel</p>
+                                <span>3 Años</span>
                             </li>
                             <li>
-                             <p>Tamaño de Clase</p>
-                              <span>18</span>
+                                <p>Tamaño de Clase</p>
+                                <span>18</span>
                             </li> 
                             <li>
-                             <p>Duración</p>
-                              <span>7:30 am - 1:00 pm</span>
+                                <p>Duración</p>
+                                <span>7:30 am - 1:00 pm</span>
                             </li>      
                         </ul>  
-                  </div><!-- card-body -->
-                </div><!-- card -->
+                    </div>
+                </div>
  
                 <div class="card mb-5">
                     <div class="course-thumb">
                         <img src="assets/images/course/cs-img2.jpg" alt="image">
                         <span class="cs-price primary-bg">Metodología Singapur</span>
                     </div>
-                    <div class="card-body  p-25"> 
+                    <div class="card-body p-25"> 
                         <div class="course-meta-title mb-4">
                             <div class="course-meta-text">
                                 <h4><a href="course-details.html">Primaria</a></h4>
@@ -356,29 +435,29 @@
                             <a href="course-details.html"><img class="course-meta-thumbnail rounded-circle" src="assets/images/author/auth1.jpg" alt="image"> </a>
                         </div>
                         <p>Implementamos la innovadora metodología Singapur para transformar el aprendizaje en una experiencia dinámica.</p> 
-                        <ul class="course-meta-details list-inline  w-100">
+                        <ul class="course-meta-details list-inline w-100">
                             <li> 
-                             <p>Nivel</p>
-                             <span>7 Años</span>
+                                <p>Nivel</p>
+                                <span>7 Años</span>
                             </li>
                             <li>
-                             <p>Tamaño de Clase</p>
-                              <span>25</span>
+                                <p>Tamaño de Clase</p>
+                                <span>25</span>
                             </li> 
                             <li>
-                             <p>Duración</p>
-                              <span>7:00 am - 2:00 pm</span>
+                                <p>Duración</p>
+                                <span>7:00 am - 2:00 pm</span>
                             </li>      
                         </ul>  
-                  </div><!-- card-body -->
-                </div><!-- card -->
+                    </div>
+                </div>
   
                 <div class="card mb-5">
                     <div class="course-thumb">
                         <img src="assets/images/course/cs-img3.jpg" alt="image">
                         <span class="cs-price primary-bg">Metodología TBL</span>
                     </div>
-                    <div class="card-body  p-25"> 
+                    <div class="card-body p-25"> 
                         <div class="course-meta-title mb-4">
                             <div class="course-meta-text">
                                 <h4><a href="course-details.html">Secundaria</a></h4>
@@ -391,22 +470,22 @@
                             <a href="course-details.html"><img class="course-meta-thumbnail rounded-circle" src="assets/images/author/auth1.jpg" alt="image"> </a>
                         </div>
                         <p>La metodología TBL transforma el aprendizaje en una experiencia dinámica y colaborativa para el futuro.</p> 
-                        <ul class="course-meta-details list-inline  w-100">
+                        <ul class="course-meta-details list-inline w-100">
                             <li> 
-                             <p>Nivel</p>
-                             <span>6 Años</span>
+                                <p>Nivel</p>
+                                <span>6 Años</span>
                             </li>
                             <li>
-                             <p>Tamaño de Clase</p>
-                              <span>30</span>
+                                <p>Tamaño de Clase</p>
+                                <span>30</span>
                             </li> 
                             <li>
-                             <p>Duración</p>
-                              <span>7:00 am - 3:00 pm</span>
+                                <p>Duración</p>
+                                <span>7:00 am - 3:00 pm</span>
                             </li>      
                         </ul>  
-                  </div><!-- card-body -->
-                </div><!-- card --> 
+                    </div>
+                </div> 
             </div> 
         </div>
     </div>
@@ -430,7 +509,7 @@
     </div>
     <!-- take toure area end -->
 
-    <!-- course area start -->
+    <!-- teacher area start -->
     <div class="teacher-area pb--100">
         <div class="container">
             <div class="row">
@@ -442,75 +521,76 @@
                 </div>
             </div>
             <div class="commn-carousel owl-carousel card-deck">   
-              <div class="card mb-5"> 
-                <img src="assets/images/teacher/teacher-member1.jpg" alt="image"> 
-                <div class="card-body teacher-content p-25">  
-                  <h4 class="card-title mb-4"><a href="teacher-details.html">María González</a></h4>
-                  <span class="primary-color d-block mb-4">Directora Académica</span>
-                  <p class="card-text">Somos un grupo filosófico aquí en Rafael Bucheli y hemos pensado mucho y bien sobre la educación.</p> 
-                  <ul class="list-inline ">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                    <li><a href="#"><i class="fa fa-deviantart"></i></a></li>
-                    <li><a href="#"><i class="fa fa-github"></i></a></li>
-                  </ul>
+                <div class="card mb-5"> 
+                    <img src="assets/images/teacher/teacher-member1.jpg" alt="image"> 
+                    <div class="card-body teacher-content p-25">  
+                        <h4 class="card-title mb-4"><a href="teacher-details.html">María González</a></h4>
+                        <span class="primary-color d-block mb-4">Directora Académica</span>
+                        <p class="card-text">Somos un grupo filosófico aquí en Rafael Bucheli y hemos pensado mucho y bien sobre la educación.</p> 
+                        <ul class="list-inline">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href="#"><i class="fa fa-deviantart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-github"></i></a></li>
+                        </ul>
+                    </div>
                 </div>
-              </div><!-- card -->    
 
-              <div class="card mb-5"> 
-                <img src="assets/images/teacher/teacher-member2.jpg" alt="image"> 
-                <div class="card-body teacher-content p-25">  
-                  <h4 class="card-title mb-4"><a href="teacher-details.html">Carlos Mendoza</a></h4>
-                  <span class="primary-color  d-block mb-4">Coordinador Secundaria</span>
-                  <p class="card-text">Somos un grupo filosófico aquí en Rafael Bucheli y hemos pensado mucho y bien sobre la educación.</p> 
-                  <ul class="list-inline ">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                    <li><a href="#"><i class="fa fa-deviantart"></i></a></li>
-                    <li><a href="#"><i class="fa fa-github"></i></a></li>
-                  </ul>
+                <div class="card mb-5"> 
+                    <img src="assets/images/teacher/teacher-member2.jpg" alt="image"> 
+                    <div class="card-body teacher-content p-25">  
+                        <h4 class="card-title mb-4"><a href="teacher-details.html">Carlos Mendoza</a></h4>
+                        <span class="primary-color d-block mb-4">Coordinador Secundaria</span>
+                        <p class="card-text">Somos un grupo filosófico aquí en Rafael Bucheli y hemos pensado mucho y bien sobre la educación.</p> 
+                        <ul class="list-inline">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href="#"><i class="fa fa-deviantart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-github"></i></a></li>
+                        </ul>
+                    </div>
                 </div>
-              </div><!-- card -->    
 
-              <div class="card mb-5"> 
-                <img src="assets/images/teacher/teacher-member3.jpg" alt="image"> 
-                <div class="card-body teacher-content p-25">  
-                  <h4 class="card-title mb-4"><a href="teacher-details.html">Ana Rodríguez</a></h4>
-                  <span class="primary-color d-block mb-4">Especialista en Idiomas</span>
-                  <p class="card-text">Somos un grupo filosófico aquí en Rafael Bucheli y hemos pensado mucho y bien sobre la educación.</p> 
-                  <ul class="list-inline ">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                    <li><a href="#"><i class="fa fa-deviantart"></i></a></li>
-                    <li><a href="#"><i class="fa fa-github"></i></a></li>
-                  </ul>
+                <div class="card mb-5"> 
+                    <img src="assets/images/teacher/teacher-member3.jpg" alt="image"> 
+                    <div class="card-body teacher-content p-25">  
+                        <h4 class="card-title mb-4"><a href="teacher-details.html">Ana Rodríguez</a></h4>
+                        <span class="primary-color d-block mb-4">Especialista en Idiomas</span>
+                        <p class="card-text">Somos un grupo filosófico aquí en Rafael Bucheli y hemos pensado mucho y bien sobre la educación.</p> 
+                        <ul class="list-inline">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href="#"><i class="fa fa-deviantart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-github"></i></a></li>
+                        </ul>
+                    </div>
                 </div>
-              </div><!-- card -->  
-              <div class="card mb-5"> 
-                <img src="assets/images/teacher/teacher-member4.jpg" alt="image"> 
-                <div class="card-body teacher-content p-25">  
-                  <h4 class="card-title mb-4"><a href="teacher-details.html">Patricia López</a></h4>
-                  <span class="primary-color d-block mb-4">Economista</span>
-                  <p class="card-text">Somos un grupo filosófico aquí en Rafael Bucheli y hemos pensado mucho y bien sobre la educación.</p> 
-                  <ul class="list-inline ">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                    <li><a href="#"><i class="fa fa-deviantart"></i></a></li>
-                    <li><a href="#"><i class="fa fa-github"></i></a></li>
-                  </ul>
-                </div>
-              </div><!-- card -->         
+
+                <div class="card mb-5"> 
+                    <img src="assets/images/teacher/teacher-member4.jpg" alt="image"> 
+                    <div class="card-body teacher-content p-25">  
+                        <h4 class="card-title mb-4"><a href="teacher-details.html">Patricia López</a></h4>
+                        <span class="primary-color d-block mb-4">Economista</span>
+                        <p class="card-text">Somos un grupo filosófico aquí en Rafael Bucheli y hemos pensado mucho y bien sobre la educación.</p> 
+                        <ul class="list-inline">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href="#"><i class="fa fa-deviantart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-github"></i></a></li>
+                        </ul>
+                    </div>
+                </div>         
             </div>
         </div>
     </div>
-    <!-- course area end -->
+    <!-- teacher area end -->
 
     <!-- events area start -->
-    <div class="event-area  pt--120 pb--80">
+    <div class="event-area pt--120 pb--80">
         <div class="container">
             <div class="row">
                 <div class="col-md-10 offset-md-1">
@@ -531,8 +611,8 @@
                             <h4><a href="#">Jornada de Puertas Abiertas</a></h4>
                             <p><i class="fa fa-clock-o"></i>08:00 AM - 12:00 PM</p>
                         </div>
-                    </div> <!-- media -->
-                </div><!-- col-md-6 -->
+                    </div>
+                </div>
                 <div class="col-md-6">
                     <div class="media align-items-center mb-5">
                         <div class="media-head primary-bg">
@@ -543,8 +623,8 @@
                             <h4><a href="#">Taller para Padres</a></h4>
                             <p><i class="fa fa-clock-o"></i>03:00 PM - 05:00 PM</p>
                         </div>
-                    </div> <!-- media -->
-                </div><!-- col-md-6 --> 
+                    </div>
+                </div>
                 <div class="col-md-6">
                     <div class="media align-items-center mb-5">
                         <div class="media-head primary-bg">
@@ -555,8 +635,8 @@
                             <h4><a href="#">Feria Científica Anual</a></h4>
                             <p><i class="fa fa-clock-o"></i>09:00 AM - 02:00 PM</p>
                         </div>
-                    </div> <!-- media -->
-                </div><!-- col-md-6 -->  
+                    </div>
+                </div>
                 <div class="col-md-6">
                     <div class="media align-items-center mb-5">
                         <div class="media-head primary-bg">
@@ -567,14 +647,15 @@
                             <h4><a href="#">Taller de Programación</a></h4>
                             <p><i class="fa fa-clock-o"></i>10:00 AM - 12:00 PM</p>
                         </div>
-                    </div> <!-- media -->
-                </div><!-- col-md-6 -->   
-            </div><!-- row -->
-        </div><!-- container -->
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- events area end --> 
     
-    <div class="testimonial-area ptb--120"><!-- testimonial area start -->
+    <!-- testimonial area start -->
+    <div class="testimonial-area ptb--120">
         <img class="tst-bg" src="assets/images/bg/tst-bg-shape.png" alt="image">
         <div class="container">
             <div class="row">
@@ -608,13 +689,14 @@
                             <span>Madre de estudiante</span>
                         </div> 
                     </div>
-                </div><!-- row -->
-            </div><!-- row -->
-        </div><!-- container -->
-    </div><!-- testimonial-area --> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- testimonial area end --> 
 
     <!-- blog area start -->
-    <div class="feature-blog  ptb--120">
+    <div class="feature-blog ptb--120">
         <div class="container">
             <div class="row">
                 <div class="col-md-10 offset-md-1">
@@ -627,63 +709,66 @@
 
             <div class="row">
                 <div class="blog-carousel owl-carousel card-deck">                     
-                  <div class="card mb-5"> 
-                    <img class="card-img-top" src="assets/images/blog/blog-thumbnail1.jpg" alt="image">
-                    <div class="card-body p-25"> 
-                        <ul class="list-inline primary-color mb-3">
-                            <li><i class="fa fa-clock-o"></i> AGOSTO 6, 2025</li>
-                            <li><i class="fa fa-comments"></i> 3 Comentarios</li>
-                        </ul>
-                      <h4 class="card-title mb-4"><a href="blog.html">La Innovación Educativa</a></h4>
-                      <p class="card-text">Somos un grupo filosófico aquí en Rafael Bucheli y hemos pensado mucho y bien sobre la educación.</p> 
-                      <a class="btn btn-primary btn-round btn-sm" href="blog-details.html"> Leer Más </a>
+                    <div class="card mb-5"> 
+                        <img class="card-img-top" src="assets/images/blog/blog-thumbnail1.jpg" alt="image">
+                        <div class="card-body p-25"> 
+                            <ul class="list-inline primary-color mb-3">
+                                <li><i class="fa fa-clock-o"></i> AGOSTO 6, 2025</li>
+                                <li><i class="fa fa-comments"></i> 3 Comentarios</li>
+                            </ul>
+                            <h4 class="card-title mb-4"><a href="blog.html">La Innovación Educativa</a></h4>
+                            <p class="card-text">Somos un grupo filosófico aquí en Rafael Bucheli y hemos pensado mucho y bien sobre la educación.</p> 
+                            <a class="btn btn-primary btn-round btn-sm" href="blog-details.html"> Leer Más </a>
+                        </div>
                     </div>
-                  </div><!-- card -->                
-                  <div class="card mb-5"> 
-                    <img class="card-img-top" src="assets/images/blog/blog-thumbnail2.jpg" alt="image">
-                    <div class="card-body p-25"> 
-                        <ul class="list-inline primary-color mb-3">
-                            <li><i class="fa fa-clock-o"></i> AGOSTO 6, 2025</li>
-                            <li><i class="fa fa-comments"></i> 3 Comentarios</li>
-                        </ul>
-                      <h4 class="card-title mb-4"><a href="blog.html">Aenean id ullamcorper</a></h4>
-                      <p class="card-text">Somos un grupo filosófico aquí en Rafael Bucheli y hemos pensado mucho y bien sobre la educación.</p> 
-                      <a class="btn btn-primary btn-round btn-sm" href="blog-details.html"> Leer Más </a>
+                    
+                    <div class="card mb-5"> 
+                        <img class="card-img-top" src="assets/images/blog/blog-thumbnail2.jpg" alt="image">
+                        <div class="card-body p-25"> 
+                            <ul class="list-inline primary-color mb-3">
+                                <li><i class="fa fa-clock-o"></i> AGOSTO 6, 2025</li>
+                                <li><i class="fa fa-comments"></i> 3 Comentarios</li>
+                            </ul>
+                            <h4 class="card-title mb-4"><a href="blog.html">Aenean id ullamcorper</a></h4>
+                            <p class="card-text">Somos un grupo filosófico aquí en Rafael Bucheli y hemos pensado mucho y bien sobre la educación.</p> 
+                            <a class="btn btn-primary btn-round btn-sm" href="blog-details.html"> Leer Más </a>
+                        </div>
                     </div>
-                  </div><!-- card -->
-       
-                  <div class="card mb-5"> 
-                    <img class="card-img-top" src="assets/images/blog/blog-thumbnail3.jpg" alt="image">
-                    <div class="card-body p-25"> 
-                        <ul class="list-inline primary-color mb-3">
-                            <li><i class="fa fa-clock-o"></i> AGOSTO 6, 2025</li>
-                            <li><i class="fa fa-comments"></i> 3 Comentarios</li>
-                        </ul>
-                      <h4 class="card-title mb-4"><a href="blog.html">La Innovación Educativa</a></h4>
-                      <p class="card-text">Somos un grupo filosófico aquí en Rafael Bucheli y hemos pensado mucho y bien sobre la educación.</p> 
-                      <a class="btn btn-primary btn-round btn-sm" href="blog-details.html"> Leer Más </a>
+           
+                    <div class="card mb-5"> 
+                        <img class="card-img-top" src="assets/images/blog/blog-thumbnail3.jpg" alt="image">
+                        <div class="card-body p-25"> 
+                            <ul class="list-inline primary-color mb-3">
+                                <li><i class="fa fa-clock-o"></i> AGOSTO 6, 2025</li>
+                                <li><i class="fa fa-comments"></i> 3 Comentarios</li>
+                            </ul>
+                            <h4 class="card-title mb-4"><a href="blog.html">La Innovación Educativa</a></h4>
+                            <p class="card-text">Somos un grupo filosófico aquí en Rafael Bucheli y hemos pensado mucho y bien sobre la educación.</p> 
+                            <a class="btn btn-primary btn-round btn-sm" href="blog-details.html"> Leer Más </a>
+                        </div>
                     </div>
-                  </div><!-- card -->         
-                  <div class="card mb-5"> 
-                    <img class="card-img-top" src="assets/images/blog/blog-thumbnail1.jpg" alt="image">
-                    <div class="card-body p-25"> 
-                        <ul class="list-inline primary-color mb-3">
-                            <li><i class="fa fa-clock-o"></i> AGOSTO 6, 2025</li>
-                            <li><i class="fa fa-comments"></i> 3 Comentarios</li>
-                        </ul>
-                      <h4 class="card-title mb-4"><a href="blog.html">La Innovación Educativa</a></h4>
-                      <p class="card-text">Somos un grupo filosófico aquí en Rafael Bucheli y hemos pensado mucho y bien sobre la educación.</p> 
-                      <a class="btn btn-primary btn-round btn-sm" href="blog-details.html"> Leer Más </a>
-                    </div>
-                  </div><!-- card -->    
-                </div><!-- blog-carousel -->
-            </div><!-- blog-carousel -->
+                    
+                    <div class="card mb-5"> 
+                        <img class="card-img-top" src="assets/images/blog/blog-thumbnail1.jpg" alt="image">
+                        <div class="card-body p-25"> 
+                            <ul class="list-inline primary-color mb-3">
+                                <li><i class="fa fa-clock-o"></i> AGOSTO 6, 2025</li>
+                                <li><i class="fa fa-comments"></i> 3 Comentarios</li>
+                            </ul>
+                            <h4 class="card-title mb-4"><a href="blog.html">La Innovación Educativa</a></h4>
+                            <p class="card-text">Somos un grupo filosófico aquí en Rafael Bucheli y hemos pensado mucho y bien sobre la educación.</p> 
+                            <a class="btn btn-primary btn-round btn-sm" href="blog-details.html"> Leer Más </a>
+                        </div>
+                    </div>    
+                </div>
+            </div>
 
         </div>
-    </div> <!-- blog area end -->
+    </div>
+    <!-- blog area end -->
 
     <!-- cta area start -->
-    <div class="cta-area secondary-bg has-color cta-area ptb--50 "> 
+    <div class="cta-area secondary-bg has-color cta-area ptb--50"> 
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-9">
@@ -704,7 +789,7 @@
 
     <!-- footer area start -->
     <footer>
-        <div class="footer-top  has-color pt--120 pb--30">
+        <div class="footer-top has-color pt--120 pb--30">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">

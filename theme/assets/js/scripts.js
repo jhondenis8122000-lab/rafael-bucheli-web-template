@@ -312,71 +312,20 @@
         prependTo: "#mobile_menu"
     });
 
-})(jQuery);
-
-
-
-// google map activation
-function initMap() {
-    // Styles a map in night mode.
-    var map = new google.maps.Map(document.getElementById('google_map'), {
-        center: { lat: 40.674, lng: -73.945 },
-        scrollwheel: false,
-        zoom: 12,
-        styles: [{
-                "elementType": "geometry",
-                "stylers": [{
-                    "color": "#f5f5f5"
-                }]
-            },
-            {
-                "featureType": "poi",
-                "elementType": "labels.text",
-                "stylers": [{
-                    "visibility": "off"
-                }]
-            },
-            {
-                "featureType": "poi",
-                "elementType": "labels.text.fill",
-                "stylers": [{
-                    "color": "#757575"
-                }]
-            },
-            {
-                "featureType": "poi.business",
-                "stylers": [{
-                    "visibility": "off"
-                }]
-            },
-            {
-                "featureType": "poi.park",
-                "elementType": "geometry",
-                "stylers": [{
-                    "color": "#e5e5e5"
-                }]
-            },
-            {
-                "featureType": "transit.station",
-                "elementType": "geometry",
-                "stylers": [{
-                    "color": "#eeeeee"
-                }]
-            }
-        ]
+    /*================================
+    HEADER COMPACTO - EFECTO SCROLL
+    ==================================*/
+    $(window).on('scroll', function() {
+        if ($(window).scrollTop() > 50) {
+            $('.header-two').addClass('scrolled');
+        } else {
+            $('.header-two').removeClass('scrolled');
+        }
     });
-    var marker = new google.maps.Marker({
-        position: map.getCenter(),
-        map: map
-    });
-}
-// ============================================
-// HERO PREMIUM - CONTADORES ANIMADOS
-// ============================================
-
-(function($) {
-    "use strict";
     
+    /*================================
+    HERO ÉLITE - CONTADORES ANIMADOS
+    ==================================*/
     $(document).ready(function() {
         
         // CONTADORES ANIMADOS
@@ -443,6 +392,90 @@ function initMap() {
             }
         });
         
+        // ANIMACIÓN DE ENTRADA PARA TARJETAS
+        $('.course-area .card, .teacher-area .card, .feature-blog .card').each(function(index) {
+            var delay = index * 0.2;
+            $(this).css('animation-delay', delay + 's');
+        });
+        
     });
-    
+
 })(jQuery);
+
+// google map activation
+function initMap() {
+    // Styles a map in night mode.
+    var map = new google.maps.Map(document.getElementById('google_map'), {
+        center: { lat: 40.674, lng: -73.945 },
+        scrollwheel: false,
+        zoom: 12,
+        styles: [{
+                "elementType": "geometry",
+                "stylers": [{
+                    "color": "#f5f5f5"
+                }]
+            },
+            {
+                "featureType": "poi",
+                "elementType": "labels.text",
+                "stylers": [{
+                    "visibility": "off"
+                }]
+            },
+            {
+                "featureType": "poi",
+                "elementType": "labels.text.fill",
+                "stylers": [{
+                    "color": "#757575"
+                }]
+            },
+            {
+                "featureType": "poi.business",
+                "stylers": [{
+                    "visibility": "off"
+                }]
+            },
+            {
+                "featureType": "poi.park",
+                "elementType": "geometry",
+                "stylers": [{
+                    "color": "#e5e5e5"
+                }]
+            },
+            {
+                "featureType": "transit.station",
+                "elementType": "geometry",
+                "stylers": [{
+                    "color": "#eeeeee"
+                }]
+            }
+        ]
+    });
+    var marker = new google.maps.Marker({
+        position: map.getCenter(),
+        map: map
+    });
+}
+/*================================
+    SLIDER CON VIDEO - ACTIVAR
+==================================*/
+$(document).ready(function() {
+    
+    // Verificar si existe el slider
+    if ($('.image-slider-carousel').length > 0) {
+        $('.image-slider-carousel').owlCarousel({
+            items: 1,
+            loop: true,
+            autoplay: true,
+            autoplayTimeout: 7000,
+            autoplayHoverPause: true,
+            dots: true,
+            nav: true,
+            navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+            smartSpeed: 800,
+            animateOut: 'fadeOut',
+            animateIn: 'fadeIn'
+        });
+    }
+    
+});
