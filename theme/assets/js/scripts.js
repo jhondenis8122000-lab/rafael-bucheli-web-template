@@ -45,11 +45,71 @@
                 $(this).addClass('animated');
             }
         });
+
+        // Animate sections on scroll
+        $('.course-area, .teacher-area, .event-area, .testimonial-area, .feature-blog').each(function() {
+            var elementTop = $(this).offset().top;
+            var viewportBottom = $(window).scrollTop() + $(window).height();
+
+            if (elementTop < viewportBottom - 100) {
+                $(this).addClass('animate-in');
+            }
+        });
     }
 
     // Trigger on scroll and load
     $(window).on('scroll', animateOnScroll);
     $(window).on('load', animateOnScroll);
+
+    /*================================
+    Highlight Phrase Effects
+    ==================================*/
+    function initHighlightEffects() {
+        // Typing effect for highlight phrase (optional)
+        var highlightPhrase = $('.highlight-phrase');
+        if (highlightPhrase.length) {
+            var text = highlightPhrase.text();
+            highlightPhrase.text('');
+            var i = 0;
+            var timer = setInterval(function() {
+                if (i < text.length) {
+                    highlightPhrase.append(text.charAt(i));
+                    i++;
+                } else {
+                    clearInterval(timer);
+                }
+            }, 100);
+        }
+
+        // Add interactive hover for highlight phrase
+        highlightPhrase.on('mouseenter', function() {
+            $(this).addClass('glow');
+        }).on('mouseleave', function() {
+            $(this).removeClass('glow');
+        });
+    }
+
+    // Initialize highlight effects on load
+    $(window).on('load', initHighlightEffects);
+
+    /*================================
+    Enhanced Card Interactions
+    ==================================*/
+    $('.card').on('mouseenter', function() {
+        $(this).find('.course-thumb img').addClass('tilt');
+    }).on('mouseleave', function() {
+        $(this).find('.course-thumb img').removeClass('tilt');
+    });
+
+    /*================================
+    Parallax and Floating Effects
+    ==================================*/
+    function parallaxEffect() {
+        var scrolled = $(window).scrollTop();
+        $('.hero-area').css('background-position', 'center ' + (scrolled * 0.5) + 'px');
+    }
+
+    $(window).on('scroll', parallaxEffect);
 
     /*================================
     Smooth Scrolling
