@@ -31,6 +31,39 @@
         }
     });
 
+    /*================================
+    Scroll-triggered Animations
+    ==================================*/
+    function animateOnScroll() {
+        $('.animate-fadeInUp, .animate-fadeInLeft, .animate-fadeInRight, .animate-zoomIn, .animate-bounceIn').each(function() {
+            var elementTop = $(this).offset().top;
+            var elementBottom = elementTop + $(this).outerHeight();
+            var viewportTop = $(window).scrollTop();
+            var viewportBottom = viewportTop + $(window).height();
+
+            if (elementBottom > viewportTop && elementTop < viewportBottom) {
+                $(this).addClass('animated');
+            }
+        });
+    }
+
+    // Trigger on scroll and load
+    $(window).on('scroll', animateOnScroll);
+    $(window).on('load', animateOnScroll);
+
+    /*================================
+    Smooth Scrolling
+    ==================================*/
+    $('a[href^="#"]').on('click', function(event) {
+        var target = $(this.getAttribute('href'));
+        if (target.length) {
+            event.preventDefault();
+            $('html, body').stop().animate({
+                scrollTop: target.offset().top - 50
+            }, 1000);
+        }
+    });
+
 
     /*================================
     offste search

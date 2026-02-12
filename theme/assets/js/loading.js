@@ -7,9 +7,9 @@
 
     // Configuración
     const CONFIG = {
-        minLoadingTime: 2500,        // Mínimo 2.5 segundos
+        minLoadingTime: 1500,        // Mínimo 2.5 segundos
         maxLoadingTime: 8000,        // Máximo 8 segundos
-        showSkipAfter: 2000          // Mostrar skip después de 2s
+        showSkipAfter: 1000          // Mostrar skip después de 2s
     };
 
     // Elementos
