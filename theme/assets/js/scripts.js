@@ -370,3 +370,79 @@ function initMap() {
         map: map
     });
 }
+// ============================================
+// HERO PREMIUM - CONTADORES ANIMADOS
+// ============================================
+
+(function($) {
+    "use strict";
+    
+    $(document).ready(function() {
+        
+        // CONTADORES ANIMADOS
+        function startCounters() {
+            $('.counter').each(function() {
+                var $this = $(this);
+                var target = parseInt($this.attr('data-target'));
+                var current = parseInt($this.text());
+                
+                if (current !== 0 && !isNaN(current) && current !== target) {
+                    return;
+                }
+                
+                $this.text('0');
+                
+                var currentNum = 0;
+                var increment = Math.ceil(target / 50);
+                
+                var timer = setInterval(function() {
+                    currentNum += increment;
+                    if (currentNum >= target) {
+                        $this.text(target + (target > 100 ? '+' : ''));
+                        clearInterval(timer);
+                    } else {
+                        $this.text(currentNum + (target > 100 ? '+' : ''));
+                    }
+                }, 30);
+            });
+        }
+        
+        // DETECTAR CUANDO LOS CONTADORES SON VISIBLES
+        var countersStarted = false;
+        
+        function checkCounters() {
+            if (countersStarted) return;
+            
+            var $statsCard = $('.hero-stats-card-3d');
+            if ($statsCard.length) {
+                var windowTop = $(window).scrollTop();
+                var windowBottom = windowTop + $(window).height();
+                var elementTop = $statsCard.offset().top;
+                
+                if (elementTop < windowBottom - 100) {
+                    startCounters();
+                    countersStarted = true;
+                }
+            }
+        }
+        
+        checkCounters();
+        $(window).on('scroll', function() {
+            checkCounters();
+        });
+        
+        // SMOOTH SCROLL PARA EL INDICADOR
+        $('.scroll-link-premium').on('click', function(e) {
+            e.preventDefault();
+            var target = $(this).attr('href');
+            
+            if ($(target).length) {
+                $('html, body').animate({
+                    scrollTop: $(target).offset().top - 100
+                }, 1000);
+            }
+        });
+        
+    });
+    
+})(jQuery);
