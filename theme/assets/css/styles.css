@@ -392,7 +392,7 @@ h5,
 h6 {
   margin: 0;
   font-weight: 700;
-  color: #252525;
+  color: #fff;
   font-family: "Roboto Slab", serif;
 }
 
@@ -1538,9 +1538,11 @@ span.post-date i {
   position: fixed;
   left: 0;
   top: 0;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
   z-index: 9998;
   width: 100%;
-  background: #fff;
+  background: #ffffff00;
 }
 
 .menu-style2 {
@@ -3503,8 +3505,8 @@ span.post-date i {
 }
 
 .header-two.scrolled .header-bottom-right-style-2 .btn-primary {
-    background: #fc9928 !important;
-    border-color: #fc9928 !important;
+    background: #ffffff00 !important;
+    border-color: #ffffff !important;
     color: #ffffff !important;
 }
 
@@ -3548,7 +3550,7 @@ span.post-date i {
     }
     
     .header-two.scrolled {
-        background: rgba(255, 255, 255, 0.95) !important;
+        background: rgba(255, 255, 255, 0) !important;
     }
     
     .header-two.scrolled .menu-style2.main-menu nav > ul > li > a {
@@ -3837,4 +3839,93 @@ span.post-date i {
         font-size: 12px !important;
         padding: 8px 20px !important;
     }
+}
+/*=============================================
+    23. AJUSTES DE IMÁGENES - RELACIÓN DE ASPECTO UNIFORME
+    AÑADIR ESTE BLOQUE AL FINAL DEL ARCHIVO styles.css
+=============================================*/
+
+/* --- SLIDER PRINCIPAL (Video/Imagen de fondo) --- */
+.hero-area.image-slider-hero .image-slide-item {
+    /* La imagen de fondo ya se comporta con cover gracias a la clase existente */
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+/* --- SECCIÓN DE CURSOS --- */
+.course-area .card .course-thumb {
+    /* Establece una relación de aspecto de 16:9, común para tarjetas */
+    aspect-ratio: 16 / 9 !important;
+    width: 100% !important;
+    overflow: hidden !important; /* Oculta cualquier desborde de la imagen */
+    background-color: #f0f0f0; /* Color de fondo sutil mientras carga la imagen */
+}
+
+.course-area .card .course-thumb img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* La imagen cubre todo el contenedor sin deformarse */
+    display: block !important; /* Elimina espacios extra debajo de la imagen */
+}
+
+/* --- SECCIÓN DE DOCENTES --- */
+.teacher-area .card {
+    /* Asegura que la tarjeta tenga un ancho consistente, el carrusel lo controla */
+}
+
+.teacher-area .card img {
+    aspect-ratio: 1 / 1 !important; /* Relación de aspecto cuadrada (1:1) para fotos de perfil */
+    width: 100% !important;
+    height: auto !important; /* La altura la define el aspect-ratio */
+    object-fit: cover !important; /* Cubre el cuadrado, puede recortar los bordes */
+    object-position: center top !important; /* Enfoca la parte superior (cara) */
+    display: block !important;
+    background-color: #e0e0e0;
+}
+
+/* --- SECCIÓN DE BLOG --- */
+.feature-blog .card .card-img-top {
+    aspect-ratio: 16 / 9 !important; /* Relación de aspecto ancha, como en cursos */
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+    display: block !important;
+    background-color: #f0f0f0;
+}
+
+/* --- AJUSTES RESPONSIVOS ADICIONALES --- */
+@media (max-width: 768px) {
+    /* En móviles, podemos ajustar ligeramente las relaciones si es necesario */
+    .teacher-area .card img {
+        aspect-ratio: 1 / 1 !important; /* Mantenemos el cuadrado */
+    }
+
+    .course-area .card .course-thumb,
+    .feature-blog .card .card-img-top {
+        aspect-ratio: 4 / 3 !important; /* Una relación un poco más cuadrada para móviles */
+    }
+}
+
+@media (max-width: 576px) {
+    .course-area .card .course-thumb,
+    .feature-blog .card .card-img-top {
+        aspect-ratio: 1 / 1 !important; /* En pantallas muy pequeñas, las hacemos cuadradas */
+    }
+}
+
+/* --- IMÁGENES DE AUTORES (miniaturas redondas) --- */
+.course-meta-thumbnail.rounded-circle {
+    aspect-ratio: 1 / 1 !important; /* Forzar que sea un cuadrado perfecto */
+    width: 40px !important; /* Mantiene el tamaño definido */
+    height: 40px !important;
+    object-fit: cover !important; /* Evita que la imagen se estire dentro del círculo */
+    border-radius: 50% !important; /* Asegura el redondeo */
+    /*=============================================
+    24. OCULTAR NAVEGACIÓN DEL SLIDER PRINCIPAL
+=============================================*/
+.image-slider-hero .owl-nav,
+.image-slider-hero .owl-dots {
+    display: none !important;
+}
 }
