@@ -1,25 +1,38 @@
-/* loading.js - Versión ultra rápida */
+/* ===========================================
+   LOADING.JS - Versión simplificada
+   =========================================== */
+
 (function() {
     'use strict';
-    
-    const preloader = document.getElementById('preloader');
-    if (!preloader) return;
 
-    // Función para ocultar el preloader
-    const hidePreloader = () => {
-        preloader.style.opacity = '0';
-        setTimeout(() => {
-            preloader.style.display = 'none';
-            document.body.classList.remove('loading-active');
-        }, 300);
-    };
+    // Esperar a que el DOM esté listo
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // Ocultar preloader cuando la página esté completamente cargada
+        window.addEventListener('load', function() {
+            hidePreloader();
+        });
+        
+        // Timeout de seguridad (3 segundos máximo)
+        setTimeout(function() {
+            hidePreloader();
+        }, 3000);
+        
+        function hidePreloader() {
+            var preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.classList.add('fade-out');
+                setTimeout(function() {
+                    preloader.style.display = 'none';
+                    document.body.classList.remove('loading-active');
+                }, 500);
+            }
+        }
+        
+        // Si ya está cargado, ocultar inmediatamente
+        if (document.readyState === 'complete') {
+            hidePreloader();
+        }
+    });
 
-    // Ocultar cuando la página esté completamente cargada
-    if (document.readyState === 'complete') {
-        hidePreloader();
-    } else {
-        window.addEventListener('load', hidePreloader);
-        // Timeout de seguridad por si algo falla
-        setTimeout(hidePreloader, 2000);
-    }
 })();

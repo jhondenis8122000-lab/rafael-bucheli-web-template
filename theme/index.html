@@ -31,24 +31,9 @@
             <p class="browserupgrade">Estás usando un navegador <strong>obsoleto</strong>. Por favor <a href="http://browsehappy.com/">actualiza tu navegador</a> para mejorar tu experiencia.</p>
         <![endif]-->
     
-    <!-- loading area start -->
+    <!-- loading area start - SIMPLIFICADO -->
     <div id="preloader">
-        <div class="video-container">
-            <!-- Video de fondo -->
-            <video id="loadingVideo" playsinline muted loop preload="auto">
-                <source src="assets/videos/loading-animation.mp4" type="video/mp4">
-                <source src="assets/videos/loading-animation.webm" type="video/webm">
-                <!-- Fallback si no hay video -->
-                <div class="video-fallback">
-                    <img src="assets/images/icon/logo.png" alt="Cargando">
-                </div>
-            </video>
-
-            <!-- Botón para saltar (opcional) -->
-            <div class="skip-button">
-                <button id="skipLoading">Saltar</button>
-            </div>
-        </div>
+        <div class="spinner"></div>
     </div>
     <!-- loading area end -->
     
@@ -168,6 +153,8 @@
         <!-- VIDEO DE FONDO -->
         <video autoplay muted loop playsinline class="slide-background-video">
             <source src="assets/videos/educacion.mp4" type="video/mp4">
+            <source src="assets/videos/educacion.webm" type="video/webm">
+
         </video>
         <div class="slide-overlay"></div>
         

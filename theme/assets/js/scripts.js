@@ -1,2 +1,244 @@
-/*! main.min.js - Todos los scripts combinados y minificados */
-(function($){"use strict";function e(){const e=$(".header-two");$(window).on("scroll",function(){window.requestAnimationFrame(function(){$(window).scrollTop()>50?e.addClass("scrolled"):e.removeClass("scrolled")})}),$("ul#m_menu_active").slicknav({prependTo:"#mobile_menu",label:"",duration:300})}function t(){if("IntersectionObserver"in window){const e=document.querySelectorAll(".animate-fadeInUp, .animate-fadeInLeft, .animate-zoomIn"),t=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&(e.target.classList.add("animated"),t.unobserve(e.target))})},{threshold:.2});e.forEach(e=>t.observe(e))}}function n(){let e=!1,t=null;function n(){if(e)return;e=!0;const t=[];if($(".counter").each(function(){const e=$(this),n=parseInt(e.data("target"),10);t.push({element:e,target:n,current:0,suffix:n>100?"+":""}),e.text("0")}),0===t.length)return;const s=2e3,o=performance.now();function i(e){const n=e-o,u=Math.min(n/s,1);t.forEach(e=>{const t=Math.floor(u*e.target);t!==e.current&&(e.current=t,e.element.text(t+e.suffix))}),u<1?requestAnimationFrame(i):(t.forEach(e=>{e.element.text(e.target+e.suffix)}),cancelAnimationFrame(r))}const r=requestAnimationFrame(i)}if("IntersectionObserver"in window){const e=document.querySelector(".hero-stats-card-3d");e&&new IntersectionObserver(t=>{t[0].isIntersecting&&(n(),this.disconnect())},{threshold:.5}).observe(e)}else n()}function s(){{const e={loop:!0,smartSpeed:800,navSpeed:800,lazyLoad:!0,navText:['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],responsive:{0:{items:1,nav:!1,dots:!0},600:{items:2,nav:!1,dots:!0},1000:{items:3,nav:!0,dots:!1}}};$(".commn-carousel").length&&$(".commn-carousel").owlCarousel(e),$(".blog-carousel").length&&$(".blog-carousel").owlCarousel(e)}$(".tst-carousel").length&&$(".tst-carousel").owlCarousel({loop:!0,items:1,nav:!1,dots:!0,smartSpeed:700,autoplay:!0,autoplayTimeout:6e3})}function o(){$(".expand-video").length&&$(".expand-video").magnificPopup({type:"iframe",mainClass:"mfp-fade",removalDelay:300,preloader:!1,iframe:{patterns:{youtube:{index:"youtube.com/",id:function(e){var t=e.match(/[\\?\\&]v=([^\\?\\&]+)/);return t&&t[1]?t[1]:null},src:"//www.youtube.com/embed/%id%?autoplay=1"}}}})}$(document).ready(function(){e(),t(),s(),o(),n(),$(".course-area .card, .teacher-area .card, .feature-blog .card").each(function(e){$(this).css("animation-delay",.15*e+"s")}),document.querySelectorAll('img[loading="lazy"]').forEach(e=>{e.complete?e.classList.add("loaded"):e.addEventListener("load",()=>e.classList.add("loaded"))})})})(jQuery);
+/*============================
+   js index - VERSIÓN SIMPLIFICADA (UN SOLO SLIDER)
+============================*/
+
+(function($) {
+    "use strict";
+
+    /*================================
+    INICIALIZACIÓN
+    ==================================*/
+    $(document).ready(function() {
+        initPreloader();
+        initHeaderEffects();
+        initAnimations();
+        initSearch();
+        initSmoothScroll();
+        initCounters();
+        initCardEffects();
+        initVideoPopup();
+    });
+
+    /*================================
+    PRELOADER
+    ==================================*/
+    function initPreloader() {
+        var preloader = $('#preloader');
+        $(window).on('load', function() {
+            preloader.fadeOut('slow', function() { 
+                $(this).remove(); 
+            });
+        });
+    }
+
+    /*================================
+    HEADER EFFECTS
+    ==================================*/
+    function initHeaderEffects() {
+        // Header scroll effect
+        $(window).on('scroll', function() {
+            var scroll = $(window).scrollTop();
+            $('.header-two').toggleClass('scrolled', scroll > 50);
+        });
+
+        // Mobile menu
+        $('ul#m_menu_active').slicknav({
+            prependTo: "#mobile_menu"
+        });
+    }
+
+    /*================================
+    ANIMACIONES SCROLL
+    ==================================*/
+    function initAnimations() {
+        function animateOnScroll() {
+            $('.animate-fadeInUp, .animate-fadeInLeft, .animate-fadeInRight, .animate-zoomIn').each(function() {
+                if (isElementInViewport($(this))) {
+                    $(this).addClass('animated');
+                }
+            });
+        }
+
+        function isElementInViewport($element, offset = 0) {
+            var elementTop = $element.offset().top;
+            var elementBottom = elementTop + $element.outerHeight();
+            var viewportTop = $(window).scrollTop();
+            var viewportBottom = viewportTop + $(window).height();
+            
+            return (elementBottom > viewportTop && elementTop < viewportBottom - offset);
+        }
+
+        $(window).on('scroll', animateOnScroll);
+        $(window).on('load', animateOnScroll);
+    }
+
+    /*================================
+    SEARCH OFFCANVAS
+    ==================================*/
+    function initSearch() {
+        var $offsetSearch = $('.offset-search');
+        var $bodyOverlay = $('.body_overlay');
+
+        $('.search_btn').on('click', function() {
+            toggleSearch(true);
+        });
+
+        $bodyOverlay.on('click', function() {
+            toggleSearch(false);
+        });
+
+        function toggleSearch(show) {
+            var method = show ? 'addClass' : 'removeClass';
+            $offsetSearch[method]('show_hide');
+            $bodyOverlay[method]('show_hide');
+        }
+    }
+
+    /*================================
+    SMOOTH SCROLL
+    ==================================*/
+    function initSmoothScroll() {
+        $('a[href^="#"]').on('click', function(event) {
+            var target = $(this.getAttribute('href'));
+            if (target.length) {
+                event.preventDefault();
+                $('html, body').stop().animate({
+                    scrollTop: target.offset().top - 50
+                }, 1000);
+            }
+        });
+    }
+
+    /*================================
+    CONTADORES ANIMADOS
+    ==================================*/
+    function initCounters() {
+        var countersStarted = false;
+
+        function startCounters() {
+            $('.counter').each(function() {
+                var $this = $(this);
+                var target = parseInt($this.data('target'));
+                
+                $this.text('0');
+                
+                var currentNum = 0;
+                var increment = Math.ceil(target / 50);
+                var timer = setInterval(function() {
+                    currentNum += increment;
+                    if (currentNum >= target) {
+                        $this.text(target + (target > 100 ? '+' : ''));
+                        clearInterval(timer);
+                    } else {
+                        $this.text(currentNum + (target > 100 ? '+' : ''));
+                    }
+                }, 30);
+            });
+        }
+
+        function checkCounters() {
+            if (countersStarted) return;
+            
+            var $statsCard = $('.hero-stats-card-3d');
+            if ($statsCard.length && isElementInViewport($statsCard, 100)) {
+                startCounters();
+                countersStarted = true;
+            }
+        }
+
+        checkCounters();
+        $(window).on('scroll', checkCounters);
+    }
+
+    // Helper para viewport
+    function isElementInViewport($element, offset = 0) {
+        var elementTop = $element.offset().top;
+        var viewportBottom = $(window).scrollTop() + $(window).height();
+        return elementTop < viewportBottom - offset;
+    }
+
+    /*================================
+    CARD EFFECTS (para cursos, docentes, blog)
+    ==================================*/
+    function initCardEffects() {
+        // Carruseles existentes (si los tienes)
+        if ($('.commn-carousel').length) {
+            $('.commn-carousel').owlCarousel({
+                loop: true,
+                autoplay: false,
+                dots: true,
+                nav: false,
+                smartSpeed: 800,
+                responsive: {
+                    0: { items: 1 },
+                    480: { items: 1 },
+                    768: { items: 2 },
+                    1024: { items: 3 }
+                }
+            });
+        }
+
+        if ($('.blog-carousel').length) {
+            $('.blog-carousel').owlCarousel({
+                loop: true,
+                autoplay: false,
+                dots: false,
+                nav: true,
+                navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+                smartSpeed: 800,
+                responsive: {
+                    0: { items: 1 },
+                    480: { items: 1 },
+                    768: { items: 2 },
+                    1024: { items: 3 }
+                }
+            });
+        }
+
+        if ($('.tst-carousel').length) {
+            $('.tst-carousel').owlCarousel({
+                loop: true,
+                autoplay: false,
+                dots: true,
+                items: 1,
+                nav: false,
+                smartSpeed: 800
+            });
+        }
+
+        // Animation delays
+        $('.course-area .card, .teacher-area .card, .feature-blog .card').each(function(index) {
+            $(this).css('animation-delay', (index * 0.2) + 's');
+        });
+    }
+
+    /*================================
+    VIDEO POPUP
+    ==================================*/
+    function initVideoPopup() {
+        $('.expand-video').magnificPopup({
+            type: 'iframe',
+            gallery: { enabled: true }
+        });
+    }
+
+})(jQuery);
+
+/*================================
+GOOGLE MAPS (si lo usas)
+==================================*/
+function initMap() {
+    var mapElement = document.getElementById('google_map');
+    if (!mapElement) return;
+
+    var map = new google.maps.Map(mapElement, {
+        center: { lat: 40.674, lng: -73.945 },
+        scrollwheel: false,
+        zoom: 12
+    });
+    
+    new google.maps.Marker({
+        position: map.getCenter(),
+        map: map
+    });
+}
