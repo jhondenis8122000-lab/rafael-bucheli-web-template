@@ -205,8 +205,9 @@ a.scrollup-btn:hover{
 .ptb--170 { padding: 170px 0 }
 .ptb--180 { padding: 180px 0 }
 
-.{
-    background: #edf1ff;
+/* Clase con error corregido */
+.secondary-bg {
+    background: #14171d;
 }
 
 /*prealoder css*/
@@ -246,6 +247,20 @@ a.scrollup-btn:hover{
     color: rgba(255,255,255,.7);
 }
 
-.secondary-bg{
-    background: #14171d;
+/* NO ELIMINAR - NECESARIO PARA BORDES REDONDOS */
+.course-area .card,
+.teacher-area .card,
+.feature-blog .card {
+    border-radius: 25px !important;
+    overflow: hidden !important;
+}
+
+.course-area .card .course-thumb,
+.course-area .card .course-thumb img {
+    border-radius: 25px 25px 0 0 !important;
+}
+
+.teacher-area .card img,
+.feature-blog .card .card-img-top {
+    border-radius: 25px 25px 0 0 !important;
 }
