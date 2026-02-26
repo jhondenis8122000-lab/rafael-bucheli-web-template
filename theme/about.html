@@ -1,10 +1,9 @@
 <!doctype html>
-<html class="no-js" lang="en">
-
+<html class="no-js" lang="es">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Edification - Responsive Education HTML5 Template</title>
+    <title>Admisiones 2026 - UE Rafael Bucheli</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico in the root directory -->
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
@@ -22,270 +21,1102 @@
     <link rel="stylesheet" id="triggerColor" href="assets/css/triggerplate/color-0.css">
     <!-- modernizr css -->
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    
+    <style>
+        /* ========== VARIABLES DE COLOR ========== */
+        :root {
+            --azul-principal: #252855;
+            --gris: #5d5d5c;
+            --blanco: #ffffff;
+            --degradado-interno: #182e4e;
+            --degradado-externo: #141b28;
+            --color-linea: #141d33;
+        }
+
+        /* ========== ESTILOS DEL HEADER (tomados de tu archivo styles.css) ========== */
+        .header-two {
+            position: fixed !important;
+            left: 0 !important;
+            top: 0 !important;
+            width: 100% !important;
+            z-index: 9999 !important;
+            background: transparent !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            box-shadow: none !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+            padding: 0 !important;
+            transition: all 0.3s ease !important;
+        }
+        .header-two .container {
+            min-height: 70px !important;
+        }
+        .menu-style2.main-menu nav > ul > li > a {
+            padding: 23px 15px !important;
+            font-size: 14px !important;
+            font-weight: 600 !important;
+            color: #252855 !important;
+            letter-spacing: 0.3px !important;
+            transition: all 0.3s ease !important;
+            position: relative !important;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3) !important;
+        }
+        .menu-style2.main-menu nav > ul > li > a:after {
+            content: '' !important;
+            position: absolute !important;
+            bottom: 18px !important;
+            left: 50% !important;
+            width: 0 !important;
+            height: 2px !important;
+            background: var(--blanco) !important;
+            transition: width 0.3s ease !important;
+            transform: translateX(-50%) !important;
+        }
+        .menu-style2.main-menu nav > ul > li > a:hover:after,
+        .menu-style2.main-menu nav > ul > li.active > a:after {
+            width: 20px !important;
+        }
+        .menu-style2.main-menu nav ul li.middle-logo a img {
+            max-width: 115px !important;
+            height: auto !important;
+        }
+        .menu-style2.main-menu nav ul li.middle-logo a img.hb-bottom-shape {
+            display: none !important;
+        }
+        .header-bottom-right-style-2 {
+            margin-left: 0 !important;
+            text-align: right !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+        }
+        .header-bottom-right-style-2 li a.btn {
+            padding: 8px 18px !important;
+            font-size: 13px !important;
+            font-weight: 700 !important;
+            border-radius: 30px !important;
+            transition: all 0.3s ease !important;
+        }
+        .header-bottom-right-style-2 .btn-primary {
+            background: #252855 !important;
+            border: 1.5px solid #252855 !important;
+            color: #ffffff !important;
+            box-shadow: none !important;
+        }
+        .header-bottom-right-style-2 .btn-primary:hover {
+            background: var(--azul-principal) !important;
+            border-color: var(--azul-principal) !important;
+            color: var(--blanco) !important;
+            transform: translateY(-2px) !important;
+        }
+        .main-menu nav .submenu {
+            position: absolute !important;
+            left: 0 !important;
+            top: 100% !important;
+            z-index: 9999 !important;
+            width: 200px !important;
+            background: rgba(20, 29, 51, 0.95) !important;
+            backdrop-filter: blur(5px) !important;
+            border-radius: 8px !important;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2) !important;
+            border: 1px solid rgba(255,255,255,0.1) !important;
+            padding: 8px 0 !important;
+            transform: translateY(15px) !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            transition: all 0.3s ease !important;
+        }
+        .main-menu nav ul li:hover > .submenu {
+            transform: translateY(5px) !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        .main-menu nav .submenu li a {
+            padding: 10px 20px !important;
+            font-size: 13px !important;
+            color: var(--blanco) !important;
+            border-bottom: none !important;
+            transition: all 0.3s ease !important;
+        }
+        .main-menu nav .submenu li a:hover {
+            background: rgba(37,40,85,0.3) !important;
+            color: var(--blanco) !important;
+            padding-left: 25px !important;
+        }
+        .header-two.scrolled {
+            background: rgba(255, 255, 255, 0) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+            box-shadow: 0 5px 20px rgba(37,40,85,0.1) !important;
+            border-bottom: 1px solid rgba(37,40,85,0.1) !important;
+        }
+        .header-two.scrolled .menu-style2.main-menu nav > ul > li > a {
+            color: #5d5d5c !important;
+            text-shadow: none !important;
+        }
+        .header-two.scrolled .menu-style2.main-menu nav > ul > li > a:after {
+            background: var(--azul-principal) !important;
+        }
+        .header-two.scrolled .main-menu nav .submenu {
+            background: rgba(255, 255, 255, 0) !important;
+            border: 1px solid rgba(37,40,85,0.1) !important;
+        }
+        .header-two.scrolled .main-menu nav .submenu li a {
+            color: var(--azul-principal) !important;
+        }
+        .header-two.scrolled .main-menu nav .submenu li a:hover {
+            background: rgba(37,40,85,0.1) !important;
+            color: var(--azul-principal) !important;
+        }
+        @media (max-width: 991px) {
+            .header-two {
+                background: rgba(20, 29, 51, 0.5) !important;
+                padding: 10px 0 !important;
+            }
+            .middle-logo {
+                display: none !important;
+            }
+        }
+
+        /* ========== TUS ESTILOS ORIGINALES PARA EL RESTO DE LA PÁGINA ========== */
+        .contact-card-modern {
+            background: white;
+            border-radius: 20px;
+            padding: 35px 25px;
+            box-shadow: 0 15px 40px rgba(37, 40, 85, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 1px solid rgba(37, 40, 85, 0.05);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        .contact-card-modern:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(37, 40, 85, 0.15);
+            border-color: rgba(37, 40, 85, 0.1);
+        }
+        .contact-card-modern .icon-wrapper {
+            width: 80px;
+            height: 80px;
+            background: rgba(37, 40, 85, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            transition: all 0.3s ease;
+        }
+        .contact-card-modern:hover .icon-wrapper {
+            background: var(--azul-principal);
+            transform: scale(1.1);
+        }
+        .contact-card-modern:hover .icon-wrapper i {
+            color: white !important;
+        }
+        .contact-card-modern .icon-wrapper i {
+            font-size: 36px;
+            color: var(--azul-principal);
+            transition: all 0.3s ease;
+        }
+        .contact-card-modern h4 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--azul-principal) !important;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        .contact-card-modern h4:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background: var(--azul-principal);
+            opacity: 0.3;
+        }
+        .contact-card-modern p {
+            margin-bottom: 10px;
+            color: var(--gris);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        .contact-card-modern p strong {
+            color: var(--azul-principal);
+            font-weight: 600;
+        }
+        .contact-card-modern .highlight-badge {
+            display: inline-block;
+            background: rgba(37, 40, 85, 0.05);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 14px;
+            color: var(--azul-principal);
+            margin-top: 15px;
+            font-weight: 600;
+        }
+        .step-card-modern {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 1px solid #eee;
+            position: relative;
+            text-align: center;
+        }
+        .step-card-modern:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(37, 40, 85, 0.1);
+            border-color: var(--azul-principal);
+        }
+        .step-number-modern {
+            width: 60px;
+            height: 60px;
+            background: var(--azul-principal);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0 auto 25px;
+            box-shadow: 0 10px 20px rgba(37, 40, 85, 0.2);
+        }
+        .requisito-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding: 12px 15px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        .requisito-item:hover {
+            background: white;
+            box-shadow: 0 5px 15px rgba(37, 40, 85, 0.08);
+            transform: translateX(5px);
+        }
+        .requisito-item i {
+            color: var(--azul-principal);
+            font-size: 20px;
+            margin-right: 15px;
+            min-width: 25px;
+            text-align: center;
+        }
+        .faq-card-modern {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        .faq-card-modern .card-header {
+            background: transparent;
+            border: none;
+            padding: 0;
+        }
+        .faq-card-modern .btn-link {
+            color: white;
+            text-decoration: none;
+            padding: 20px 25px;
+            width: 100%;
+            text-align: left;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .faq-card-modern .btn-link:hover {
+            text-decoration: none;
+            background: rgba(255,255,255,0.05);
+        }
+        .faq-card-modern .card-body {
+            padding: 0 25px 25px;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        /* Ajuste para eliminar el fondo gris no deseado */
+        .hero-stats-card-3d {
+            display: none !important;
+        }
+        
+        /* Mejorar la transición entre secciones */
+        .about-area {
+            padding-top: 80px !important;
+        }
+        
+        /* NUEVO HERO ELEGANTE - SIN VIDEO */
+        .hero-elegante {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            overflow: hidden;
+            padding: 140px 0 80px;
+            margin-top: 70px; /* Espacio para el header fijo */
+        }
+        .hero-elegante .container {
+            position: relative;
+            z-index: 5;
+        }
+        .hero-bg-shape {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--azul-principal), var(--degradado-interno));
+            clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+            opacity: 0.03;
+        }
+        .hero-bg-shape-2 {
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: var(--azul-principal);
+            border-radius: 50%;
+            opacity: 0.02;
+        }
+        .hero-badge-elegante {
+            display: inline-block;
+            background: rgba(37, 40, 85, 0.08);
+            padding: 8px 20px;
+            border-radius: 50px;
+            color: var(--azul-principal);
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 1px;
+            margin-top: 20px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(37, 40, 85, 0.1);
+        }
+        .hero-title-elegante {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #1e2b4f;
+        }
+        .hero-title-elegante span {
+            color: var(--azul-principal);
+            position: relative;
+            display: inline-block;
+        }
+        .hero-title-elegante span:after {
+            content: '';
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: rgba(37, 40, 85, 0.1);
+            z-index: -1;
+        }
+        .hero-subtitle-elegante {
+            font-size: 20px;
+            color: var(--gris);
+            margin-bottom: 30px;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+        .hero-stats-elegante {
+            display: flex;
+            gap: 40px;
+            margin: 40px 0;
+        }
+        .stat-elegante {
+            text-align: left;
+        }
+        .stat-number-elegante {
+            display: block;
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--azul-principal);
+            line-height: 1;
+        }
+        .stat-label-elegante {
+            font-size: 14px;
+            color: var(--gris);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .hero-buttons-elegante {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .btn-elegante-primary {
+            background: var(--azul-principal);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: none;
+            font-size: 16px;
+            box-shadow: 0 10px 20px rgba(37, 40, 85, 0.2);
+            transition: all 0.3s ease;
+            border: none;
+        }
+        .btn-elegante-primary:hover {
+            background: var(--degradado-interno);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(37, 40, 85, 0.3);
+            color: white !important;
+        }
+        .btn-elegante-outline {
+            background: transparent;
+            color: var(--azul-principal);
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: none;
+            font-size: 16px;
+            border: 2px solid var(--azul-principal);
+            transition: all 0.3s ease;
+        }
+        .btn-elegante-outline:hover {
+            background: var(--azul-principal);
+            color: white !important;
+            transform: translateY(-3px);
+        }
+        .hero-image-wrapper {
+            position: relative;
+            z-index: 10;
+        }
+        .hero-image {
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+            width: 100%;
+            height: auto;
+            transition: all 0.5s ease;
+        }
+        .hero-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 40px 80px rgba(37, 40, 85, 0.15);
+        }
+        .floating-card {
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            background: white;
+            padding: 20px 25px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+        .floating-card i {
+            font-size: 32px;
+            color: var(--azul-principal);
+        }
+        .floating-card p {
+            margin: 0;
+            font-weight: 600;
+            color: var(--azul-principal);
+        }
+        .floating-card small {
+            display: block;
+            color: var(--gris);
+            font-size: 12px;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* AJUSTES PARA LA SECCIÓN DE CONTACTO */
+        .contact-card-modern {
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+        }
+        .contact-card-modern p {
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        .contact-card-modern .highlight-badge {
+            margin-top: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-elegante {
+                padding: 120px 0 60px;
+            }
+            .hero-title-elegante {
+                font-size: 42px;
+            }
+            .hero-stats-elegante {
+                justify-content: center;
+                gap: 20px;
+            }
+            .hero-buttons-elegante {
+                justify-content: center;
+            }
+            .floating-card {
+                display: none;
+            }
+            .contact-card-modern {
+                min-height: auto;
+            }
+        }
+        @media (max-width: 576px) {
+            .hero-title-elegante {
+                font-size: 36px;
+            }
+            .hero-stats-elegante {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            .stat-elegante {
+                text-align: center;
+                flex: 1;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+        <p class="browserupgrade">Estás usando un navegador <strong>obsoleto</strong>. Por favor <a href="http://browsehappy.com/">actualiza tu navegador</a> para mejorar tu experiencia.</p>
+    <![endif]-->
+    
     <!-- preloader area start -->
     <div id="preloader">
         <div class="loader"></div>
     </div>
     <!-- prealoader area end -->
-    <!-- header area start -->
+    
+    <!-- ========== HEADER AREA - IMPORTADO Y CORREGIDO ========== -->
     <header id="header">
-        <!-- header top area start -->
-        <div class="header-top">
-            <div class="container">
-                <div class="row d-flex flex-center">
-                    <div class="col-sm-8">
-                        <div class="ht-address">
-                            <ul>
-                                <li><i class="fa fa-phone"></i>+ 88 01916 444137</li>
-                                <li><i class="fa fa-envelope"></i>info@example.com</li>
-                            </ul>
+        <div class="header-two">
+            <div class="container-fluid px-0">
+                <div class="row align-items-center g-0 mx-0">
+                    <div class="col-lg-3 col-sm-6 d-block d-lg-none">
+                        <div class="logo">
+                            <a href="index.html"><img src="assets/images/icon/logo.png" alt="logo"></a>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="ht-social">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- header top area end -->
-        <!-- header bottom area start -->
-        <div class="header-bottom">
-            <div class="container">
-                <div class="header-bottom-inner">
-                    <div class="row align-items-center">
-                        <div class="col-lg-3 col-sm-9">
-                            <div class="logo">
-                                <a href="index.html"><img src="assets/images/icon/logo.png" alt="logo"></a>
-                            </div>
-                        </div>
-                        <div class="col-xl-8 col-lg-7 d-none d-lg-block">
-                            <div class="main-menu">
-                                <nav>
-                                    <ul id="m_menu_active">
-                                        <li><a href="javascript:void(0);">Home</a>
-                                            <ul class="submenu">
-                                                <li><a href="index.html">Home One</a></li>
-                                                <li><a href="index2.html">Home Two</a></li>
-                                                <li><a href="index3.html">Home Three</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="active"><a href="about.html">About</a></li>
-                                        <li><a href="javascript:void(0);">Courses</a>
-                                            <ul class="submenu">
-                                                <li><a href="courses.html">courses</a></li>
-                                                <li><a href="course-details.html">course details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="javascript:void(0);">teacher</a>
-                                            <ul class="submenu">
-                                                <li><a href="teachers.html">teachers</a></li>
-                                                <li><a href="teacher-details.html">teacher details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="javascript:void(0);">blog</a>
-                                            <ul class="submenu">
-                                                <li><a href="blog.html">blog</a></li>
-                                                <li><a href="blog-details.html">blog details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                        <div class="col-xl-1 col-lg-2 col-sm-3">
-                            <div class="hb-right">
-                                <ul> 
-                                    <li class="search_btn"><i class="fa fa-search"></i></li>
+                    <div class="col-lg-9 offset-lg-1 d-none d-lg-block">
+                        <div class="main-menu menu-style2">
+                            <nav>
+                                <ul id="m_menu_active">
+                                    <li class="active"><a href="javascript:void(0);">Inicio</a></li>
+                                    <li><a href="javascript:void(0);">Oferta</a>
+                                        <ul class="submenu">
+                                            <li><a href="courses.html">Academia</a></li>
+                                            <li><a href="course-details.html">Clubes</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="about.html">Admisiones</a></li>
+                                    <li><a href="#">Landing Page</a></li>
+
+                                    <li class="middle-logo">
+                                        <a href="index.html">
+                                            <img src="assets/images/icon/logo-middle.png" alt="logo">
+                                            <img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="logo">
+                                        </a>
+                                    </li>
+                                    <li><a href="#">Servicios</a></li>
+                                    <li><a href="javascript:void(0);">Nosotros</a>
+                                        <ul class="submenu">
+                                            <li><a href="blog.html">Vision y Mision</a></li>
+                                            <li><a href="blog-details.html">Proyectos</a></li>
+                                            <li><a href="blog-details.html">Blog</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="contact.html">Contacto</a></li>
                                 </ul>
-                            </div>
+                            </nav>
                         </div>
-                        <div class="col-12 d-block d-lg-none">
-                            <div id="mobile_menu"></div>
+                    </div>
+                    <div class="col-lg-2 col-sm-5">
+                        <div class="header-bottom-right-style-2">
+                            <ul>
+                                <li>
+                                    <a href="https://app.rafaelbucheli.com/login/?next=/" 
+                                    class="btn btn-primary btn-round" 
+                                    target="_blank">
+                                    SIGN UP
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
+                    </div><!-- col-lg-2 -->
+                    <div class="col-12 d-block d-lg-none">
+                        <div id="mobile_menu"></div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- header bottom area end -->
     </header>
-    <!-- header area end -->
+    <!-- ========== HEADER AREA END ========== -->
+    
     <!-- offset search area start -->
     <div class="offset-search">
         <form action="#">
-            <input type="text" name="search" placeholder="Sarch here...">
+            <input type="text" name="search" placeholder="Buscar aquí...">
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
     </div>
     <!-- offset search area end -->
+    
     <!-- body overlay area start -->
     <div class="body_overlay"></div>
     <!-- body overlay area end -->
-    <!-- crumbs area start -->
-    <div class="crumbs-area">
+    
+    <!-- ========== HERO AREA NUEVO - ELEGANTE Y LIMPIO ========== -->
+    <div class="hero-elegante">
+        <!-- Formas decorativas de fondo -->
+        <div class="hero-bg-shape"></div>
+        <div class="hero-bg-shape-2"></div>
+        
         <div class="container">
-            <div class="crumb-content">
-                <h4 class="crumb-title"><span>About </span>Us</h4>
-            </div>
-        </div>
-    </div>
-    <!-- crumbs area end --> 
-    <!-- about area start -->
-    <div class="about-area ptb--120">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="about-left-content">
-                        <div class="section-title">
-                             <span class="text-uppercase">about us</span>
-                            <h2>Welcome to</h2><h2><span>Our </span> <span class="primary-color">university</span></h2> 
-                        </div>
-                        <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-                        <a href="#" class="btn btn-primary btn-round">Read more</a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="abt-right-thumb">
-                        <div class="abt-rt-inner">
-                            <a class="expand-video" href="https://www.youtube.com/watch?v=cdfMgotGKIM"><i class="fa fa-play"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- about area end -->
-    <!-- take toure area start -->
-    <div class="take-toure-area ptb--120">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-                    <div class="section-title sec-style-two">
-                        <img class="title-top-shape" src="assets/images/icon/title-top-shape.png" alt="image">
-                        <span class="text-uppercase">Take A Tour</span>
-                        <h2>Video Tour on Edification</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="video-area">
-                <a class="expand-video" href="https://www.youtube.com/watch?v=cdfMgotGKIM"><i class="fa fa-play"></i></a>
-            </div>
-        </div>
-    </div>
-    <!-- take toure area end -->
- 
-     <!-- cta area start --> 
-    <div class="container pb--120">
-        <div class="cta-area primary-bg has-color ptb--50 pl-5 pr-5">
             <div class="row align-items-center">
-                <div class="col-md-9">
-                    <div class="cta-content">
-                        <p class="mb-2">Click to Join the Advance Workshop</p>
-                        <h2>Training in advance networking</h2>
+                <div class="col-lg-6">
+                    <!-- Badge minimalista -->
+                    <div class="hero-badge-elegante">
+                        <i class="fa fa-calendar mr-2"></i> PERIODO 2026 - 2027
+                    </div>
+                    
+                    <!-- Título principal -->
+                    <h1 class="hero-title-elegante">
+                        <span>Inscripciones</span> Abiertas
+                    </h1>
+                    
+                    <!-- Subtítulo -->
+                    <p class="hero-subtitle-elegante">
+                        Asegura el futuro de tu hijo en la Unidad Educativa Rafael Bucheli. 
+                        Educación de excelencia con metodologías innovadoras.
+                    </p>
+                    
+                    <!-- Estadísticas simples -->
+                    <div class="hero-stats-elegante">
+                        <div class="stat-elegante">
+                            <span class="stat-number-elegante">500+</span>
+                            <span class="stat-label-elegante">Estudiantes</span>
+                        </div>
+                        <div class="stat-elegante">
+                            <span class="stat-number-elegante">25</span>
+                            <span class="stat-label-elegante">Cupos x curso</span>
+                        </div>
+                        <div class="stat-elegante">
+                            <span class="stat-number-elegante">15</span>
+                            <span class="stat-label-elegante">Años</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Botones -->
+                    <div class="hero-buttons-elegante">
+                        <a href="#" class="btn-elegante-primary">
+                            <i class="fa fa-pencil-square-o mr-2"></i> Solicitar Cupo
+                        </a>
+                        <a href="#" class="btn-elegante-outline">
+                            <i class="fa fa-file-text-o mr-2"></i> Requisitos
+                        </a>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="cta-btn">
-                        <a class="btn btn-light btn-round" href="#">Join Now</a>
+                
+                <div class="col-lg-6">
+                    <div class="hero-image-wrapper">
+                        <!-- IMAGEN PRINCIPAL -->
+                        <img src="assets/images/slider/slider1.jpg" alt="Estudiantes UE Rafael Bucheli" class="hero-image">
+                        
+                        <!-- Tarjeta flotante decorativa -->
+                        <div class="floating-card">
+                            <i class="fa fa-graduation-cap"></i>
+                            <div>
+                                <p>Cupos limitados</p>
+                                <small>Inicia tu proceso hoy</small>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div> 
-    <!-- cta area end -->
-
-    <!-- teacher area start -->
-    <div class="teacher-area befr-themeoclor pb--70">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 col-md-6">
-                    <div class="section-title">
-                        <span class="text-uppercase">Learn from <span class="primary-color">the best</span></span>
-                        <h2>Our Teachers </h2> 
-                    </div>
-                </div>
-            </div>
-            <div class="teacher-carousel owl-carousel card-deck">
-              <div class="card mb-5"> 
-                <img src="assets/images/teacher/teacher-member1.jpg" alt="image"> 
-                <div class="card-body teacher-content p-25">  
-                  <h4 class="card-title mb-4"><a href="teachers.html">Patrick Garner Dony</a></h4>
-                  <span class="primary-color d-block mb-3">Economist</span>
-                  <p class="card-text">We’re a philosophical bunch here at School site and we have thought long and hard about.</p> 
-                  <ul class="list-inline">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                    <li><a href="#"><i class="fa fa-deviantart"></i></a></li>
-                    <li><a href="#"><i class="fa fa-github"></i></a></li>
-                  </ul>
-                </div>
-              </div><!-- card -->    
-
-              <div class="card mb-5"> 
-                <img src="assets/images/teacher/teacher-member2.jpg" alt="image"> 
-                <div class="card-body teacher-content p-25">  
-                  <h4 class="card-title mb-4"><a href="teachers.html">Cameron Brown</a></h4>
-                  <span class="primary-color d-block mb-3">Financier</span>
-                  <p class="card-text">We’re a philosophical bunch here at School site and we have thought long and hard about.</p> 
-                  <ul class="list-inline">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                    <li><a href="#"><i class="fa fa-deviantart"></i></a></li>
-                    <li><a href="#"><i class="fa fa-github"></i></a></li>
-                  </ul>
-                </div>
-              </div><!-- card -->    
-
-              <div class="card mb-5"> 
-                <img src="assets/images/teacher/teacher-member3.jpg" alt="image"> 
-                <div class="card-body teacher-content p-25">  
-                  <h4 class="card-title mb-4"><a href="teachers.html">Joseph Mack Monika</a></h4>
-                  <span class="primary-color d-block mb-3">Languages</span>
-                  <p class="card-text">We’re a philosophical bunch here at School site and we have thought long and hard about.</p> 
-                  <ul class="list-inline">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                    <li><a href="#"><i class="fa fa-deviantart"></i></a></li>
-                    <li><a href="#"><i class="fa fa-github"></i></a></li>
-                  </ul>
-                </div>
-              </div><!-- card -->  
-              <div class="card mb-5"> 
-                <img src="assets/images/teacher/teacher-member4.jpg" alt="image"> 
-                <div class="card-body teacher-content p-25">  
-                  <h4 class="card-title mb-4"><a href="teachers.html">Patrick Garner Dony</a></h4>
-                  <span class="primary-color d-block mb-3">Economist</span>
-                  <p class="card-text">We’re a philosophical bunch here at School site and we have thought long and hard about.</p> 
-                  <ul class="list-inline">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                    <li><a href="#"><i class="fa fa-deviantart"></i></a></li>
-                    <li><a href="#"><i class="fa fa-github"></i></a></li>
-                  </ul>
-                </div>
-              </div><!-- card -->    
             </div>
         </div>
     </div>
-    <!-- teacher area end -->
- 
+    <!-- HERO AREA END -->
+
+    <!-- El resto de tu contenido (Proceso, Requisitos, Fechas, Contacto, FAQ, CTA, Footer) permanece IGUAL -->
+    <!-- ... (todo tu código desde la sección de proceso de admisión hasta el final) ... -->
+    <!-- ========== El resto de tu contenido HTML empieza aquí ========== -->
+    
+    <!-- SECCIÓN DE PROCESO DE ADMISIÓN -->
+    <div id="proceso-admision" class="about-area pt--80 pb--70">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <div class="section-title-style2 black-title text-center">
+                        <span>Proceso de Admisión</span>
+                        <h2>4 pasos para formar parte</h2>
+                        <p class="mt-3 lead">Te guiamos en cada etapa para que la inscripción sea rápida y sencilla</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <!-- Paso 1 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="step-card-modern">
+                        <div class="step-number-modern">1</div>
+                        <h4 class="primary-color mb-3">Solicitud</h4>
+                        <p>Completa el formulario de inscripción en línea o retíralo en secretaría.</p>
+                    </div>
+                </div>
+                <!-- Paso 2 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="step-card-modern">
+                        <div class="step-number-modern">2</div>
+                        <h4 class="primary-color mb-3">Documentación</h4>
+                        <p>Entrega los requisitos solicitados (partida de nacimiento, notas, etc.).</p>
+                    </div>
+                </div>
+                <!-- Paso 3 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="step-card-modern">
+                        <div class="step-number-modern">3</div>
+                        <h4 class="primary-color mb-3">Evaluación</h4>
+                        <p>Entrevista y evaluación diagnóstica para conocer el nivel del estudiante.</p>
+                    </div>
+                </div>
+                <!-- Paso 4 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="step-card-modern">
+                        <div class="step-number-modern">4</div>
+                        <h4 class="primary-color mb-3">Matrícula</h4>
+                        <p>Formaliza la matrícula y asegura el cupo para el año lectivo.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-primary btn-round btn-lg" style="padding: 15px 45px;">
+                    <i class="fa fa-pencil mr-2"></i> Iniciar mi Solicitud
+                </a>
+                <p class="mt-3 text-muted">*Proceso 100% gratuito - Sin costo de inscripción</p>
+            </div>
+        </div>
+    </div>
+    <!-- SECCIÓN DE PROCESO DE ADMISIÓN END -->
+
+    <!-- SECCIÓN DE REQUISITOS -->
+    <div class="course-area pt--80 pb--70" style="background: #f8fafd;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <div class="section-title-style2 black-title text-center">
+                        <span>Documentación Necesaria</span>
+                        <h2>Requisitos para la Inscripción 2026</h2>
+                        <p class="mt-3">Asegúrate de tener todos los documentos antes de iniciar el proceso</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100" style="border: none; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 30px;">
+                        <h4 class="primary-color mb-4" style="font-size: 24px;">
+                            <i class="fa fa-id-card mr-2"></i> Documentos Generales
+                        </h4>
+                        <div class="requisito-item">
+                            <i class="fa fa-check-circle"></i>
+                            <span>Partida de nacimiento (original y copia)</span>
+                        </div>
+                        <div class="requisito-item">
+                            <i class="fa fa-check-circle"></i>
+                            <span>Cédula de identidad del estudiante (si aplica)</span>
+                        </div>
+                        <div class="requisito-item">
+                            <i class="fa fa-check-circle"></i>
+                            <span>Cédula de identidad del representante</span>
+                        </div>
+                        <div class="requisito-item">
+                            <i class="fa fa-check-circle"></i>
+                            <span>Planilla de servicios básicos (luz o agua)</span>
+                        </div>
+                        <div class="requisito-item">
+                            <i class="fa fa-check-circle"></i>
+                            <span>Certificado de votación del representante</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100" style="border: none; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 30px;">
+                        <h4 class="primary-color mb-4" style="font-size: 24px;">
+                            <i class="fa fa-book mr-2"></i> Documentos Académicos
+                        </h4>
+                        <div class="requisito-item">
+                            <i class="fa fa-check-circle"></i>
+                            <span>Certificado de promoción / notas (año anterior)</span>
+                        </div>
+                        <div class="requisito-item">
+                            <i class="fa fa-check-circle"></i>
+                            <span>Carpeta de estudiante (si aplica)</span>
+                        </div>
+                        <div class="requisito-item">
+                            <i class="fa fa-check-circle"></i>
+                            <span>4 fotos tamaño carné (color, fondo blanco)</span>
+                        </div>
+                        <div class="requisito-item">
+                            <i class="fa fa-check-circle"></i>
+                            <span>Ficha de inscripción firmada</span>
+                        </div>
+                        <div class="requisito-item">
+                            <i class="fa fa-check-circle"></i>
+                            <span>Carta de compromiso estudiantil</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- SECCIÓN DE REQUISITOS END -->
+
+    <!-- SECCIÓN DE FECHAS IMPORTANTES -->
+    <div class="event-area pt--80 pb--80">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <div class="section-title-style2 black-title text-center">
+                        <span>Calendario de Admisiones</span>
+                        <h2>Fechas Clave que no puedes perder</h2>
+                        <p class="mt-3">Marca estas fechas en tu calendario</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-6">
+                    <div class="media align-items-center mb-4" style="background: white; border-radius: 15px; padding: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.03);">
+                        <div class="media-head primary-bg" style="width: 100px; height: 100px; display: flex; flex-direction: column; justify-content: center; border-radius: 12px;">
+                            <span style="font-size: 28px;"><sub style="font-size: 16px;">ENE</sub>15</span>
+                            <p style="font-size: 20px;">2026</p>
+                        </div>
+                        <div class="media-body" style="padding-left: 25px;">
+                            <h4 style="font-size: 20px; margin-bottom: 8px;"><a href="#">Apertura de Inscripciones</a></h4>
+                            <p style="margin-bottom: 0;"><i class="fa fa-clock-o primary-color mr-2"></i>08:00 AM - Inicio del proceso</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="media align-items-center mb-4" style="background: white; border-radius: 15px; padding: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.03);">
+                        <div class="media-head primary-bg" style="width: 100px; height: 100px; display: flex; flex-direction: column; justify-content: center; border-radius: 12px;">
+                            <span style="font-size: 28px;"><sub style="font-size: 16px;">MAR</sub>15</span>
+                            <p style="font-size: 20px;">2026</p>
+                        </div>
+                        <div class="media-body" style="padding-left: 25px;">
+                            <h4 style="font-size: 20px; margin-bottom: 8px;"><a href="#">Jornada de Puertas Abiertas</a></h4>
+                            <p style="margin-bottom: 0;"><i class="fa fa-clock-o primary-color mr-2"></i>09:00 AM - Conoce nuestras instalaciones</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="media align-items-center mb-4" style="background: white; border-radius: 15px; padding: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.03);">
+                        <div class="media-head primary-bg" style="width: 100px; height: 100px; display: flex; flex-direction: column; justify-content: center; border-radius: 12px;">
+                            <span style="font-size: 28px;"><sub style="font-size: 16px;">ABR</sub>30</span>
+                            <p style="font-size: 20px;">2026</p>
+                        </div>
+                        <div class="media-body" style="padding-left: 25px;">
+                            <h4 style="font-size: 20px; margin-bottom: 8px;"><a href="#">Cierre de Inscripciones</a></h4>
+                            <p style="margin-bottom: 0;"><i class="fa fa-clock-o primary-color mr-2"></i>04:00 PM - Último día para solicitar cupo</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="media align-items-center mb-4" style="background: white; border-radius: 15px; padding: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.03);">
+                        <div class="media-head primary-bg" style="width: 100px; height: 100px; display: flex; flex-direction: column; justify-content: center; border-radius: 12px;">
+                            <span style="font-size: 28px;"><sub style="font-size: 16px;">MAY</sub>10</span>
+                            <p style="font-size: 20px;">2026</p>
+                        </div>
+                        <div class="media-body" style="padding-left: 25px;">
+                            <h4 style="font-size: 20px; margin-bottom: 8px;"><a href="#">Publicación de Resultados</a></h4>
+                            <p style="margin-bottom: 0;"><i class="fa fa-clock-o primary-color mr-2"></i>10:00 AM - Lista de admitidos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- SECCIÓN DE FECHAS IMPORTANTES END -->
+
+    <!-- SECCIÓN DE CONTACTO - REDISEÑADA -->
+    <div class="contact-area pt--80 pb--80" style="background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <div class="section-title-style2 black-title text-center">
+                        <span>Estamos para servirte</span>
+                        <h2>Oficina de Admisiones</h2>
+                        <p class="mt-3">Visítanos, llámanos o escríbenos. Te atenderemos con gusto</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <!-- Dirección -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="contact-card-modern">
+                        <div class="icon-wrapper">
+                            <i class="fa fa-map-marker"></i>
+                        </div>
+                        <h4>Dirección</h4>
+                        <p><strong>Av. Rumichaca Ñan</strong></p>
+                        <p>y Av. Morán Valverde</p>
+                        <p>Sector Quitumbe, Quito</p>
+                        <div class="highlight-badge">
+                            <i class="fa fa-car mr-1"></i> Parqueadero disponible
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Horario -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="contact-card-modern">
+                        <div class="icon-wrapper">
+                            <i class="fa fa-clock-o"></i>
+                        </div>
+                        <h4>Horario</h4>
+                        <p><strong>Lunes a Viernes</strong></p>
+                        <p>08:00 am - 12:00 pm</p>
+                        <p>14:00 pm - 16:00 pm</p>
+                        <div class="highlight-badge">
+                            <i class="fa fa-calendar-check-o mr-1"></i> Sábados cita previa
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contacto -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="contact-card-modern">
+                        <div class="icon-wrapper">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <h4>Contacto</h4>
+                        <p><i class="fa fa-envelope-o primary-color mr-2"></i> admisiones@</p>
+                        <p>rafaelbucheli.com</p>
+                        <p><i class="fa fa-phone primary-color mr-2"></i> (02) 303-5139</p>
+                        <p><i class="fa fa-whatsapp primary-color mr-2"></i> +593 99 999 9999</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Botones de acción -->
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <a href="#" class="btn btn-outline-primary btn-round btn-lg" style="padding: 12px 35px; margin: 0 5px;">
+                        <i class="fa fa-map mr-2"></i> Cómo llegar
+                    </a>
+                    <a href="#" class="btn btn-primary btn-round btn-lg" style="padding: 12px 35px; margin: 0 5px;">
+                        <i class="fa fa-whatsapp mr-2"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- SECCIÓN DE CONTACTO END -->
+
+    <!-- SECCIÓN DE PREGUNTAS FRECUENTES -->
+    <div class="testimonial-area ptb--120" style="background: linear-gradient(135deg, var(--degradado-externo), var(--color-linea));">
+        <img class="tst-bg" src="assets/images/bg/tst-bg-shape.png" alt="image">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="section-title sec-style-two text-center mb-5">
+                        <span class="text-uppercase primary-color mb-0" style="color: white !important;">Preguntas Frecuentes</span>
+                        <h2 class="text-white">Resolvemos tus dudas</h2>
+                        <p class="text-white-50">Lo que todo padre necesita saber antes de inscribir a su hijo</p>
+                    </div>
+                    
+                    <div class="accordion" id="faqAccordion">
+                        <!-- Pregunta 1 -->
+                        <div class="faq-card-modern">
+                            <div class="card-header" id="headingOne">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <i class="fa fa-chevron-down mr-3"></i> ¿Cuál es la edad mínima para Inicial?
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faqAccordion">
+                                <div class="card-body">
+                                    Para Inicial 1 (3 años) deben tener cumplidos hasta el 31 de diciembre. Para Inicial 2 (4 años), hasta el 31 de diciembre.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Pregunta 2 -->
+                        <div class="faq-card-modern">
+                            <div class="card-header" id="headingTwo">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <i class="fa fa-chevron-right mr-3"></i> ¿Realizan evaluaciones?
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
+                                <div class="card-body">
+                                    Sí, los nuevos estudiantes pasan por una entrevista y evaluación diagnóstica.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Pregunta 3 -->
+                        <div class="faq-card-modern">
+                            <div class="card-header" id="headingThree">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        <i class="fa fa-chevron-right mr-3"></i> ¿Hay becas?
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqAccordion">
+                                <div class="card-body">
+                                    Sí, contamos con becas por excelencia académica y descuentos para hermanos.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-5">
+                        <a href="#" class="btn btn-light btn-round btn-lg">
+                            <i class="fa fa-comments mr-2"></i> Más preguntas
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- SECCIÓN DE PREGUNTAS FRECUENTES END -->
+
+    <!-- CTA FINAL -->
+    <div class="cta-area secondary-bg has-color ptb--50" style="background: linear-gradient(45deg, var(--azul-principal), var(--degradado-interno));">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <div class="cta-content">
+                        <p class="mb-2" style="color: rgba(255,255,255,0.9);">Unidad Educativa Particular Rafael Bucheli</p>
+                        <h2 style="color: white; font-size: 36px;">¡Cupos limitados 2026!</h2>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="cta-btn text-md-right">
+                        <a class="btn btn-light btn-round btn-lg" href="#" style="padding: 14px 35px;">
+                            <i class="fa fa-pencil-square-o mr-2"></i> Inscribirme
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- CTA FINAL END -->
+
     <!-- footer area start -->
     <footer>
         <div class="footer-top has-color pt--120 pb--30">
@@ -293,60 +1124,63 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="widget widget-company">
-                            <a href="index.html"><img src="assets/images/icon/logo.png" alt="image"></a>
-                            <div class="address">
-                                <h6>OFFICE ADDRESS</h6>
-                                <p>London Oxford Street, 012 United Kingdom.</p>
+                            <a href="index.html"><img src="assets/images/icon/logo.png" alt="image" style="max-height: 50px;"></a>
+                            <div class="address mt-4">
+                                <h6>Dirección</h6>
+                                <p>Av. Rumichaca Ñan y Av. Morán Valverde, Quito</p>
                             </div>
                             <div class="address">
-                                <h6>BUSINESS PHONE</h6>
-                                <p>+012 3456 7890</p>
+                                <h6>Teléfono</h6>
+                                <p>(02) 303-5139</p>
                             </div>
                             <div class="address">
-                                <h6>BUSINESS EMAIL</h6>
-                                <p>Business@themerocket.net</p>
+                                <h6>Email</h6>
+                                <p>info@rafaelbucheli.com</p>
                             </div>
                             <ul class="social">
                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
                                 <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="widget footer-link">
-                            <h4 class="fwidget-title mb-5 pb-3 primary-color">Footer Menu</h4> 
+                            <h4 class="fwidget-title mb-4">Enlaces</h4>
                             <ul>
-                                <li><a href="#"><i class="fa fa-arrow-right"></i>Case Studies</a></li>
-                                <li><a href="#"><i class="fa fa-arrow-right"></i>About Us</a></li>
-                                <li><a href="#"><i class="fa fa-arrow-right"></i>Our Story</a></li>
-                                <li><a href="#"><i class="fa fa-arrow-right"></i>Blog Post</a></li>
-                                <li><a href="#"><i class="fa fa-arrow-right"></i>Work with Us</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i> Inicio</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i> Oferta Académica</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i> Admisiones 2026</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i> Servicios</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i> Contacto</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="widget widget-opening">
-                            <h4 class="fwidget-title mb-5 pb-3 primary-color">Working Day & time</h4>
-                            <p>Architecto beatae vitae dicta sunt ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</p>
+                            <h4 class="fwidget-title mb-4">Horario</h4>
                             <ul>
-                                <li><span>Mon - Tus :</span>6.00 am - 10.00 pm</li>
-                                <li><span>Wed - Tur :</span>8.00 am - 6.00 pm</li>
-                                <li><span>Friday :</span>3.00 pm - 8.00 pm</li>
-                                <li><span>Sunday :</span>Closed</li>
+                                <li><span>Lun - Vie :</span>08:00 - 12:00 / 14:00 - 16:00</li>
+                                <li><span>Sábados :</span>09:00 - 12:00 (cita previa)</li>
                             </ul>
+                            <div class="mt-4 p-3" style="background: rgba(255,255,255,0.05); border-radius: 10px;">
+                                <p class="mb-0 text-white">
+                                    <i class="fa fa-whatsapp primary-color mr-2"></i> 
+                                    WhatsApp: +593 99 999 9999
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>Copyright © 2022 <span><a class="primary-color" href="https://themeforest.net/user/pixelthemez/portfolio" target="_blank">Edification</a> </span> - All Rights Reserved. Made by <span><a class="primary-color" href="https://furioustheme.com/" target="_blank">Furioustheme</a></span></p>
+                    <p>Copyright © 2026 UE Rafael Bucheli | Desarrollado por AR CORPORATION</p>
                 </div>
             </div>
         </div>
     </footer>
     <!-- footer area end -->
- 
+
     <!-- jquery latest version -->
     <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
     <!-- bootstrap 4 js -->
@@ -357,6 +1191,17 @@
     <script src="assets/js/jquery.slicknav.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/scripts.js"></script>
+    
+    <!-- Script para el cambio de color del header al hacer scroll -->
+    <script>
+        $(window).on('scroll', function() {
+            if ($(window).scrollTop() > 50) {
+                $('.header-two').addClass('scrolled');
+            } else {
+                $('.header-two').removeClass('scrolled');
+            }
+        });
+    </script>
 </body>
 
 </html>

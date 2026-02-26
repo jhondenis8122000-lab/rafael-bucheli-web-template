@@ -656,7 +656,7 @@ a:hover {
   display: block;
   font-size: 13px;
   font-weight: 700;
-  color: var(--blanco);
+  color: #252855;
   text-transform: uppercase;
   padding: 43px 17px;
 }
@@ -1656,7 +1656,7 @@ span.post-date i {
   z-index: -1;
   height: 100%;
   width: 100%;
-  background: var(--color-linea);
+ background: #ffffff;
   opacity: 0.7;
 }
 
