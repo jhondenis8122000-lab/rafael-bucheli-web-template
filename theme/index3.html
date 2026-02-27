@@ -1,10 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="es">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Edification - Responsive Education HTML5 Template</title>
+    <title>Servicios - UE Rafael Bucheli</title>
+    <meta name="description" content="Conoce nuestros servicios escolares: guardería, comedor, bar/cafetería y seguro estudiantil.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico in the root directory -->
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
@@ -18,75 +19,552 @@
     <link rel="stylesheet" href="assets/css/default-css.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
+    <!-- loading css -->
+    <link rel="stylesheet" href="assets/css/loading.css">
     <!--color css-->
     <link rel="stylesheet" id="triggerColor" href="assets/css/triggerplate/color-0.css">
     <!-- modernizr css -->
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <style>
+        /* ===== ESTILOS ADICIONALES SOLO PARA LA PÁGINA DE SERVICIOS ===== */
+        :root {
+            --azul-principal: #252855;
+            --gris: #5d5d5c;
+            --blanco: #ffffff;
+            --degradado-interno: #182e4e;
+            --degradado-externo: #141b28;
+            --color-linea: #141d33;
+        }
+        
+        /* Page Header - Estilo para páginas internas */
+        .page-header-servicios {
+            position: relative;
+            background: linear-gradient(135deg, var(--degradado-externo) 0%, var(--color-linea) 100%);
+            padding: 180px 0 100px;
+            text-align: center;
+            color: var(--blanco);
+            overflow: hidden;
+            margin-top: 104px;
+        }
+        
+        .page-header-servicios::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('assets/images/icon/logo-middle.png') no-repeat center;
+            background-size: 600px;
+            opacity: 0.1;
+            transform: rotate(-5deg);
+        }
+        
+        .page-header-servicios h1 {
+            font-size: 52px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--blanco) !important;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .page-header-servicios p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.95;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb-area {
+            background: #f8f9fc;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .breadcrumb {
+            background: transparent;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .breadcrumb li {
+            display: inline-block;
+            font-size: 14px;
+        }
+        
+        .breadcrumb li a {
+            color: var(--azul-principal);
+        }
+        
+        .breadcrumb li.active {
+            color: var(--gris);
+        }
+        
+        .breadcrumb li+li:before {
+            content: "/";
+            padding: 0 10px;
+            color: #ccc;
+        }
+        
+        /* Intro Section */
+        .intro-section-servicios {
+            padding: 80px 0 40px;
+            background: var(--blanco);
+        }
+        
+        .intro-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .intro-content h2 {
+            font-size: 42px;
+            color: var(--azul-principal);
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        .intro-content .lead {
+            font-size: 18px;
+            color: var(--gris);
+            line-height: 1.8;
+        }
+        
+        /* Section Title */
+        .section-title-centered {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title-centered h2 {
+            font-size: 36px;
+            color: var(--azul-principal);
+            margin-bottom: 15px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title-centered h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--azul-principal);
+        }
+        
+        .section-title-centered p {
+            font-size: 18px;
+            color: var(--gris);
+            max-width: 700px;
+            margin: 20px auto 0;
+        }
+        
+        /* Tarjetas de Servicios */
+        .services-section {
+            padding: 60px 0;
+        }
+        
+        .service-card {
+            background: var(--blanco);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(37, 40, 85, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            margin-bottom: 30px;
+            border: 1px solid rgba(37,40,85,0.05);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(37, 40, 85, 0.15);
+            border-color: var(--azul-principal);
+        }
+        
+        .service-img {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .service-img::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, var(--azul-principal), transparent);
+            opacity: 0.8;
+        }
+        
+        .service-tag {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--azul-principal);
+            color: var(--blanco);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 13px;
+            z-index: 2;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .service-features {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            color: var(--blanco);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 13px;
+            z-index: 2;
+        }
+        
+        .service-features i {
+            margin-right: 5px;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            font-size: 22px;
+            color: var(--azul-principal);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .service-content p {
+            color: var(--gris);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .service-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .service-meta span {
+            font-size: 13px;
+            color: var(--gris);
+            background: #f0f0f0;
+            padding: 5px 15px;
+            border-radius: 50px;
+        }
+        
+        .service-meta span i {
+            color: var(--azul-principal);
+            margin-right: 5px;
+        }
+        
+        .btn-service {
+            border: 2px solid var(--azul-principal);
+            color: var(--azul-principal);
+            background: transparent;
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .btn-service:hover {
+            background: var(--azul-principal);
+            color: var(--blanco) !important;
+            transform: translateX(5px);
+        }
+        
+        /* Beneficios Cards */
+        .benefits-section {
+            padding: 60px 0;
+            background: #f8f9fc;
+        }
+        
+        .benefit-card {
+            text-align: center;
+            padding: 40px 25px;
+            background: var(--blanco);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(37,40,85,0.05);
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(37,40,85,0.1);
+        }
+        
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(37,40,85,0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover .benefit-icon {
+            background: var(--azul-principal);
+        }
+        
+        .benefit-card:hover .benefit-icon i {
+            color: var(--blanco);
+        }
+        
+        .benefit-icon i {
+            font-size: 36px;
+            color: var(--azul-principal);
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card h4 {
+            font-size: 20px;
+            color: var(--azul-principal);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .benefit-card p {
+            color: var(--gris);
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+        
+        /* Schedule Section */
+        .schedule-section {
+            background: linear-gradient(135deg, var(--degradado-externo) 0%, var(--color-linea) 100%);
+            padding: 80px 0;
+            color: var(--blanco);
+        }
+        
+        .schedule-section .section-title-centered h2 {
+            color: var(--blanco) !important;
+        }
+        
+        .schedule-section .section-title-centered p {
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .schedule-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px 25px;
+            height: 100%;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .schedule-card h4 {
+            color: var(--blanco);
+            font-size: 22px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .schedule-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(255,255,255,0.1);
+        }
+        
+        .schedule-item:last-child {
+            border-bottom: none;
+        }
+        
+        .schedule-item .day {
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .schedule-item .time {
+            color: var(--blanco);
+            font-weight: 600;
+        }
+        
+        .contact-info-small {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(37,40,85,0.3);
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .contact-info-small p {
+            color: var(--blanco);
+            margin-bottom: 0;
+        }
+        
+        .contact-info-small i {
+            color: var(--azul-principal);
+            margin-right: 8px;
+        }
+        
+        /* CTA Section */
+        .cta-section-servicios {
+            background: var(--blanco);
+            padding: 60px 0;
+            text-align: center;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cta-section-servicios h2 {
+            font-size: 36px;
+            color: var(--azul-principal) !important;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section-servicios p {
+            font-size: 18px;
+            color: var(--gris);
+            margin-bottom: 30px;
+        }
+        
+        .btn-cta-servicios {
+            background: var(--azul-principal);
+            color: var(--blanco) !important;
+            padding: 15px 45px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 10px 25px rgba(37,40,85,0.2);
+        }
+        
+        .btn-cta-servicios:hover {
+            background: var(--degradado-interno);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(37,40,85,0.3);
+        }
+        
+        /* Responsive */
+        @media (max-width: 991px) {
+            .page-header-servicios {
+                padding: 160px 0 80px;
+            }
+            .page-header-servicios h1 {
+                font-size: 42px;
+            }
+            .intro-content h2 {
+                font-size: 36px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-header-servicios {
+                padding: 140px 0 60px;
+            }
+            .page-header-servicios h1 {
+                font-size: 36px;
+            }
+            .intro-content h2 {
+                font-size: 32px;
+            }
+            .service-img {
+                height: 180px;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+            <p class="browserupgrade">Estás usando un navegador <strong>obsoleto</strong>. Por favor <a href="http://browsehappy.com/">actualiza tu navegador</a> para mejorar tu experiencia.</p>
         <![endif]-->
-    <!-- preloader area start -->
+    
+    <!-- loading area start - SIMPLIFICADO -->
     <div id="preloader">
-        <div class="loader"></div>
+        <div class="spinner"></div>
     </div>
-    <!-- prealoader area end -->
-    <!-- header area start -->
+    <!-- loading area end -->
+    
+    <!-- header area start (MANTENIDO EXACTAMENTE IGUAL) -->
     <header id="header">
         <!-- header two area start -->
-        <div class="header-three">
-            <div class="container-fluid">
-                <div class="row align-items-center">
-                    <div class="col-xl-2 col-lg-3 col-md-6">
+        <div class="header-two">
+            <div class="container-fluid px-0">
+                <div class="row align-items-center g-0 mx-0">
+                    <div class="col-lg-3 col-sm-6 d-block d-lg-none">
                         <div class="logo">
-                            <a href="index.html"><img src="assets/images/icon/logo-black.png" alt="logo"></a>
+                            <a href="index.html"><img src="assets/images/icon/logo.png" alt="logo"></a>
                         </div>
                     </div>
-                    <div class="col-lg-7 d-none d-lg-block">
+                    <div class="col-lg-9 offset-lg-1 d-none d-lg-block">
                         <div class="main-menu menu-style2">
                             <nav>
                                 <ul id="m_menu_active">
-                                    <li class="active"><a href="javascript:void(0);">Home</a>
+                                    <li><a href="javascript:void(0);">Inicio</a></li>
+                                    <li><a href="javascript:void(0);">Oferta</a>
                                         <ul class="submenu">
-                                            <li><a href="index.html">Home One</a></li>
-                                            <li><a href="index2.html">Home Two</a></li>
-                                            <li class="active"><a href="index3.html">Home Three</a></li>
+                                            <li><a href="courses.html">Academia</a></li>
+                                            <li><a href="actividades.html">Actividades</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="javascript:void(0);">Courses</a>
+                                    <li><a href="about.html">Admisiones</a></li>
+                                    <li><a href="#">Landing Page</a></li>
+
+                                    <li class="middle-logo">
+                                        <a href="index.html">
+                                            <img src="assets/images/icon/logo-middle.png" alt="logo">
+                                            <img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="logo">
+                                        </a>
+                                    </li>
+                                    <li class="active"><a href="#">Servicios</a></li>
+                                    <li><a href="javascript:void(0);">Nosotros</a>
                                         <ul class="submenu">
-                                            <li><a href="courses.html">courses</a></li>
-                                            <li><a href="course-details.html">course details</a></li>
+                                            <li><a href="blog.html">Visión y Misión</a></li>
+                                            <li><a href="blog-details.html">Proyectos</a></li>
+                                            <li><a href="blog-details.html">Blog</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="javascript:void(0);">teacher</a>
-                                        <ul class="submenu">
-                                            <li><a href="teachers.html">teachers</a></li>
-                                            <li><a href="teacher-details.html">teacher details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="javascript:void(0);">blog</a>
-                                        <ul class="submenu">
-                                            <li><a href="blog.html">blog</a></li>
-                                            <li><a href="blog-details.html">blog details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="contact.html">Contacto</a></li>
                                 </ul>
                             </nav>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-2 col-md-5">
-                        <div class="hb-s3-right">
+                    <div class="col-lg-2 col-sm-5">
+                        <div class="header-bottom-right-style-2">
                             <ul>
-                                <li><a class="btn btn-primary" href="#">Register Now</a></li> 
-                                <li class="search_btn"><i class="fa fa-search"></i></li>
+                                <li>
+                                    <a href="https://app.rafaelbucheli.com/login/?next=/" 
+                                    class="btn btn-primary btn-round" 
+                                    target="_blank">
+                                    SIGN UP
+                                    </a>
+                                </li>
                             </ul>
                         </div>
-                    </div>
+                    </div><!-- col-lg-2 -->
                     <div class="col-12 d-block d-lg-none">
                         <div id="mobile_menu"></div>
                     </div>
@@ -96,405 +574,265 @@
         <!-- header two area end -->
     </header>
     <!-- header area end -->
+    
     <!-- offset search area start -->
     <div class="offset-search">
         <form action="#">
-            <input type="text" name="search" placeholder="Sarch here...">
+            <input type="text" name="search" placeholder="Buscar aquí...">
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
     </div>
     <!-- offset search area end -->
+    
     <!-- body overlay area start -->
     <div class="body_overlay"></div>
     <!-- body overlay area end -->
-    <!-- hero area start -->
-    <div class="hero-area hero-s3 has-color">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-10 offset-xl-1">
-                    <div class="hero-content hero-content-s3">
-                        <h3>admission ‘ 20</h3>
-                        <h1><span class="primary-color">Your bright future is </span><b class="line-break"></b>our mission</h1>
-                        <p>Find Your Preferred Courses & Improve Your Skills</p>
-                        <form action="#">
-                            <div class="form-input-box mt-5">
-                                <div class="input">
-                                    <input type="text" name="search" placeholder="Keyword  Search">
-                                </div>
-                                <div class="input">
-                                    <select>
-                                        <option selected disabled>Category Course</option>
-                                        <option>Category Course</option>
-                                        <option>Category Course</option>
-                                    </select>
-                                </div>
-                                <div class="input">
-                                    <select>
-                                        <option selected disabled>Select Price Type</option>
-                                        <option>Select Price Type</option>
-                                        <option>Select Price Type</option>
-                                        <option>Select Price Type</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-submit">
-                                <button class="btn btn-primary"  type="submit">Search</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- hero area end --> 
     
-    <!-- course area start -->
-    <div class="course-area pt--120">
+    <!-- PAGE HEADER - SERVICIOS -->
+    <section class="page-header-servicios">
         <div class="container">
             <div class="row">
-                <div class="col-md-10 offset-md-1">
-                    <div class="section-title-style2 black-title title-tb text-center">
-                        <span>Build your career</span>
-                        <h2 class="primary-color">Featured Courses</h2>
-                    </div>
+                <div class="col-lg-12">
+                    <h1>Servicios Escolares</h1>
+                    <p>Facilidades diseñadas para el bienestar de los estudiantes y la tranquilidad de las familias</p>
                 </div>
             </div>
-            <div class="commn-carousel owl-carousel card-deck"> 
-                <div class="card mb-5">
-                    <div class="course-thumb">
-                        <img src="assets/images/course/cs-img1.jpg" alt="image">
-                        <span class="cs-price primary-bg">$150</span>
-                    </div>
-                    <div class="card-body  p-25"> 
-                        <div class="course-meta-title mb-4">
-                            <div class="course-meta-text">
-                                <h4><a href="course-details.html">Application Design Course</a></h4>
-                                <ul class="course-meta-stats">
-                                    <li><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></li>
-                                    <li>36 <i class="fa fa-comment"></i></li>
-                                    <li>85 <i class="fa fa-heart"></i></li>
-                                </ul>
-                            </div> 
-                            <a href="course-details.html"><img class="course-meta-thumbnail rounded-circle" src="assets/images/author/auth1.jpg" alt="image"> </a>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sciunt. Neque quisquam est, qui dolorem ipsum tatem.</p> 
-                        <ul class="course-meta-details list-inline  w-100">
-                            <li> 
-                             <p>Course</p>
-                             <span>3 Year</span>
-                            </li>
-                            <li>
-                             <p>Class Size</p>
-                              <span>18</span>
-                            </li> 
-                            <li>
-                             <p>Duration</p>
-                              <span>1 hour</span>
-                            </li>      
-                        </ul>  
-                  </div><!-- card-body -->
-                </div><!-- card -->
- 
-                <div class="card mb-5">
-                    <div class="course-thumb">
-                        <img src="assets/images/course/cs-img2.jpg" alt="image">
-                        <span class="cs-price primary-bg">$150</span>
-                    </div>
-                    <div class="card-body  p-25"> 
-                        <div class="course-meta-title mb-4">
-                            <div class="course-meta-text">
-                                <h4><a href="course-details.html">Data Structure & Algorithm</a></h4>
-                                <ul class="course-meta-stats">
-                                    <li><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></li>
-                                    <li>36 <i class="fa fa-comment"></i></li>
-                                    <li>85 <i class="fa fa-heart"></i></li>
-                                </ul>
-                            </div> 
-                            <a href="course-details.html"><img class="course-meta-thumbnail rounded-circle" src="assets/images/author/auth1.jpg" alt="image"> </a>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sciunt. Neque quisquam est, qui dolorem ipsum tatem.</p> 
-                        <ul class="course-meta-details list-inline  w-100">
-                            <li> 
-                             <p>Course</p>
-                             <span>3 Year</span>
-                            </li>
-                            <li>
-                             <p>Class Size</p>
-                              <span>18</span>
-                            </li> 
-                            <li>
-                             <p>Duration</p>
-                              <span>1 hour</span>
-                            </li>      
-                        </ul>  
-                  </div><!-- card-body -->
-                </div><!-- card -->
-  
-                <div class="card mb-5">
-                    <div class="course-thumb">
-                        <img src="assets/images/course/cs-img3.jpg" alt="image">
-                        <span class="cs-price primary-bg">$150</span>
-                    </div>
-                    <div class="card-body  p-25"> 
-                        <div class="course-meta-title mb-4">
-                            <div class="course-meta-text">
-                                <h4><a href="course-details.html">Android App Development</a></h4>
-                                <ul class="course-meta-stats">
-                                    <li><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></li>
-                                    <li>36 <i class="fa fa-comment"></i></li>
-                                    <li>85 <i class="fa fa-heart"></i></li>
-                                </ul>
-                            </div> 
-                            <a href="course-details.html"><img class="course-meta-thumbnail rounded-circle" src="assets/images/author/auth1.jpg" alt="image"> </a>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sciunt. Neque quisquam est, qui dolorem ipsum tatem.</p> 
-                        <ul class="course-meta-details list-inline  w-100">
-                            <li> 
-                             <p>Course</p>
-                             <span>3 Year</span>
-                            </li>
-                            <li>
-                             <p>Class Size</p>
-                              <span>18</span>
-                            </li> 
-                            <li>
-                             <p>Duration</p>
-                              <span>1 hour</span>
-                            </li>      
-                        </ul>  
-                  </div><!-- card-body -->
-                </div><!-- card --> 
-            </div> 
         </div>
-    </div>
-    <!-- course area end -->
-    <!-- blog area start -->
-    <div class="feature-blog  ptb--120">
+    </section>
+   
+    <!-- INTRO SECTION -->
+    <section class="intro-section-servicios">
         <div class="container">
-            <div class="row">
-                <div class="col-md-10 offset-md-1">
-                    <div class="section-title-style2 black-title title-tb text-center">
-                        <span>Top stories</span>
-                        <h2 class="primary-color">Blog & News </h2>
-                    </div>
-                </div>
-            </div>
-                       <div class="row">
-                <div class="blog-carousel owl-carousel card-deck">                     
-                  <div class="card mb-5"> 
-                    <img class="card-img-top" src="assets/images/blog/blog-thumbnail1.jpg" alt="image">
-                    <div class="card-body p-25"> 
-                        <ul class="list-inline primary-color mb-3">
-                            <li><i class="fa fa-clock-o"></i> AUGUST 6, 2017</li>
-                            <li><i class="fa fa-comments"></i> 3 Comments</li>
-                        </ul>
-                      <h4 class="card-title mb-4"><a href="blog-details.html">The Death Of architechture</a></h4>
-                      <p class="card-text">We’re a philosophical bunch here at School site and we have thought long and hard about.</p> 
-                      <a class="btn btn-primary btn-round btn-sm" href="blog-details.html"> Read More </a>
-                    </div>
-                  </div><!-- card -->                
-                  <div class="card mb-5"> 
-                    <img class="card-img-top" src="assets/images/blog/blog-thumbnail2.jpg" alt="image">
-                    <div class="card-body p-25"> 
-                        <ul class="list-inline primary-color mb-3">
-                            <li><i class="fa fa-clock-o"></i> AUGUST 6, 2017</li>
-                            <li><i class="fa fa-comments"></i> 3 Comments</li>
-                        </ul>
-                      <h4 class="card-title mb-4"><a href="blog-details.html">Aenean id ullamcorper</a></h4>
-                      <p class="card-text">We’re a philosophical bunch here at School site and we have thought long and hard about.</p> 
-                      <a class="btn btn-primary btn-round btn-sm" href="blog-details.html"> Read More </a>
-                    </div>
-                  </div><!-- card -->
-       
-                  <div class="card mb-5"> 
-                    <img class="card-img-top" src="assets/images/blog/blog-thumbnail3.jpg" alt="image">
-                    <div class="card-body p-25"> 
-                        <ul class="list-inline primary-color mb-3">
-                            <li><i class="fa fa-clock-o"></i> AUGUST 6, 2017</li>
-                            <li><i class="fa fa-comments"></i> 3 Comments</li>
-                        </ul>
-                      <h4 class="card-title mb-4"><a href="blog-details.html">The Death Of architechture</a></h4>
-                      <p class="card-text">We’re a philosophical bunch here at School site and we have thought long and hard about.</p> 
-                      <a class="btn btn-primary btn-round btn-sm" href="blog-details.html"> Read More </a>
-                    </div>
-                  </div><!-- card -->         
-                  <div class="card mb-5"> 
-                    <img class="card-img-top" src="assets/images/blog/blog-thumbnail1.jpg" alt="image">
-                    <div class="card-body p-25"> 
-                        <ul class="list-inline primary-color mb-3">
-                            <li><i class="fa fa-clock-o"></i> AUGUST 6, 2017</li>
-                            <li><i class="fa fa-comments"></i> 3 Comments</li>
-                        </ul>
-                      <h4 class="card-title mb-4"><a href="blog-details.html">The Death Of architechture</a></h4>
-                      <p class="card-text">We’re a philosophical bunch here at School site and we have thought long and hard about.</p> 
-                      <a class="btn btn-primary btn-round btn-sm" href="blog-details.html"> Read More </a>
-                    </div>
-                  </div><!-- card -->    
-                </div><!-- blog-carousel -->
-            </div><!-- blog-carousel -->
-        </div>
-    </div>
-    <!-- blog area end -->
-    <!-- take toure area start -->
-    <div class="take-toure-area ptb--120">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 offset-md-1">
-                    <div class="section-title-style2 white-title text-center">
-                        <span>Take A Tour</span>
-                        <h2>Video Tour on Edification</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="video-area">
-                <a class="expand-video" href="https://www.youtube.com/watch?v=cdfMgotGKIM"><i class="fa fa-play"></i></a>
+            <div class="intro-content">
+                <h2>Más que un colegio</h2>
+                <p class="lead">En la Unidad Educativa Rafael Bucheli ofrecemos servicios complementarios que facilitan la conciliación familiar y laboral, garantizando el bienestar, la seguridad y la comodidad de nuestros estudiantes durante toda su jornada escolar.</p>
             </div>
         </div>
-    </div>
-    <!-- take toure area end -->
-
-    <!-- events area start -->
-    <div class="event-area pt--120 pb--80 pt-0">
+    </section>
+    
+    <!-- SERVICIOS PRINCIPALES -->
+    <section class="services-section">
         <div class="container">
-            <div class="row">
-                <div class="col-md-10 offset-md-1">
-                    <div class="section-title-style2 black-title text-center">
-                        <span>Join with us</span>
-                        <h2>Upcoming Events</h2>
-                    </div>
-                </div>
+            <div class="section-title-centered">
+                <h2>Nuestros Servicios</h2>
+                <p>Todo lo que necesitas para el día a día escolar</p>
             </div>
             <div class="row">
-                <div class="col-md-6">
-                    <div class="media align-items-center mb-5">
-                        <div class="media-head primary-bg">
-                            <span><sub>MAR</sub>25</span>
-                            <p>2018</p>
+                <!-- Guardería / Aula Matinal -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('assets/images/icon/logo-middle.png');">
+                            <span class="service-tag">Conciliación</span>
+                            <span class="service-features"><i class="fa fa-clock-o"></i> 07:30 - 08:30</span>
                         </div>
-                        <div class="media-body">
-                            <h4><a href="#">Affiliate Marketing</a></h4>
-                            <p><i class="fa fa-clock-o"></i>05:23 AM - 09:23 AM</p>
-                        </div>
-                    </div> <!-- media -->
-                </div><!-- col-md-6 -->
-                <div class="col-md-6">
-                    <div class="media align-items-center mb-5">
-                        <div class="media-head primary-bg">
-                            <span><sub>OCT</sub>25</span>
-                            <p>2018</p>
-                        </div>
-                        <div class="media-body">
-                            <h4><a href="#">Facebook Marketing</a></h4>
-                            <p><i class="fa fa-clock-o"></i>05:23 AM - 09:23 AM</p>
-                        </div>
-                    </div> <!-- media -->
-                </div><!-- col-md-6 --> 
-                <div class="col-md-6">
-                    <div class="media align-items-center mb-5">
-                        <div class="media-head primary-bg">
-                            <span><sub>NOV</sub>25</span>
-                            <p>2018</p>
-                        </div>
-                        <div class="media-body">
-                            <h4><a href="#">Edustar Autumn</a></h4>
-                            <p><i class="fa fa-clock-o"></i>05:23 AM - 09:23 AM</p>
-                        </div>
-                    </div> <!-- media -->
-                </div><!-- col-md-6 -->  
-                <div class="col-md-6">
-                    <div class="media align-items-center mb-5">
-                        <div class="media-head primary-bg">
-                            <span><sub>DEC</sub>25</span>
-                            <p>2018</p>
-                        </div>
-                        <div class="media-body">
-                            <h4><a href="#">Workshop PHP</a></h4>
-                            <p><i class="fa fa-clock-o"></i>05:23 AM - 09:23 AM</p>
-                        </div>
-                    </div> <!-- media -->
-                </div><!-- col-md-6 -->   
-            </div>
-        </div>
-    </div>
-    <!-- events area end -->
-
-    <div class="testimonial-area ptb--120"><!-- testimonial area start -->
-        <img class="tst-bg" src="assets/images/bg/tst-bg-shape.png" alt="image">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 offset-lg-3 text-center">
-                    <div class="tst-carousel owl-carousel">
-                        <div class="testimonial-content pb--40">
-                            <div class="section-title sec-style-two">
-                                <span class="text-uppercase primary-color mb-0">Our happy students</span>
-                                <h2>Testimonial</h2>
+                        <div class="service-content">
+                            <h3>Aula Matinal / Guardería</h3>
+                            <p>Facilitamos la incorporación temprana de los estudiantes con un espacio seguro y supervisado desde las 7:30 de la mañana. Los niños pueden desayunar, realizar actividades lúdicas y prepararse para iniciar su jornada escolar.</p>
+                            <div class="service-meta">
+                                <span><i class="fa fa-child"></i> Desde 2 años</span>
+                                <span><i class="fa fa-cutlery"></i> Desayuno incluido</span>
+                                <span><i class="fa fa-calendar"></i> Lun - Vie</span>
                             </div>
-                            <h3>‘‘ Vous devez profiter de la vie. Toujours aimez, les personnespositives penser. ‘‘</h3>
-                            <h4>Kawsar Ahhamed</h4>
-                            <span>App Developer</span>
-                        </div>  
-                        <div class="testimonial-content pb--40">
-                            <div class="section-title sec-style-two">
-                                <span class="text-uppercase primary-color mb-0">Our happy students</span>
-                                <h2>Testimonial</h2>
-                            </div>
-                            <h3>‘‘ Vous devez profiter de la vie. Toujours aimez, les personnespositives penser. ‘‘</h3>
-                            <h4>Kawsar Ahhamed</h4>
-                            <span>App Developer</span>
-                        </div>  
-                        <div class="testimonial-content pb--40">
-                            <div class="section-title sec-style-two">
-                                <span class="text-uppercase primary-color mb-0">Our happy students</span>
-                                <h2>Testimonial</h2>
-                            </div>
-                            <h3>‘‘ Vous devez profiter de la vie. Toujours aimez, les personnespositives penser. ‘‘</h3>
-                            <h4>Kawsar Ahhamed</h4>
-                            <span>App Developer</span>
-                        </div> 
-                    </div>
-                </div><!-- row -->
-            </div><!-- row -->
-        </div><!-- container -->
-    </div><!-- testimonial-area --> 
-
-    <!-- cta area start -->
-    <div class="cta-area has-color primary-bg cta-area ptb--50"> 
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-9">
-                    <div class="cta-content">
-                        <p class="mb-2">Click to Join the Advance Workshop</p>
-                        <h2>Training in advance networking</h2>
+                            <a href="#" class="btn-service">Solicitar información →</a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="cta-btn">
-                        <a class="btn btn-light btn-round" href="#">Join Now</a>
+                
+                <!-- Comedor Escolar -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('assets/images/icon/logo-middle.png');">
+                            <span class="service-tag">Nutrición</span>
+                            <span class="service-features"><i class="fa fa-clock-o"></i> 14:00 - 16:00</span>
+                        </div>
+                        <div class="service-content">
+                            <h3>Comedor Escolar</h3>
+                            <p>Servicio de alimentación saludable y equilibrada con menús diseñados por nutricionistas especializados. Ofrecemos comidas variadas que cumplen con los estándares nutricionales y se adaptan a las necesidades de cada edad.</p>
+                            <div class="service-meta">
+                                <span><i class="fa fa-cutlery"></i> Cocina diaria</span>
+                                <span><i class="fa fa-heart"></i> Menús saludables</span>
+                                <span><i class="fa fa-users"></i> Supervisión</span>
+                            </div>
+                            <a href="#" class="btn-service">Ver menú mensual →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bar / Cafetería -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('assets/images/icon/logo-middle.png');">
+                            <span class="service-tag">Conveniencia</span>
+                            <span class="service-features"><i class="fa fa-clock-o"></i> Recreos</span>
+                        </div>
+                        <div class="service-content">
+                            <h3>Bar / Cafetería</h3>
+                            <p>Espacio acogedor donde los estudiantes pueden adquirir refrigerios saludables durante los recreos. Ofrecemos opciones variadas que incluyen frutas, lácteos, panadería artesanal y bebidas nutritivas.</p>
+                            <div class="service-meta">
+                                <span><i class="fa fa-coffee"></i> Desayunos</span>
+                                <span><i class="fa fa-cutlery"></i> Refrigerios</span>
+                                <span><i class="fa fa-smile-o"></i> Opciones saludables</span>
+                            </div>
+                            <a href="#" class="btn-service">Conocer productos →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Seguro Estudiantil -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('assets/images/icon/logo-middle.png');">
+                            <span class="service-tag">Protección</span>
+                            <span class="service-features"><i class="fa fa-shield"></i> Cobertura total</span>
+                        </div>
+                        <div class="service-content">
+                            <h3>Seguro Estudiantil</h3>
+                            <p>Protección integral para nuestros estudiantes durante su permanencia en el centro y en actividades escolares. El seguro cubre accidentes, consulta médica general, urgencias y traslados.</p>
+                            <div class="service-meta">
+                                <span><i class="fa fa-ambulance"></i> Emergencias</span>
+                                <span><i class="fa fa-stethoscope"></i> Consulta médica</span>
+                                <span><i class="fa fa-medkit"></i> Primeros auxilios</span>
+                            </div>
+                            <a href="#" class="btn-service">Ver coberturas →</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- cta area end -->
-
+    </section>
+    
+    <!-- BENEFICIOS -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-title-centered">
+                <h2>Ventajas de nuestros servicios</h2>
+                <p>Pensados para el bienestar de los estudiantes y la tranquilidad de las familias</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fa fa-clock-o"></i>
+                        </div>
+                        <h4>Conciliación laboral</h4>
+                        <p>Horarios extendidos que se adaptan a las necesidades de las familias trabajadoras.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fa fa-heartbeat"></i>
+                        </div>
+                        <h4>Alimentación saludable</h4>
+                        <p>Menús equilibrados supervisados por nutricionistas para garantizar el desarrollo óptimo.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fa fa-shield"></i>
+                        </div>
+                        <h4>Seguridad garantizada</h4>
+                        <p>Personal capacitado y espacios adaptados para la protección de los estudiantes.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fa fa-smile-o"></i>
+                        </div>
+                        <h4>Bienestar integral</h4>
+                        <p>Atención a las necesidades físicas, emocionales y sociales de los alumnos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- HORARIOS -->
+    <section class="schedule-section">
+        <div class="container">
+            <div class="section-title-centered">
+                <h2>Horarios de Servicios</h2>
+                <p>Disponibilidad para cada etapa escolar</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="schedule-card">
+                        <h4>Aula Matinal</h4>
+                        <div class="schedule-item">
+                            <span class="day">Lunes a Viernes</span>
+                            <span class="time">07:30 - 08:30</span>
+                        </div>
+                        <div class="contact-info-small">
+                            <p><i class="fa fa-phone"></i> Ext. 101</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="schedule-card">
+                        <h4>Comedor Escolar</h4>
+                        <div class="schedule-item">
+                            <span class="day">Infantil y Primaria</span>
+                            <span class="time">14:00 - 15:00</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="day">EGB y Bachillerato</span>
+                            <span class="time">15:00 - 16:00</span>
+                        </div>
+                        <div class="contact-info-small">
+                            <p><i class="fa fa-phone"></i> Ext. 102</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="schedule-card">
+                        <h4>Bar / Cafetería</h4>
+                        <div class="schedule-item">
+                            <span class="day">Recreo mañana</span>
+                            <span class="time">10:00 - 10:30</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="day">Recreo tarde</span>
+                            <span class="time">15:30 - 16:00</span>
+                        </div>
+                        <div class="contact-info-small">
+                            <p><i class="fa fa-phone"></i> Ext. 103</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA -->
+    <section class="cta-section-servicios">
+        <div class="container">
+            <h2>¿Necesitas más información?</h2>
+            <p>Descubre cómo nuestros servicios pueden facilitar tu rutina diaria.</p>
+            <a href="#" class="btn-cta-servicios">Solicitar información</a>
+        </div>
+    </section>
+    
+    <!-- footer area start (MANTENIDO EXACTAMENTE IGUAL) -->
     <footer>
-        <div class="footer-top  has-color pt--120 pb--30">
+        <div class="footer-top has-color pt--120 pb--30">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="widget widget-company">
                             <a href="index.html"><img src="assets/images/icon/logo.png" alt="image"></a>
                             <div class="address">
-                                <h6>OFFICE ADDRESS</h6>
-                                <p>London Oxford Street, 012 United Kingdom.</p>
+                                <h6>Dirección</h6>
+                                <p>Unidad Educativa Rafael Bucheli, Quito, Ecuador.</p>
                             </div>
                             <div class="address">
-                                <h6>BUSINESS PHONE</h6>
-                                <p>+012 3456 7890</p>
+                                <h6>Teléfono</h6>
+                                <p>(02) 303-5139</p>
                             </div>
                             <div class="address">
-                                <h6>BUSINESS EMAIL</h6>
-                                <p>Business@themerocket.net</p>
+                                <h6>Correo Electrónico</h6>
+                                <p>secretaria@rafaelbucheli.edu.ec</p>
                             </div>
                             <ul class="social">
                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -506,35 +844,35 @@
                     </div>
                     <div class="col-md-3">
                         <div class="widget footer-link">
-                            <h4 class="fwidget-title mb-5 pb-3 primary-color">Footer Menu</h4> 
+                            <h4 class="fwidget-title mb-5 pb-3 primary-color">Menú del Pie</h4> 
                             <ul>
-                                <li><a href="#"><i class="fa fa-arrow-right"></i>Case Studies</a></li>
-                                <li><a href="#"><i class="fa fa-arrow-right"></i>About Us</a></li>
-                                <li><a href="#"><i class="fa fa-arrow-right"></i>Our Story</a></li>
-                                <li><a href="#"><i class="fa fa-arrow-right"></i>Blog Post</a></li>
-                                <li><a href="#"><i class="fa fa-arrow-right"></i>Work with Us</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i>Casos de Estudio</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i>Nosotros</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i>Nuestra Historia</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i>Publicaciones</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i>Trabaja con Nosotros</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="widget widget-opening">
-                            <h4 class="fwidget-title mb-5 pb-3 primary-color">Working Day & time</h4>
-                            <p>Architecto beatae vitae dicta sunt ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</p>
+                            <h4 class="fwidget-title mb-5 pb-3 primary-color">Días y Horas de Trabajo</h4>
                             <ul>
-                                <li><span>Mon - Tus :</span>6.00 am - 10.00 pm</li>
-                                <li><span>Wed - Tur :</span>8.00 am - 6.00 pm</li>
-                                <li><span>Friday :</span>3.00 pm - 8.00 pm</li>
-                                <li><span>Sunday :</span>Closed</li>
+                                <li><span>Lun - Mar :</span>6.00 am - 10.00 pm</li>
+                                <li><span>Mié - Jue :</span>8.00 am - 6.00 pm</li>
+                                <li><span>Viernes :</span>3.00 pm - 8.00 pm</li>
+                                <li><span>Domingo :</span>Cerrado</li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>Copyright &copy; 2018 <span><a target="_blank" href="https://themeforest.net/user/pixelthemez/portfolio" class="primary-color">Edification</a> </span> - All Rights Reserved. Made by <span><a class="primary-color" href="https://furioustheme.com/" target="_blank">Furioustheme</a></span></p>
+                    <p>Copyright © 2026 <span><a class="primary-color" href="https://themeforest.net/user/pixelthemez/portfolio" target="_blank">Rafael Bucheli</a> </span> - Todos los derechos reservados. Hecho por <span><a class="primary-color" href="https://rafaelbucheli.com/" target="_blank">RafaelBucheli</a></span></p>
                 </div>
             </div>
         </div>
     </footer>
+    <!-- footer area end -->
  
     <!-- jquery latest version -->
     <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
@@ -545,9 +883,9 @@
     <script src="assets/js/jquery.magnific-popup.min.js"></script>
     <script src="assets/js/jquery.slicknav.min.js"></script>
     <script src="assets/js/plugins.js"></script>
-    <!-- google map -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBO_5h890WNShs_YLGivCBfs2U89qXR-7Y&callback=initMap"></script>
     <script src="assets/js/scripts.js"></script>
+    <!-- loading js -->
+    <script src="assets/js/loading.js"></script>
 </body>
 
 </html>

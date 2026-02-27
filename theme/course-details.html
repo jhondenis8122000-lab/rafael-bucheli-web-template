@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Actividades Extracurriculares - UE Rafael Bucheli</title>
-    <meta name="description" content="Descubre nuestras actividades extracurriculares: deportes, artes, talleres técnicos y grupos elite que complementan la formación integral.">
+    <meta name="description" content="Descubre nuestras actividades extracurriculares: deportes, artes, talleres técnicos y grupos elite.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico in the root directory -->
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
@@ -26,7 +26,7 @@
     <!-- modernizr css -->
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
     <style>
-        /* ===== ESTILOS CON PALETA INSTITUCIONAL ===== */
+        /* ===== ESTILOS CORREGIDOS PARA ACTIVIDADES ===== */
         :root {
             --azul-principal: #252855;
             --gris: #5d5d5c;
@@ -34,69 +34,37 @@
             --degradado-interno: #182e4e;
             --degradado-externo: #141b28;
             --color-linea: #141d33;
-            --acento: #252855;
-            
-            /* Sombras y efectos basados en la paleta */
-            --shadow-sm: 0 5px 20px rgba(37,40,85,0.08);
-            --shadow-md: 0 10px 30px rgba(37,40,85,0.12);
-            --shadow-lg: 0 20px 40px rgba(37,40,85,0.2);
-            --gradient-primary: linear-gradient(135deg, var(--azul-principal) 0%, var(--degradado-interno) 100%);
-            --gradient-externo: linear-gradient(135deg, var(--degradado-externo) 0%, var(--color-linea) 100%);
-            --gradient-accent: linear-gradient(135deg, var(--azul-principal) 0%, var(--degradado-interno) 100%);
         }
         
-        /* COMPENSACIÓN POR HEADER FIJO */
-        body {
-            padding-top: 0;
-            font-family: 'Muli', sans-serif;
-            overflow-x: hidden;
-            color: var(--gris);
-        }
-        
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Roboto Slab', serif;
-        }
-        
-        /* ===== HEADER PERSONALIZADO ===== */
-        .header-two {
-            background: rgba(255,255,255,0.98) !important;
-            box-shadow: var(--shadow-sm) !important;
-            border-bottom: 1px solid rgba(37,40,85,0.05);
-        }
-        
-        .main-menu.menu-style2 nav ul li a {
+        /* SOBREESCRIBIR ESTILOS DEL TEMPLATE PARA ESTA PÁGINA */
+        .page-header-actividades h1,
+        .page-header-actividades h1 span,
+        .intro-content h2,
+        .section-title-centered h2,
+        .section-title-centered h2 span,
+        .activity-content h3,
+        .elite-card h3,
+        .achievement-number {
             color: var(--azul-principal) !important;
-            font-weight: 600;
         }
         
-        .middle-logo a img {
-            max-height: 70px;
-            width: auto;
-            filter: drop-shadow(0 5px 10px rgba(37,40,85,0.1));
-        }
-        
-        .btn-primary.btn-round {
-            background: var(--azul-principal) !important;
-            border: 2px solid var(--azul-principal) !important;
+        .elite-card h3,
+        .elite-section .section-title-centered h2 {
             color: var(--blanco) !important;
         }
         
-        .btn-primary.btn-round:hover {
-            background: transparent !important;
-            color: var(--azul-principal) !important;
-        }
-        
-        /* ===== PAGE HEADER ===== */
-        .page-header-elite {
+        /* Page Header */
+        .page-header-actividades {
             position: relative;
-            background: var(--blanco);
+            background: linear-gradient(135deg, var(--degradado-externo) 0%, var(--color-linea) 100%);
             padding: 200px 0 120px;
             text-align: center;
+            color: var(--blanco);
             overflow: hidden;
-            border-bottom: 1px solid rgba(37,40,85,0.05);
+            margin-top: 104px;
         }
         
-        .page-header-elite::before {
+        .page-header-actividades::before {
             content: '';
             position: absolute;
             top: 0;
@@ -105,44 +73,33 @@
             bottom: 0;
             background: url('assets/images/icon/logo-middle.png') no-repeat center;
             background-size: 600px;
-            opacity: 0.03;
+            opacity: 0.1;
             transform: rotate(-5deg);
         }
         
-        .page-header-elite h1 {
-            font-size: 64px;
+        .page-header-actividades h1 {
+            font-size: 56px;
             font-weight: 800;
             margin-bottom: 20px;
-            color: var(--azul-principal) !important;
-            letter-spacing: -0.5px;
-            text-transform: uppercase;
-            position: relative;
-            display: inline-block;
+            color: var(--blanco) !important;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
         
-        .page-header-elite h1::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 4px;
-            background: var(--azul-principal);
-            border-radius: 4px;
+        .page-header-actividades h1 span {
+            color: var(--blanco) !important;
+            font-weight: 800;
         }
         
-        .page-header-elite p {
-            font-size: 22px;
-            color: var(--gris);
+        .page-header-actividades p {
+            font-size: 20px;
             max-width: 700px;
-            margin: 30px auto 0;
-            font-weight: 300;
+            margin: 0 auto;
+            color: rgba(255,255,255,0.9);
         }
         
-        /* ===== BREADCRUMB ===== */
+        /* Breadcrumb */
         .breadcrumb-area {
-            background: #f8fafc;
+            background: #f8f9fc;
             padding: 15px 0;
             border-bottom: 1px solid #eee;
         }
@@ -155,15 +112,27 @@
             color: var(--gris);
         }
         
-        /* ===== INTRO SECTION ===== */
+        .breadcrumb li+li:before {
+            content: "/";
+            padding: 0 10px;
+            color: #ccc;
+        }
+        
+        /* Intro Section */
         .intro-section {
             padding: 80px 0 40px;
             background: var(--blanco);
         }
         
+        .intro-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
         .intro-content h2 {
             font-size: 48px;
-            color: var(--azul-principal);
+            color: var(--azul-principal) !important;
             margin-bottom: 25px;
             font-weight: 800;
         }
@@ -172,18 +141,17 @@
             font-size: 20px;
             color: var(--gris);
             line-height: 1.7;
-            font-weight: 300;
         }
         
-        /* ===== SECTION TITLE ===== */
+        /* Section Title */
         .section-title-centered {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
         
         .section-title-centered h2 {
             font-size: 42px;
-            color: var(--azul-principal);
+            color: var(--azul-principal) !important;
             margin-bottom: 15px;
             font-weight: 800;
             position: relative;
@@ -191,30 +159,28 @@
         }
         
         .section-title-centered h2 span {
-            color: var(--color-linea);
-            font-weight: 700;
+            color: var(--color-linea) !important;
         }
         
         .section-title-centered h2:after {
             content: '';
             position: absolute;
-            bottom: -15px;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
-            height: 4px;
+            height: 3px;
             background: var(--azul-principal);
-            border-radius: 4px;
         }
         
         .section-title-centered p {
             font-size: 18px;
             color: var(--gris);
             max-width: 700px;
-            margin: 25px auto 0;
+            margin: 20px auto 0;
         }
         
-        /* ===== TARJETAS DE ACTIVIDADES ===== */
+        /* Tarjetas de Actividades */
         .activities-section {
             padding: 60px 0;
         }
@@ -225,18 +191,18 @@
         
         .activity-card {
             background: var(--blanco);
-            border-radius: 24px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: var(--shadow-md);
-            transition: all 0.4s ease;
+            box-shadow: 0 15px 30px rgba(37,40,85,0.08);
+            transition: all 0.3s ease;
             height: 100%;
             margin-bottom: 30px;
             border: 1px solid rgba(37,40,85,0.05);
         }
         
         .activity-card:hover {
-            transform: translateY(-15px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(37,40,85,0.15);
             border-color: var(--azul-principal);
         }
         
@@ -253,7 +219,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            height: 60%;
+            height: 50%;
             background: linear-gradient(to top, var(--azul-principal), transparent);
             opacity: 0.8;
         }
@@ -264,12 +230,11 @@
             right: 20px;
             background: var(--azul-principal);
             color: var(--blanco);
-            padding: 8px 20px;
+            padding: 6px 18px;
             border-radius: 50px;
-            font-weight: 700;
+            font-weight: 600;
             font-size: 13px;
-            z-index: 3;
-            box-shadow: var(--shadow-sm);
+            z-index: 2;
         }
         
         .activity-level {
@@ -282,13 +247,11 @@
             padding: 5px 15px;
             border-radius: 50px;
             font-size: 13px;
-            font-weight: 600;
-            z-index: 3;
+            z-index: 2;
         }
         
         .activity-level i {
             margin-right: 5px;
-            color: var(--blanco);
         }
         
         .activity-content {
@@ -297,7 +260,7 @@
         
         .activity-content h3 {
             font-size: 22px;
-            color: var(--azul-principal);
+            color: var(--azul-principal) !important;
             margin-bottom: 15px;
             font-weight: 700;
         }
@@ -307,6 +270,13 @@
             font-size: 15px;
             line-height: 1.7;
             margin-bottom: 20px;
+        }
+        
+        .activity-meta {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
         }
         
         .activity-meta span {
@@ -332,6 +302,7 @@
             transition: all 0.3s ease;
             display: inline-block;
             text-decoration: none;
+            font-size: 14px;
         }
         
         .btn-activity:hover {
@@ -340,10 +311,10 @@
             transform: translateX(5px);
         }
         
-        /* ===== GRUPOS ELITE ===== */
+        /* Grupos Elite */
         .elite-section {
-            background: var(--gradient-externo);
-            padding: 100px 0;
+            background: linear-gradient(135deg, var(--degradado-externo) 0%, var(--color-linea) 100%);
+            padding: 80px 0;
             position: relative;
             overflow: hidden;
         }
@@ -357,7 +328,7 @@
             bottom: 0;
             background: url('assets/images/icon/logo-middle.png') no-repeat center;
             background-size: 500px;
-            opacity: 0.03;
+            opacity: 0.05;
             transform: rotate(5deg);
         }
         
@@ -370,37 +341,35 @@
         }
         
         .elite-card {
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.1);
             backdrop-filter: blur(10px);
-            border-radius: 24px;
-            padding: 35px 25px;
+            border-radius: 20px;
+            padding: 30px 25px;
             height: 100%;
             margin-bottom: 30px;
             border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
         }
         
         .elite-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255,255,255,0.1);
+            transform: translateY(-8px);
+            background: rgba(255,255,255,0.15);
             border-color: var(--azul-principal);
-            box-shadow: 0 15px 35px rgba(37,40,85,0.3);
         }
         
         .elite-icon {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             background: var(--azul-principal);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 25px;
-            box-shadow: 0 10px 20px rgba(37,40,85,0.3);
+            margin-bottom: 20px;
         }
         
         .elite-icon i {
-            font-size: 36px;
+            font-size: 32px;
             color: var(--blanco);
         }
         
@@ -408,30 +377,30 @@
             display: inline-block;
             background: var(--azul-principal);
             color: var(--blanco);
-            padding: 5px 15px;
+            padding: 4px 12px;
             border-radius: 50px;
-            font-weight: 700;
-            font-size: 13px;
+            font-weight: 600;
+            font-size: 12px;
             margin-bottom: 15px;
         }
         
         .elite-card h3 {
-            font-size: 26px;
-            color: var(--blanco);
+            font-size: 24px;
+            color: var(--blanco) !important;
             margin-bottom: 15px;
         }
         
         .elite-card p {
-            color: rgba(255,255,255,0.8);
-            font-size: 15px;
+            color: rgba(255,255,255,0.9);
+            font-size: 14px;
             line-height: 1.7;
             margin-bottom: 20px;
         }
         
         .elite-meta span {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.15);
             color: var(--blanco);
-            padding: 5px 12px;
+            padding: 4px 12px;
             border-radius: 50px;
             font-size: 12px;
         }
@@ -444,15 +413,14 @@
         .btn-elite {
             background: var(--azul-principal);
             color: var(--blanco) !important;
-            padding: 12px 30px;
+            padding: 10px 25px;
             border-radius: 50px;
-            font-weight: 700;
+            font-weight: 600;
             font-size: 14px;
             display: inline-block;
             transition: all 0.3s ease;
             border: none;
             text-decoration: none;
-            box-shadow: 0 5px 15px rgba(37,40,85,0.3);
         }
         
         .btn-elite:hover {
@@ -461,9 +429,9 @@
             transform: translateY(-3px);
         }
         
-        /* ===== LOGROS ===== */
+        /* Logros */
         .achievements-section {
-            padding: 80px 0;
+            padding: 60px 0;
             background: var(--blanco);
         }
         
@@ -471,15 +439,15 @@
             text-align: center;
             padding: 30px;
             background: var(--blanco);
-            border-radius: 20px;
-            box-shadow: var(--shadow-sm);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(37,40,85,0.05);
             border: 1px solid rgba(37,40,85,0.05);
         }
         
         .achievement-number {
-            font-size: 52px;
+            font-size: 48px;
             font-weight: 800;
-            color: var(--azul-principal);
+            color: var(--azul-principal) !important;
             line-height: 1;
             margin-bottom: 10px;
         }
@@ -488,20 +456,18 @@
             font-size: 16px;
             color: var(--gris);
             font-weight: 500;
-            text-transform: uppercase;
         }
         
-        /* ===== CTA ===== */
+        /* CTA */
         .cta-premium {
             background: var(--blanco);
-            padding: 80px 0;
+            padding: 60px 0;
             text-align: center;
-            border-top: 1px solid rgba(37,40,85,0.05);
-            border-bottom: 1px solid rgba(37,40,85,0.05);
+            border-top: 1px solid #eee;
         }
         
         .cta-premium h2 {
-            font-size: 42px;
+            font-size: 36px;
             color: var(--azul-principal) !important;
             margin-bottom: 20px;
         }
@@ -509,32 +475,31 @@
         .cta-premium p {
             font-size: 18px;
             color: var(--gris);
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
         
         .btn-cta-premium {
             background: var(--azul-principal);
             color: var(--blanco) !important;
-            padding: 16px 50px;
+            padding: 15px 45px;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 18px;
+            font-size: 16px;
             display: inline-block;
             transition: all 0.3s ease;
             border: none;
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 10px 25px rgba(37,40,85,0.2);
         }
         
         .btn-cta-premium:hover {
             background: var(--degradado-interno);
             transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
             color: var(--blanco) !important;
         }
         
-        /* ===== FOOTER ===== */
+        /* Footer */
         .footer-top {
-            background: var(--gradient-externo);
+            background: linear-gradient(135deg, var(--degradado-externo) 0%, var(--color-linea) 100%);
         }
         
         .widget-company .address h6,
@@ -556,20 +521,38 @@
             color: var(--blanco) !important;
         }
         
-        /* ===== RESPONSIVE ===== */
+        /* Responsive */
         @media (max-width: 991px) {
-            .page-header-elite h1 { font-size: 48px; }
-            .intro-content h2 { font-size: 40px; }
+            .page-header-actividades h1 {
+                font-size: 48px;
+            }
+            .intro-content h2 {
+                font-size: 40px;
+            }
         }
         
         @media (max-width: 768px) {
-            .page-header-elite h1 { font-size: 42px; }
-            .intro-content h2 { font-size: 36px; }
-            .section-title-centered h2 { font-size: 36px; }
+            .page-header-actividades {
+                padding: 160px 0 80px;
+            }
+            .page-header-actividades h1 {
+                font-size: 42px;
+            }
+            .intro-content h2 {
+                font-size: 36px;
+            }
+            .section-title-centered h2 {
+                font-size: 36px;
+            }
+            .activity-img {
+                height: 180px;
+            }
         }
         
         @media (max-width: 576px) {
-            .page-header-elite h1 { font-size: 36px; }
+            .page-header-actividades h1 {
+                font-size: 36px;
+            }
         }
     </style>
 </head>
@@ -584,7 +567,7 @@
         <div class="spinner"></div>
     </div>
     
-    <!-- ===== HEADER ===== -->
+    <!-- ===== HEADER (MANTENIDO IGUAL) ===== -->
     <header id="header">
         <div class="header-two">
             <div class="container-fluid px-0">
@@ -658,7 +641,7 @@
     <div class="body_overlay"></div>
     
     <!-- ===== PAGE HEADER ===== -->
-    <section class="page-header-elite">
+    <section class="page-header-actividades">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -667,22 +650,7 @@
                 </div>
             </div>
         </div>
-    </section>
-    
-    <!-- ===== BREADCRUMB ===== -->
-    <div class="breadcrumb-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="breadcrumb">
-                        <li><a href="index.html"><i class="fa fa-home"></i> Inicio</a></li>
-                        <li><a href="#">Oferta</a></li>
-                        <li class="active">Actividades Extracurriculares</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+    </section>   
     
     <!-- ===== INTRO SECTION ===== -->
     <section class="intro-section">
@@ -698,7 +666,7 @@
     <section class="activities-section">
         <div class="container">
             <div class="section-title-centered">
-                <h2><span>Primaria</span></h2>
+                <h2>Primaria</h2>
                 <p>Actividades para niños de 6 a 11 años</p>
             </div>
             <div class="row">
@@ -880,7 +848,7 @@
     <section class="activities-section bg-light">
         <div class="container">
             <div class="section-title-centered">
-                <h2><span>Educación General Básica</span></h2>
+                <h2>Educación General Básica</h2>
                 <p>Talleres técnicos para 8vo a 10mo</p>
             </div>
             <div class="row">
@@ -967,7 +935,7 @@
     <section class="elite-section">
         <div class="container">
             <div class="section-title-centered">
-                <h2><span>Grupos</span> Elite</h2>
+                <h2>Grupos Elite</h2>
                 <p>Seleccionados para representar al colegio en competencias</p>
             </div>
             
@@ -1064,7 +1032,7 @@
     <section class="achievements-section">
         <div class="container">
             <div class="section-title-centered">
-                <h2><span>Nuestros</span> Logros</h2>
+                <h2>Nuestros Logros</h2>
             </div>
             <div class="row">
                 <div class="col-md-3 col-6">
