@@ -795,45 +795,48 @@
     </div>
     <!-- prealoader area end -->
     
-    <!-- ========== HEADER AREA ========== -->
+    <!-- ========== HEADER AREA CORREGIDO ========== -->
     <header id="header">
         <div class="header-two">
             <div class="container-fluid px-0">
                 <div class="row align-items-center g-0 mx-0">
                     <div class="col-lg-3 col-sm-6 d-block d-lg-none">
                         <div class="logo">
-                            <a href="index.html"><img src="assets/images/icon/logo.png" alt="logo"></a>
+                            <!-- ENLACE CORREGIDO: Apunta a inicio.html -->
+                            <a href="inicio.html"><img src="assets/images/icon/logo.png" alt="logo"></a>
                         </div>
                     </div>
                     <div class="col-lg-9 offset-lg-1 d-none d-lg-block">
                         <div class="main-menu menu-style2">
                             <nav>
                                 <ul id="m_menu_active">
-                                    <li class="active"><a href="javascript:void(0);">Inicio</a></li>
+                                    <!-- ENLACES CORREGIDOS: Mismos que en las otras páginas -->
+                                    <li><a href="inicio.html">Inicio</a></li> <!-- CORREGIDO -->
                                     <li><a href="javascript:void(0);">Oferta</a>
                                         <ul class="submenu">
-                                            <li><a href="courses.html">Academia</a></li>
-                                            <li><a href="course-details.html">Clubes</a></li>
+                                            <li><a href="oferta_academica.html">Academia</a></li> <!-- CORREGIDO -->
+                                            <li><a href="actividades_extracurriculares.html">Clubes</a></li> <!-- CORREGIDO -->
                                         </ul>
                                     </li>
-                                    <li><a href="about.html">Admisiones</a></li>
-                                    <li><a href="#">Landing Page</a></li>
+                                    <li class="active"><a href="admisiones.html">Admisiones</a></li> <!-- CORREGIDO (se mantiene activo) -->
+                                    <li><a href="landing_page.html">Landing Page</a></li> <!-- CORREGIDO -->
 
                                     <li class="middle-logo">
-                                        <a href="index.html">
+                                        <!-- ENLACE CORREGIDO: Apunta a inicio.html -->
+                                        <a href="inicio.html">
                                             <img src="assets/images/icon/logo-middle.png" alt="logo">
                                             <img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="logo">
                                         </a>
                                     </li>
-                                    <li><a href="#">Servicios</a></li>
-                                    <li><a href="javascript:void(0);">Nosotros</a>
+                                    <li><a href="servicios.html">Servicios</a></li> <!-- CORREGIDO -->
+                                    <li><a href="nosotros.html">Nosotros</a> <!-- CORREGIDO -->
                                         <ul class="submenu">
-                                            <li><a href="blog.html">Vision y Mision</a></li>
-                                            <li><a href="blog-details.html">Proyectos</a></li>
-                                            <li><a href="blog-details.html">Blog</a></li>
+                                            <li><a href="nosotros.html">Visión y Misión</a></li> <!-- CORREGIDO -->
+                                            <li><a href="nosotros.html">Proyectos</a></li> <!-- CORREGIDO -->
+                                            <li><a href="nosotros.html">Blog</a></li> <!-- CORREGIDO -->
                                         </ul>
                                     </li>
-                                    <li><a href="contact.html">Contacto</a></li>
+                                    <li><a href="contacto.html">Contacto</a></li> <!-- CORREGIDO -->
                                 </ul>
                             </nav>
                         </div>
@@ -907,10 +910,11 @@
                 </div>
                 
                 <div class="hero-buttons">
-                    <a href="#" class="btn-primary-custom">
+                    <!-- BOTONES CORREGIDOS -->
+                    <a href="contacto.html" class="btn-primary-custom">
                         <i class="fa fa-pencil-square-o"></i> Solicitar Cupo
                     </a>
-                    <a href="#" class="btn-outline-custom">
+                    <a href="#requisitos" class="btn-outline-custom">
                         <i class="fa fa-file-text-o"></i> Requisitos
                     </a>
                 </div>
@@ -1005,7 +1009,8 @@
             </div>
             
             <div class="text-center mt-5">
-                <a href="#" class="btn btn-primary btn-round btn-lg" style="padding: 15px 45px; background: var(--azul-principal); color: white;">
+                <!-- BOTÓN CORREGIDO -->
+                <a href="contacto.html" class="btn btn-primary btn-round btn-lg" style="padding: 15px 45px; background: var(--azul-principal); color: white;">
                     <i class="fa fa-pencil mr-2"></i> Iniciar mi Solicitud
                 </a>
             </div>
@@ -1013,8 +1018,8 @@
     </div>
     <!-- SECCIÓN DE PASOS END -->
 
-    <!-- SECCIÓN DE REQUISITOS -->
-    <div class="course-area pt--80 pb--70" style="background: #f8fafd;">
+    <!-- SECCIÓN DE REQUISITOS (con ID para enlace) -->
+    <div id="requisitos" class="course-area pt--80 pb--70" style="background: #f8fafd;">
         <div class="container">
             <div class="row">
                 <div class="col-md-10 offset-md-1">
@@ -1137,10 +1142,11 @@
             
             <div class="row mt-4">
                 <div class="col-12 text-center">
-                    <a href="#" class="btn btn-outline-primary btn-round btn-lg" style="padding: 12px 35px; margin: 0 5px; border-color: var(--azul-principal); color: var(--azul-principal);">
+                    <!-- BOTONES CORREGIDOS -->
+                    <a href="https://www.google.com/maps/place/Unidad+Educativa+Rafael+Bucheli/@-0.2876255,-78.5544505,17z" target="_blank" class="btn btn-outline-primary btn-round btn-lg" style="padding: 12px 35px; margin: 0 5px; border-color: var(--azul-principal); color: var(--azul-principal);">
                         <i class="fa fa-map mr-2"></i> Cómo llegar
                     </a>
-                    <a href="#" class="btn btn-primary btn-round btn-lg" style="padding: 12px 35px; margin: 0 5px; background: var(--azul-principal); color: white;">
+                    <a href="https://wa.me/593999999999?text=Hola,%20quiero%20información%20sobre%20admisiones" target="_blank" class="btn btn-primary btn-round btn-lg" style="padding: 12px 35px; margin: 0 5px; background: var(--azul-principal); color: white;">
                         <i class="fa fa-whatsapp mr-2"></i> WhatsApp
                     </a>
                 </div>
@@ -1224,7 +1230,8 @@
                     </div>
                     
                     <div class="text-center mt-5">
-                        <a href="#" class="btn btn-light btn-round btn-lg">
+                        <!-- BOTÓN CORREGIDO -->
+                        <a href="contacto.html" class="btn btn-light btn-round btn-lg">
                             <i class="fa fa-comments mr-2"></i> Más preguntas
                         </a>
                     </div>
@@ -1234,7 +1241,7 @@
     </div>
     <!-- SECCIÓN DE PREGUNTAS FRECUENTES END -->
 
-    <!-- CTA FINAL -->
+    <!-- CTA FINAL CORREGIDO -->
     <div class="cta-area secondary-bg has-color ptb--50" style="background: linear-gradient(45deg, var(--azul-principal), var(--degradado-interno));">
         <div class="container">
             <div class="row align-items-center">
@@ -1246,7 +1253,8 @@
                 </div>
                 <div class="col-md-4">
                     <div class="cta-btn text-md-right">
-                        <a class="btn btn-light btn-round btn-lg" href="#" style="padding: 14px 35px;">
+                        <!-- BOTÓN CORREGIDO -->
+                        <a class="btn btn-light btn-round btn-lg" href="contacto.html" style="padding: 14px 35px;">
                             <i class="fa fa-pencil-square-o mr-2"></i> Inscribirme
                         </a>
                     </div>
@@ -1256,14 +1264,15 @@
     </div>
     <!-- CTA FINAL END -->
 
-    <!-- footer area start -->
+    <!-- footer area start CORREGIDO -->
     <footer>
         <div class="footer-top has-color pt--120 pb--30">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="widget widget-company">
-                            <a href="index.html"><img src="assets/images/icon/logo.png" alt="image" style="max-height: 50px;"></a>
+                            <!-- ENLACE CORREGIDO: Apunta a inicio.html -->
+                            <a href="inicio.html"><img src="assets/images/icon/logo.png" alt="image" style="max-height: 50px;"></a>
                             <div class="address mt-4">
                                 <h6>Dirección</h6>
                                 <p>Av. Rumichaca Ñan y Av. Morán Valverde, Quito</p>
@@ -1288,11 +1297,12 @@
                         <div class="widget footer-link">
                             <h4 class="fwidget-title mb-4">Enlaces</h4>
                             <ul>
-                                <li><a href="#"><i class="fa fa-angle-right"></i> Inicio</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i> Oferta Académica</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i> Admisiones 2026</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i> Servicios</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i> Contacto</a></li>
+                                <!-- ENLACES CORREGIDOS: Apuntan a las páginas correspondientes -->
+                                <li><a href="inicio.html"><i class="fa fa-angle-right"></i> Inicio</a></li>
+                                <li><a href="oferta_academica.html"><i class="fa fa-angle-right"></i> Oferta Académica</a></li>
+                                <li><a href="admisiones.html"><i class="fa fa-angle-right"></i> Admisiones 2026</a></li>
+                                <li><a href="servicios.html"><i class="fa fa-angle-right"></i> Servicios</a></li>
+                                <li><a href="contacto.html"><i class="fa fa-angle-right"></i> Contacto</a></li>
                             </ul>
                         </div>
                     </div>
