@@ -248,7 +248,7 @@ Description: Responsive Education HTML5 Template
 
 /* Hover effects for links and icons */
 a:hover {
-  transform: scale(1.1);
+  transform: none;
 }
 
 .social li a:hover {

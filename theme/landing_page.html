@@ -1,0 +1,748 @@
+<!doctype html>
+<html class="no-js" lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Landing Page - Unidad Educativa Rafael Bucheli</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/slicknav.min.css">
+    <link rel="stylesheet" href="assets/css/typography.css">
+    <link rel="stylesheet" href="assets/css/default-css.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/loading.css">
+    <link rel="stylesheet" id="triggerColor" href="assets/css/triggerplate/color-0.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    
+    <style>
+        /* ===== RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background: #ffffff;
+        }
+
+        /* ===== HEADER ===== */
+        .header-two {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            z-index: 9999;
+            background: rgba(255,255,255,0.95) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 30px rgba(37,40,85,0.08);
+            border-bottom: 1px solid rgba(37,40,85,0.05);
+            transition: all 0.4s ease;
+        }
+
+        .menu-style2 nav > ul > li > a {
+            padding: 25px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #252855;
+            position: relative;
+            transition: all 0.4s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .menu-style2 nav > ul > li > a:after {
+            content: '';
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #C6A43F;
+            transition: width 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .menu-style2 nav > ul > li > a:hover:after,
+        .menu-style2 nav > ul > li.active > a:after {
+            width: 30px;
+        }
+
+        .middle-logo img {
+            max-height: 65px;
+            transition: all 0.4s ease;
+        }
+
+        .middle-logo:hover img {
+            transform: scale(1.05);
+        }
+
+        .btn-primary {
+            background: #252855 !important;
+            border: none !important;
+            color: #ffffff !important;
+            border-radius: 50px !important;
+            padding: 12px 30px !important;
+            font-weight: 600 !important;
+            transition: all 0.4s ease !important;
+            box-shadow: 0 10px 25px rgba(37,40,85,0.2) !important;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(37,40,85,0.3) !important;
+            background: #1a1d3a !important;
+        }
+
+        /* ===== HERO SECTION - TODO EL BLOQUE ARRIBA ===== */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding: 140px 0 100px;
+            margin-top: 90px;
+            background-image: url('assets/images/slider/buchelino.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #252855;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(115deg, 
+                rgba(37,40,85,0.7) 0%,
+                rgba(37,40,85,0.6) 50%,
+                rgba(26,29,58,0.7) 100%);
+            z-index: 1;
+        }
+
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('assets/images/pattern.png');
+            opacity: 0.1;
+            z-index: 2;
+            animation: slidePattern 40s linear infinite;
+        }
+
+        @keyframes slidePattern {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 100px; }
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* ===== CONTENIDO PRINCIPAL - TODO ARRIBA ===== */
+        .hero-content {
+            color: #ffffff;
+        }
+
+        /* BADGE - SEPARADO PARA PERSONALIZAR */
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 12px 28px;
+            border-radius: 60px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 35px;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #ffffff; /* BLANCO */
+            letter-spacing: 1px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero-badge i {
+            color: #C6A43F;
+            margin-right: 8px;
+        }
+
+        /* TÍTULO PRINCIPAL - BLANCO */
+        .hero-title {
+            font-size: clamp(48px, 8vw, 80px);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            color: #ffffff; /* BLANCO */
+            text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease 0.2s both;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero-title span {
+            display: block;
+            font-size: clamp(40px, 6vw, 64px);
+            font-weight: 400;
+            color: #ffffff; /* BLANCO */
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-top: 10px;
+            text-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        /* TEXTO DESCRIPTIVO - BLANCO */
+        .hero-text {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            max-width: 600px;
+            color: #ffffff; /* BLANCO */
+            opacity: 0.95;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            animation: fadeInUp 1s ease 0.4s both;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+        }
+
+        /* ESTADÍSTICAS - BLANCO */
+        .hero-stats {
+            display: flex;
+            gap: 50px;
+            margin-bottom: 45px;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .stat-item {
+            text-align: left;
+            position: relative;
+        }
+
+        .stat-item:not(:last-child):after {
+            content: '';
+            position: absolute;
+            right: -25px;
+            top: 15px;
+            height: 40px;
+            width: 1px;
+            background: rgba(255,255,255,0.2);
+            transform: rotate(15deg);
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            color: #ffffff; /* BLANCO */
+            line-height: 1;
+            margin-bottom: 5px;
+            text-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ffffff; /* BLANCO */
+            opacity: 0.8;
+            font-weight: 400;
+        }
+
+        /* BOTONES */
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.8s both;
+        }
+
+        .btn-primary-custom {
+            background: #ffffff;
+            color: #252855;
+            padding: 16px 40px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            border: none;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        .btn-primary-custom:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn-primary-custom:hover:before {
+            left: 100%;
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 45px rgba(0,0,0,0.3);
+            color: #252855;
+            text-decoration: none;
+        }
+
+        .btn-secondary-custom {
+            background: transparent;
+            backdrop-filter: blur(10px);
+            color: #ffffff;
+            padding: 16px 40px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            border: 2px solid rgba(255,255,255,0.3);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        .btn-secondary-custom:hover {
+            background: #ffffff;
+            color: #252855;
+            transform: translateY(-5px);
+            border-color: #ffffff;
+            text-decoration: none;
+        }
+
+        /* ===== FORMULARIO - TODO SEPARADO PARA PERSONALIZAR ===== */
+        .hero-form {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(15px);
+            border-radius: 40px;
+            padding: 45px 35px;
+            border: 1px solid rgba(255,255,255,0.25);
+            box-shadow: 0 40px 70px rgba(0,0,0,0.4);
+            animation: fadeInRight 1s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-form:before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        /* TÍTULO DEL FORMULARIO - BLANCO (SEPARADO) */
+        .hero-form h3 {
+            color: #ffffff; /* BLANCO */
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            text-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero-form h3:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: #C6A43F;
+            margin: 15px auto 0;
+        }
+
+        /* CAMPOS DEL FORMULARIO */
+        .form-control {
+            width: 100%;
+            padding: 16px 22px;
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 50px;
+            margin-bottom: 18px;
+            color: #ffffff;
+            font-size: 15px;
+            transition: all 0.4s ease;
+        }
+
+        .form-control::placeholder {
+            color: rgba(255,255,255,0.9);
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #ffffff;
+            background: rgba(255,255,255,0.25);
+            box-shadow: 0 0 0 4px rgba(255,255,255,0.15);
+        }
+
+        .form-control option {
+            background: #252855;
+            color: #ffffff;
+        }
+
+        /* SELECT ESPECÍFICO */
+        select.form-control {
+            color: #ffffff;
+        }
+
+        select.form-control option {
+            background: #252855;
+            color: #ffffff;
+            padding: 10px;
+        }
+
+        select.form-control option:first-child {
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* BOTÓN DE ENVÍO */
+        .btn-submit {
+            width: 100%;
+            background: #C6A43F;
+            color: #252855;
+            padding: 16px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border: none;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-submit:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn-submit:hover:before {
+            left: 100%;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(198,164,63,0.4);
+            background: #d4b15c;
+        }
+
+        .form-note {
+            color: rgba(255,255,255,0.8);
+            font-size: 12px;
+            text-align: center;
+            margin-top: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        /* ANIMACIONES */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 991px) {
+            .hero-stats {
+                gap: 30px;
+            }
+            
+            .stat-item:not(:last-child):after {
+                display: none;
+            }
+            
+            .hero-form {
+                margin-top: 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .btn-primary-custom,
+            .btn-secondary-custom {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+                text-align: center;
+                gap: 25px;
+            }
+            
+            .stat-item {
+                text-align: center;
+            }
+            
+            .hero-title {
+                font-size: 42px;
+            }
+            
+            .hero-title span {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    
+    <!-- Header -->
+    <header id="header">
+        <div class="header-two">
+            <div class="container-fluid px-0">
+                <div class="row align-items-center g-0 mx-0">
+                    <div class="col-lg-3 col-sm-6 d-block d-lg-none">
+                        <div class="logo">
+                            <a href="index.html"><img src="assets/images/icon/logo.png" alt="logo"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 offset-lg-1 d-none d-lg-block">
+                        <div class="main-menu menu-style2">
+                            <nav>
+                                <ul id="m_menu_active">
+                                    <li><a href="index.html">Inicio</a></li>
+                                    <li><a href="oferta.html">Oferta</a>
+                                        <ul class="submenu">
+                                            <li><a href="courses.html">Academia</a></li>
+                                            <li><a href="course-details.html">Clubes</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="admisiones.html">Admisiones</a></li>
+                                    <li class="active"><a href="landing.html">Landing Page</a></li>
+                                    <li class="middle-logo">
+                                        <a href="index.html">
+                                            <img src="assets/images/icon/logo-middle.png" alt="logo">
+                                        </a>
+                                    </li>
+                                    <li><a href="servicios.html">Servicios</a></li>
+                                    <li><a href="javascript:void(0);">Nosotros</a>
+                                        <ul class="submenu">
+                                            <li><a href="vision-mision.html">Visión y Misión</a></li>
+                                            <li><a href="proyectos.html">Proyectos</a></li>
+                                            <li><a href="blog.html">Blog</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="contacto.html">Contacto</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-5">
+                        <div class="header-bottom-right-style-2">
+                            <ul>
+                                <li>
+                                    <a href="https://app.rafaelbucheli.com/login/?next=/" 
+                                    class="btn btn-primary btn-round" 
+                                    target="_blank">
+                                    SIGN UP
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 d-block d-lg-none">
+                        <div id="mobile_menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Offset Search -->
+    <div class="offset-search">
+        <form action="#">
+            <input type="text" name="search" placeholder="Buscar aquí...">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+    
+    <!-- Body Overlay -->
+    <div class="body_overlay"></div>
+
+    <!-- HERO SECTION - TODO EL BLOQUE ARRIBA -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-pattern"></div>
+        
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="hero-content">
+                        <!-- BADGE -->
+                        <div class="hero-badge">
+                            <i class="fa fa-star"></i> Excelencia Educativa desde 1978
+                        </div>
+                        
+                        <!-- TÍTULO PRINCIPAL -->
+                        <h1 class="hero-title">
+                            El Futuro de tus Hijos
+                            <span>Comienza Aquí</span>
+                        </h1>
+                        
+                        <!-- TEXTO DESCRIPTIVO -->
+                        <p class="hero-text">
+                            Descubre una educación innovadora que combina metodologías de vanguardia, valores sólidos y formación académica de excelencia.
+                        </p>
+                        
+                        <!-- ESTADÍSTICAS -->
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">45+</div>
+                                <div class="stat-label">Años</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">1200</div>
+                                <div class="stat-label">Estudiantes</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">98%</div>
+                                <div class="stat-label">Aprobación</div>
+                            </div>
+                        </div>
+                        
+                        <!-- BOTONES -->
+                        <div class="hero-buttons">
+                            <a href="#" class="btn-primary-custom">
+                                <i class="fa fa-pencil-square-o"></i> Solicitar Información
+                            </a>
+                            <a href="#" class="btn-secondary-custom">
+                                <i class="fa fa-calendar"></i> Agendar Visita
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-5">
+                    <!-- FORMULARIO CON TÍTULO EN BLANCO -->
+                    <div class="hero-form">
+                        <h3>¡Inscripciones 2026!</h3>
+                        <form id="contactForm">
+                            <input type="text" class="form-control" placeholder="Nombre completo" required>
+                            <input type="email" class="form-control" placeholder="Correo electrónico" required>
+                            <input type="tel" class="form-control" placeholder="Teléfono" required>
+                            <select class="form-control" required>
+                                <option value="" disabled selected>Nivel de interés</option>
+                                <option value="inicial">Educación Inicial</option>
+                                <option value="primaria">Educación Primaria</option>
+                                <option value="bachillerato">Bachillerato</option>
+                            </select>
+                            <button type="submit" class="btn-submit">
+                                <i class="fa fa-paper-plane"></i> Enviar solicitud
+                            </button>
+                        </form>
+                        <div class="form-note">
+                            Al enviar aceptas nuestras políticas de privacidad
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/jquery.slicknav.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/scripts.js"></script>
+    
+    <script>
+        $(window).on('load', function() {
+            $('#preloader').fadeOut('slow');
+        });
+
+        // Prevenir envío del formulario para demostración
+        $('#contactForm').on('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu interés! Te contactaremos pronto.');
+        });
+    </script>
+</body>
+</html>

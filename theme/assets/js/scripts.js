@@ -94,20 +94,23 @@
         }
     }
 
-    /*================================
-    SMOOTH SCROLL
-    ==================================*/
-    function initSmoothScroll() {
-        $('a[href^="#"]').on('click', function(event) {
-            var target = $(this.getAttribute('href'));
-            if (target.length) {
-                event.preventDefault();
-                $('html, body').stop().animate({
-                    scrollTop: target.offset().top - 50
-                }, 1000);
-            }
-        });
-    }
+/*================================
+SMOOTH SCROLL - CORREGIDO (IGNORA ENLACES NORMALES)
+==================================*/
+function initSmoothScroll() {
+    $(document).on('click', 'a[href^="#"]', function(event) {
+        var href = $(this).attr('href');
+        
+        // Solo actuar si es ancla interna válida
+        if (href && href.length > 1 && href !== '#' && $(href).length) {
+            event.preventDefault();
+            $('html, body').stop().animate({
+                scrollTop: $(href).offset().top - 50
+            }, 1000);
+        }
+        // Si no existe el elemento destino, NO hacer nada → deja navegar normal
+    });
+}
 
     /*================================
     CONTADORES ANIMADOS
