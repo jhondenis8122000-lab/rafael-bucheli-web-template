@@ -27,15 +27,6 @@
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
     <style>
         /* Estilos adicionales para la página de oferta académica */
-        :root {
-            --primary: #252855;
-            --primary-light: #3a3f7a;
-            --secondary: #f0b71c;
-            --text-dark: #333;
-            --text-light: #666;
-            --white: #fff;
-            --gray-bg: #f8f9fc;
-        }
         
         /* COMPENSACIÓN POR HEADER FIJO */
         body {
@@ -48,13 +39,13 @@
             z-index: 1;
         }
         
-        /* Hero interno - Mantiene el estilo del home pero adaptado */
+        /* Hero interno - AHORA CON FONDO BLANCO Y TEXTO AZUL */
         .page-header {
             position: relative;
-            background: linear-gradient(135deg, #f5f5f5, #182e4e);
+            background: #ffffff;  /* Fondo blanco */
             padding: 180px 0 100px;
             text-align: center;
-            color: #ffffff;
+            color: #182e4e;  /* Texto azul */
             overflow: hidden;
             margin-top: 0;
         }
@@ -66,7 +57,7 @@
             right: 0;
             bottom: 0;
             background: url('assets/images/pattern.png') repeat;
-            opacity: 0.1;
+            opacity: 0.02;  /* Más sutil para fondo blanco */
         }
         
         .page-header h1 {
@@ -74,21 +65,22 @@
             font-weight: 800;
             margin-bottom: 20px;
             position: relative;
-            color: var(--white) !important;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            color: #182e4e !important;  /* Azul */
+            text-shadow: none;  /* Quitamos sombra para texto sobre blanco */
         }
         
         .page-header p {
             font-size: 20px;
             max-width: 700px;
             margin: 0 auto;
-            opacity: 0.95;
+            opacity: 1;
             position: relative;
+            color: #666;  /* Texto gris para el subtítulo */
         }
         
         /* Breadcrumb */
         .breadcrumb-area {
-            background: var(--gray-bg);
+            background: #f8f9fc;
             padding: 15px 0;
             border-bottom: 1px solid #eee;
         }
@@ -105,11 +97,11 @@
         }
         
         .breadcrumb li a {
-            color: var(--primary);
+            color: #182e4e;
         }
         
         .breadcrumb li.active {
-            color: var(--text-light);
+            color: #666;
         }
         
         .breadcrumb li+li:before {
@@ -121,7 +113,7 @@
         /* Sección de introducción - MEJORADA CON MÁS ESPACIO */
         .intro-section {
             padding: 100px 0 60px;
-            background: var(--white);
+            background: #ffffff;
             position: relative;
         }
         
@@ -133,7 +125,7 @@
         
         .intro-content h2 {
             font-size: 42px;
-            color: var(--primary);
+            color: #182e4e;
             margin-bottom: 25px;
             font-weight: 800;
             line-height: 1.2;
@@ -141,7 +133,7 @@
         
         .intro-content .lead {
             font-size: 20px;
-            color: var(--text-light);
+            color: #666;
             margin-bottom: 40px;
             font-weight: 300;
             line-height: 1.6;
@@ -153,8 +145,8 @@
             padding: 50px 60px;
             border-radius: 30px;
             margin-top: 30px;
-            box-shadow: 0 20px 40px rgba(37, 40, 85, 0.08);
-            border: 1px solid rgba(37, 40, 85, 0.05);
+            box-shadow: 0 20px 40px rgba(24, 46, 78, 0.08);
+            border: 1px solid rgba(24, 46, 78, 0.05);
             position: relative;
             overflow: hidden;
         }
@@ -166,7 +158,7 @@
             left: 0;
             width: 5px;
             height: 100%;
-            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            background: linear-gradient(to bottom, #182e4e, #f0b71c);
             border-radius: 5px 0 0 5px;
         }
         
@@ -176,13 +168,13 @@
             bottom: -20px;
             right: 20px;
             font-size: 120px;
-            color: var(--primary);
+            color: #182e4e;
             opacity: 0.03;
             font-family: serif;
         }
         
         .highlight-box h3 {
-            color: var(--primary);
+            color: #182e4e;
             font-size: 32px;
             margin-bottom: 25px;
             font-weight: 700;
@@ -192,7 +184,7 @@
         .highlight-box p {
             font-size: 17px;
             line-height: 1.8;
-            color: var(--text-dark);
+            color: #333;
             margin-bottom: 20px;
             position: relative;
         }
@@ -202,14 +194,14 @@
         }
         
         .highlight-box strong {
-            color: var(--primary);
+            color: #182e4e;
             font-size: 18px;
         }
         
         /* Tarjetas de niveles académicos */
         .academic-levels {
             padding: 80px 0;
-            background: var(--white);
+            background: #ffffff;
         }
         
         .section-title-centered {
@@ -219,32 +211,32 @@
         
         .section-title-centered h2 {
             font-size: 36px;
-            color: var(--primary);
+            color: #182e4e;
             margin-bottom: 15px;
             font-weight: 700;
         }
         
         .section-title-centered p {
             font-size: 18px;
-            color: var(--text-light);
+            color: #666;
             max-width: 700px;
             margin: 0 auto;
         }
         
         .level-card {
-            background: var(--white);
+            background: #ffffff;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 15px 30px rgba(37, 40, 85, 0.08);
+            box-shadow: 0 15px 30px rgba(24, 46, 78, 0.08);
             transition: all 0.3s ease;
             height: 100%;
             margin-bottom: 30px;
-            border: 1px solid rgba(37, 40, 85, 0.05);
+            border: 1px solid rgba(24, 46, 78, 0.05);
         }
         
         .level-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(37, 40, 85, 0.15);
+            box-shadow: 0 25px 50px rgba(24, 46, 78, 0.15);
         }
         
         .level-img {
@@ -261,15 +253,15 @@
             left: 0;
             right: 0;
             height: 50%;
-            background: linear-gradient(to top, rgba(37,40,85,0.8), transparent);
+            background: linear-gradient(to top, rgba(24,46,78,0.8), transparent);
         }
         
         .level-tag {
             position: absolute;
             top: 20px;
             right: 20px;
-            background: var(--secondary);
-            color: var(--primary);
+            background: #f0b71c;
+            color: #182e4e;
             padding: 6px 18px;
             border-radius: 50px;
             font-weight: 600;
@@ -284,7 +276,7 @@
         
         .level-content h3 {
             font-size: 24px;
-            color: var(--primary);
+            color: #182e4e;
             margin-bottom: 15px;
             font-weight: 700;
         }
@@ -298,19 +290,19 @@
         
         .level-meta span {
             font-size: 13px;
-            color: var(--text-light);
+            color: #666;
             background: #f0f0f0;
             padding: 5px 15px;
             border-radius: 50px;
         }
         
         .level-meta span i {
-            color: var(--secondary);
+            color: #f0b71c;
             margin-right: 5px;
         }
         
         .level-content p {
-            color: var(--text-light);
+            color: #666;
             line-height: 1.7;
             margin-bottom: 25px;
             font-size: 15px;
@@ -318,19 +310,19 @@
         
         .methodology-badge {
             display: inline-block;
-            background: rgba(37, 40, 85, 0.08);
-            color: var(--primary);
+            background: rgba(24, 46, 78, 0.08);
+            color: #182e4e;
             padding: 6px 18px;
             border-radius: 50px;
             font-weight: 600;
             font-size: 13px;
             margin-bottom: 15px;
-            border-left: 3px solid var(--secondary);
+            border-left: 3px solid #f0b71c;
         }
         
         .btn-outline-primary {
-            border: 2px solid var(--primary);
-            color: var(--primary);
+            border: 2px solid #182e4e;
+            color: #182e4e;
             background: transparent;
             padding: 10px 25px;
             border-radius: 50px;
@@ -341,38 +333,38 @@
         }
         
         .btn-outline-primary:hover {
-            background: var(--primary);
-            color: var(--white) !important;
+            background: #182e4e;
+            color: #ffffff !important;
             text-decoration: none;
             transform: translateY(-2px);
         }
         
         /* Sección de metodologías */
         .methodologies-section {
-            background: var(--gray-bg);
+            background: #f8f9fc;
             padding: 80px 0;
         }
         
         .methodology-item {
             text-align: center;
             padding: 40px 30px;
-            background: var(--white);
+            background: #ffffff;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(37, 40, 85, 0.05);
+            box-shadow: 0 10px 30px rgba(24, 46, 78, 0.05);
             height: 100%;
             transition: all 0.3s ease;
-            border: 1px solid rgba(37,40,85,0.03);
+            border: 1px solid rgba(24,46,78,0.03);
         }
         
         .methodology-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(37, 40, 85, 0.1);
+            box-shadow: 0 20px 40px rgba(24, 46, 78, 0.1);
         }
         
         .methodology-icon {
             width: 90px;
             height: 90px;
-            background: rgba(37, 40, 85, 0.05);
+            background: rgba(24, 46, 78, 0.05);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -382,29 +374,29 @@
         }
         
         .methodology-item:hover .methodology-icon {
-            background: var(--primary);
+            background: #182e4e;
             transform: scale(1.05);
         }
         
         .methodology-item:hover .methodology-icon i {
-            color: var(--white);
+            color: #ffffff;
         }
         
         .methodology-icon i {
             font-size: 40px;
-            color: var(--primary);
+            color: #182e4e;
             transition: all 0.3s ease;
         }
         
         .methodology-item h4 {
             font-size: 22px;
-            color: var(--primary);
+            color: #182e4e;
             margin-bottom: 15px;
             font-weight: 700;
         }
         
         .methodology-item p {
-            color: var(--text-light);
+            color: #666;
             font-size: 15px;
             line-height: 1.7;
         }
@@ -412,23 +404,23 @@
         /* Sección de servicios complementarios */
         .services-section {
             padding: 80px 0;
-            background: var(--white);
+            background: #ffffff;
         }
         
         .service-card {
-            background: var(--white);
+            background: #ffffff;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 15px 30px rgba(37, 40, 85, 0.08);
+            box-shadow: 0 15px 30px rgba(24, 46, 78, 0.08);
             transition: all 0.3s ease;
             height: 100%;
             margin-bottom: 30px;
-            border: 1px solid rgba(37,40,85,0.05);
+            border: 1px solid rgba(24,46,78,0.05);
         }
         
         .service-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(37, 40, 85, 0.15);
+            box-shadow: 0 20px 40px rgba(24, 46, 78, 0.15);
         }
         
         .service-img {
@@ -443,13 +435,13 @@
         
         .service-content h3 {
             font-size: 22px;
-            color: var(--primary);
+            color: #182e4e;
             margin-bottom: 15px;
             font-weight: 700;
         }
         
         .service-content p {
-            color: var(--text-light);
+            color: #666;
             font-size: 15px;
             line-height: 1.7;
             margin-bottom: 20px;
@@ -460,8 +452,7 @@
             font-size: 13px;
         }
         
-        /* Sección CTA */
-/* Sección CTA - Fondo blanco */
+        /* Sección CTA - Fondo blanco */
         .cta-section {
             background: #ffffff;
             padding: 80px 0;
@@ -485,21 +476,21 @@
 
         .cta-section h2 {
             font-size: 42px;
-            color: var(--primary) !important;  /* Cambiado a azul primario */
+            color: #182e4e !important;
             margin-bottom: 20px;
             position: relative;
         }
 
         .cta-section p {
             font-size: 20px;
-            color: var(--text-light);  /* Texto gris */
+            color: #666;
             margin-bottom: 35px;
             position: relative;
         }
 
         .btn-cta {
-            background: var(--primary);  /* Botón azul */
-            color: var(--white) !important;
+            background: #182e4e;
+            color: #ffffff !important;
             padding: 16px 45px;
             border-radius: 50px;
             font-weight: 700;
@@ -510,47 +501,48 @@
             transition: all 0.3s ease;
             position: relative;
             border: none;
-            box-shadow: 0 10px 25px rgba(37, 40, 85, 0.2);
+            box-shadow: 0 10px 25px rgba(24, 46, 78, 0.2);
         }
 
         .btn-cta:hover {
-            background: var(--primary-light);
+            background: #1f3d66;
             transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(37, 40, 85, 0.3);
+            box-shadow: 0 15px 35px rgba(24, 46, 78, 0.3);
             text-decoration: none;
         }
+        
         /* Mini testimonios */
         .mini-testimonials {
             padding: 80px 0;
-            background: var(--gray-bg);
+            background: #f8f9fc;
         }
         
         .testimonial-card {
-            background: var(--white);
+            background: #ffffff;
             padding: 35px;
             border-radius: 20px;
             text-align: center;
             margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(37, 40, 85, 0.05);
-            border: 1px solid rgba(37,40,85,0.03);
+            box-shadow: 0 10px 30px rgba(24, 46, 78, 0.05);
+            border: 1px solid rgba(24,46,78,0.03);
             transition: all 0.3s ease;
         }
         
         .testimonial-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(37, 40, 85, 0.1);
+            box-shadow: 0 20px 40px rgba(24, 46, 78, 0.1);
         }
         
         .testimonial-card i {
             font-size: 45px;
-            color: var(--secondary);
+            color: #f0b71c;
             opacity: 0.3;
             margin-bottom: 20px;
         }
         
         .testimonial-card p {
             font-style: italic;
-            color: var(--text-dark);
+            color: #333;
             margin-bottom: 25px;
             font-size: 16px;
             line-height: 1.7;
@@ -568,19 +560,19 @@
             height: 60px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid var(--secondary);
+            border: 3px solid #f0b71c;
         }
         
         .testimonial-author h5 {
             margin: 0;
-            color: var(--primary);
+            color: #182e4e;
             font-size: 18px;
             font-weight: 600;
         }
         
         .testimonial-author span {
             font-size: 13px;
-            color: var(--text-light);
+            color: #666;
         }
         
         /* Responsive */
@@ -666,91 +658,77 @@
         <div class="spinner"></div>
     </div>
     <!-- loading area end -->
+    
     <!-- header area start -->
-<header id="header">
-    <!-- header two area start -->
-    <div class="header-two">
-        <div class="container-fluid px-0">
-            <div class="row align-items-center g-0 mx-0">
-                <div class="col-lg-3 col-sm-6 d-block d-lg-none">
-                    <div class="logo">
-                        <a href="home.html"><img src="assets/images/icon/logo.png" alt="logo"></a>
+    <header id="header">
+        <!-- header two area start -->
+        <div class="header-two">
+            <div class="container-fluid px-0">
+                <div class="row align-items-center g-0 mx-0">
+                    <div class="col-lg-3 col-sm-6 d-block d-lg-none">
+                        <div class="logo">
+                            <!-- ENLACE CORREGIDO: Apunta a inicio.html -->
+                            <a href="inicio.html"><img src="assets/images/icon/logo.png" alt="logo"></a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-9 offset-lg-1 d-none d-lg-block">
-                    <div class="main-menu menu-style2">
-                        <nav>
-                            <ul id="m_menu_active">
-                                <!-- INICIO - apunta a home.html -->
-                                <li><a href="home.html">Inicio</a></li>
-                                
-                                <!-- OFERTA - activo porque estamos en oferta_academica.html -->
-                                <li class="active"><a href="javascript:void(0);">Oferta</a>
-                                    <ul class="submenu">
-                                        <!-- ACADEMIA - activo porque estamos aquí -->
-                                        <li class="active"><a href="oferta_academica.html">Academia</a></li>
-                                        <!-- ACTIVIDADES - apunta a actividades_extracurriculares.html -->
-                                        <li><a href="actividades_extracurriculares.html">Actividades</a></li>
-                                    </ul>
-                                </li>
-                                
-                                <!-- ADMISIONES - apunta a admisiones.html -->
-                                <li><a href="admisiones.html">Admisiones</a></li>
-                                
-                                <!-- LANDING PAGE - si no existe, déjalo así -->
-                                <li><a href="#">Landing Page</a></li>
+                    <div class="col-lg-9 offset-lg-1 d-none d-lg-block">
+                        <div class="main-menu menu-style2">
+                            <nav>
+                                <ul id="m_menu_active">
+                                    <!-- ENLACES CORREGIDOS: Mismos que en inicio.html -->
+                                    <li><a href="inicio.html">Inicio</a></li> <!-- CORREGIDO -->
+                                    <li><a href="javascript:void(0);">Oferta</a>
+                                        <ul class="submenu">
+                                            <li><a href="oferta_academica.html">Academia</a></li> <!-- CORREGIDO -->
+                                            <li><a href="actividades_extracurriculares.html">Clubes</a></li> <!-- CORREGIDO -->
+                                        </ul>
+                                    </li>
+                                    <li><a href="admisiones.html">Admisiones</a></li> <!-- CORREGIDO -->
+                                    <li><a href="landing_page.html">Landing Page</a></li> <!-- CORREGIDO -->
 
-                                <!-- LOGO CENTRAL - apunta a home.html -->
-                                <li class="middle-logo">
-                                    <a href="home.html">
-                                        <img src="assets/images/icon/logo-middle.png" alt="logo">
-                                        <img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="logo">
+                                    <li class="middle-logo">
+                                        <!-- ENLACE CORREGIDO: Apunta a inicio.html -->
+                                        <a href="inicio.html">
+                                            <img src="assets/images/icon/logo-middle.png" alt="logo">
+                                            <img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="logo">
+                                        </a>
+                                    </li>
+                                    <li><a href="servicios.html">Servicios</a></li> <!-- CORREGIDO -->
+                                    <li><a href="nosotros.html">Nosotros</a> <!-- CORREGIDO -->
+                                        <ul class="submenu">
+                                            <li><a href="nosotros.html">Visión y Misión</a></li> <!-- CORREGIDO -->
+                                            <li><a href="nosotros.html">Proyectos</a></li> <!-- CORREGIDO -->
+                                            <li><a href="nosotros.html">Blog</a></li> <!-- CORREGIDO -->
+                                        </ul>
+                                    </li>
+                                    <li><a href="contacto.html">Contacto</a></li> <!-- CORREGIDO -->
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-5">
+                        <div class="header-bottom-right-style-2">
+                            <ul>
+                                <li>
+                                    <a href="https://app.rafaelbucheli.com/login/?next=/" 
+                                    class="btn btn-primary btn-round" 
+                                    target="_blank">
+                                    SIGN UP
                                     </a>
                                 </li>
-                                
-                                <!-- SERVICIOS - apunta a servicios.html -->
-                                <li><a href="servicios.html">Servicios</a></li>
-                                
-                                <!-- NOSOTROS -->
-                                <li><a href="javascript:void(0);">Nosotros</a>
-                                    <ul class="submenu">
-                                        <!-- VISIÓN Y MISIÓN - apunta a nosotros.html -->
-                                        <li><a href="nosotros.html">Visión y Misión</a></li>
-                                        <!-- PROYECTOS - apunta a blog-details.html -->
-                                        <li><a href="blog-details.html">Proyectos</a></li>
-                                        <!-- BLOG - apunta a blog-details.html -->
-                                        <li><a href="blog-details.html">Blog</a></li>
-                                    </ul>
-                                </li>
-                                
-                                <!-- CONTACTO - apunta a contact.html -->
-                                <li><a href="contact.html">Contacto</a></li>
                             </ul>
-                        </nav>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-2 col-sm-5">
-                    <div class="header-bottom-right-style-2">
-                        <ul>
-                            <li>
-                                <a href="https://app.rafaelbucheli.com/login/?next=/" 
-                                class="btn btn-primary btn-round" 
-                                target="_blank">
-                                SIGN UP
-                                </a>
-                            </li>
-                        </ul>
+                    <div class="col-12 d-block d-lg-none">
+                        <div id="mobile_menu"></div>
                     </div>
-                </div>
-                <div class="col-12 d-block d-lg-none">
-                    <div id="mobile_menu"></div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- header two area end -->
-</header>
-<!-- header area end -->
+        <!-- header two area end -->
+    </header>
+    <!-- header area end -->
+    
     <!-- offset search area start -->
     <div class="offset-search">
         <form action="#">
@@ -764,7 +742,7 @@
     <div class="body_overlay"></div>
     <!-- body overlay area end -->
     
-    <!-- Page Header Start -->
+    <!-- Page Header Start - AHORA CON FONDO BLANCO Y TEXTO AZUL -->
     <section class="page-header">
         <div class="container">
             <div class="row">
@@ -819,7 +797,8 @@
                                 <span><i class="fa fa-clock-o"></i> 7:30 - 13:00</span>
                             </div>
                             <p>Aplicamos la metodología Montessori para promover el desarrollo integral de cada niño desde sus primeros años de vida, cultivando autonomía y curiosidad.</p>
-                            <a href="#" class="btn-outline-primary">Conocer más</a>
+                            <!-- ENLACE CORREGIDO: Apunta a servicios.html (o la página que describa el servicio) -->
+                            <a href="servicios.html" class="btn-outline-primary">Conocer más</a>
                         </div>
                     </div>
                 </div>
@@ -840,7 +819,8 @@
                                 <span><i class="fa fa-clock-o"></i> 7:00 - 14:00</span>
                             </div>
                             <p>Implementamos la innovadora metodología Singapur para transformar el aprendizaje de las matemáticas en una experiencia dinámica y desarrollar el razonamiento lógico.</p>
-                            <a href="#" class="btn-outline-primary">Conocer más</a>
+                            <!-- ENLACE CORREGIDO: Apunta a servicios.html -->
+                            <a href="servicios.html" class="btn-outline-primary">Conocer más</a>
                         </div>
                     </div>
                 </div>
@@ -861,7 +841,8 @@
                                 <span><i class="fa fa-clock-o"></i> 7:00 - 15:00</span>
                             </div>
                             <p>La metodología TBL (Task-Based Learning) transforma el aprendizaje en una experiencia dinámica y colaborativa, preparando para la educación superior.</p>
-                            <a href="#" class="btn-outline-primary">Conocer más</a>
+                            <!-- ENLACE CORREGIDO: Apunta a servicios.html -->
+                            <a href="servicios.html" class="btn-outline-primary">Conocer más</a>
                         </div>
                     </div>
                 </div>
@@ -925,7 +906,8 @@
                         <div class="service-content">
                             <h3>Nivelación académica</h3>
                             <p>Nivelamos y preparamos a nuestros estudiantes para un mejor desarrollo académico – integral.</p>
-                            <a href="#" class="btn-outline-primary btn-sm">Conocer más</a>
+                            <!-- ENLACE CORREGIDO: Apunta a servicios.html -->
+                            <a href="servicios.html" class="btn-outline-primary btn-sm">Conocer más</a>
                         </div>
                     </div>
                 </div>
@@ -937,7 +919,8 @@
                         <div class="service-content">
                             <h3>Tareas dirigidas</h3>
                             <p>Nuestros docentes están capacitados para ayudar a que nuestros estudiantes puedan cumplir con sus objetivos académicos.</p>
-                            <a href="#" class="btn-outline-primary btn-sm">Conocer más</a>
+                            <!-- ENLACE CORREGIDO: Apunta a servicios.html -->
+                            <a href="servicios.html" class="btn-outline-primary btn-sm">Conocer más</a>
                         </div>
                     </div>
                 </div>
@@ -949,7 +932,8 @@
                         <div class="service-content">
                             <h3>Alimentación y transporte</h3>
                             <p>Ofrecemos servicios de alimentación saludable y transporte seguro para garantizar el bienestar y el rendimiento académico.</p>
-                            <a href="#" class="btn-outline-primary btn-sm">Conocer más</a>
+                            <!-- ENLACE CORREGIDO: Apunta a servicios.html -->
+                            <a href="servicios.html" class="btn-outline-primary btn-sm">Conocer más</a>
                         </div>
                     </div>
                 </div>
@@ -1017,74 +1001,76 @@
                 <div class="col-lg-8 offset-lg-2">
                     <h2>¿Listo para formar parte?</h2>
                     <p>Inscripciones abiertas para el año lectivo 2026. Cupos limitados.</p>
-                    <a href="#" class="btn-cta">Solicitar cupo</a>
+                    <!-- ENLACE CORREGIDO: Apunta a admisiones.html -->
+                    <a href="admisiones.html" class="btn-cta">Solicitar cupo</a>
                 </div>
             </div>
         </div>
     </section>
     <!-- CTA Section End -->
     
-<!-- footer area start -->
-<footer>
-    <div class="footer-top has-color pt--120 pb--30">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="widget widget-company">
-                        <a href="home.html"><img src="assets/images/icon/logo.png" alt="image"></a>
-                        <div class="address">
-                            <h6>Dirección</h6>
-                            <p>Unidad Educativa Rafael Bucheli, Quito, Ecuador.</p>
+    <!-- footer area start -->
+    <footer>
+        <div class="footer-top has-color pt--120 pb--30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="widget widget-company">
+                            <!-- ENLACE CORREGIDO: Apunta a inicio.html -->
+                            <a href="inicio.html"><img src="assets/images/icon/logo.png" alt="image"></a>
+                            <div class="address">
+                                <h6>Dirección</h6>
+                                <p>Unidad Educativa Rafael Bucheli, Quito, Ecuador.</p>
+                            </div>
+                            <div class="address">
+                                <h6>Teléfono</h6>
+                                <p>(02) 303-5139</p>
+                            </div>
+                            <div class="address">
+                                <h6>Correo Electrónico</h6>
+                                <p>secretaria@rafaelbucheli.edu.ec</p>
+                            </div>
+                            <ul class="social">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            </ul>
                         </div>
-                        <div class="address">
-                            <h6>Teléfono</h6>
-                            <p>(02) 303-5139</p>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="widget footer-link">
+                            <h4 class="fwidget-title mb-5 pb-3 primary-color">Menú del Pie</h4> 
+                            <ul>
+                                <!-- ENLACES CORREGIDOS: Apuntan a las páginas correspondientes -->
+                                <li><a href="servicios.html"><i class="fa fa-angle-right"></i>Casos de Estudio</a></li>
+                                <li><a href="nosotros.html"><i class="fa fa-angle-right"></i>Nosotros</a></li>
+                                <li><a href="nosotros.html"><i class="fa fa-angle-right"></i>Nuestra Historia</a></li>
+                                <li><a href="nosotros.html"><i class="fa fa-angle-right"></i>Publicaciones</a></li>
+                                <li><a href="contacto.html"><i class="fa fa-angle-right"></i>Trabaja con Nosotros</a></li>
+                            </ul>
                         </div>
-                        <div class="address">
-                            <h6>Correo Electrónico</h6>
-                            <p>secretaria@rafaelbucheli.edu.ec</p>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="widget widget-opening">
+                            <h4 class="fwidget-title mb-5 pb-3 primary-color">Días y Horas de Trabajo</h4>
+                            <ul>
+                                <li><span>Lun - Mar :</span>6.00 am - 10.00 pm</li>
+                                <li><span>Mié - Jue :</span>8.00 am - 6.00 pm</li>
+                                <li><span>Viernes :</span>3.00 pm - 8.00 pm</li>
+                                <li><span>Domingo :</span>Cerrado</li>
+                            </ul>
                         </div>
-                        <ul class="social">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        </ul>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="widget footer-link">
-                        <h4 class="fwidget-title mb-5 pb-3 primary-color">Menú del Pie</h4> 
-                        <ul>
-                            <li><a href="home.html">Inicio</a></li>
-                            <li><a href="oferta_academica.html">Oferta Académica</a></li>
-                            <li><a href="actividades_extracurriculares.html">Actividades</a></li>
-                            <li><a href="admisiones.html">Admisiones</a></li>
-                            <li><a href="servicios.html">Servicios</a></li>
-                            <li><a href="nosotros.html">Nosotros</a></li>
-                            <li><a href="contact.html">Contacto</a></li>
-                        </ul>
-                    </div>
+                <div class="footer-bottom">
+                    <p>Copyright © 2026 <span><a class="primary-color" href="https://themeforest.net/user/pixelthemez/portfolio" target="_blank">Rafael Bucheli</a> </span> - Todos los derechos reservados. Hecho por <span><a class="primary-color" href="https://rafaelbucheli.com/" target="_blank">RafaelBucheli</a></span></p>
                 </div>
-                <div class="col-md-5">
-                    <div class="widget widget-opening">
-                        <h4 class="fwidget-title mb-5 pb-3 primary-color">Días y Horas de Trabajo</h4>
-                        <ul>
-                            <li><span>Lun - Mar :</span>6.00 am - 10.00 pm</li>
-                            <li><span>Mié - Jue :</span>8.00 am - 6.00 pm</li>
-                            <li><span>Viernes :</span>3.00 pm - 8.00 pm</li>
-                            <li><span>Domingo :</span>Cerrado</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>Copyright © 2026 <span><a class="primary-color" href="home.html">Rafael Bucheli</a> </span> - Todos los derechos reservados. Hecho por <span><a class="primary-color" href="#">AR CORPORATION</a></span></p>
             </div>
         </div>
-    </div>
-</footer>
-<!-- footer area end -->
+    </footer>
+    <!-- footer area end -->
+ 
     <!-- jquery latest version -->
     <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
     <!-- bootstrap 4 js -->
@@ -1098,5 +1084,4 @@
     <!-- loading js -->
     <script src="assets/js/loading.js"></script>
 </body>
-
 </html>

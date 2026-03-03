@@ -35,153 +35,188 @@
     <div id="preloader">
         <div class="spinner"></div>
     </div>
-<!-- HEADER ULTRA SIMPLE -->
-<header id="header" style="background: white; padding: 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-3">
-                <a href="index.html">
-                    <img src="assets/images/icon/logo.png" alt="logo" style="height: 60px;">
-                </a>
+    <!-- loading area end -->
+    
+   <!-- header area start --> 
+    <header id="header">
+        <!-- header two area start -->
+        <div class="header-two">
+            <div class="container-fluid px-0">
+                <div class="row align-items-center g-0 mx-0">
+                    <div class="col-lg-3 col-sm-6 d-block d-lg-none">
+                        <div class="logo">
+                            <!-- ENLACE CORREGIDO: Apunta a inicio.html -->
+                            <a href="inicio.html"><img src="assets/images/icon/logo.png" alt="logo"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 offset-lg-1 d-none d-lg-block">
+                        <div class="main-menu menu-style2">
+                            <nav>
+                                <ul id="m_menu_active">
+                                    <!-- ENLACES CORREGIDOS: Se añadieron las rutas correctas a los archivos HTML -->
+                                    <li class="active"><a href="inicio.html">Inicio</a></li>
+                                    <li><a href="javascript:void(0);">Oferta</a>
+                                        <ul class="submenu">
+                                            <li><a href="oferta_academica.html">Academia</a></li> <!-- CORREGIDO: a oferta_academica.html -->
+                                            <li><a href="actividades_extracurriculares.html">Clubes</a></li> <!-- CORREGIDO: a actividades_extracurriculares.html -->
+                                        </ul>
+                                    </li>
+                                    <li><a href="admisiones.html">Admisiones</a></li> <!-- CORREGIDO: a admisiones.html -->
+                                    <li><a href="landing_page.html">Landing Page</a></li> <!-- CORREGIDO: a landing_page.html -->
+
+                                    <li class="middle-logo">
+                                        <!-- ENLACE CORREGIDO: Apunta a inicio.html -->
+                                        <a href="inicio.html">
+                                            <img src="assets/images/icon/logo-middle.png" alt="logo">
+                                            <img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="logo">
+                                        </a>
+                                    </li>
+                                    <li><a href="servicios.html">Servicios</a></li> <!-- CORREGIDO: a servicios.html -->
+                                    <li><a href="nosotros.html">Nosotros</a> <!-- CORREGIDO: a nosotros.html -->
+                                        <ul class="submenu">
+                                            <li><a href="nosotros.html">Visión y Misión</a></li> <!-- CORREGIDO: Apunta a nosotros.html -->
+                                            <li><a href="nosotros.html">Proyectos</a></li> <!-- CORREGIDO: Apunta a nosotros.html -->
+                                            <li><a href="nosotros.html">Blog</a></li> <!-- CORREGIDO: Apunta a nosotros.html (o podrías crear un blog.html más adelante) -->
+                                        </ul>
+                                    </li>
+                                    <li><a href="contacto.html">Contacto</a></li> <!-- CORREGIDO: a contacto.html -->
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-5">
+                        <div class="header-bottom-right-style-2">
+                            <ul>
+                                <li>
+                                    <a href="https://app.rafaelbucheli.com/login/?next=/" 
+                                    class="btn btn-primary btn-round" 
+                                    target="_blank">
+                                    SIGN UP
+                                    </a>
+                                </li>
+                          </ul>
+                    </div>
+                    <div class="col-12 d-block d-lg-none">
+                        <div id="mobile_menu"></div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-9">
-                <ul style="list-style: none; margin: 0; padding: 0; text-align: right;">
-                    <li style="display: inline-block; margin-left: 20px;"><a href="index.html" style="color: #252855; font-weight: 600;">Inicio</a></li>
-                    <li style="display: inline-block; margin-left: 20px;"><a href="oferta_academica.html" style="color: #252855; font-weight: 600;">Oferta</a></li>
-                    <li style="display: inline-block; margin-left: 20px;"><a href="admisiones.html" style="color: #252855; font-weight: 600;">Admisiones</a></li>
-                    <li style="display: inline-block; margin-left: 20px;"><a href="servicios.html" style="color: #252855; font-weight: 600;">Servicios</a></li>
-                    <li style="display: inline-block; margin-left: 20px;"><a href="nosotros.html" style="color: #252855; font-weight: 600;">Nosotros</a></li>
-                    <li style="display: inline-block; margin-left: 20px;"><a href="contact.html" style="color: #252855; font-weight: 600;">Contacto</a></li>
-                </ul>
+        </div>
+        <!-- header two area end -->
+    </header>
+    <!-- header area end -->
+    
+    <!-- offset search area start -->
+    <div class="offset-search">
+        <form action="#">
+            <input type="text" name="search" placeholder="Buscar aquí...">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+    <!-- offset search area end -->
+    
+    <!-- body overlay area start -->
+    <div class="body_overlay"></div>
+    <!-- body overlay area end -->
+    
+<!-- hero area start - SLIDER CON VIDEO (UN SOLO SLIDE) -->
+    
+    <!-- SLIDE ÚNICO - VIDEO DE FONDO -->
+    <div class="image-slide-item video-slide">
+        <!-- VIDEO DE FONDO -->
+        <video autoplay muted loop playsinline class="slide-background-video">
+            <source src="assets/videos/educacion.mp4" type="video/mp4">
+            <source src="assets/videos/educacion.webm" type="video/webm">
+
+        </video>
+        
+        <!-- Partículas decorativas -->
+        <div class="hero-particles">
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-4"></div>
+        </div>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="hero-content text-center">
+                        
+                        <!-- Badge premium (opcional) -->
+                        <div class="hero-badge animate-slideInDown">
+                            <!-- Puedes poner texto aquí si quieres -->
+                        </div>
+                        
+                        <div class="hero-title-wrapper" style="margin-top: 50px;">
+                            <h1 class="hero-title">
+                                <span class="primary-color">
+                                    Construye tu Futuro
+                                </span>
+                            </h1>
+                            <div class="typing-container">
+                                <span class="hero-subtitle typing-premium">exitoso con Rafael Bucheli</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Descripción -->
+                        <p class="hero-description animate-fadeInLeft">
+                            Descubre una educación de excelencia con metodologías innovadoras
+                            <span class="highlight-dots">...</span>
+                        </p>
+
+                        <!-- Tarjeta de estadísticas -->
+                        <div class="hero-stats-card-3d animate-zoomIn">
+                            <div class="stats-grid-premium">
+                                <div class="stat-item-premium">
+                                    <span class="stat-number-premium counter" data-target="45">0</span>
+                                    <span class="stat-label-premium">Años de Excelencia</span>
+                                </div>
+                                <div class="stat-item-premium">
+                                    <span class="stat-number-premium counter" data-target="1000">0</span>
+                                    <span class="stat-label-premium">Estudiantes Felices</span>
+                                </div>
+                                <div class="stat-item-premium">
+                                    <span class="stat-number-premium counter" data-target="98%">0</span>
+                                    <span class="stat-label-premium">Éxito Académico</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Botones CORREGIDOS: Apuntan a los archivos correctos -->
+                        <div class="hero-buttons-wrapper-premium">
+                            <a href="admisiones.html" class="btn btn-primary btn-lg btn-round hero-btn-3d btn-shine-premium">
+                                Inscribirse
+                            </a>
+                            <a href="contacto.html" class="btn btn-outline-light btn-lg btn-round hero-btn-3d btn-pulse-premium">
+                                <span class="btn-icon">📞</span>
+                                Contactar Ahora
+                            </a>
+                        </div>
+
+                        <!-- Flip Card 3D -->
+                        <div class="flip-card-3d">
+                            <div class="flip-card-inner-premium">
+                                <div class="flip-card-front-premium">
+                                    <i class="fa fa-graduation-cap"></i>
+                                    <span>✨ ¿Sabías que...? ✨</span>
+                                </div>
+                                <div class="flip-card-back-premium">
+                                    <p>🎓 95% de nuestros graduados<br>ingresan a universidades top</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</header>
-<!-- HEADER END -->
-<!-- header area end -->
-<!-- header area end -->
-    <!-- course area start 
-<div class="course-area-background" style="background-image: url('assets/images/slider/slider1.jpg');">
+<!-- hero area end -->
 
-            <div class="course-area animate-in" style="padding-top: 0;"> </div>       <div class="container">
-            <div class="row">
-                <div class="col-md-10 offset-md-1">
-                    <div class="section-title-style2 black-title title-tb text-center">
-                        <span>construye tu carrera</span>
-                        <h2 class="primary-color">Niveles Destacados</h2>
-                    </div>
-                </div>
-            </div>
-  
-            <div class="commn-carousel owl-carousel card-deck"> 
-                <div class="card mb-5">
-                    <div class="course-thumb">
-                        <img src="assets/images/course/Metodologia.jpg" alt="image">
-                        <span class="cs-price primary-bg">Metodología Montessori</span>
-                    </div>
-                    <div class="card-body p-25"> 
-                        <div class="course-meta-title mb-4">
-                            <div class="course-meta-text">
-                                <h4><a href="course-details.html">Kindergarten</a></h4>
-                                <ul class="course-meta-stats">
-                                    <li><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></li>
-                                    <li>36 <i class="fa fa-comment"></i></li>
-                                    <li>85 <i class="fa fa-heart"></i></li>
-                                </ul>
-                            </div> 
-                            <a href="course-details.html"><img class="course-meta-thumbnail rounded-circle" src="assets/images/author/Educacion.jpg" alt="image"> </a>
-                        </div>
-                        <p>Aplicamos la metodología Montessori para promover el desarrollo integral de cada niño desde sus primeros años de vida.</p> 
-                        <ul class="course-meta-details list-inline w-100">
-                            <li> 
-                                <p>Nivel</p>
-                                <span>3 Años</span>
-                            </li>
-                            <li>
-                                <p>Tamaño de Clase</p>
-                                <span>18</span>
-                            </li> 
-                            <li>
-                                <p>Duración</p>
-                                <span>7:30 am - 1:00 pm</span>
-                            </li>      
-                        </ul>  
-                    </div>
-                </div>
- 
-                <div class="card mb-5">
-                    <div class="course-thumb">
-                        <img src="assets/images/course/Primaria.jpg" alt="image">
-                        <span class="cs-price primary-bg">Metodología Singapur</span>
-                    </div>
-                    <div class="card-body p-25"> 
-                        <div class="course-meta-title mb-4">
-                            <div class="course-meta-text">
-                                <h4><a href="course-details.html">Primaria</a></h4>
-                                <ul class="course-meta-stats">
-                                    <li><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></li>
-                                    <li>36 <i class="fa fa-comment"></i></li>
-                                    <li>85 <i class="fa fa-heart"></i></li>
-                                </ul>
-                            </div> 
-                            <a href="course-details.html"><img class="course-meta-thumbnail rounded-circle" src="assets/images/author/Educacion.jpg" alt="image"> </a>
-                        </div>
-                        <p>Implementamos la innovadora metodología Singapur para transformar el aprendizaje en una experiencia dinámica.</p> 
-                        <ul class="course-meta-details list-inline w-100">
-                            <li> 
-                                <p>Nivel</p>
-                                <span>7 Años</span>
-                            </li>
-                            <li>
-                                <p>Tamaño de Clase</p>
-                                <span>25</span>
-                            </li> 
-                            <li>
-                                <p>Duración</p>
-                                <span>7:00 am - 2:00 pm</span>
-                            </li>      
-                        </ul>  
-                    </div>
-                </div>
-  
-                <div class="card mb-5">
-                    <div class="course-thumb">
-                        <img src="assets/images/course/Secundaria.jpg" alt="image">
-                        <span class="cs-price primary-bg">Metodología TBL</span>
-                    </div>
-                    <div class="card-body p-25"> 
-                        <div class="course-meta-title mb-4">
-                            <div class="course-meta-text">
-                                <h4><a href="course-details.html">Secundaria</a></h4>
-                                <ul class="course-meta-stats">
-                                    <li><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></li>
-                                    <li>36 <i class="fa fa-comment"></i></li>
-                                    <li>85 <i class="fa fa-heart"></i></li>
-                                </ul>
-                            </div> 
-                            <a href="course-details.html"><img class="course-meta-thumbnail rounded-circle" src="assets/images/author/Educacion.jpg" alt="image"> </a>
-                        </div>
-                        <p>La metodología TBL transforma el aprendizaje en una experiencia dinámica y colaborativa para el futuro.</p> 
-                        <ul class="course-meta-details list-inline w-100">
-                            <li> 
-                                <p>Nivel</p>
-                                <span>6 Años</span>
-                            </li>
-                            <li>
-                                <p>Tamaño de Clase</p>
-                                <span>30</span>
-                            </li> 
-                            <li>
-                                <p>Duración</p>
-                                <span>7:00 am - 3:00 pm</span>
-                            </li>      
-                        </ul>  
-                    </div>
-                </div> 
-            </div> 
-        </div>
-    </div> -->
-    <!-- course area end -->
+    <!-- course area start (COMENTADO POR TI) 
+    ... 
+    -->
 
 <!-- =============== CARRUSEL DE PANTALLA COMPLETA START =============== -->
 <div class="fullscreen-carousel-area">
@@ -192,7 +227,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="fullscreen-slide-content text-center">
-                            <a href="#" class="btn btn-primary btn-round slide-btn">Conocer más</a>
+                            <!-- ENLACE CORREGIDO -->
+                            <a href="actividades_extracurriculares.html" class="btn btn-primary btn-round slide-btn">Conocer más</a>
                         </div>
                     </div>
                 </div>
@@ -210,7 +246,8 @@
                             <span class="slide-subtitle">Desarrollo Integral</span>
                             <h2 class="slide-title">Crecimiento</h2>
                             <p class="slide-description">Acompañamos cada etapa de formación</p>
-                            <a href="#" class="btn btn-primary btn-round slide-btn">Descubrir</a>
+                            <!-- ENLACE CORREGIDO -->
+                            <a href="oferta_academica.html" class="btn btn-primary btn-round slide-btn">Descubrir</a>
                         </div>
                     </div>
                 </div>
@@ -228,7 +265,8 @@
                             <span class="slide-subtitle">Nuestro Emblema</span>
                             <h2 class="slide-title">Logo León</h2>
                             <p class="slide-description">Fortaleza y liderazgo</p>
-                            <a href="#" class="btn btn-primary btn-round slide-btn">Nuestra historia</a>
+                            <!-- ENLACE CORREGIDO -->
+                            <a href="nosotros.html" class="btn btn-primary btn-round slide-btn">Nuestra historia</a>
                         </div>
                     </div>
                 </div>
@@ -246,7 +284,8 @@
                             <span class="slide-subtitle">Inspiración</span>
                             <h2 class="slide-title">Motivacional</h2>
                             <p class="slide-description">Frases que inspiran a nuestros estudiantes</p>
-                            <a href="#" class="btn btn-primary btn-round slide-btn">Inspírate</a>
+                            <!-- ENLACE CORREGIDO -->
+                            <a href="blog.html" class="btn btn-primary btn-round slide-btn">Inspírate</a>
                         </div>
                     </div>
                 </div>
@@ -263,7 +302,8 @@
                             <span class="slide-subtitle">Nuestro Fundador</span>
                             <h2 class="slide-title">Rafael Bucheli</h2>
                             <p class="slide-description">Legado de excelencia educativa</p>
-                            <a href="#" class="btn btn-primary btn-round slide-btn">Conocer más</a>
+                            <!-- ENLACE CORREGIDO -->
+                            <a href="nosotros.html" class="btn btn-primary btn-round slide-btn">Conocer más</a>
                         </div>
                     </div>
                 </div>
@@ -280,7 +320,8 @@
                             <span class="slide-subtitle">Alianzas Estratégicas</span>
                             <h2 class="slide-title">Convenios</h2>
                             <p class="slide-description">Con las mejores instituciones educativas</p>
-                            <a href="#" class="btn btn-primary btn-round slide-btn">Ver convenios</a>
+                            <!-- ENLACE CORREGIDO -->
+                            <a href="servicios.html" class="btn btn-primary btn-round slide-btn">Ver convenios</a>
                         </div>
                     </div>
                 </div>
@@ -297,7 +338,8 @@
                             <span class="slide-subtitle">Nuestras Instalaciones</span>
                             <h2 class="slide-title">Campus</h2>
                             <p class="slide-description">Espacios diseñados para el aprendizaje</p>
-                            <a href="#" class="btn btn-primary btn-round slide-btn">Visítanos</a>
+                            <!-- ENLACE CORREGIDO -->
+                            <a href="contacto.html" class="btn btn-primary btn-round slide-btn">Visítanos</a>
                         </div>
                     </div>
                 </div>
@@ -340,7 +382,8 @@
                 <div class="card mb-5"> 
                     <img src="assets/images/teacher/teacher-member1.jpg" alt="image"> 
                     <div class="card-body teacher-content p-25">  
-                        <h4 class="card-title mb-4"><a href="teacher-details.html">Kindergarten</a></h4>
+                        <!-- ENLACE CORREGIDO -->
+                        <h4 class="card-title mb-4"><a href="oferta_academica.html">Kindergarten</a></h4>
                         <span class="primary-color d-block mb-4">Metodología Montessori</span>
                         <p class="card-text">Potenciamos el desarrollo integral, cultivando la autonomía y curiosidad de los niños en un ambiente diseñado para que aprendan explorando a su propio ritmo.</p> 
                         <ul class="list-inline">
@@ -356,7 +399,8 @@
                 <div class="card mb-5"> 
                     <img src="assets/images/teacher/teacher-member2.jpg" alt="image"> 
                     <div class="card-body teacher-content p-25">  
-                        <h4 class="card-title mb-4"><a href="teacher-details.html">Primaria</a></h4>
+                        <!-- ENLACE CORREGIDO -->
+                        <h4 class="card-title mb-4"><a href="oferta_academica.html">Primaria</a></h4>
                         <span class="primary-color d-block mb-4">Metodología Singapur</span>
                         <p class="card-text">Impulsamos el razonamiento lógico y el liderazgo a nuestros alumnos de las herramientas necesarias para resolver problemas y triunfar en un mundo en constante cambio.</p> 
                         <ul class="list-inline">
@@ -368,28 +412,12 @@
                         </ul>
                     </div>
                 </div>
-    <!-- teacher ana rodigrez 
-
-                <div class="card mb-5"> 
-                    <img src="assets/images/teacher/teacher-member3.jpg" alt="image"> 
-                    <div class="card-body teacher-content p-25">  
-                        <h4 class="card-title mb-4"><a href="teacher-details.html">Ana Rodríguez</a></h4>
-                        <span class="primary-color d-block mb-4">Especialista en Idiomas</span>
-                        <p class="card-text">Somos un grupo filosófico aquí en Rafael Bucheli y hemos pensado mucho y bien sobre la educación.</p> 
-                        <ul class="list-inline">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#"><i class="fa fa-deviantart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-github"></i></a></li>
-                        </ul>
-                    </div>
-                </div> -->
-
+    
                 <div class="card mb-5"> 
                     <img src="assets/images/teacher/teacher-member4.jpg" alt="image"> 
                     <div class="card-body teacher-content p-25">  
-                        <h4 class="card-title mb-4"><a href="teacher-details.html">Secundaria</a></h4>
+                        <!-- ENLACE CORREGIDO -->
+                        <h4 class="card-title mb-4"><a href="oferta_academica.html">Secundaria</a></h4>
                         <span class="primary-color d-block mb-4"> Metodología TBL</span>
                         <p class="card-text">Implementamos la metodología TBL para desarrollar el pensamiento crítico y colaborativo, brindando un enfoque personalizado que fortalece la confianza y el liderazgo.</p> 
                         <ul class="list-inline">
@@ -425,7 +453,8 @@
                             <p>2026</p>
                         </div>
                         <div class="media-body">
-                            <h4><a href="#">Jornada de Puertas Abiertas</a></h4>
+                            <!-- ENLACE CORREGIDO -->
+                            <h4><a href="actividades_extracurriculares.html">Jornada de Puertas Abiertas</a></h4>
                             <p><i class="fa fa-clock-o"></i>08:00 AM - 12:00 PM</p>
                         </div>
                     </div>
@@ -437,7 +466,8 @@
                             <p>2026</p>
                         </div>
                         <div class="media-body">
-                            <h4><a href="#">Taller para Padres</a></h4>
+                            <!-- ENLACE CORREGIDO -->
+                            <h4><a href="actividades_extracurriculares.html">Taller para Padres</a></h4>
                             <p><i class="fa fa-clock-o"></i>03:00 PM - 05:00 PM</p>
                         </div>
                     </div>
@@ -449,7 +479,8 @@
                             <p>2026</p>
                         </div>
                         <div class="media-body">
-                            <h4><a href="#">Feria Científica Anual</a></h4>
+                            <!-- ENLACE CORREGIDO -->
+                            <h4><a href="oferta_academica.html">Feria Científica Anual</a></h4>
                             <p><i class="fa fa-clock-o"></i>09:00 AM - 02:00 PM</p>
                         </div>
                     </div>
@@ -461,7 +492,8 @@
                             <p>2026</p>
                         </div>
                         <div class="media-body">
-                            <h4><a href="#">Taller de Programación</a></h4>
+                            <!-- ENLACE CORREGIDO -->
+                            <h4><a href="actividades_extracurriculares.html">Taller de Programación</a></h4>
                             <p><i class="fa fa-clock-o"></i>10:00 AM - 12:00 PM</p>
                         </div>
                     </div>
@@ -534,10 +566,11 @@
                                 <li><i class="fa fa-clock-o"></i> AGOSTO 6, 2025</li>
                                 <li><i class="fa fa-comments"></i> 3 Comentarios</li> -->
                             </ul>
-                            <h4 class="card-title mb-4"><a href="blog.html">Nivelación Académica</a></h4>
+                            <h4 class="card-title mb-4"><a href="servicios.html">Nivelación Académica</a></h4>
                             <p class="card-text">Nivelamos y preparamos a nuestros estudiantes para un mejor desarrollo académico – integral.</p> 
-                            <a class="btn btn-primary btn-round btn-sm" href="blog-details.html"> Leer Más </a>
-                        </div> -->
+                            <!-- ENLACE CORREGIDO -->
+                            <a class="btn btn-primary btn-round btn-sm" href="servicios.html"> Leer Más </a>
+                        </div> 
                     </div>
                     
                     <div class="card mb-5"> 
@@ -547,9 +580,10 @@
                            <!--     <li><i class="fa fa-clock-o"></i> AGOSTO 6, 2025</li>
                                 <li><i class="fa fa-comments"></i> 3 Comentarios</li> -->
                             </ul>
-                            <h4 class="card-title mb-4"><a href="blog.html">Tareas Dirigidas</a></h4>
+                            <h4 class="card-title mb-4"><a href="servicios.html">Tareas Dirigidas</a></h4>
                             <p class="card-text">Nuestros docentes altamente capacitados se dedican a guiar y apoyar a cada estudiante en su camino hacia el éxito académico, promoviendo un aprendizaje integral y asegurando el logro de metas en cada etapa de su educación.</p> 
-                            <a class="btn btn-primary btn-round btn-sm" href="blog-details.html"> Leer Más </a>
+                            <!-- ENLACE CORREGIDO -->
+                            <a class="btn btn-primary btn-round btn-sm" href="servicios.html"> Leer Más </a>
                         </div>
                     </div>
            
@@ -560,9 +594,10 @@
                          <!--         <li><i class="fa fa-clock-o"></i> AGOSTO 6, 2025</li>
                                 <li><i class="fa fa-comments"></i> 3 Comentarios</li> -->
                             </ul>
-                            <h4 class="card-title mb-4"><a href="blog.html">Alimentación y transporte</a></h4>
+                            <h4 class="card-title mb-4"><a href="servicios.html">Alimentación y transporte</a></h4>
                             <p class="card-text">Enfocados en el bienestar integral de nuestros estudiantes, ofrecemos un servicio de alimentación saludable y transporte de forma segura que impulsa su rendimiento académico y su desarrollo optimo. </p> 
-                            <a class="btn btn-primary btn-round btn-sm" href="blog-details.html"> Leer Más </a>
+                            <!-- ENLACE CORREGIDO -->
+                            <a class="btn btn-primary btn-round btn-sm" href="servicios.html"> Leer Más </a>
                         </div>
                     </div>
                     
@@ -573,9 +608,10 @@
                             <!--        <li><i class="fa fa-clock-o"></i> AGOSTO 6, 2025</li>
                                 <li><i class="fa fa-comments"></i> 3 Comentarios</li> -->
                             </ul>
-                            <h4 class="card-title mb-4"><a href="blog.html">La Innovación Educativa</a></h4>
+                            <h4 class="card-title mb-4"><a href="nosotros.html">La Innovación Educativa</a></h4>
                             <p class="card-text">Cambiamos el modelo tradicional por metodologías que ponen al alumno en el centro del aprendizaje. Integramos herramientas digitales y pensamiento crítico para que el conocimiento sea práctico, dinámico y real.</p> 
-                            <a class="btn btn-primary btn-round btn-sm" href="blog-details.html"> Leer Más </a>
+                            <!-- ENLACE CORREGIDO -->
+                            <a class="btn btn-primary btn-round btn-sm" href="nosotros.html"> Leer Más </a>
                         </div>
                     </div>    
                 </div>
@@ -597,7 +633,8 @@
                 </div>
                 <div class="col-md-3">
                     <div class="cta-btn">
-                        <a class="btn btn-light btn-round" href="#">Únete Ahora</a>
+                        <!-- ENLACE CORREGIDO -->
+                        <a class="btn btn-light btn-round" href="admisiones.html">Únete Ahora</a>
                     </div>
                 </div>
             </div>
@@ -613,74 +650,75 @@
                 <div class="convenios-content text-center">
                     <span class="convenios-subtitle">Socios Estratégicos</span>
                     <h2 class="convenios-title">Convenios</h2>
-                    <a href="#" class="btn btn-primary btn-round convenios-btn">Más información...</a>
+                    <!-- ENLACE CORREGIDO -->
+                    <a href="servicios.html" class="btn btn-primary btn-round convenios-btn">Más información...</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!-- =============== CONVENIOS AREA END =============== -->
-<!-- footer area start -->
-<footer>
-    <div class="footer-top has-color pt--120 pb--30">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="widget widget-company">
-                        <a href="index.html"><img src="assets/images/icon/logo.png" alt="image"></a>
-                        <div class="address">
-                            <h6>Dirección</h6>
-                            <p>Unidad Educativa Rafael Bucheli, Quito, Ecuador.</p>
+    <!-- footer area start -->
+    <footer>
+        <div class="footer-top has-color pt--120 pb--30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="widget widget-company">
+                            <!-- ENLACE CORREGIDO: Apunta a inicio.html -->
+                            <a href="inicio.html"><img src="assets/images/icon/logo.png" alt="image"></a>
+                            <div class="address">
+                                <h6>Dirección</h6>
+                                <p>Unidad Educativa Rafael Bucheli, Quito, Ecuador.</p>
+                            </div>
+                            <div class="address">
+                                <h6>Teléfono</h6>
+                                <p>(02) 303-5139</p>
+                            </div>
+                            <div class="address">
+                                <h6>Correo Electrónico</h6>
+                                <p>secretaria@rafaelbucheli.edu.ec</p>
+                            </div>
+                            <ul class="social">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            </ul>
                         </div>
-                        <div class="address">
-                            <h6>Teléfono</h6>
-                            <p>(02) 303-5139</p>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="widget footer-link">
+                            <h4 class="fwidget-title mb-5 pb-3 primary-color">Menú del Pie</h4> 
+                            <ul>
+                                <!-- ENLACES CORREGIDOS -->
+                                <li><a href="servicios.html"><i class="fa fa-angle-right"></i>Casos de Estudio</a></li>
+                                <li><a href="nosotros.html"><i class="fa fa-angle-right"></i>Nosotros</a></li>
+                                <li><a href="nosotros.html"><i class="fa fa-angle-right"></i>Nuestra Historia</a></li>
+                                <li><a href="nosotros.html"><i class="fa fa-angle-right"></i>Publicaciones</a></li>
+                                <li><a href="contacto.html"><i class="fa fa-angle-right"></i>Trabaja con Nosotros</a></li>
+                            </ul>
                         </div>
-                        <div class="address">
-                            <h6>Correo Electrónico</h6>
-                            <p>secretaria@rafaelbucheli.edu.ec</p>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="widget widget-opening">
+                            <h4 class="fwidget-title mb-5 pb-3 primary-color">Días y Horas de Trabajo</h4>
+                            <ul>
+                                <li><span>Lun - Mar :</span>6.00 am - 10.00 pm</li>
+                                <li><span>Mié - Jue :</span>8.00 am - 6.00 pm</li>
+                                <li><span>Viernes :</span>3.00 pm - 8.00 pm</li>
+                                <li><span>Domingo :</span>Cerrado</li>
+                            </ul>
                         </div>
-                        <ul class="social">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        </ul>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="widget footer-link">
-                        <h4 class="fwidget-title mb-5 pb-3 primary-color">Menú del Pie</h4> 
-                        <ul>
-                            <li><a href="index.html">Inicio</a></li>
-                            <li><a href="oferta_academica.html">Oferta Académica</a></li>
-                            <li><a href="actividades_extracurriculares.html">Actividades</a></li>
-                            <li><a href="admisiones.html">Admisiones</a></li>
-                            <li><a href="servicios.html">Servicios</a></li>
-                            <li><a href="nosotros.html">Nosotros</a></li>
-                            <li><a href="contact.html">Contacto</a></li>
-                        </ul>
-                    </div>
+                <div class="footer-bottom">
+                    <p>Copyright © 2026 <span><a class="primary-color" href="https://themeforest.net/user/pixelthemez/portfolio" target="_blank">Rafael Bucheli</a> </span> - Todos los derechos reservados. Hecho por <span><a class="primary-color" href="https://rafaelbucheli.com/" target="_blank">RafaelBucheli</a></span></p>
                 </div>
-                <div class="col-md-5">
-                    <div class="widget widget-opening">
-                        <h4 class="fwidget-title mb-5 pb-3 primary-color">Días y Horas de Trabajo</h4>
-                        <ul>
-                            <li><span>Lun - Mar :</span>6.00 am - 10.00 pm</li>
-                            <li><span>Mié - Jue :</span>8.00 am - 6.00 pm</li>
-                            <li><span>Viernes :</span>3.00 pm - 8.00 pm</li>
-                            <li><span>Domingo :</span>Cerrado</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>Copyright © 2026 <span><a class="primary-color" href="index.html">Rafael Bucheli</a> </span> - Todos los derechos reservados. Hecho por <span><a class="primary-color" href="#">AR CORPORATION</a></span></p>
             </div>
         </div>
-    </div>
-</footer>
-<!-- footer area end -->
+    </footer>
+    <!-- footer area end -->
  
     <!-- jquery latest version -->
     <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
@@ -746,7 +784,6 @@ $(document).ready(function() {
     });
 });
 </script>
-
 </body>
 
 </html>
