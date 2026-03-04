@@ -1293,14 +1293,14 @@
             position: relative;
             width: 100%;
             height: 100vh;
-            min-height: 700px;
+            min-height: 600px; /* Reducido para móviles */
             max-height: 900px;
             overflow: hidden;
             margin: 0;
             padding: 0;
         }
         
-        /* Imagen de fondo */
+        /* Imagen de fondo - MEJORADA PARA MÓVILES */
         .acreditados-bg {
             position: absolute;
             top: 0;
@@ -1314,7 +1314,7 @@
             z-index: 1;
         }
         
-        /* Overlay con tu azul (sutil) */
+        /* Overlay con tu azul */
         .acreditados-overlay {
             position: absolute;
             top: 0;
@@ -1322,13 +1322,12 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, 
-                rgba(37,40,85,0.7) 0%, 
-                rgba(37,40,85,0.4) 50%,
-                rgba(37,40,85,0.2) 100%);
+                rgba(37,40,85,0.85) 0%, 
+                rgba(37,40,85,0.6) 100%);
             z-index: 2;
         }
         
-        /* Contenido centrado */
+        /* Contenido centrado - CORREGIDO */
         .acreditados-content {
             position: relative;
             z-index: 10;
@@ -1350,9 +1349,9 @@
             gap: 10px;
             background: rgba(255,255,255,0.15);
             backdrop-filter: blur(10px);
-            padding: 12px 30px;
+            padding: 10px 20px; /* Reducido para móvil */
             border-radius: 60px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             border: 1px solid rgba(255,255,255,0.2);
             font-weight: 600;
             letter-spacing: 0.5px;
@@ -1362,56 +1361,56 @@
             animation: fadeInDown 1s ease;
         }
         
-        .acreditados-badge i {
-            color: var(--blanco);
-            font-size: 18px;
-        }
-        
-        /* Título principal */
+        /* Título principal - MEJORADO PARA MÓVILES */
         .acreditados-title {
-            font-size: 80px;
+            font-size: clamp(32px, 8vw, 80px); /* Responsive con clamp */
             font-weight: 800;
             line-height: 1.1;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
             color: var(--blanco);
             text-shadow: 0 5px 30px rgba(0,0,0,0.5);
             animation: fadeInUp 1s ease 0.2s both;
+            max-width: 100%;
+            word-wrap: break-word;
         }
         
         .acreditados-title span {
             display: block;
-            font-size: 50px;
+            font-size: clamp(24px, 5vw, 50px); /* Responsive */
             font-weight: 400;
             font-style: italic;
             color: var(--blanco);
             opacity: 0.9;
-            margin-top: 15px;
+            margin-top: 10px;
         }
         
-        /* Descripción */
+        /* Descripción - MEJORADA */
         .acreditados-description {
-            font-size: 20px;
-            line-height: 1.8;
-            max-width: 700px;
-            margin: 0 auto 40px;
+            font-size: clamp(16px, 2vw, 20px);
+            line-height: 1.6;
+            max-width: min(700px, 90%); /* Responsive */
+            margin: 0 auto 30px;
             color: var(--blanco);
             opacity: 0.95;
             animation: fadeInUp 1s ease 0.4s both;
+            padding: 0 15px;
         }
         
-        /* Grid de logos de acreditaciones (opcional) */
+        /* Grid de logos - MEJORADO PARA MÓVILES */
         .acreditados-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 40px;
-            margin-top: 30px;
+            gap: clamp(15px, 3vw, 40px);
+            margin: 20px auto;
             animation: fadeInUp 1s ease 0.6s both;
+            max-width: 100%;
+            padding: 0 15px;
         }
         
         .acreditados-logo-item {
-            width: 120px;
-            height: 120px;
+            width: clamp(80px, 15vw, 120px);
+            height: clamp(80px, 15vw, 120px);
             background: rgba(255,255,255,0.1);
             backdrop-filter: blur(10px);
             border-radius: 20px;
@@ -1422,6 +1421,7 @@
             padding: 15px;
             border: 1px solid rgba(255,255,255,0.2);
             transition: all 0.3s ease;
+            flex: 0 0 auto; /* Evita que se estiren */
         }
         
         .acreditados-logo-item:hover {
@@ -1431,22 +1431,22 @@
         }
         
         .acreditados-logo-item i {
-            font-size: 40px;
+            font-size: clamp(24px, 5vw, 40px);
             color: var(--blanco);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         
         .acreditados-logo-item span {
-            font-size: 14px;
+            font-size: clamp(12px, 2vw, 14px);
             font-weight: 600;
             color: var(--blanco);
             text-align: center;
         }
         
-        /* Botón */
+        /* Botón - MEJORADO */
         .acreditados-btn {
             display: inline-block;
-            padding: 18px 50px;
+            padding: clamp(12px, 2vw, 18px) clamp(30px, 5vw, 50px);
             background: var(--blanco);
             color: var(--azul);
             font-weight: 700;
@@ -1456,9 +1456,10 @@
             border: 2px solid var(--blanco);
             box-shadow: 0 15px 30px rgba(0,0,0,0.3);
             letter-spacing: 0.5px;
-            font-size: 18px;
-            margin-top: 50px;
+            font-size: clamp(14px, 2vw, 18px);
+            margin-top: 30px;
             animation: fadeInUp 1s ease 0.8s both;
+            white-space: nowrap; /* Evita que el texto se rompa */
         }
         
         .acreditados-btn:hover {
@@ -1492,71 +1493,117 @@
             }
         }
         
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 1199px) {
-            .acreditados-title {
-                font-size: 70px;
-            }
-            .acreditados-title span {
-                font-size: 40px;
-            }
-        }
+        /* ===== MEDIA QUERIES ESPECÍFICOS ===== */
         
+        /* Tablets */
         @media (max-width: 991px) {
-            .acreditados-title {
-                font-size: 60px;
+            .acreditados-fullscreen {
+                min-height: 500px;
             }
-            .acreditados-title span {
-                font-size: 35px;
-            }
-            .acreditados-description {
-                font-size: 18px;
-            }
+            
             .acreditados-grid {
                 gap: 20px;
             }
-            .acreditados-logo-item {
-                width: 100px;
-                height: 100px;
+            
+            .acreditados-badge {
+                padding: 8px 16px;
+                font-size: 12px;
             }
         }
         
+        /* Móviles grandes */
         @media (max-width: 767px) {
+            .acreditados-fullscreen {
+                min-height: 450px;
+            }
+            
+            .acreditados-badge {
+                padding: 8px 15px;
+                font-size: 11px;
+                margin-bottom: 15px;
+            }
+            
+            .acreditados-badge i {
+                font-size: 14px;
+            }
+            
             .acreditados-title {
-                font-size: 40px;
+                margin-bottom: 10px;
             }
-            .acreditados-title span {
-                font-size: 28px;
-            }
+            
             .acreditados-description {
-                font-size: 16px;
-                padding: 0 20px;
+                margin-bottom: 20px;
+                line-height: 1.5;
             }
+            
             .acreditados-grid {
-                gap: 15px;
+                gap: 12px;
+                margin: 10px auto;
             }
-            .acreditados-logo-item {
-                width: 80px;
-                height: 80px;
-            }
-            .acreditados-logo-item i {
-                font-size: 30px;
-            }
-            .acreditados-logo-item span {
-                font-size: 12px;
-            }
+            
             .acreditados-btn {
-                padding: 14px 35px;
-                font-size: 16px;
+                margin-top: 20px;
+                padding: 10px 25px;
+            }
+        }
+        
+        /* Móviles pequeños */
+        @media (max-width: 480px) {
+            .acreditados-fullscreen {
+                min-height: 400px;
+            }
+            
+            .acreditados-grid {
+                gap: 10px;
+            }
+            
+            .acreditados-logo-item {
+                width: 70px;
+                height: 70px;
+                padding: 10px;
+            }
+            
+            .acreditados-logo-item i {
+                font-size: 24px;
+                margin-bottom: 5px;
+            }
+            
+            .acreditados-logo-item span {
+                font-size: 10px;
+            }
+            
+            .acreditados-btn {
+                font-size: 14px;
+                padding: 10px 20px;
+                white-space: normal; /* Permite que el texto se rompa en móviles */
+            }
+        }
+        
+        /* Ajuste para pantallas muy pequeñas */
+        @media (max-width: 360px) {
+            .acreditados-logo-item {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .acreditados-logo-item i {
+                font-size: 20px;
+            }
+            
+            .acreditados-logo-item span {
+                font-size: 9px;
             }
         }
     </style>
     
     <div class="acreditados-bg"></div>
-    <div class="acreditados-overlay"></div>  
+    <div class="acreditados-overlay"></div>
+    
+    <!-- CONTENIDO AGREGADO - AQUÍ VA TODO EL TEXTO Y LOGOS -->
+    <div class="acreditados-content">
+    </div>
 </div>
 <!-- =============== FIN SECCIÓN ACREDITADOS =============== -->
-    <!-- footer area start -->
     <footer>
         <div class="footer-top has-color pt--120 pb--30">
             <div class="container">
