@@ -11,7 +11,7 @@
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
     <!-- all css here -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <!-- ⚠️ ELIMINADA: <link rel="stylesheet" href="assets/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/css/magnific-popup.css">
     <link rel="stylesheet" href="assets/css/slicknav.min.css">
@@ -23,8 +23,16 @@
     <link rel="stylesheet" href="assets/css/loading.css">
     <!--color css-->
     <link rel="stylesheet" id="triggerColor" href="assets/css/triggerplate/color-0.css">
+    
+    <!-- ===== FONT AWESOME 6 ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ===== CHATBOT STYLES ===== -->
+    <link rel="stylesheet" href="CHATBOT/CHATBOT.css">
+    
     <!-- modernizr css -->
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    
     <style>
         /* ===== ESTILOS ADICIONALES SOLO PARA LA PÁGINA DE SERVICIOS ===== */
         :root {
@@ -516,7 +524,6 @@
                 <div class="row align-items-center g-0 mx-0">
                     <div class="col-lg-3 col-sm-6 d-block d-lg-none">
                         <div class="logo">
-                            <!-- ENLACE CORREGIDO: Apunta a inicio.html -->
                             <a href="inicio.html"><img src="assets/images/icon/logo.png" alt="logo"></a>
                         </div>
                     </div>
@@ -524,33 +531,30 @@
                         <div class="main-menu menu-style2">
                             <nav>
                                 <ul id="m_menu_active">
-                                    <!-- ENLACES CORREGIDOS: Mismos que en las otras páginas -->
-                                    <li><a href="inicio.html">Inicio</a></li> <!-- CORREGIDO -->
+                                    <li><a href="inicio.html">Inicio</a></li>
                                     <li><a href="javascript:void(0);">Oferta</a>
                                         <ul class="submenu">
-                                            <li><a href="oferta_academica.html">Academia</a></li> <!-- CORREGIDO -->
-                                            <li><a href="actividades_extracurriculares.html">Actividades</a></li> <!-- CORREGIDO -->
+                                            <li><a href="oferta_academica.html">Academia</a></li>
+                                            <li><a href="actividades_extracurriculares.html">Actividades</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="admisiones.html">Admisiones</a></li> <!-- CORREGIDO -->
-                                    <li><a href="landing_page.html">Landing Page</a></li> <!-- CORREGIDO -->
-
+                                    <li><a href="admisiones.html">Admisiones</a></li>
+                                    <li><a href="landing_page.html">Landing Page</a></li>
                                     <li class="middle-logo">
-                                        <!-- ENLACE CORREGIDO: Apunta a inicio.html -->
                                         <a href="inicio.html">
                                             <img src="assets/images/icon/logo-middle.png" alt="logo">
                                             <img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="logo">
                                         </a>
                                     </li>
-                                    <li class="active"><a href="servicios.html">Servicios</a></li> <!-- CORREGIDO (se mantiene activo) -->
-                                    <li><a href="nosotros.html">Nosotros</a> <!-- CORREGIDO -->
+                                    <li class="active"><a href="servicios.html">Servicios</a></li>
+                                    <li><a href="nosotros.html">Nosotros</a>
                                         <ul class="submenu">
-                                            <li><a href="nosotros.html">Visión y Misión</a></li> <!-- CORREGIDO -->
-                                            <li><a href="nosotros.html">Proyectos</a></li> <!-- CORREGIDO -->
-                                            <li><a href="nosotros.html">Blog</a></li> <!-- CORREGIDO -->
+                                            <li><a href="nosotros.html">Visión y Misión</a></li>
+                                            <li><a href="nosotros.html">Proyectos</a></li>
+                                            <li><a href="nosotros.html">Blog</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="contacto.html">Contacto</a></li> <!-- CORREGIDO -->
+                                    <li><a href="contacto.html">Contacto</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -578,11 +582,11 @@
     </header>
     <!-- header area end -->
     
-    <!-- offset search area start -->
+    <!-- offset search area start - CORREGIDO -->
     <div class="offset-search">
         <form action="#">
             <input type="text" name="search" placeholder="Buscar aquí...">
-            <button type="submit"><i class="fa fa-search"></i></button>
+            <button type="submit"><i class="fas fa-search"></i></button>
         </form>
     </div>
     <!-- offset search area end -->
@@ -613,7 +617,7 @@
         </div>
     </section>
     
-    <!-- SERVICIOS PRINCIPALES -->
+    <!-- SERVICIOS PRINCIPALES - CORREGIDO -->
     <section class="services-section">
         <div class="container">
             <div class="section-title-centered">
@@ -624,19 +628,18 @@
                 <!-- Guardería / Aula Matinal -->
                 <div class="col-lg-6 col-md-6">
                     <div class="service-card">
-                        <div class="service-img" style="background-image: url('assets/images/icon/logo-middle.png');">
+                        <div class="service-img" style="background-image: url('assets/images/recursos/guarderia.jpg');">
                             <span class="service-tag">Conciliación</span>
-                            <span class="service-features"><i class="fa fa-clock-o"></i> 07:30 - 08:30</span>
+                            <span class="service-features"><i class="far fa-clock"></i> 07:30 - 08:30</span>
                         </div>
                         <div class="service-content">
                             <h3>Aula Matinal / Guardería</h3>
                             <p>Facilitamos la incorporación temprana de los estudiantes con un espacio seguro y supervisado desde las 7:30 de la mañana. Los niños pueden desayunar, realizar actividades lúdicas y prepararse para iniciar su jornada escolar.</p>
                             <div class="service-meta">
-                                <span><i class="fa fa-child"></i> Desde 2 años</span>
-                                <span><i class="fa fa-cutlery"></i> Desayuno incluido</span>
-                                <span><i class="fa fa-calendar"></i> Lun - Vie</span>
+                                <span><i class="fas fa-child"></i> Desde 2 años</span>
+                                <span><i class="fas fa-utensils"></i> Desayuno incluido</span>
+                                <span><i class="far fa-calendar"></i> Lun - Vie</span>
                             </div>
-                            <!-- ENLACE CORREGIDO: Apunta a contacto.html -->
                             <a href="contacto.html" class="btn-service">Solicitar información →</a>
                         </div>
                     </div>
@@ -645,19 +648,18 @@
                 <!-- Comedor Escolar -->
                 <div class="col-lg-6 col-md-6">
                     <div class="service-card">
-                        <div class="service-img" style="background-image: url('assets/images/icon/logo-middle.png');">
+                        <div class="service-img" style="background-image: url('assets/images/recursos/comedor.png');">
                             <span class="service-tag">Nutrición</span>
-                            <span class="service-features"><i class="fa fa-clock-o"></i> 14:00 - 16:00</span>
+                            <span class="service-features"><i class="far fa-clock"></i> 14:00 - 16:00</span>
                         </div>
                         <div class="service-content">
                             <h3>Comedor Escolar</h3>
                             <p>Servicio de alimentación saludable y equilibrada con menús diseñados por nutricionistas especializados. Ofrecemos comidas variadas que cumplen con los estándares nutricionales y se adaptan a las necesidades de cada edad.</p>
                             <div class="service-meta">
-                                <span><i class="fa fa-cutlery"></i> Cocina diaria</span>
-                                <span><i class="fa fa-heart"></i> Menús saludables</span>
-                                <span><i class="fa fa-users"></i> Supervisión</span>
+                                <span><i class="fas fa-utensils"></i> Cocina diaria</span>
+                                <span><i class="fas fa-heart"></i> Menús saludables</span>
+                                <span><i class="fas fa-users"></i> Supervisión</span>
                             </div>
-                            <!-- ENLACE CORREGIDO: Apunta a contacto.html -->
                             <a href="contacto.html" class="btn-service">Ver menú mensual →</a>
                         </div>
                     </div>
@@ -666,19 +668,18 @@
                 <!-- Bar / Cafetería -->
                 <div class="col-lg-6 col-md-6">
                     <div class="service-card">
-                        <div class="service-img" style="background-image: url('assets/images/icon/logo-middle.png');">
+                        <div class="service-img" style="background-image: url('assets/images/recursos/bar-escolar.jpg');">
                             <span class="service-tag">Conveniencia</span>
-                            <span class="service-features"><i class="fa fa-clock-o"></i> Recreos</span>
+                            <span class="service-features"><i class="far fa-clock"></i> Recreos</span>
                         </div>
                         <div class="service-content">
                             <h3>Bar / Cafetería</h3>
                             <p>Espacio acogedor donde los estudiantes pueden adquirir refrigerios saludables durante los recreos. Ofrecemos opciones variadas que incluyen frutas, lácteos, panadería artesanal y bebidas nutritivas.</p>
                             <div class="service-meta">
-                                <span><i class="fa fa-coffee"></i> Desayunos</span>
-                                <span><i class="fa fa-cutlery"></i> Refrigerios</span>
-                                <span><i class="fa fa-smile-o"></i> Opciones saludables</span>
+                                <span><i class="fas fa-mug-hot"></i> Desayunos</span>
+                                <span><i class="fas fa-utensils"></i> Refrigerios</span>
+                                <span><i class="far fa-smile"></i> Opciones saludables</span>
                             </div>
-                            <!-- ENLACE CORREGIDO: Apunta a contacto.html -->
                             <a href="contacto.html" class="btn-service">Conocer productos →</a>
                         </div>
                     </div>
@@ -687,19 +688,18 @@
                 <!-- Seguro Estudiantil -->
                 <div class="col-lg-6 col-md-6">
                     <div class="service-card">
-                        <div class="service-img" style="background-image: url('assets/images/icon/logo-middle.png');">
+                        <div class="service-img" style="background-image: url('assets/images/recursos/seguro-estudiantil.jpg');">
                             <span class="service-tag">Protección</span>
-                            <span class="service-features"><i class="fa fa-shield"></i> Cobertura total</span>
+                            <span class="service-features"><i class="fas fa-shield-alt"></i> Cobertura total</span>
                         </div>
                         <div class="service-content">
                             <h3>Seguro Estudiantil</h3>
                             <p>Protección integral para nuestros estudiantes durante su permanencia en el centro y en actividades escolares. El seguro cubre accidentes, consulta médica general, urgencias y traslados.</p>
                             <div class="service-meta">
-                                <span><i class="fa fa-ambulance"></i> Emergencias</span>
-                                <span><i class="fa fa-stethoscope"></i> Consulta médica</span>
-                                <span><i class="fa fa-medkit"></i> Primeros auxilios</span>
+                                <span><i class="fas fa-ambulance"></i> Emergencias</span>
+                                <span><i class="fas fa-stethoscope"></i> Consulta médica</span>
+                                <span><i class="fas fa-kit-medical"></i> Primeros auxilios</span>
                             </div>
-                            <!-- ENLACE CORREGIDO: Apunta a contacto.html -->
                             <a href="contacto.html" class="btn-service">Ver coberturas →</a>
                         </div>
                     </div>
@@ -708,7 +708,7 @@
         </div>
     </section>
     
-    <!-- BENEFICIOS -->
+    <!-- BENEFICIOS - CORREGIDO -->
     <section class="benefits-section">
         <div class="container">
             <div class="section-title-centered">
@@ -719,7 +719,7 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="benefit-card">
                         <div class="benefit-icon">
-                            <i class="fa fa-clock-o"></i>
+                            <i class="far fa-clock"></i>
                         </div>
                         <h4>Conciliación laboral</h4>
                         <p>Horarios extendidos que se adaptan a las necesidades de las familias trabajadoras.</p>
@@ -728,7 +728,7 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="benefit-card">
                         <div class="benefit-icon">
-                            <i class="fa fa-heartbeat"></i>
+                            <i class="fas fa-heartbeat"></i>
                         </div>
                         <h4>Alimentación saludable</h4>
                         <p>Menús equilibrados supervisados por nutricionistas para garantizar el desarrollo óptimo.</p>
@@ -737,7 +737,7 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="benefit-card">
                         <div class="benefit-icon">
-                            <i class="fa fa-shield"></i>
+                            <i class="fas fa-shield-alt"></i>
                         </div>
                         <h4>Seguridad garantizada</h4>
                         <p>Personal capacitado y espacios adaptados para la protección de los estudiantes.</p>
@@ -746,7 +746,7 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="benefit-card">
                         <div class="benefit-icon">
-                            <i class="fa fa-smile-o"></i>
+                            <i class="far fa-smile"></i>
                         </div>
                         <h4>Bienestar integral</h4>
                         <p>Atención a las necesidades físicas, emocionales y sociales de los alumnos.</p>
@@ -756,7 +756,7 @@
         </div>
     </section>
     
-    <!-- HORARIOS -->
+    <!-- HORARIOS - CORREGIDO -->
     <section class="schedule-section">
         <div class="container">
             <div class="section-title-centered">
@@ -772,7 +772,7 @@
                             <span class="time">07:30 - 08:30</span>
                         </div>
                         <div class="contact-info-small">
-                            <p><i class="fa fa-phone"></i> Ext. 101</p>
+                            <p><i class="fas fa-phone"></i> Ext. 101</p>
                         </div>
                     </div>
                 </div>
@@ -788,7 +788,7 @@
                             <span class="time">15:00 - 16:00</span>
                         </div>
                         <div class="contact-info-small">
-                            <p><i class="fa fa-phone"></i> Ext. 102</p>
+                            <p><i class="fas fa-phone"></i> Ext. 102</p>
                         </div>
                     </div>
                 </div>
@@ -804,7 +804,7 @@
                             <span class="time">15:30 - 16:00</span>
                         </div>
                         <div class="contact-info-small">
-                            <p><i class="fa fa-phone"></i> Ext. 103</p>
+                            <p><i class="fas fa-phone"></i> Ext. 103</p>
                         </div>
                     </div>
                 </div>
@@ -817,72 +817,90 @@
         <div class="container">
             <h2>¿Necesitas más información?</h2>
             <p>Descubre cómo nuestros servicios pueden facilitar tu rutina diaria.</p>
-            <!-- ENLACE CORREGIDO: Apunta a contacto.html -->
             <a href="contacto.html" class="btn-cta-servicios">Solicitar información</a>
         </div>
     </section>
     
-    <!-- footer area start (CORREGIDO) -->
-    <footer>
-        <div class="footer-top has-color pt--120 pb--30">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="widget widget-company">
-                            <!-- ENLACE CORREGIDO: Apunta a inicio.html -->
-                            <a href="inicio.html"><img src="assets/images/icon/logo.png" alt="image"></a>
-                            <div class="address">
-                                <h6>Dirección</h6>
-                                <p>Unidad Educativa Rafael Bucheli, Quito, Ecuador.</p>
-                            </div>
-                            <div class="address">
-                                <h6>Teléfono</h6>
-                                <p>(02) 303-5139</p>
-                            </div>
-                            <div class="address">
-                                <h6>Correo Electrónico</h6>
-                                <p>secretaria@rafaelbucheli.edu.ec</p>
-                            </div>
-                            <ul class="social">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
+<!-- footer area start (CORREGIDO) -->
+<footer>
+    <div class="footer-top has-color pt--120 pb--30">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="widget widget-company">
+                        <a href="inicio.html"><img src="assets/images/icon/logo.png" alt="image"></a>
+                        <div class="address">
+                            <h6>Dirección</h6>
+                            <p>Unidad Educativa Rafael Bucheli, Quito, Ecuador.</p>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="widget footer-link">
-                            <h4 class="fwidget-title mb-5 pb-3 primary-color">Menú del Pie</h4> 
-                            <ul>
-                                <!-- ENLACES CORREGIDOS: Apuntan a las páginas correspondientes -->
-                                <li><a href="servicios.html"><i class="fa fa-angle-right"></i>Casos de Estudio</a></li>
-                                <li><a href="nosotros.html"><i class="fa fa-angle-right"></i>Nosotros</a></li>
-                                <li><a href="nosotros.html"><i class="fa fa-angle-right"></i>Nuestra Historia</a></li>
-                                <li><a href="nosotros.html"><i class="fa fa-angle-right"></i>Publicaciones</a></li>
-                                <li><a href="contacto.html"><i class="fa fa-angle-right"></i>Trabaja con Nosotros</a></li>
-                            </ul>
+                        <div class="address">
+                            <h6>Teléfono</h6>
+                            <p>(02) 303-5139</p>
                         </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="widget widget-opening">
-                            <h4 class="fwidget-title mb-5 pb-3 primary-color">Días y Horas de Trabajo</h4>
-                            <ul>
-                                <li><span>Lun - Mar :</span>6.00 am - 10.00 pm</li>
-                                <li><span>Mié - Jue :</span>8.00 am - 6.00 pm</li>
-                                <li><span>Viernes :</span>3.00 pm - 8.00 pm</li>
-                                <li><span>Domingo :</span>Cerrado</li>
-                            </ul>
+                        <div class="address">
+                            <h6>Correo Electrónico</h6>
+                            <p>secretaria@rafaelbucheli.edu.ec</p>
                         </div>
+                        
+                        <!-- REDES SOCIALES ACTUALIZADAS -->
+                        <ul class="social">
+                            <li>
+                                <a href="https://www.facebook.com/uerafaelbucheli/?locale=es_LA" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.tiktok.com/@uerafaelbucheli" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/u.e.rafaelbucheli/" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.youtube.com/@uecatolicaparticularrafael41" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div class="footer-bottom">
-                    <p>Copyright © 2026 <span><a class="primary-color" href="https://themeforest.net/user/pixelthemez/portfolio" target="_blank">Rafael Bucheli</a> </span> - Todos los derechos reservados. Hecho por <span><a class="primary-color" href="https://rafaelbucheli.com/" target="_blank">RafaelBucheli</a></span></p>
+                
+                <div class="col-md-3">
+                    <div class="widget footer-link">
+                        <h4 class="fwidget-title mb-5 pb-3 primary-color">Menú del Pie</h4> 
+                        <ul>
+                            <li><a href="servicios.html"><i class="fas fa-angle-right"></i>Casos de Estudio</a></li>
+                            <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Nosotros</a></li>
+                            <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Nuestra Historia</a></li>
+                            <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Publicaciones</a></li>
+                            <li><a href="contacto.html"><i class="fas fa-angle-right"></i>Trabaja con Nosotros</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-5">
+                    <div class="widget widget-opening">
+                        <h4 class="fwidget-title mb-5 pb-3 primary-color">Días y Horas de Trabajo</h4>
+                        <ul>
+                            <li><span>Lun - Mar :</span>6.00 am - 10.00 pm</li>
+                            <li><span>Mié - Jue :</span>8.00 am - 6.00 pm</li>
+                            <li><span>Viernes :</span>3.00 pm - 8.00 pm</li>
+                            <li><span>Domingo :</span>Cerrado</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+            
+            <div class="footer-bottom">
+                <p>Copyright © 2026 <span><a class="primary-color" href="https://rafaelbucheli.com/" target="_blank">Unidad Educativa Particular Rafael Bucheli</a> </span> - Todos los derechos reservados.</p>
+            </div>
         </div>
-    </footer>
-    <!-- footer area end -->
+    </div>
+</footer>
+<!-- footer area end -->
  
     <!-- jquery latest version -->
     <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
@@ -896,6 +914,11 @@
     <script src="assets/js/scripts.js"></script>
     <!-- loading js -->
     <script src="assets/js/loading.js"></script>
+    
+    <!-- ============================================ -->
+    <!-- CHATBOT - Asistente Virtual -->
+    <!-- ============================================ -->
+    <script src="CHATBOT/CHATBOT.js" data-auto-init></script>
 </body>
 
 </html>

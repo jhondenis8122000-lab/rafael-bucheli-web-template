@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asistente Virtual - Institución Rafael Bucheli</title>
+  <link rel="stylesheet" href="CHATBOT.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Botón Principal con Ícono de Signo + -->
+<div id="main-floating-btn" class="main-floating-btn pulse">
+  <i class="fas fa-plus"></i>
+  <span class="main-tooltip">¡Haz clic para ver opciones!</span>
+</div>
+
+<!-- Contenedor de botones secundarios (inicialmente oculto) -->
+<div id="floating-menu" class="floating-menu">
+  <a href="https://wa.me/593995549605" target="_blank" class="floating-btn secondary-btn whatsapp-btn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="30">
+    <span class="btn-tooltip">WhatsApp Directo</span>
+  </a>
+  
+  <div id="form-floating-btn" class="floating-btn secondary-btn form-btn">
+    <i class="far fa-file-alt"></i>
+    <span class="btn-tooltip">Enviar Formulario</span>
+  </div>
+  
+  <div id="chatbot-floating-btn" class="floating-btn secondary-btn chatbot-btn">
+    <i class="far fa-comments"></i>
+    <span class="btn-tooltip">Asistente Virtual</span>
+  </div>
+</div>
+
+<!-- Ventana de Chat -->
+<div id="chatbot-window" class="chat-window">
+  <div id="chatbot-header" class="window-header">
+    <div class="header-info">
+      <img src="logo-institucion.png" alt="Logo" class="header-logo">
+      <div class="header-text">
+        <b>Asistente Rafael Bucheli</b>
+        <div class="status-container">
+          <span class="status-dot online" id="status-dot"></span>
+          <small id="status-text">En línea</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Formulario de Bienvenida -->
+  <div id="lead-form">
+    <div class="welcome-icon">🤖</div>
+    <h3>¡Bienvenido!</h3>
+    <p>Para brindarte una atención personalizada, por favor dinos tu nombre:</p>
+    <input type="text" id="user-name" class="interactive-input" placeholder="Escribe tu nombre completo..." autocomplete="off">
+    <button id="start-btn" onclick="startChat()">
+      <i class="fas fa-comments"></i> Empezar conversación
+    </button>
+    <p class="privacy-note">
+      <i class="fas fa-shield-alt"></i> Tu información es confidencial y solo se usará para brindarte mejor atención.
+    </p>
+  </div>
+
+  <!-- Área de Mensajes -->
+  <div id="chatbot-messages" style="display:none;"></div>
+  
+  <!-- Indicador de Escritura -->
+  <div id="typing-indicator" class="typing" style="display:none;">
+    <span></span><span></span><span></span>
+  </div>
+
+  <!-- Área de Entrada -->
+  <div id="chatbot-input-area" style="display:none;">
+    <input type="text" id="user-input" placeholder="Escribe tu duda aquí...">
+    <button id="send-btn" onclick="sendCustomMessage()">
+      <i class="fas fa-paper-plane"></i>
+    </button>
+  </div>
+</div>
+
+<!-- Ventana de Formulario -->
+<div id="form-window" class="form-window">
+  <div class="window-header form-header">
+    <div class="header-title">
+      <i class="far fa-file-alt"></i>
+      <b>Formulario de Contacto</b>
+    </div>
+    <span id="close-form" class="close-icon">✖</span>
+  </div>
+  
+  <form action="https://formsubmit.co/formularios_pagina_web@rafaelbucheli.com" method="POST" id="main-contact-form">
+    <input type="hidden" name="_subject" value="Nuevo Mensaje de Contacto - Rafael Bucheli">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    
+    <div class="form-content">
+      <p class="form-instruction">
+        <i class="fas fa-info-circle"></i> Completa tus datos y te responderemos por correo en menos de 24 horas.
+      </p>
+            <div class="input-with-icon">
+        <i class="fas fa-user"></i>
+        <input type="text" name="Nombre" class="interactive-input" placeholder="Nombre completo" required>
+      </div>
+          <div class="input-with-icon">
+        <i class="fas fa-envelope"></i>
+        <input type="email" name="Correo" class="interactive-input" placeholder="Correo electrónico" required>
+      </div>
+            <div class="input-with-icon">
+        <i class="fas fa-phone"></i>
+        <input type="tel" name="Telefono" class="interactive-input" placeholder="Teléfono / WhatsApp" required>
+      </div>
+            <div class="input-with-icon">
+        <i class="fas fa-edit"></i>
+        <textarea name="Mensaje" class="interactive-input textarea-input" placeholder="¿En qué podemos ayudarte? Describe tu consulta..." required></textarea>
+      </div>
+            <div class="form-buttons">
+        <button type="submit" class="submit-btn">
+          <i class="fas fa-paper-plane"></i> Enviar Formulario
+        </button>
+        <button type="button" onclick="closeForm()" class="cancel-btn">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+            <p class="privacy-note">
+        <i class="fas fa-lock"></i> Tus datos están protegidos y no serán compartidos con terceros.
+      </p>
+    </div>
+  </form>
+</div>
+<script src="CHATBOT.js"></script>
+</body>
+</html>

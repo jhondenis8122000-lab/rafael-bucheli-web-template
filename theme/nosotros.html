@@ -11,7 +11,7 @@
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
     <!-- all css here -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <!-- ⚠️ ELIMINADA: <link rel="stylesheet" href="assets/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/css/magnific-popup.css">
     <link rel="stylesheet" href="assets/css/slicknav.min.css">
@@ -23,8 +23,16 @@
     <link rel="stylesheet" href="assets/css/loading.css">
     <!--color css-->
     <link rel="stylesheet" id="triggerColor" href="assets/css/triggerplate/color-0.css">
+    
+    <!-- ===== FONT AWESOME 6 ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ===== CHATBOT STYLES ===== -->
+    <link rel="stylesheet" href="CHATBOT/CHATBOT.css">
+    
     <!-- modernizr css -->
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    
     <style>
         /* ===== ESTILOS PARA LA PÁGINA NOSOTROS ===== */
         :root {
@@ -513,15 +521,15 @@
                             <nav>
                                 <ul id="m_menu_active">
                                     <!-- ENLACES CORREGIDOS: Mismos que en las otras páginas -->
-                                    <li><a href="inicio.html">Inicio</a></li> <!-- CORREGIDO -->
+                                    <li><a href="inicio.html">Inicio</a></li>
                                     <li><a href="javascript:void(0);">Oferta</a>
                                         <ul class="submenu">
-                                            <li><a href="oferta_academica.html">Academia</a></li> <!-- CORREGIDO -->
-                                            <li><a href="actividades_extracurriculares.html">Actividades</a></li> <!-- CORREGIDO -->
+                                            <li><a href="oferta_academica.html">Academia</a></li>
+                                            <li><a href="actividades_extracurriculares.html">Actividades</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="admisiones.html">Admisiones</a></li> <!-- CORREGIDO -->
-                                    <li><a href="landing_page.html">Landing Page</a></li> <!-- CORREGIDO -->
+                                    <li><a href="admisiones.html">Admisiones</a></li>
+                                    <li><a href="landing_page.html">Landing Page</a></li>
 
                                     <li class="middle-logo">
                                         <!-- ENLACE CORREGIDO: Apunta a inicio.html -->
@@ -530,15 +538,15 @@
                                             <img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="logo">
                                         </a>
                                     </li>
-                                    <li><a href="servicios.html">Servicios</a></li> <!-- CORREGIDO -->
-                                    <li class="active"><a href="nosotros.html">Nosotros</a> <!-- CORREGIDO (se mantiene activo) -->
+                                    <li><a href="servicios.html">Servicios</a></li>
+                                    <li class="active"><a href="nosotros.html">Nosotros</a>
                                         <ul class="submenu">
-                                            <li><a href="nosotros.html">Visión y Misión</a></li> <!-- CORREGIDO -->
-                                            <li><a href="nosotros.html">Proyectos</a></li> <!-- CORREGIDO -->
-                                            <li><a href="nosotros.html">Blog</a></li> <!-- CORREGIDO -->
+                                            <li><a href="nosotros.html">Visión y Misión</a></li>
+                                            <li><a href="nosotros.html">Proyectos</a></li>
+                                            <li><a href="nosotros.html">Blog</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="contacto.html">Contacto</a></li> <!-- CORREGIDO -->
+                                    <li><a href="contacto.html">Contacto</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -566,11 +574,11 @@
     </header>
     <!-- header area end -->
     
-    <!-- offset search area start -->
+    <!-- offset search area start - CORREGIDO -->
     <div class="offset-search">
         <form action="#">
             <input type="text" name="search" placeholder="Buscar aquí...">
-            <button type="submit"><i class="fa fa-search"></i></button>
+            <button type="submit"><i class="fas fa-search"></i></button>
         </form>
     </div>
     <!-- offset search area end -->
@@ -618,14 +626,14 @@
         </div>
     </section>
     
-    <!-- SECCIÓN MISIÓN Y VISIÓN -->
+    <!-- SECCIÓN MISIÓN Y VISIÓN - CORREGIDO -->
     <section class="mision-vision-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 mb-4">
                     <div class="mv-card mision">
                         <div class="mv-icon">
-                            <i class="fa fa-bullseye"></i>
+                            <i class="fas fa-bullseye"></i>
                         </div>
                         <h3>MISIÓN</h3>
                         <p>La Unidad Educativa Católica Particular "Rafael Bucheli" es una Institución con guía y valores católicos, con firme convicción de servicio, dedicada a la enseñanza y formación educativa con bases cognitivas y personales sólidas para nuestros educandos, labor que realizamos apoyados en una pedagogía estructurada, vanguardista y con identidad propia, centrada en valores humanistas cristianos desarrollada en un ambiente pleno de seguridad y tolerancia.</p>
@@ -635,7 +643,7 @@
                 <div class="col-lg-6 mb-4">
                     <div class="mv-card vision">
                         <div class="mv-icon">
-                            <i class="fa fa-eye"></i>
+                            <i class="fas fa-eye"></i>
                         </div>
                         <h3>VISIÓN</h3>
                         <p>Consolidarse en cinco años como la mejor Unidad Educativa Particular en el Sur de Quito, que sea capaz de generar un crecimiento constante y sostenible en el tiempo, con una estructura sólida basada en un sistema por procesos educativos ciertos, que generen relaciones durables de confianza y valor entre esta Institución, docentes, estudiantes, comunidad y Estado.</p>
@@ -647,7 +655,7 @@
         </div>
     </section>
     
-    <!-- SECCIÓN VALORES -->
+    <!-- SECCIÓN VALORES - CORREGIDO -->
     <section class="valores-section">
         <div class="container">
             <div class="section-title-centered" style="text-align: center; margin-bottom: 40px;">
@@ -657,56 +665,56 @@
             <div class="valores-grid">
                 <div class="valor-item">
                     <div class="valor-icon">
-                        <i class="fa fa-heart"></i>
+                        <i class="fas fa-heart"></i>
                     </div>
                     <h4>Fe Católica</h4>
                     <p>Formación en valores cristianos y espiritualidad</p>
                 </div>
                 <div class="valor-item">
                     <div class="valor-icon">
-                        <i class="fa fa-gavel"></i>
+                        <i class="fas fa-gavel"></i>
                     </div>
                     <h4>Justicia</h4>
                     <p>Actuamos con equidad y rectitud</p>
                 </div>
                 <div class="valor-item">
                     <div class="valor-icon">
-                        <i class="fa fa-handshake-o"></i>
+                        <i class="fas fa-handshake"></i>
                     </div>
                     <h4>Solidaridad</h4>
                     <p>Compromiso con el prójimo y la comunidad</p>
                 </div>
                 <div class="valor-item">
                     <div class="valor-icon">
-                        <i class="fa fa-lightbulb-o"></i>
+                        <i class="fas fa-lightbulb"></i>
                     </div>
                     <h4>Excelencia</h4>
                     <p>Búsqueda constante de la calidad educativa</p>
                 </div>
                 <div class="valor-item">
                     <div class="valor-icon">
-                        <i class="fa fa-leaf"></i>
+                        <i class="fas fa-leaf"></i>
                     </div>
                     <h4>Respeto</h4>
                     <p>Valoración de la dignidad de cada persona</p>
                 </div>
                 <div class="valor-item">
                     <div class="valor-icon">
-                        <i class="fa fa-users"></i>
+                        <i class="fas fa-users"></i>
                     </div>
                     <h4>Familia</h4>
                     <p>Fortalecemos los lazos familiares</p>
                 </div>
                 <div class="valor-item">
                     <div class="valor-icon">
-                        <i class="fa fa-shield"></i>
+                        <i class="fas fa-shield-alt"></i>
                     </div>
                     <h4>Integridad</h4>
                     <p>Actuamos con honestidad y transparencia</p>
                 </div>
                 <div class="valor-item">
                     <div class="valor-icon">
-                        <i class="fa fa-globe"></i>
+                        <i class="fas fa-globe"></i>
                     </div>
                     <h4>Compromiso social</h4>
                     <p>Responsabilidad con la sociedad y el ambiente</p>
@@ -743,7 +751,6 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="widget widget-company">
-                            <!-- ENLACE CORREGIDO: Apunta a inicio.html -->
                             <a href="inicio.html"><img src="assets/images/icon/logo.png" alt="image"></a>
                             <div class="address">
                                 <h6>Dirección</h6>
@@ -757,27 +764,46 @@
                                 <h6>Correo Electrónico</h6>
                                 <p>secretaria@rafaelbucheli.edu.ec</p>
                             </div>
+                            
+                            <!-- REDES SOCIALES ACTUALIZADAS -->
                             <ul class="social">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li>
+                                    <a href="https://www.facebook.com/uerafaelbucheli/?locale=es_LA" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.tiktok.com/@uerafaelbucheli" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-tiktok"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/u.e.rafaelbucheli/" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.youtube.com/@uecatolicaparticularrafael41" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
+                    
                     <div class="col-md-3">
                         <div class="widget footer-link">
                             <h4 class="fwidget-title mb-5 pb-3 primary-color">Menú del Pie</h4> 
                             <ul>
-                                <!-- ENLACES CORREGIDOS: Apuntan a las páginas correspondientes -->
-                                <li><a href="servicios.html"><i class="fa fa-angle-right"></i>Casos de Estudio</a></li>
-                                <li><a href="nosotros.html"><i class="fa fa-angle-right"></i>Nosotros</a></li>
-                                <li><a href="nosotros.html"><i class="fa fa-angle-right"></i>Nuestra Historia</a></li>
-                                <li><a href="nosotros.html"><i class="fa fa-angle-right"></i>Publicaciones</a></li>
-                                <li><a href="contacto.html"><i class="fa fa-angle-right"></i>Trabaja con Nosotros</a></li>
+                                <li><a href="servicios.html"><i class="fas fa-angle-right"></i>Casos de Estudio</a></li>
+                                <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Nosotros</a></li>
+                                <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Nuestra Historia</a></li>
+                                <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Publicaciones</a></li>
+                                <li><a href="contacto.html"><i class="fas fa-angle-right"></i>Trabaja con Nosotros</a></li>
                             </ul>
                         </div>
                     </div>
+                    
                     <div class="col-md-5">
                         <div class="widget widget-opening">
                             <h4 class="fwidget-title mb-5 pb-3 primary-color">Días y Horas de Trabajo</h4>
@@ -790,8 +816,9 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="footer-bottom">
-                    <p>Copyright © 2026 <span><a class="primary-color" href="https://themeforest.net/user/pixelthemez/portfolio" target="_blank">Rafael Bucheli</a> </span> - Todos los derechos reservados. Hecho por <span><a class="primary-color" href="https://rafaelbucheli.com/" target="_blank">RafaelBucheli</a></span></p>
+                    <p>Copyright © 2026 <span><a class="primary-color" href="https://rafaelbucheli.com/" target="_blank">Unidad Educativa Particular Rafael Bucheli</a> </span> - Todos los derechos reservados.</p>
                 </div>
             </div>
         </div>
@@ -810,6 +837,11 @@
     <script src="assets/js/scripts.js"></script>
     <!-- loading js -->
     <script src="assets/js/loading.js"></script>
+    
+    <!-- ============================================ -->
+    <!-- CHATBOT - Asistente Virtual -->
+    <!-- ============================================ -->
+    <script src="CHATBOT/CHATBOT.js" data-auto-init></script>
 </body>
 
 </html>

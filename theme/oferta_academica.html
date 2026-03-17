@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <!-- ⚠️ ELIMINADA: <link rel="stylesheet" href="assets/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/css/magnific-popup.css">
     <link rel="stylesheet" href="assets/css/slicknav.min.css">
@@ -18,7 +18,15 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/loading.css">
     <link rel="stylesheet" id="triggerColor" href="assets/css/triggerplate/color-0.css">
+    
+    <!-- ===== FONT AWESOME 6 ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ===== CHATBOT STYLES ===== -->
+    <link rel="stylesheet" href="CHATBOT/CHATBOT.css">
+    
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    
     <style>
         body {
             padding-top: 0;
@@ -655,7 +663,6 @@
                 <div class="row align-items-center g-0 mx-0">
                     <div class="col-lg-3 col-sm-6 d-block d-lg-none">
                         <div class="logo">
-                            <!-- ENLACE CORREGIDO: Apunta a inicio.html -->
                             <a href="inicio.html"><img src="assets/images/icon/logo.png" alt="logo"></a>
                         </div>
                     </div>
@@ -663,33 +670,30 @@
                         <div class="main-menu menu-style2">
                             <nav>
                                 <ul id="m_menu_active">
-                                    <!-- ENLACES CORREGIDOS: Mismos que en inicio.html -->
-                                    <li><a href="inicio.html">Inicio</a></li> <!-- CORREGIDO -->
-                                    <li><a href="javascript:void(0);">Oferta</a>
+                                    <li><a href="inicio.html">Inicio</a></li>
+                                    <li class="active"><a href="javascript:void(0);">Oferta</a>
                                         <ul class="submenu">
-                                            <li><a href="oferta_academica.html">Academia</a></li> <!-- CORREGIDO -->
-                                            <li><a href="actividades_extracurriculares.html">Clubes</a></li> <!-- CORREGIDO -->
+                                            <li><a href="oferta_academica.html">Academia</a></li>
+                                            <li><a href="actividades_extracurriculares.html">Clubes</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="admisiones.html">Admisiones</a></li> <!-- CORREGIDO -->
-                                    <li><a href="landing_page.html">Landing Page</a></li> <!-- CORREGIDO -->
-
+                                    <li><a href="admisiones.html">Admisiones</a></li>
+                                    <li><a href="landing_page.html">Landing Page</a></li>
                                     <li class="middle-logo">
-                                        <!-- ENLACE CORREGIDO: Apunta a inicio.html -->
                                         <a href="inicio.html">
                                             <img src="assets/images/icon/logo-middle.png" alt="logo">
                                             <img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="logo">
                                         </a>
                                     </li>
-                                    <li><a href="servicios.html">Servicios</a></li> <!-- CORREGIDO -->
-                                    <li><a href="nosotros.html">Nosotros</a> <!-- CORREGIDO -->
+                                    <li><a href="servicios.html">Servicios</a></li>
+                                    <li><a href="nosotros.html">Nosotros</a>
                                         <ul class="submenu">
-                                            <li><a href="nosotros.html">Visión y Misión</a></li> <!-- CORREGIDO -->
-                                            <li><a href="nosotros.html">Proyectos</a></li> <!-- CORREGIDO -->
-                                            <li><a href="nosotros.html">Blog</a></li> <!-- CORREGIDO -->
+                                            <li><a href="nosotros.html">Visión y Misión</a></li>
+                                            <li><a href="nosotros.html">Proyectos</a></li>
+                                            <li><a href="nosotros.html">Blog</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="contacto.html">Contacto</a></li> <!-- CORREGIDO -->
+                                    <li><a href="contacto.html">Contacto</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -717,11 +721,11 @@
     </header>
     <!-- header area end -->
     
-    <!-- offset search area start -->
+    <!-- offset search area start - CORREGIDO -->
     <div class="offset-search">
         <form action="#">
             <input type="text" name="search" placeholder="Buscar aquí...">
-            <button type="submit"><i class="fa fa-search"></i></button>
+            <button type="submit"><i class="fas fa-search"></i></button>
         </form>
     </div>
     <!-- offset search area end -->
@@ -761,7 +765,6 @@
     <section class="academic-levels">
         <div class="container">
             <div class="section-title-centered">
-                <!-- MODIFICADO: Título más atractivo y general -->
                 <h2>Un Proyecto Educativo para Cada Etapa</h2>
                 <p>Cada nivel está cuidadosamente diseñado para potenciar las habilidades y talentos de nuestros estudiantes.</p>
             </div>
@@ -770,22 +773,18 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="level-card">
                         <div class="level-img" style="background-image: url('assets/images/recursos/inicial.png');">
-                            <!-- MODIFICADO: Eliminado el rango de edad -->
                             <span class="level-tag">Educación Inicial</span>
                         </div>
                         <div class="level-content">
                             <div class="methodology-badge">
-                                <i class="fa fa-leaf"></i> Metodología Montessori
+                                <i class="fas fa-leaf"></i> Metodología Montessori
                             </div>
                             <h3>Inicial</h3>
                             <div class="level-meta">
-                                <!-- MODIFICADO: Cambiado a concepto general -->
-                                <span><i class="fa fa-users"></i> Acompañamiento personalizado</span>
-                                <!-- MODIFICADO: Horario actualizado -->
-                                <span><i class="fa fa-clock-o"></i> 8:00 - 12:30</span>
+                                <span><i class="fas fa-users"></i> Acompañamiento personalizado</span>
+                                <span><i class="far fa-clock"></i> 8:00 - 12:30</span>
                             </div>
                             <p>Aplicamos la metodología Montessori para promover el desarrollo integral de cada niño desde sus primeros años de vida, cultivando autonomía y curiosidad.</p>
-                            <!-- ENLACE CORREGIDO: Apunta a servicios.html (o la página que describa el servicio) -->
                             <a href="servicios.html" class="btn-outline-primary">Conocer más</a>
                         </div>
                     </div>
@@ -795,22 +794,18 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="level-card">
                         <div class="level-img" style="background-image: url('assets/images/recursos/educacion_basica1.png');">
-                            <!-- MODIFICADO: Eliminado el rango de edad -->
                             <span class="level-tag">Educación Básica</span>
                         </div>
                         <div class="level-content">
                             <div class="methodology-badge">
-                                <i class="fa fa-calculator"></i> Metodología Singapur
+                                <i class="fas fa-calculator"></i> Metodología Singapur
                             </div>
                             <h3>Básica (Elemental, Media y Superior)</h3>
                             <div class="level-meta">
-                                <!-- MODIFICADO: Cambiado a concepto general -->
-                                <span><i class="fa fa-users"></i> Grupos reducidos</span>
-                                <!-- MODIFICADO: Horario actualizado -->
-                                <span><i class="fa fa-clock-o"></i> 8:00 - 13:30</span>
+                                <span><i class="fas fa-users"></i> Grupos reducidos</span>
+                                <span><i class="far fa-clock"></i> 8:00 - 13:30</span>
                             </div>
                             <p>Implementamos la innovadora metodología Singapur para transformar el aprendizaje de las matemáticas en una experiencia dinámica y desarrollar el razonamiento lógico.</p>
-                            <!-- ENLACE CORREGIDO: Apunta a servicios.html -->
                             <a href="servicios.html" class="btn-outline-primary">Conocer más</a>
                         </div>
                     </div>
@@ -820,22 +815,18 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="level-card">
                         <div class="level-img" style="background-image: url('assets/images/recursos/bachillerato1.png');">
-                            <!-- MODIFICADO: Eliminado el rango de edad -->
                             <span class="level-tag">Bachillerato</span>
                         </div>
                         <div class="level-content">
                             <div class="methodology-badge">
-                                <i class="fa fa-comments"></i> Metodología TBL
+                                <i class="fas fa-comments"></i> Metodología TBL
                             </div>
                             <h3>Bachillerato (General Unificado - BGU)</h3>
                             <div class="level-meta">
-                                <!-- MODIFICADO: Cambiado a concepto general -->
-                                <span><i class="fa fa-users"></i> Preparación universitaria</span>
-                                <!-- MODIFICADO: Horario actualizado (asumo que es hasta las 14:00) -->
-                                <span><i class="fa fa-clock-o"></i> 8:00 - 14:00</span>
+                                <span><i class="fas fa-users"></i> Preparación universitaria</span>
+                                <span><i class="far fa-clock"></i> 8:00 - 14:00</span>
                             </div>
                             <p>La metodología TBL (Task-Based Learning) transforma el aprendizaje en una experiencia dinámica y colaborativa, preparando para la educación superior.</p>
-                            <!-- ENLACE CORREGIDO: Apunta a servicios.html -->
                             <a href="servicios.html" class="btn-outline-primary">Conocer más</a>
                         </div>
                     </div>
@@ -845,7 +836,7 @@
     </section>
     <!-- Academic Levels End -->
     
-    <!-- Methodologies Section Start -->
+    <!-- Methodologies Section Start - CORREGIDO -->
     <section class="methodologies-section">
         <div class="container">
             <div class="section-title-centered">
@@ -856,7 +847,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="methodology-item">
                         <div class="methodology-icon">
-                            <i class="fa fa-child"></i>
+                            <i class="fas fa-child"></i>
                         </div>
                         <h4>Montessori</h4>
                         <p>Aprendizaje autónomo, respeto por el ritmo individual y ambiente preparado para descubrir el mundo.</p>
@@ -865,7 +856,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="methodology-item">
                         <div class="methodology-icon">
-                            <i class="fa fa-puzzle-piece"></i>
+                            <i class="fas fa-puzzle-piece"></i>
                         </div>
                         <h4>Singapur</h4>
                         <p>Enfoque CPA (Concreto, Pictórico, Abstracto) para desarrollar habilidades matemáticas sólidas.</p>
@@ -874,7 +865,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="methodology-item">
                         <div class="methodology-icon">
-                            <i class="fa fa-group"></i>
+                            <i class="fas fa-users"></i>
                         </div>
                         <h4>TBL</h4>
                         <p>Aprendizaje basado en tareas que fomenta el trabajo colaborativo y la resolución de problemas reales.</p>
@@ -900,7 +891,6 @@
                         <div class="service-content">
                             <h3>Nivelación académica</h3>
                             <p>Nivelamos y preparamos a nuestros estudiantes para un mejor desarrollo académico – integral.</p>
-                            <!-- ENLACE CORREGIDO: Apunta a servicios.html -->
                             <a href="servicios.html" class="btn-outline-primary btn-sm">Conocer más</a>
                         </div>
                     </div>
@@ -913,7 +903,6 @@
                         <div class="service-content">
                             <h3>Tareas dirigidas</h3>
                             <p>Nuestros docentes están capacitados para ayudar a que nuestros estudiantes puedan cumplir con sus objetivos académicos.</p>
-                            <!-- ENLACE CORREGIDO: Apunta a servicios.html -->
                             <a href="servicios.html" class="btn-outline-primary btn-sm">Conocer más</a>
                         </div>
                     </div>
@@ -922,11 +911,10 @@
                 <!-- Alimentación y transporte -->
                 <div class="col-lg-4 col-md-6">
                     <div class="service-card">
-                        <div class="service-img" style="background-image: url('assets/images/blog/blog-thumbnail3.jpg');"></div>
+                        <div class="service-img" style="background-image: url('assets/images/recursos/transporte-escolar.jpeg');"></div>
                         <div class="service-content">
                             <h3>Alimentación y transporte</h3>
                             <p>Ofrecemos servicios de alimentación saludable y transporte seguro para garantizar el bienestar y el rendimiento académico.</p>
-                            <!-- ENLACE CORREGIDO: Apunta a servicios.html -->
                             <a href="servicios.html" class="btn-outline-primary btn-sm">Conocer más</a>
                         </div>
                     </div>
@@ -934,6 +922,8 @@
             </div>
         </div>
     </section>
+    
+    <!-- Mini Testimonials Start - CORREGIDO -->
     <section class="mini-testimonials">
         <div class="container">
             <div class="section-title-centered">
@@ -943,7 +933,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="testimonial-card">
-                        <i class="fa fa-quote-right"></i>
+                        <i class="fas fa-quote-right"></i>
                         <p>"La metodología Montessori ha sido maravillosa para mi hijo. Ahora es más independiente y curioso."</p>
                         <div class="testimonial-author">
                             <img src="assets/images/author/auth1.jpg" alt="Autor">
@@ -956,7 +946,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="testimonial-card">
-                        <i class="fa fa-quote-right"></i>
+                        <i class="fas fa-quote-right"></i>
                         <p>"El enfoque Singapur transformó la forma en que mi hija ve las matemáticas. Ahora le encantan."</p>
                         <div class="testimonial-author">
                             <img src="assets/images/author/auth1.jpg" alt="Autor">
@@ -969,7 +959,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="testimonial-card">
-                        <i class="fa fa-quote-right"></i>
+                        <i class="fas fa-quote-right"></i>
                         <p>"El servicio de transporte es seguro y puntual. Me da tranquilidad saber que mi hijo llega bien."</p>
                         <div class="testimonial-author">
                             <img src="assets/images/author/auth1.jpg" alt="Autor">
@@ -983,20 +973,23 @@
             </div>
         </div>
     </section>
-<!-- CTA Section Start - MODIFICADO SOLO EL LINK A WHATSAPP -->
-<section class="cta-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2">
-                <h2>¿Listo para formar parte?</h2>
-                <p>Inscripciones abiertas para el año lectivo 2026. Cupos limitados.</p>
-                <!-- SOLO CAMBIÉ ESTE LINK -->
-                <a href="https://api.whatsapp.com/send/?phone=593995549605&text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20la%20oferta%20acad%C3%A9mica%20y%20el%20proceso%20de%20admisiones%20para%20el%20a%C3%B1o%20lectivo%202026.&type=phone_number&app_absent=0" class="btn-cta" target="_blank">📱 Quiero información</a>
+    <!-- Mini Testimonials End -->
+    
+    <!-- CTA Section Start -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <h2>¿Listo para formar parte?</h2>
+                    <p>Inscripciones abiertas para el año lectivo 2026. Cupos limitados.</p>
+                    <a href="https://api.whatsapp.com/send/?phone=593995549605&text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20la%20oferta%20acad%C3%A9mica%20y%20el%20proceso%20de%20admisiones%20para%20el%20a%C3%B1o%20lectivo%202026.&type=phone_number&app_absent=0" class="btn-cta" target="_blank"><i class="fab fa-whatsapp"></i> Quiero información</a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- CTA Section End -->
+    </section>
+    <!-- CTA Section End -->
+    
+    <!-- footer area start (CORREGIDO) -->
     <footer>
         <div class="footer-top has-color pt--120 pb--30">
             <div class="container">
@@ -1016,26 +1009,46 @@
                                 <h6>Correo Electrónico</h6>
                                 <p>secretaria@rafaelbucheli.edu.ec</p>
                             </div>
+                            
+                            <!-- REDES SOCIALES ACTUALIZADAS -->
                             <ul class="social">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li>
+                                    <a href="https://www.facebook.com/uerafaelbucheli/?locale=es_LA" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.tiktok.com/@uerafaelbucheli" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-tiktok"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/u.e.rafaelbucheli/" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.youtube.com/@uecatolicaparticularrafael41" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
+                    
                     <div class="col-md-3">
                         <div class="widget footer-link">
                             <h4 class="fwidget-title mb-5 pb-3 primary-color">Menú del Pie</h4> 
                             <ul>
-                                <li><a href="servicios.html"><i class="fa fa-angle-right"></i>Casos de Estudio</a></li>
-                                <li><a href="nosotros.html"><i class="fa fa-angle-right"></i>Nosotros</a></li>
-                                <li><a href="nosotros.html"><i class="fa fa-angle-right"></i>Nuestra Historia</a></li>
-                                <li><a href="nosotros.html"><i class="fa fa-angle-right"></i>Publicaciones</a></li>
-                                <li><a href="contacto.html"><i class="fa fa-angle-right"></i>Trabaja con Nosotros</a></li>
+                                <li><a href="servicios.html"><i class="fas fa-angle-right"></i>Casos de Estudio</a></li>
+                                <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Nosotros</a></li>
+                                <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Nuestra Historia</a></li>
+                                <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Publicaciones</a></li>
+                                <li><a href="contacto.html"><i class="fas fa-angle-right"></i>Trabaja con Nosotros</a></li>
                             </ul>
                         </div>
                     </div>
+                    
                     <div class="col-md-5">
                         <div class="widget widget-opening">
                             <h4 class="fwidget-title mb-5 pb-3 primary-color">Días y Horas de Trabajo</h4>
@@ -1048,12 +1061,15 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="footer-bottom">
-                    <p>Copyright © 2026 <span><a class="primary-color" href="https://themeforest.net/user/pixelthemez/portfolio" target="_blank">Rafael Bucheli</a> </span> - Todos los derechos reservados. Hecho por <span><a class="primary-color" href="https://rafaelbucheli.com/" target="_blank">RafaelBucheli</a></span></p>
+                    <p>Copyright © 2026 <span><a class="primary-color" href="https://rafaelbucheli.com/" target="_blank">Unidad Educativa Particular Rafael Bucheli</a> </span> - Todos los derechos reservados.</p>
                 </div>
             </div>
         </div>
     </footer>
+    <!-- footer area end -->
+    
     <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/owl.carousel.min.js"></script>
@@ -1062,6 +1078,10 @@
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/scripts.js"></script>
     <script src="assets/js/loading.js"></script>
+    
+    <!-- ============================================ -->
+    <!-- CHATBOT - Asistente Virtual -->
+    <!-- ============================================ -->
+    <script src="CHATBOT/CHATBOT.js" data-auto-init></script>
 </body>
-
 </html>

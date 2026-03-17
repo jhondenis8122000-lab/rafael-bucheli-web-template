@@ -9,7 +9,7 @@
     
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <!-- ⚠️ ELIMINADA: <link rel="stylesheet" href="assets/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/css/magnific-popup.css">
     <link rel="stylesheet" href="assets/css/slicknav.min.css">
@@ -18,6 +18,12 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/loading.css">
+    
+    <!-- ===== FONT AWESOME 6 ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ===== CHATBOT STYLES ===== -->
+    <link rel="stylesheet" href="CHATBOT/CHATBOT.css">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -221,7 +227,7 @@
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 20px;
-            color: var(--primary-blue); /* Título principal en azul */
+            color: var(--primary-blue);
             animation: fadeInUp 1s ease 0.2s both;
             font-family: 'Montserrat', sans-serif;
             letter-spacing: -0.5px;
@@ -231,7 +237,7 @@
             display: block;
             font-size: clamp(28px, 5vw, 42px);
             font-weight: 400;
-            color: var(--secondary-gray); /* Subtítulo en gris */
+            color: var(--secondary-gray);
             font-family: 'Open Sans', sans-serif;
             font-weight: 300;
             letter-spacing: 0px;
@@ -717,7 +723,7 @@
                                     <a href="https://app.rafaelbucheli.com/login/?next=/" 
                                     class="btn btn-primary" 
                                     target="_blank">
-                                    <i class="fa fa-user"></i> SIGN UP
+                                    <i class="fas fa-user"></i> SIGN UP
                                     </a>
                                 </li>
                             </ul>
@@ -731,11 +737,11 @@
         </div>
     </header>
     
-    <!-- Offset Search -->
+    <!-- Offset Search - CORREGIDO -->
     <div class="offset-search">
         <form action="#">
             <input type="text" name="search" placeholder="Buscar aquí...">
-            <button type="submit"><i class="fa fa-search"></i></button>
+            <button type="submit"><i class="fas fa-search"></i></button>
         </form>
     </div>
     
@@ -751,7 +757,7 @@
                 <div class="col-lg-7">
                     <div class="hero-content">
                         <div class="hero-badge">
-                            <i class="fa fa-star"></i> Excelencia Educativa desde 1978
+                            <i class="fas fa-star"></i> Excelencia Educativa desde 1978
                         </div>
                         
                         <h1 class="hero-title">
@@ -780,10 +786,10 @@
                         
                         <div class="hero-buttons">
                             <a href="admisiones.html" class="btn-primary-custom">
-                                <i class="fa fa-pencil-square-o"></i> Solicitar Información
+                                <i class="fas fa-pen-to-square"></i> Solicitar Información
                             </a>
                             <a href="contacto.html" class="btn-secondary-custom">
-                                <i class="fa fa-calendar"></i> Agendar Visita
+                                <i class="fas fa-calendar"></i> Agendar Visita
                             </a>
                         </div>
                     </div>
@@ -819,18 +825,99 @@
                             </div>
                             
                             <button type="submit" class="btn-submit">
-                                <i class="fa fa-paper-plane"></i> Enviar solicitud
+                                <i class="fas fa-paper-plane"></i> Enviar solicitud
                             </button>
                         </form>
                         <div class="form-note">
-                            <i class="fa fa-lock"></i> Al enviar aceptas nuestras políticas de privacidad
+                            <i class="fas fa-lock"></i> Al enviar aceptas nuestras políticas de privacidad
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
+    
+    <!-- footer area start (CORREGIDO) -->
+    <footer>
+        <div class="footer-top has-color pt--120 pb--30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="widget widget-company">
+                            <a href="inicio.html"><img src="assets/images/icon/logo.png" alt="image"></a>
+                            <div class="address">
+                                <h6>Dirección</h6>
+                                <p>Unidad Educativa Rafael Bucheli, Quito, Ecuador.</p>
+                            </div>
+                            <div class="address">
+                                <h6>Teléfono</h6>
+                                <p>(02) 303-5139</p>
+                            </div>
+                            <div class="address">
+                                <h6>Correo Electrónico</h6>
+                                <p>secretaria@rafaelbucheli.edu.ec</p>
+                            </div>
+                            
+                            <!-- REDES SOCIALES ACTUALIZADAS -->
+                            <ul class="social">
+                                <li>
+                                    <a href="https://www.facebook.com/uerafaelbucheli/?locale=es_LA" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.tiktok.com/@uerafaelbucheli" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-tiktok"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/u.e.rafaelbucheli/" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.youtube.com/@uecatolicaparticularrafael41" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <div class="widget footer-link">
+                            <h4 class="fwidget-title mb-5 pb-3 primary-color">Menú del Pie</h4> 
+                            <ul>
+                                <li><a href="servicios.html"><i class="fas fa-angle-right"></i>Casos de Estudio</a></li>
+                                <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Nosotros</a></li>
+                                <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Nuestra Historia</a></li>
+                                <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Publicaciones</a></li>
+                                <li><a href="contacto.html"><i class="fas fa-angle-right"></i>Trabaja con Nosotros</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-5">
+                        <div class="widget widget-opening">
+                            <h4 class="fwidget-title mb-5 pb-3 primary-color">Días y Horas de Trabajo</h4>
+                            <ul>
+                                <li><span>Lun - Mar :</span>6.00 am - 10.00 pm</li>
+                                <li><span>Mié - Jue :</span>8.00 am - 6.00 pm</li>
+                                <li><span>Viernes :</span>3.00 pm - 8.00 pm</li>
+                                <li><span>Domingo :</span>Cerrado</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>Copyright © 2026 <span><a class="primary-color" href="https://rafaelbucheli.com/" target="_blank">Unidad Educativa Particular Rafael Bucheli</a> </span> - Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer area end -->
+    
     <!-- Scripts -->
     <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
@@ -839,6 +926,11 @@
     <script src="assets/js/jquery.slicknav.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/scripts.js"></script>
+    
+    <!-- ============================================ -->
+    <!-- CHATBOT - Asistente Virtual -->
+    <!-- ============================================ -->
+    <script src="CHATBOT/CHATBOT.js" data-auto-init></script>
     
     <script>
         $(window).on('load', function() {
@@ -882,12 +974,12 @@
             
             if (isValid) {
                 // Simular envío exitoso
-                $('.btn-submit').html('<i class="fa fa-check"></i> Enviado').css('background', '#5d5d5c');
+                $('.btn-submit').html('<i class="fas fa-check"></i> Enviado').css('background', '#5d5d5c');
                 
                 setTimeout(() => {
                     alert('¡Gracias por tu interés! Te contactaremos pronto.');
                     this.reset();
-                    $('.btn-submit').html('<i class="fa fa-paper-plane"></i> Enviar solicitud').css('background', '#252855');
+                    $('.btn-submit').html('<i class="fas fa-paper-plane"></i> Enviar solicitud').css('background', '#252855');
                 }, 500);
             } else {
                 // Mostrar mensaje de error general
