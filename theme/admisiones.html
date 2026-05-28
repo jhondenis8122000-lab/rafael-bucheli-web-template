@@ -5,11 +5,10 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Admisiones 2026 - UE Rafael Bucheli</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Place favicon.ico in the root directory -->
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
-    <!-- all css here -->
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <!-- ⚠️ ELIMINADA: <link rel="stylesheet" href="assets/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/css/magnific-popup.css">
     <link rel="stylesheet" href="assets/css/slicknav.min.css">
@@ -17,8 +16,7 @@
     <link rel="stylesheet" href="assets/css/default-css.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
-    <!--color css-->
-    <link rel="stylesheet" id="triggerColor" href="assets/css/triggerplate/color-0.css">
+    <link rel="stylesheet" href="assets/css/loading.css">
     
     <!-- ===== FONT AWESOME 6 ===== -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -26,21 +24,25 @@
     <!-- ===== CHATBOT STYLES ===== -->
     <link rel="stylesheet" href="CHATBOT/CHATBOT.css">
     
-    <!-- modernizr css -->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
     
     <style>
-        /* ========== VARIABLES DE COLOR - SOLO TU PALETA ========== */
+        /* ===== VARIABLES DE COLOR ===== */
         :root {
-            --azul-principal: #252855;
-            --gris: #5d5d5c;
-            --blanco: #ffffff;
-            --degradado-interno: #182e4e;
-            --degradado-externo: #141b28;
-            --color-linea: #141d33;
+            --primary-blue: #252855;
+            --secondary-gray: #5d5d5c;
+            --pure-white: #ffffff;
+            --light-gray-bg: #f8f9fc;
+            --border-light: rgba(37, 40, 85, 0.1);
+            --shadow-sm: 0 5px 20px rgba(37,40,85,0.08);
+            --shadow-md: 0 10px 30px rgba(37,40,85,0.12);
+            --shadow-lg: 0 20px 40px rgba(37,40,85,0.15);
         }
 
-        /* ========== RESET Y ESTILOS BASE ========== */
+        /* ===== RESET ===== */
         * {
             margin: 0;
             padding: 0;
@@ -48,98 +50,119 @@
         }
 
         body {
+            font-family: 'Open Sans', sans-serif;
             overflow-x: hidden;
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--blanco);
+            background: var(--pure-white);
+            color: var(--secondary-gray);
+            line-height: 1.7;
+            font-weight: 400;
         }
 
-        /* ========== ESTILOS DEL HEADER ========== */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        /* ===== HEADER ELEGANTE ===== */
         .header-two {
             position: fixed !important;
             left: 0 !important;
             top: 0 !important;
             width: 100% !important;
             z-index: 9999 !important;
-            background: transparent !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+            background: rgba(255,255,255,0.98) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+            box-shadow: var(--shadow-sm) !important;
+            border-bottom: 1px solid var(--border-light) !important;
             padding: 0 !important;
             transition: all 0.3s ease !important;
         }
 
-        .menu-style2.main-menu nav > ul > li > a {
-            padding: 23px 15px !important;
-            font-size: 14px !important;
+        .menu-style2 nav > ul > li > a {
+            padding: 8px 12px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            position: relative;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+            opacity: 0.85;
+        }
+
+        .menu-style2 nav > ul > li > a:hover {
+            color: var(--primary-blue);
+            opacity: 1;
+        }
+
+        .menu-style2 nav > ul > li > a:after {
+            content: '';
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary-blue);
+            transition: width 0.3s ease;
+            transform: translateX(-50%);
+            opacity: 0.5;
+        }
+
+        .menu-style2 nav > ul > li > a:hover:after,
+        .menu-style2 nav > ul > li.active > a:after {
+            width: 25px;
+        }
+
+        .menu-style2 nav > ul > li.active > a {
+            color: var(--primary-blue);
+            font-weight: 700;
+            opacity: 1;
+        }
+
+        .middle-logo img {
+            max-height: 60px;
+            transition: all 0.3s ease;
+            filter: brightness(1);
+        }
+
+        .middle-logo:hover img {
+            transform: scale(1.03);
+        }
+
+        .btn-primary {
+            background: var(--primary-blue) !important;
+            border: none !important;
+            color: var(--pure-white) !important;
+            border-radius: 50px !important;
+            padding: 10px 24px !important;
             font-weight: 600 !important;
-            color: var(--blanco) !important;
-            letter-spacing: 0.3px !important;
             transition: all 0.3s ease !important;
-            position: relative !important;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3) !important;
+            box-shadow: var(--shadow-sm) !important;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 12px !important;
+            font-family: 'Montserrat', sans-serif;
         }
 
-        .menu-style2.main-menu nav > ul > li > a:after {
-            content: '' !important;
-            position: absolute !important;
-            bottom: 18px !important;
-            left: 50% !important;
-            width: 0 !important;
-            height: 2px !important;
-            background: var(--blanco) !important;
-            transition: width 0.3s ease !important;
-            transform: translateX(-50%) !important;
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md) !important;
+            background: var(--secondary-gray) !important;
         }
 
-        .menu-style2.main-menu nav > ul > li > a:hover:after,
-        .menu-style2.main-menu nav > ul > li.active > a:after {
-            width: 20px !important;
-        }
-
-        .header-two.scrolled {
-            background: var(--blanco) !important;
-            box-shadow: 0 5px 20px rgba(37,40,85,0.1) !important;
-            border-bottom: 1px solid rgba(37,40,85,0.1) !important;
-        }
-
-        .header-two.scrolled .menu-style2.main-menu nav > ul > li > a {
-            color: var(--azul-principal) !important;
-            text-shadow: none !important;
-        }
-
-        .header-two.scrolled .menu-style2.main-menu nav > ul > li > a:after {
-            background: var(--azul-principal) !important;
-        }
-
-        /* ========== HERO CON BACKGROUND ========== */
-        .hero-background {
+        /* ===== HERO SECTION ===== */
+        .hero-section {
             position: relative;
             min-height: 100vh;
-            width: 100%;
             display: flex;
             align-items: center;
             overflow: hidden;
             padding: 0;
-            margin: 0;
-            background-image: url('assets/images/slider/slider1.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-
-        .hero-background::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(
-                115deg,
-                var(--degradado-externo) 0%,
-                var(--azul-principal) 60%,
-                var(--degradado-interno) 100%
-            );
-            opacity: 0.95;
-            z-index: 1;
+            margin-top: 100px;
+            background: var(--pure-white);
         }
 
         .hero-pattern {
@@ -148,42 +171,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('assets/images/pattern.png');
-            opacity: 0.08;
-            z-index: 2;
+            background-image: radial-gradient(var(--primary-blue) 0.5px, transparent 0.5px);
+            background-size: 30px 30px;
+            opacity: 0.03;
+            z-index: 1;
         }
 
-        .hero-shape-1 {
-            position: absolute;
-            bottom: -50px;
-            right: -50px;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: floatSlow 10s ease-in-out infinite;
-            z-index: 3;
-        }
-
-        .hero-shape-2 {
-            position: absolute;
-            top: -100px;
-            left: -100px;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(37,40,85,0.2) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: floatSlow 15s ease-in-out infinite reverse;
-            z-index: 3;
-        }
-
-        @keyframes floatSlow {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(40px, -30px) rotate(5deg); }
-            66% { transform: translate(-30px, 40px) rotate(-5deg); }
-        }
-
-        .container-hero {
+        .container {
             position: relative;
             z-index: 10;
             width: 100%;
@@ -192,175 +186,461 @@
             padding: 0 15px;
         }
 
+        .min-vh-100 {
+            min-height: 100vh;
+        }
+
+        /* ===== CONTENIDO PRINCIPAL ===== */
         .hero-content {
-            max-width: 700px;
-            padding: 120px 0 80px;
+            color: var(--secondary-gray);
+            padding-right: 40px;
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 12px 28px;
+            background: rgba(37, 40, 85, 0.05);
+            padding: 8px 22px;
             border-radius: 60px;
-            color: var(--blanco);
+            font-size: 13px;
             font-weight: 500;
-            font-size: 15px;
-            letter-spacing: 1px;
             margin-bottom: 30px;
-            border: 1px solid rgba(255,255,255,0.2);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-            animation: fadeInUp 1s ease;
+            border: 1px solid var(--border-light);
+            color: var(--primary-blue);
+            letter-spacing: 0.3px;
+            animation: fadeInDown 1s ease;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
         }
 
         .hero-badge i {
-            color: var(--blanco);
-            margin-right: 10px;
-            font-size: 16px;
-            opacity: 0.8;
+            color: var(--secondary-gray);
+            margin-right: 8px;
+            font-size: 14px;
+            opacity: 0.7;
         }
 
         .hero-title {
-            font-size: 72px;
+            font-size: clamp(42px, 7vw, 68px);
             font-weight: 800;
             line-height: 1.1;
-            margin-bottom: 25px;
-            color: var(--blanco);
-            text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+            color: var(--primary-blue);
             animation: fadeInUp 1s ease 0.2s both;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: -0.5px;
         }
 
         .hero-title span {
-            color: var(--blanco);
-            position: relative;
-            display: inline-block;
+            display: block;
+            font-size: clamp(28px, 5vw, 42px);
+            font-weight: 400;
+            color: var(--secondary-gray);
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 300;
+            letter-spacing: 0px;
+            margin-top: 10px;
         }
 
-        .hero-title span:after {
-            content: '';
-            position: absolute;
-            bottom: 10px;
-            left: 0;
-            width: 100%;
-            height: 8px;
-            background: rgba(255,255,255,0.2);
-            z-index: -1;
-        }
-
-        /* TEXTO COMPLETAMENTE BLANCO */
-        .hero-description {
-            font-size: 20px;
-            color: #ffffff !important;
+        .hero-text {
+            font-size: 18px;
+            line-height: 1.7;
             margin-bottom: 40px;
             max-width: 600px;
-            line-height: 1.7;
-            text-shadow: 0 2px 15px rgba(0,0,0,0.3);
+            color: var(--secondary-gray);
             animation: fadeInUp 1s ease 0.4s both;
             font-weight: 400;
         }
 
         .hero-stats {
             display: flex;
-            gap: 60px;
-            margin: 45px 0;
+            gap: 50px;
+            margin-bottom: 45px;
             animation: fadeInUp 1s ease 0.6s both;
         }
 
-        .stat {
+        .stat-item {
             text-align: left;
+            position: relative;
+        }
+
+        .stat-item:not(:last-child):after {
+            content: '';
+            position: absolute;
+            right: -25px;
+            top: 15px;
+            height: 40px;
+            width: 1px;
+            background: var(--border-light);
+            transform: rotate(15deg);
         }
 
         .stat-number {
-            display: block;
             font-size: 48px;
             font-weight: 800;
-            color: var(--blanco);
+            color: var(--primary-blue);
             line-height: 1;
-            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
             margin-bottom: 5px;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .stat-label {
-            font-size: 16px;
-            color: var(--blanco);
+            font-size: 14px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            color: var(--secondary-gray);
+            opacity: 0.7;
             font-weight: 500;
-            opacity: 0.9;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 25px;
+            gap: 20px;
             flex-wrap: wrap;
             animation: fadeInUp 1s ease 0.8s both;
         }
 
         .btn-primary-custom {
-            background: var(--azul-principal);
-            color: var(--blanco);
-            padding: 18px 45px;
+            background: var(--primary-blue);
+            color: var(--pure-white);
+            padding: 16px 38px;
             border-radius: 60px;
-            font-weight: 700;
-            font-size: 18px;
-            border: none;
-            box-shadow: 0 15px 30px rgba(37,40,85,0.3);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-weight: 600;
+            font-size: 15px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             display: inline-flex;
             align-items: center;
             gap: 10px;
+            border: none;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
             text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn-primary-custom:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn-primary-custom:hover:before {
+            left: 100%;
         }
 
         .btn-primary-custom:hover {
-            background: var(--blanco);
-            color: var(--azul-principal) !important;
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 25px 40px rgba(37,40,85,0.4);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            background: var(--secondary-gray);
+            color: var(--pure-white);
             text-decoration: none;
         }
 
-        .btn-outline-custom {
+        .btn-secondary-custom {
             background: transparent;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            color: var(--blanco);
-            padding: 18px 45px;
+            color: var(--primary-blue);
+            padding: 16px 38px;
             border-radius: 60px;
-            font-weight: 700;
-            font-size: 18px;
-            border: 2px solid var(--blanco);
-            transition: all 0.4s ease;
+            font-weight: 600;
+            font-size: 15px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             display: inline-flex;
             align-items: center;
             gap: 10px;
+            border: 2px solid var(--border-light);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn-secondary-custom:hover {
+            background: var(--primary-blue);
+            color: var(--pure-white);
+            transform: translateY(-3px);
+            border-color: var(--primary-blue);
             text-decoration: none;
         }
 
-        .btn-outline-custom:hover {
-            background: var(--blanco);
-            color: var(--azul-principal) !important;
-            transform: translateY(-5px);
-            text-decoration: none;
+        /* ===== FORMULARIO ===== */
+        .hero-form {
+            background: var(--pure-white);
+            border-radius: 30px;
+            padding: 45px 35px;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-lg);
+            animation: fadeInRight 1s ease;
+            position: relative;
         }
 
+        .hero-form:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--primary-blue);
+            border-radius: 30px 30px 0 0;
+            opacity: 0.8;
+        }
+
+        .hero-form h3 {
+            color: var(--primary-blue);
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+        }
+
+        .hero-form h3:after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background: var(--border-light);
+            margin: 15px auto 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px 20px;
+            background: var(--light-gray-bg);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            color: var(--secondary-gray);
+            font-size: 15px;
+            transition: all 0.3s ease;
+            height: auto;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .form-control:hover {
+            border-color: rgba(37, 40, 85, 0.3);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            background: var(--pure-white);
+            box-shadow: 0 0 0 3px rgba(37, 40, 85, 0.1);
+        }
+
+        .form-control::placeholder {
+            color: rgba(93, 93, 92, 0.5);
+            font-weight: 400;
+        }
+
+        /* ===== SOLUCIÓN DEFINITIVA PARA SELECT MÚLTIPLE ===== */
+        .custom-multi-select {
+            position: relative;
+            width: 100%;
+        }
+
+        .multi-select-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            background: var(--light-gray-bg);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            font-size: 15px;
+            font-family: 'Open Sans', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--secondary-gray);
+            user-select: none;
+        }
+
+        .multi-select-toggle:hover {
+            border-color: rgba(37, 40, 85, 0.3);
+        }
+
+        .multi-select-toggle.open {
+            border-color: var(--primary-blue);
+            background: var(--pure-white);
+            box-shadow: 0 0 0 3px rgba(37, 40, 85, 0.1);
+        }
+
+        .multi-select-toggle .toggle-text {
+            color: var(--secondary-gray);
+        }
+
+        .multi-select-toggle .toggle-text.placeholder {
+            color: rgba(93, 93, 92, 0.5);
+        }
+
+        .multi-select-toggle .toggle-arrow {
+            transition: transform 0.3s ease;
+            color: var(--primary-blue);
+            font-size: 14px;
+        }
+
+        .multi-select-toggle.open .toggle-arrow {
+            transform: rotate(180deg);
+        }
+
+        .multi-select-options {
+            position: absolute;
+            top: calc(100% + 5px);
+            left: 0;
+            width: 100%;
+            background: var(--pure-white);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+            z-index: 100;
+            padding: 10px 0;
+            display: none;
+            animation: fadeInUp 0.3s ease;
+        }
+
+        .multi-select-options.show {
+            display: block;
+        }
+
+        .multi-select-option {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 15px;
+            color: var(--secondary-gray);
+            transition: background 0.2s ease;
+        }
+
+        .multi-select-option:hover {
+            background: var(--light-gray-bg);
+        }
+
+        .multi-select-option input[type="checkbox"] {
+            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary-blue);
+            cursor: pointer;
+        }
+
+        .multi-select-option label {
+            margin: 0;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .form-control.error {
+            border-color: var(--secondary-gray);
+            background: rgba(93, 93, 92, 0.02);
+        }
+
+        .error-message {
+            color: var(--secondary-gray);
+            font-size: 12px;
+            margin-top: 5px;
+            margin-left: 10px;
+            display: none;
+            animation: fadeIn 0.3s ease;
+            font-weight: 500;
+            opacity: 0.8;
+        }
+
+        .form-control.error + .error-message {
+            display: block;
+        }
+
+        /* Para el multi-select, mostrar error en el toggle */
+        .custom-multi-select.error .multi-select-toggle {
+            border-color: var(--secondary-gray);
+            background: rgba(93, 93, 92, 0.02);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--primary-blue);
+            color: var(--pure-white);
+            padding: 16px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn-submit:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn-submit:hover:before {
+            left: 100%;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            background: var(--secondary-gray);
+        }
+
+        .form-note {
+            color: rgba(93, 93, 92, 0.6);
+            font-size: 12px;
+            text-align: center;
+            margin-top: 20px;
+            letter-spacing: 0.2px;
+        }
+
+        .form-note i {
+            color: var(--primary-blue);
+            margin-right: 5px;
+            opacity: 0.5;
+        }
+
+        /* ===== TARJETA FLOTANTE "CUPOS LIMITADOS" ===== */
         .floating-card {
             position: absolute;
             bottom: 50px;
             right: 50px;
-            background: var(--blanco);
+            background: var(--pure-white);
             padding: 25px 35px;
             border-radius: 20px;
             box-shadow: 0 30px 60px rgba(0,0,0,0.3);
             z-index: 20;
             animation: floatCard 4s ease-in-out infinite;
-            border-left: 6px solid var(--azul-principal);
+            border-left: 6px solid var(--primary-blue);
             display: flex;
             align-items: center;
             gap: 20px;
@@ -368,20 +648,20 @@
 
         .floating-card i {
             font-size: 48px;
-            color: var(--azul-principal);
+            color: var(--primary-blue);
         }
 
         .floating-card p {
             margin: 0;
             font-weight: 800;
-            color: var(--azul-principal);
+            color: var(--primary-blue);
             font-size: 20px;
             line-height: 1.3;
         }
 
         .floating-card small {
             display: block;
-            color: var(--gris);
+            color: var(--secondary-gray);
             font-size: 14px;
             font-weight: 400;
         }
@@ -391,18 +671,7 @@
             50% { transform: translateY(-20px); }
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ========== SECCIÓN DE PASOS - 6 PASOS EN 3+3 ========== */
+        /* ===== SECCIÓN DE PASOS ===== */
         .steps-section {
             padding: 80px 0;
             background: #f8fafd;
@@ -415,7 +684,7 @@
 
         .section-title-center span {
             display: inline-block;
-            color: var(--azul-principal);
+            color: var(--primary-blue);
             font-weight: 600;
             font-size: 16px;
             letter-spacing: 2px;
@@ -426,19 +695,18 @@
         .section-title-center h2 {
             font-size: 42px;
             font-weight: 800;
-            color: var(--azul-principal);
+            color: var(--primary-blue);
             margin-bottom: 20px;
         }
 
         .section-title-center p {
             font-size: 18px;
-            color: var(--gris);
+            color: var(--secondary-gray);
             max-width: 700px;
             margin: 0 auto;
             line-height: 1.7;
         }
 
-        /* Grid de 6 pasos - 3 en primera fila, 3 en segunda */
         .steps-grid {
             display: flex;
             flex-wrap: wrap;
@@ -449,7 +717,7 @@
         .step-item {
             width: calc(33.333% - 30px);
             margin: 0 15px 30px;
-            background: var(--blanco);
+            background: var(--pure-white);
             border-radius: 20px;
             padding: 35px 25px;
             box-shadow: 0 10px 30px rgba(37,40,85,0.08);
@@ -461,14 +729,14 @@
         .step-item:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(37,40,85,0.15);
-            border-color: var(--azul-principal);
+            border-color: var(--primary-blue);
         }
 
         .step-number {
             width: 60px;
             height: 60px;
-            background: var(--azul-principal);
-            color: var(--blanco);
+            background: var(--primary-blue);
+            color: var(--pure-white);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -482,12 +750,12 @@
         .step-item h3 {
             font-size: 22px;
             font-weight: 700;
-            color: var(--azul-principal);
+            color: var(--primary-blue);
             margin-bottom: 20px;
         }
 
         .step-item p {
-            color: var(--gris);
+            color: var(--secondary-gray);
             font-size: 15px;
             line-height: 1.7;
             margin-bottom: 15px;
@@ -498,17 +766,17 @@
             padding: 15px;
             border-radius: 12px;
             margin-top: 15px;
-            border-left: 3px solid var(--azul-principal);
+            border-left: 3px solid var(--primary-blue);
         }
 
         .step-item .step-detail p {
             margin-bottom: 8px;
             font-size: 14px;
-            color: var(--gris);
+            color: var(--secondary-gray);
         }
 
         .step-item .step-detail i {
-            color: var(--azul-principal);
+            color: var(--primary-blue);
             margin-right: 8px;
             font-size: 14px;
         }
@@ -520,7 +788,7 @@
         }
 
         .step-item ul li {
-            color: var(--gris);
+            color: var(--secondary-gray);
             font-size: 14px;
             margin-bottom: 8px;
             display: flex;
@@ -528,32 +796,20 @@
         }
 
         .step-item ul li i {
-            color: var(--azul-principal);
+            color: var(--primary-blue);
             margin-right: 10px;
             font-size: 14px;
             margin-top: 3px;
         }
 
         .step-item .highlight {
-            color: var(--azul-principal);
+            color: var(--primary-blue);
             font-weight: 600;
         }
 
-        @media (max-width: 991px) {
-            .step-item {
-                width: calc(50% - 30px);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .step-item {
-                width: calc(100% - 30px);
-            }
-        }
-
-        /* ========== TARJETAS DE REQUISITOS ========== */
+        /* ===== TARJETAS DE REQUISITOS ===== */
         .requisitos-card {
-            background: var(--blanco);
+            background: var(--pure-white);
             border-radius: 20px;
             padding: 40px 30px;
             box-shadow: 0 10px 30px rgba(37,40,85,0.08);
@@ -563,7 +819,7 @@
         .requisitos-card h4 {
             font-size: 24px;
             font-weight: 700;
-            color: var(--azul-principal);
+            color: var(--primary-blue);
             margin-bottom: 30px;
             display: flex;
             align-items: center;
@@ -571,7 +827,7 @@
         }
 
         .requisitos-card h4 i {
-            color: var(--azul-principal);
+            color: var(--primary-blue);
             font-size: 28px;
         }
 
@@ -586,13 +842,13 @@
         }
 
         .requisito-item:hover {
-            background: var(--blanco);
+            background: var(--pure-white);
             box-shadow: 0 5px 15px rgba(37,40,85,0.08);
             transform: translateX(5px);
         }
 
         .requisito-item i {
-            color: var(--azul-principal);
+            color: var(--primary-blue);
             font-size: 20px;
             margin-right: 15px;
             min-width: 25px;
@@ -600,19 +856,19 @@
         }
 
         .requisito-item span {
-            color: var(--gris);
+            color: var(--secondary-gray);
             font-size: 15px;
             line-height: 1.5;
         }
 
         .requisito-item strong {
-            color: var(--azul-principal);
+            color: var(--primary-blue);
             font-weight: 600;
         }
 
-        /* ========== CONTACT CARDS ========== */
+        /* ===== CONTACT CARDS ===== */
         .contact-card-modern {
-            background: var(--blanco);
+            background: var(--pure-white);
             border-radius: 20px;
             padding: 35px 25px;
             box-shadow: 0 15px 40px rgba(37, 40, 85, 0.08);
@@ -640,7 +896,7 @@
             transition: all 0.3s ease;
         }
         .contact-card-modern:hover .icon-wrapper {
-            background: var(--azul-principal);
+            background: var(--primary-blue);
             transform: scale(1.1);
         }
         .contact-card-modern:hover .icon-wrapper i {
@@ -648,14 +904,14 @@
         }
         .contact-card-modern .icon-wrapper i {
             font-size: 36px;
-            color: var(--azul-principal);
+            color: var(--primary-blue);
             transition: all 0.3s ease;
         }
         .contact-card-modern h4 {
             font-size: 22px;
             font-weight: 700;
             margin-bottom: 20px;
-            color: var(--azul-principal) !important;
+            color: var(--primary-blue) !important;
             position: relative;
             padding-bottom: 15px;
         }
@@ -667,17 +923,17 @@
             transform: translateX(-50%);
             width: 50px;
             height: 2px;
-            background: var(--azul-principal);
+            background: var(--primary-blue);
             opacity: 0.3;
         }
         .contact-card-modern p {
             margin-bottom: 10px;
-            color: var(--gris);
+            color: var(--secondary-gray);
             font-size: 16px;
             line-height: 1.8;
         }
         .contact-card-modern p strong {
-            color: var(--azul-principal);
+            color: var(--primary-blue);
             font-weight: 600;
         }
         .contact-card-modern .highlight-badge {
@@ -686,12 +942,12 @@
             padding: 5px 15px;
             border-radius: 50px;
             font-size: 14px;
-            color: var(--azul-principal);
+            color: var(--primary-blue);
             margin-top: 15px;
             font-weight: 600;
         }
 
-        /* ========== FAQ CARDS - TEXTO BLANCO ========== */
+        /* ===== FAQ CARDS ===== */
         .faq-card-modern {
             background: rgba(255,255,255,0.1);
             backdrop-filter: blur(10px);
@@ -722,94 +978,75 @@
             padding: 0 25px 25px;
             color: #ffffff !important;
         }
-        
         .faq-card-modern .card-body p,
         .faq-card-modern .card-body strong {
             color: #ffffff !important;
         }
 
-        /* ========== RESPONSIVE ========== */
+        /* ===== ANIMACIONES ===== */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+        .float {
+            animation: float 5s ease-in-out infinite;
+        }
+
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 991px) {
-            .hero-title {
-                font-size: 56px;
-            }
-            .hero-content {
-                padding: 100px 0 60px;
-            }
-            .floating-card {
-                display: none;
-            }
+            .hero-stats { gap: 30px; }
+            .stat-item:not(:last-child):after { display: none; }
+            .hero-form { margin-top: 50px; }
+            .hero-content { padding-right: 0; text-align: center; }
+            .hero-buttons { justify-content: center; }
+            .hero-stats { justify-content: center; }
+            .stat-item { text-align: center; }
+            .hero-text { margin-left: auto; margin-right: auto; }
+            .step-item { width: calc(50% - 30px); }
+            .floating-card { display: none; }
         }
 
         @media (max-width: 768px) {
-            .hero-title {
-                font-size: 48px;
-            }
-            .hero-description {
-                font-size: 18px;
-            }
-            .hero-stats {
-                gap: 30px;
-                flex-wrap: wrap;
-            }
-            .stat-number {
-                font-size: 40px;
-            }
-            .btn-primary-custom,
-            .btn-outline-custom {
-                padding: 15px 30px;
-                font-size: 16px;
-                width: 100%;
-                justify-content: center;
-            }
-            .hero-buttons {
-                gap: 15px;
-            }
-            .hero-content {
-                text-align: center;
-            }
-            .hero-stats {
-                justify-content: center;
-            }
-            .stat {
-                text-align: center;
-            }
-            .section-title-center h2 {
-                font-size: 32px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero-title {
-                font-size: 40px;
-            }
-            .hero-badge {
-                font-size: 14px;
-                padding: 10px 20px;
-            }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .btn-primary-custom, .btn-secondary-custom { width: 100%; justify-content: center; }
+            .hero-stats { gap: 20px; flex-wrap: wrap; }
+            .hero-title { font-size: 38px; }
+            .hero-title span { font-size: 26px; }
+            .hero-form { padding: 35px 25px; }
+            .hero-form h3 { font-size: 24px; }
+            .stat-number { font-size: 36px; }
+            .step-item { width: calc(100% - 30px); }
+            .section-title-center h2 { font-size: 32px; }
         }
     </style>
 </head>
 
 <body>
-    <!--[if lt IE 8]>
-        <p class="browserupgrade">Estás usando un navegador <strong>obsoleto</strong>. Por favor <a href="http://browsehappy.com/">actualiza tu navegador</a> para mejorar tu experiencia.</p>
-    <![endif]-->
-    
-    <!-- preloader area start -->
+    <!-- Preloader -->
     <div id="preloader">
         <div class="loader"></div>
     </div>
-    <!-- prealoader area end -->
     
-    <!-- ========== HEADER AREA CORREGIDO ========== -->
+    <!-- Header -->
     <header id="header">
         <div class="header-two">
             <div class="container-fluid px-0">
                 <div class="row align-items-center g-0 mx-0">
                     <div class="col-lg-3 col-sm-6 d-block d-lg-none">
                         <div class="logo">
-                            <!-- ENLACE CORREGIDO: Apunta a inicio.html -->
                             <a href="inicio.html"><img src="assets/images/icon/logo.png" alt="logo"></a>
                         </div>
                     </div>
@@ -817,33 +1054,28 @@
                         <div class="main-menu menu-style2">
                             <nav>
                                 <ul id="m_menu_active">
-                                    <!-- ENLACES CORREGIDOS: Mismos que en las otras páginas -->
-                                    <li><a href="inicio.html">Inicio</a></li> <!-- CORREGIDO -->
-                                    <li><a href="javascript:void(0);">Oferta</a>
+                                    <li><a href="inicio.html">Inicio</a></li>
+                                    <li><a href="javascript:void(0);">Oferta Academica</a>
                                         <ul class="submenu">
-                                            <li><a href="oferta_academica.html">Academia</a></li> <!-- CORREGIDO -->
-                                            <li><a href="actividades_extracurriculares.html">Clubes</a></li> <!-- CORREGIDO -->
+                                            <li><a href="oferta_academica.html">Academia</a></li>
+                                            <li><a href="actividades_extracurriculares.html">Clubes</a></li>
                                         </ul>
                                     </li>
-                                    <li class="active"><a href="admisiones.html">Admisiones</a></li> <!-- CORREGIDO (se mantiene activo) -->
-                                    <li><a href="landing_page.html">Landing Page</a></li> <!-- CORREGIDO -->
-
+                                    <li><a href="admisiones.html">Postulación / Registro </a></li>
                                     <li class="middle-logo">
-                                        <!-- ENLACE CORREGIDO: Apunta a inicio.html -->
                                         <a href="inicio.html">
                                             <img src="assets/images/icon/logo-middle.png" alt="logo">
-                                            <img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="logo">
                                         </a>
                                     </li>
-                                    <li><a href="servicios.html">Servicios</a></li> <!-- CORREGIDO -->
-                                    <li><a href="nosotros.html">Nosotros</a> <!-- CORREGIDO -->
+                                    <li><a href="servicios.html">Servicios</a></li>
+                                    <li><a href="nosotros.html">Nosotros</a>
                                         <ul class="submenu">
-                                            <li><a href="nosotros.html">Visión y Misión</a></li> <!-- CORREGIDO -->
-                                            <li><a href="nosotros.html">Proyectos</a></li> <!-- CORREGIDO -->
-                                            <li><a href="nosotros.html">Blog</a></li> <!-- CORREGIDO -->
+                                            <li><a href="nosotros.html">Visión y Misión</a></li>
+                                            <li><a href="nosotros.html">Proyectos</a></li>
+                                            <li><a href="nosotros.html">Blog</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="contacto.html">Contacto</a></li> <!-- CORREGIDO -->
+                                    <li><a href="contacto.html">Contacto</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -853,9 +1085,9 @@
                             <ul>
                                 <li>
                                     <a href="https://app.rafaelbucheli.com/login/?next=/" 
-                                    class="btn btn-primary btn-round" 
+                                    class="btn btn-primary" 
                                     target="_blank">
-                                    SIGN UP
+                                    <i class="fas fa-user"></i> SIGN UP
                                     </a>
                                 </li>
                             </ul>
@@ -868,66 +1100,130 @@
             </div>
         </div>
     </header>
-    <!-- ========== HEADER AREA END ========== -->
     
-    <!-- offset search area start - CORREGIDO -->
+    <!-- Offset Search -->
     <div class="offset-search">
         <form action="#">
             <input type="text" name="search" placeholder="Buscar aquí...">
             <button type="submit"><i class="fas fa-search"></i></button>
         </form>
     </div>
-    <!-- offset search area end -->
     
-    <!-- body overlay area start -->
+    <!-- Body Overlay -->
     <div class="body_overlay"></div>
-    <!-- body overlay area end -->
-    
-    <!-- ========== HERO AREA ========== -->
-    <div class="hero-background">
+
+    <!-- HERO SECTION (Landing Page) + TARJETA FLOTANTE -->
+    <section class="hero-section">
         <div class="hero-pattern"></div>
-        <div class="hero-shape-1"></div>
-        <div class="hero-shape-2"></div>
         
-        <div class="container-hero">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span>Inscripciones</span> Abiertas
-                </h1>
-                
-                <!-- TEXTO COMPLETAMENTE BLANCO -->
-                <p class="hero-description" style="color: #ffffff !important;">
-                    Asegura el futuro de tu hijo en la Unidad Educativa Rafael Bucheli. 
-                    Educación de excelencia con metodologías innovadoras.
-                </p>
-                
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">500+</span>
-                        <span class="stat-label">Estudiantes</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">25</span>
-                        <span class="stat-label">Cupos x curso</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">15</span>
-                        <span class="stat-label">Años</span>
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-7">
+                    <div class="hero-content">
+                        <div class="hero-badge">
+                            <i class="fas fa-star"></i> Excelencia Educativa desde 1978
+                        </div>
+                        
+                        <h1 class="hero-title">
+                            El Futuro de tus Hijos
+                            <span>Comienza Aquí</span>
+                        </h1>
+                        
+                        <p class="hero-text">
+                            Descubre una educación innovadora que combina metodologías de vanguardia, valores sólidos y formación académica de excelencia.
+                        </p>
+                        
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">45+</div>
+                                <div class="stat-label">Años</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">1200</div>
+                                <div class="stat-label">Estudiantes</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">98%</div>
+                                <div class="stat-label">Aprobación</div>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-buttons">
+                            <a href="admisiones.html" class="btn-primary-custom">
+                                <i class="fas fa-pen-to-square"></i> Solicitar Información
+                            </a>
+                            <a href="contacto.html" class="btn-secondary-custom">
+                                <i class="fas fa-calendar"></i> Agendar Visita
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="hero-buttons">
-                    <!-- BOTONES CORREGIDOS -->
-                    <a href="contacto.html" class="btn-primary-custom">
-                        <i class="fas fa-pen-to-square"></i> Solicitar Cupo
-                    </a>
-                    <a href="#requisitos" class="btn-outline-custom">
-                        <i class="fas fa-file-lines"></i> Requisitos
-                    </a>
+                <div class="col-lg-5">
+                    <div class="hero-form float">
+                        <h3>¡Inscripciones 2026!</h3>
+                        <!-- ===== FORMULARIO CON ENVÍO REAL (FormSubmit) ===== -->
+                        <form id="contactForm" action="https://formsubmit.co/formularios_pagina_web@rafaelbucheli.com" method="POST">
+                            <!-- Campos ocultos para FormSubmit -->
+                            <input type="hidden" name="_subject" value="Nueva Solicitud de Inscripción - Rafael Bucheli">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
+                            
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="nombre" name="Nombre" placeholder="Nombre completo" required>
+                                <div class="error-message">Por favor ingresa tu nombre</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email" name="Correo" placeholder="Correo electrónico" required>
+                                <div class="error-message">Por favor ingresa un email válido</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="tel" class="form-control" id="telefono" name="Telefono" placeholder="Teléfono" required>
+                                <div class="error-message">Por favor ingresa tu teléfono</div>
+                            </div>
+                            
+                            <!-- NUEVO SELECTOR MÚLTIPLE DE NIVELES -->
+                            <div class="form-group">
+                                <div class="custom-multi-select" id="nivelMultiSelect">
+                                    <div class="multi-select-toggle" onclick="toggleMultiSelect()">
+                                        <span class="toggle-text placeholder">Selecciona nivel(es) educativo(s)</span>
+                                        <i class="fas fa-chevron-down toggle-arrow"></i>
+                                    </div>
+                                    <div class="multi-select-options">
+                                        <div class="multi-select-option">
+                                            <input type="checkbox" id="nivelInicial" value="inicial">
+                                            <label for="nivelInicial">Educación Inicial (3-5 años)</label>
+                                        </div>
+                                        <div class="multi-select-option">
+                                            <input type="checkbox" id="nivelPrimaria" value="primaria">
+                                            <label for="nivelPrimaria">Educación Primaria (6-11 años)</label>
+                                        </div>
+                                        <div class="multi-select-option">
+                                            <input type="checkbox" id="nivelBachillerato" value="bachillerato">
+                                            <label for="nivelBachillerato">Bachillerato (12-17 años)</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Input oculto para enviar los niveles seleccionados -->
+                                <input type="hidden" name="Nivel" id="nivelHidden">
+                                <div class="error-message" id="nivelError">Por favor selecciona al menos un nivel</div>
+                            </div>
+                            
+                            <button type="submit" class="btn-submit">
+                                <i class="fas fa-paper-plane"></i> Enviar solicitud
+                            </button>
+                        </form>
+                        <div class="form-note">
+                            <i class="fas fa-lock"></i> Al enviar aceptas nuestras políticas de privacidad
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         
+        <!-- Tarjeta flotante "Cupos limitados" (heredada de Admisiones) -->
         <div class="floating-card">
             <i class="fas fa-graduation-cap"></i>
             <div>
@@ -935,10 +1231,10 @@
                 <small>Inicia tu proceso hoy</small>
             </div>
         </div>
-    </div>
-    <!-- HERO AREA END -->
+    </section>
+    <!-- HERO SECTION END -->
 
-    <!-- ========== SECCIÓN DE PASOS - 6 PASOS EN 3+3 ========== -->
+    <!-- SECCIÓN DE PASOS - 6 PASOS EN 3+3 -->
     <div class="steps-section">
         <div class="container">
             <div class="section-title-center">
@@ -948,7 +1244,6 @@
             </div>
             
             <div class="steps-grid">
-                <!-- Paso 1 -->
                 <div class="step-item">
                     <div class="step-number">1</div>
                     <h3>Solicitud de Información</h3>
@@ -958,7 +1253,6 @@
                     </div>
                 </div>
                 
-                <!-- Paso 2 -->
                 <div class="step-item">
                     <div class="step-number">2</div>
                     <h3>Visita Guiada</h3>
@@ -966,7 +1260,6 @@
                     <p>Conoce nuestras instalaciones, programas académicos, valores y costos.</p>
                 </div>
                 
-                <!-- Paso 3 -->
                 <div class="step-item">
                     <div class="step-number">3</div>
                     <h3>Entrega de Documentos</h3>
@@ -979,7 +1272,6 @@
                     </ul>
                 </div>
                 
-                <!-- Paso 4 -->
                 <div class="step-item">
                     <div class="step-number">4</div>
                     <h3>Evaluación Académica</h3>
@@ -987,7 +1279,6 @@
                     <p>Lengua, Matemática e Inglés. Se notificará con 24h vía email/WhatsApp.</p>
                 </div>
                 
-                <!-- Paso 5 (NUEVO) - Entrevista DECE -->
                 <div class="step-item">
                     <div class="step-number">5</div>
                     <h3>Entrevista en el DECE</h3>
@@ -999,7 +1290,6 @@
                     </div>
                 </div>
                 
-                <!-- Paso 6 -->
                 <div class="step-item">
                     <div class="step-number">6</div>
                     <h3>Pago de Matrícula</h3>
@@ -1016,8 +1306,7 @@
             </div>
             
             <div class="text-center mt-5">
-                <!-- BOTÓN CORREGIDO -->
-                <a href="contacto.html" class="btn btn-primary btn-round btn-lg" style="padding: 15px 45px; background: var(--azul-principal); color: white;">
+                <a href="contacto.html" class="btn btn-primary btn-round btn-lg" style="padding: 15px 45px; background: var(--primary-blue); color: white;">
                     <i class="fas fa-pencil mr-2"></i> Iniciar mi Solicitud
                 </a>
             </div>
@@ -1025,7 +1314,7 @@
     </div>
     <!-- SECCIÓN DE PASOS END -->
 
-    <!-- SECCIÓN DE REQUISITOS (con ID para enlace) -->
+    <!-- SECCIÓN DE REQUISITOS -->
     <div id="requisitos" class="course-area pt--80 pb--70" style="background: #f8fafd;">
         <div class="container">
             <div class="row">
@@ -1149,11 +1438,10 @@
             
             <div class="row mt-4">
                 <div class="col-12 text-center">
-                    <!-- BOTONES CORREGIDOS -->
-                    <a href="https://www.google.com/maps/place/Unidad+Educativa+Rafael+Bucheli/@-0.2876255,-78.5544505,17z" target="_blank" class="btn btn-outline-primary btn-round btn-lg" style="padding: 12px 35px; margin: 0 5px; border-color: var(--azul-principal); color: var(--azul-principal);">
+                    <a href="https://www.google.com/maps/place/Unidad+Educativa+Rafael+Bucheli/@-0.2876255,-78.5544505,17z" target="_blank" class="btn btn-outline-primary btn-round btn-lg" style="padding: 12px 35px; margin: 0 5px; border-color: var(--primary-blue); color: var(--primary-blue);">
                         <i class="fas fa-map mr-2"></i> Cómo llegar
                     </a>
-                    <a href="https://wa.me/593999999999?text=Hola,%20quiero%20información%20sobre%20admisiones" target="_blank" class="btn btn-primary btn-round btn-lg" style="padding: 12px 35px; margin: 0 5px; background: var(--azul-principal); color: white;">
+                    <a href="https://wa.me/593999999999?text=Hola,%20quiero%20información%20sobre%20admisiones" target="_blank" class="btn btn-primary btn-round btn-lg" style="padding: 12px 35px; margin: 0 5px; background: var(--primary-blue); color: white;">
                         <i class="fab fa-whatsapp mr-2"></i> WhatsApp
                     </a>
                 </div>
@@ -1162,8 +1450,8 @@
     </div>
     <!-- SECCIÓN DE CONTACTO END -->
 
-    <!-- SECCIÓN DE PREGUNTAS FRECUENTES - TEXTO BLANCO CORREGIDO -->
-    <div class="testimonial-area ptb--120" style="background: linear-gradient(135deg, var(--degradado-externo), var(--color-linea));">
+    <!-- SECCIÓN DE PREGUNTAS FRECUENTES -->
+    <div class="testimonial-area ptb--120" style="background: linear-gradient(135deg, #141b28, #141d33);">
         <img class="tst-bg" src="assets/images/bg/tst-bg-shape.png" alt="image">
         <div class="container">
             <div class="row">
@@ -1215,7 +1503,7 @@
                             </div>
                             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqAccordion">
                                 <div class="card-body" style="color: #ffffff !important;">
-                                    Para mayor informacion , acercarse a colecturia.
+                                    Para mayor información, acercarse a colecturía.
                                 </div>
                             </div>
                         </div>
@@ -1237,7 +1525,6 @@
                     </div>
                     
                     <div class="text-center mt-5">
-                        <!-- BOTÓN CORREGIDO -->
                         <a href="contacto.html" class="btn btn-light btn-round btn-lg">
                             <i class="fas fa-comments mr-2"></i> Más preguntas
                         </a>
@@ -1248,8 +1535,8 @@
     </div>
     <!-- SECCIÓN DE PREGUNTAS FRECUENTES END -->
 
-    <!-- CTA FINAL CORREGIDO -->
-    <div class="cta-area secondary-bg has-color ptb--50" style="background: linear-gradient(45deg, var(--azul-principal), var(--degradado-interno));">
+    <!-- CTA FINAL -->
+    <div class="cta-area secondary-bg has-color ptb--50" style="background: linear-gradient(45deg, var(--primary-blue), #182e4e);">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-8">
@@ -1260,7 +1547,6 @@
                 </div>
                 <div class="col-md-4">
                     <div class="cta-btn text-md-right">
-                        <!-- BOTÓN CORREGIDO -->
                         <a class="btn btn-light btn-round btn-lg" href="contacto.html" style="padding: 14px 35px;">
                             <i class="fas fa-pen-to-square mr-2"></i> Inscribirme
                         </a>
@@ -1271,112 +1557,206 @@
     </div>
     <!-- CTA FINAL END -->
 
-<!-- footer area start (CORREGIDO) -->
-<footer>
-    <div class="footer-top has-color pt--120 pb--30">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="widget widget-company">
-                        <!-- ENLACE CORREGIDO: Apunta a inicio.html -->
-                        <a href="inicio.html"><img src="assets/images/icon/logo.png" alt="image"></a>
-                        <div class="address">
-                            <h6>Dirección</h6>
-                            <p>Unidad Educativa Rafael Bucheli, Quito, Ecuador.</p>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top has-color pt--120 pb--30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="widget widget-company">
+                            <a href="inicio.html"><img src="assets/images/icon/logo.png" alt="image"></a>
+                            <div class="address">
+                                <h6>Dirección</h6>
+                                <p>Unidad Educativa Rafael Bucheli, Quito, Ecuador.</p>
+                            </div>
+                            <div class="address">
+                                <h6>Teléfono</h6>
+                                <p>(02) 303-5139</p>
+                            </div>
+                            <div class="address">
+                                <h6>Correo Electrónico</h6>
+                                <p>secretaria@rafaelbucheli.edu.ec</p>
+                            </div>
+                            
+                            <ul class="social">
+                                <li>
+                                    <a href="https://www.facebook.com/uerafaelbucheli/?locale=es_LA" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.tiktok.com/@uerafaelbucheli" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-tiktok"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/u.e.rafaelbucheli/" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.youtube.com/@uecatolicaparticularrafael41" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="address">
-                            <h6>Teléfono</h6>
-                            <p>(02) 303-5139</p>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <div class="widget footer-link">
+                            <h4 class="fwidget-title mb-5 pb-3 primary-color">Menú del Pie</h4> 
+                            <ul>
+                                <li><a href="servicios.html"><i class="fas fa-angle-right"></i>Casos de Estudio</a></li>
+                                <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Nosotros</a></li>
+                                <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Nuestra Historia</a></li>
+                                <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Publicaciones</a></li>
+                                <li><a href="contacto.html"><i class="fas fa-angle-right"></i>Trabaja con Nosotros</a></li>
+                            </ul>
                         </div>
-                        <div class="address">
-                            <h6>Correo Electrónico</h6>
-                            <p>secretaria@rafaelbucheli.edu.ec</p>
+                    </div>
+                    
+                    <div class="col-md-5">
+                        <div class="widget widget-opening">
+                            <h4 class="fwidget-title mb-5 pb-3 primary-color">Días y Horas de Trabajo</h4>
+                            <ul>
+                                <li><span>Lun - Mar :</span>6.00 am - 10.00 pm</li>
+                                <li><span>Mié - Jue :</span>8.00 am - 6.00 pm</li>
+                                <li><span>Viernes :</span>3.00 pm - 8.00 pm</li>
+                                <li><span>Domingo :</span>Cerrado</li>
+                            </ul>
                         </div>
-                        
-                        <!-- REDES SOCIALES ACTUALIZADAS -->
-                        <ul class="social">
-                            <li>
-                                <a href="https://www.facebook.com/uerafaelbucheli/?locale=es_LA" target="_blank" rel="noopener noreferrer">
-                                    <i class="fab fa-facebook"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.tiktok.com/@uerafaelbucheli" target="_blank" rel="noopener noreferrer">
-                                    <i class="fab fa-tiktok"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.instagram.com/u.e.rafaelbucheli/" target="_blank" rel="noopener noreferrer">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.youtube.com/@uecatolicaparticularrafael41" target="_blank" rel="noopener noreferrer">
-                                    <i class="fab fa-youtube"></i>
-                                </a>
-                            </li>
-                        </ul>
                     </div>
                 </div>
                 
-                <div class="col-md-3">
-                    <div class="widget footer-link">
-                        <h4 class="fwidget-title mb-5 pb-3 primary-color">Menú del Pie</h4> 
-                        <ul>
-                            <!-- ENLACES CORREGIDOS: Apuntan a las páginas correspondientes -->
-                            <li><a href="servicios.html"><i class="fas fa-angle-right"></i>Casos de Estudio</a></li>
-                            <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Nosotros</a></li>
-                            <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Nuestra Historia</a></li>
-                            <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Publicaciones</a></li>
-                            <li><a href="contacto.html"><i class="fas fa-angle-right"></i>Trabaja con Nosotros</a></li>
-                        </ul>
-                    </div>
+                <div class="footer-bottom">
+                    <p>Copyright © 2026 <span><a class="primary-color" href="https://rafaelbucheli.com/" target="_blank">Unidad Educativa Particular Rafael Bucheli</a> </span> - Todos los derechos reservados.</p>
                 </div>
-                
-                <div class="col-md-5">
-                    <div class="widget widget-opening">
-                        <h4 class="fwidget-title mb-5 pb-3 primary-color">Días y Horas de Trabajo</h4>
-                        <ul>
-                            <li><span>Lun - Mar :</span>6.00 am - 10.00 pm</li>
-                            <li><span>Mié - Jue :</span>8.00 am - 6.00 pm</li>
-                            <li><span>Viernes :</span>3.00 pm - 8.00 pm</li>
-                            <li><span>Domingo :</span>Cerrado</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>Copyright © 2026 <span><a class="primary-color" href="https://rafaelbucheli.com/" target="_blank">Unidad Educativa Particular Rafael Bucheli</a> </span> - Todos los derechos reservados. Hecho por <span><a class="primary-color" href="https://rafaelbucheli.com/" target="_blank">Unidad Educativa Particular Rafael Bucheli</a></span></p>
             </div>
         </div>
-    </div>
-</footer>
-<!-- footer area end -->
-
-    <!-- jquery latest version -->
+    </footer>
+    
+    <!-- Scripts -->
     <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
-    <!-- bootstrap 4 js -->
     <script src="assets/js/bootstrap.min.js"></script>
-    <!-- others plugins -->
     <script src="assets/js/owl.carousel.min.js"></script>
     <script src="assets/js/jquery.magnific-popup.min.js"></script>
     <script src="assets/js/jquery.slicknav.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/scripts.js"></script>
     
-    <!-- ============================================ -->
-    <!-- CHATBOT - Asistente Virtual -->
-    <!-- ============================================ -->
+    <!-- CHATBOT -->
     <script src="CHATBOT/CHATBOT.js" data-auto-init></script>
     
-    <!-- Script para el cambio de color del header al hacer scroll -->
     <script>
-        $(window).on('scroll', function() {
-            if ($(window).scrollTop() > 50) {
-                $('.header-two').addClass('scrolled');
+        $(window).on('load', function() {
+            $('#preloader').fadeOut('slow');
+        });
+
+        // ===== FUNCIONALIDAD DEL NUEVO SELECTOR MÚLTIPLE =====
+        function toggleMultiSelect() {
+            const optionsContainer = document.querySelector('.multi-select-options');
+            const toggle = document.querySelector('.multi-select-toggle');
+            optionsContainer.classList.toggle('show');
+            toggle.classList.toggle('open');
+        }
+
+        // Actualizar el texto del toggle y el input oculto cuando se seleccionan opciones
+        $(document).on('change', '#nivelMultiSelect input[type="checkbox"]', function() {
+            const selectedOptions = [];
+            $('#nivelMultiSelect input:checked').each(function() {
+                selectedOptions.push($(this).val());
+            });
+            const toggleText = $('.multi-select-toggle .toggle-text');
+            const hiddenInput = $('#nivelHidden');
+            
+            if (selectedOptions.length > 0) {
+                toggleText.text(selectedOptions.join(', '));
+                toggleText.removeClass('placeholder');
+                hiddenInput.val(selectedOptions.join(', '));
             } else {
-                $('.header-two').removeClass('scrolled');
+                toggleText.text('Selecciona nivel(es) educativo(s)');
+                toggleText.addClass('placeholder');
+                hiddenInput.val('');
+            }
+            // Quitar error visual si ya seleccionó algo
+            $('#nivelMultiSelect').removeClass('error');
+        });
+
+        // Cerrar el dropdown al hacer clic fuera
+        $(document).on('click', function(event) {
+            if (!$(event.target).closest('#nivelMultiSelect').length) {
+                $('.multi-select-options').removeClass('show');
+                $('.multi-select-toggle').removeClass('open');
+            }
+        });
+
+        // Validación y envío real del formulario
+        $('#contactForm').on('submit', function(e) {
+            e.preventDefault();
+            
+            let isValid = true;
+            
+            $('.form-control').removeClass('error');
+            $('#nivelMultiSelect').removeClass('error');
+            
+            if ($('#nombre').val().trim() === '') {
+                $('#nombre').addClass('error');
+                isValid = false;
+            }
+            
+            const email = $('#email').val().trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email === '' || !emailRegex.test(email)) {
+                $('#email').addClass('error');
+                isValid = false;
+            }
+            
+            if ($('#telefono').val().trim() === '') {
+                $('#telefono').addClass('error');
+                isValid = false;
+            }
+            
+            // Validar el multi-select (al menos una opción seleccionada)
+            if ($('#nivelHidden').val() === '') {
+                $('#nivelMultiSelect').addClass('error');
+                $('#nivelError').show();
+                isValid = false;
+            } else {
+                $('#nivelError').hide();
+            }
+            
+            if (isValid) {
+                // Mostrar estado de enviando
+                $('.btn-submit').html('<i class="fas fa-spinner fa-spin"></i> Enviando...').prop('disabled', true);
+                
+                // Enviar el formulario real (FormSubmit)
+                this.submit();
+            } else {
+                const firstError = $('.error').first();
+                if (firstError.length) {
+                    $('html, body').animate({
+                        scrollTop: firstError.offset().top - 200
+                    }, 500);
+                }
+            }
+        });
+
+        $('.form-control').on('input change', function() {
+            $(this).removeClass('error');
+        });
+
+        $(window).on('scroll', function() {
+            if ($(window).scrollTop() > 100) {
+                $('.header-two').css({
+                    'background': 'rgba(255,255,255,0.98)',
+                    'box-shadow': '0 5px 20px rgba(37,40,85,0.1)'
+                });
+            } else {
+                $('.header-two').css({
+                    'background': 'rgba(255,255,255,0.98)',
+                    'box-shadow': '0 5px 20px rgba(37,40,85,0.08)'
+                });
             }
         });
     </script>

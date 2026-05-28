@@ -1138,7 +1138,7 @@ function getSectionButtons(section) {
             sectionName = "Admisiones";
             return `
                 <button class="section-btn admission-section-btn" onclick="window.contactAdvisor('${sectionName}')">
-                    <i class="fab fa-whatsapp"></i> 💰 Consultar sobre ${sectionName}
+                    <i class="fab fa-whatsapp"></i>  Consultar sobre ${sectionName}
                 </button>
                 <button class="section-btn academic-section-btn" onclick="window.selectOption('academica')" style="background: linear-gradient(135deg, #3498db, #2980b9);">
                     <i class="fas fa-graduation-cap"></i> 🎓 Ver oferta académica
@@ -1148,17 +1148,17 @@ function getSectionButtons(section) {
             sectionName = "Horarios de Atención";
             return `
                 <button class="section-btn schedule-section-btn" onclick="window.contactAdvisor('${sectionName}')">
-                    <i class="fab fa-whatsapp"></i> ⏰ Consultar sobre ${sectionName}
+                    <i class="fab fa-whatsapp"></i>  Consultar  ${sectionName}
                 </button>
                 <button class="section-btn location-section-btn" onclick="window.openGoogleMaps()" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">
-                    <i class="fas fa-map-marked-alt"></i> 🗺️ Ver ubicación en mapa
+                    <i class="fas fa-map-marked-alt"></i>  Ver ubicación en mapa
                 </button>
             `;
         case 'h_clases':
             sectionName = "Horario de Clases";
             return `
                 <button class="section-btn schedule-section-btn" onclick="window.contactAdvisor('${sectionName}')">
-                    <i class="fab fa-whatsapp"></i> 📚 Consultar sobre ${sectionName}
+                    <i class="fab fa-whatsapp"></i>  Consultar sobre ${sectionName}
                 </button>
                 <button class="section-btn admission-section-btn" onclick="window.selectOption('admisiones')" style="background: linear-gradient(135deg, #9b59b6, #8e44ad);">
                     <i class="fas fa-file-signature"></i> 📝 Iniciar proceso de inscripción
@@ -1168,10 +1168,10 @@ function getSectionButtons(section) {
             sectionName = "Ubicación";
             return `
                 <button class="section-btn location-section-btn" onclick="window.openGoogleMaps()">
-                    <i class="fas fa-map-marked-alt"></i> 🗺️ Abrir en Google Maps
+                    <i class="fas fa-map-marked-alt"></i>  Abrir en Google Maps
                 </button>
                 <button class="section-btn schedule-section-btn" onclick="window.contactAdvisor('${sectionName}')" style="background: linear-gradient(135deg, #2ecc71, #27ae60);">
-                    <i class="fab fa-whatsapp"></i> 📍 Solicitar indicaciones detalladas
+                    <i class="fab fa-whatsapp"></i>  Solicitar indicaciones detalladas
                 </button>
             `;
         default:
@@ -1183,7 +1183,7 @@ function getAdvisorButtons() {
     return `
         <div class="advisor-buttons">
             <button class="advisor-primary-btn" onclick="window.contactAdvisorDirect()">
-                <i class="fab fa-whatsapp"></i> 💬 Contactar con Asesor ahora
+                <i class="fab fa-whatsapp"></i>  Contactar con Asesor ahora
             </button>
             <button class="advisor-secondary-btn" onclick="window.showMoreContactOptions()">
                 <i class="fas fa-ellipsis-h"></i> Más opciones de contacto
