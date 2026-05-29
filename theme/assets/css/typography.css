@@ -5,11 +5,9 @@ Table Of Contents
 - Custom Typography
 =========================
 */
-/*
-font-family: 'Libre Baskerville', serif;
-font-family: 'Rubik', sans-serif;
-*/
 
+/* ===== IMPORTACIÓN DE POPPINS (MODERNA Y LEGIBLE) ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
 /*
 --------------------------
@@ -17,20 +15,24 @@ font-family: 'Rubik', sans-serif;
 --------------------------
 */
 
+body {
+    font-family: 'Poppins', sans-serif;
+}
 
 p img {
     margin: 0;
-} 
+}
 
 /* em and strong */
-
 em {
     font: 15px/30px;
+    font-style: italic;
 }
 
 strong,
 b {
     font: 15px/30px;
+    font-weight: 700;
 }
 
 small {
@@ -38,12 +40,10 @@ small {
     line-height: inherit;
 }
 
-
-/*  blockquotes */
-
+/* blockquotes (ahora con Poppins, sin Nunito) */
 blockquote {
     border-left: 0 none;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 10px 0;
     padding-left: 40px;
     position: relative;
@@ -51,8 +51,8 @@ blockquote {
 
 blockquote::before {
     color: #4e5665;
-    content: "ï„";
-    font-family: FontAwesome;
+    content: "\f10d";  /* Código corregido de FontAwesome (comillas) */
+    font-family: 'FontAwesome';
     font-size: 36px;
     left: 20px;
     line-height: 0;
@@ -83,12 +83,10 @@ blockquote cite:before {
 blockquote cite a,
 blockquote cite a:visited {
     color: #8B9798;
-    border: none
+    border: none;
 }
 
-
 /* abbreviations */
-
 abbr {
     color: #444;
     font-weight: 700;
@@ -101,12 +99,10 @@ abbr:hover {
     cursor: help;
 }
 
-
 /* links */
-
 a,
 a:visited {
-    text-decoration: none; 
+    text-decoration: none;
     font-weight: normal;
     transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
@@ -137,9 +133,7 @@ a.active {
     color: #ffb607;
 }
 
-
 /* list */
-
 ul,
 ol {
     margin-bottom: 0px;
@@ -194,13 +188,7 @@ li {
     margin-bottom: 0px;
 }
 
-ul.large li {}
-
-li p {}
-
-
 /* definition list */
-
 dl {
     margin: 12px 0;
 }
@@ -219,13 +207,14 @@ button {
     cursor: pointer;
 }
 
-
 /*
 --------------------------
 - Custom Typography
 --------------------------
 */
 
-
-/* Your Custom Typography. */
-
+/* Puedes agregar aquí tus estilos personalizados adicionales */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}

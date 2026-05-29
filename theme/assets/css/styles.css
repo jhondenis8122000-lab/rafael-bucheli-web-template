@@ -42,6 +42,9 @@ Description: Responsive Education HTML5 Template
    22. HEADER COMPACTO Y ELEGANTE
 -----------------------------------------------------------------------------------*/
 
+/* ===== IMPORTACIÓN DE POPPINS (MODERNA Y LEGIBLE) ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
 /*============================================
     VARIABLES DE COLOR - PALETA INSTITUCIONAL
 =============================================*/
@@ -390,8 +393,9 @@ a:hover {
   filter: brightness(1.1);
 }
 
+/* ===== TIPOGRAFÍA PRINCIPAL: POPPINS ===== */
 body {
-  font-family: "Muli", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 16px;
   color: var(--gris);
   line-height: 26px;
@@ -406,7 +410,7 @@ h6 {
   margin: 0;
   font-weight: 700;
   color: #5d5d5c !important;
-  font-family: "Roboto Slab", serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 h1 a,
@@ -517,6 +521,7 @@ a:hover {
   border-radius: 3px;
   border: none;
   text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
 }
 
 .btn-sm {
@@ -659,6 +664,7 @@ a:hover {
   color: #252855;
   text-transform: uppercase;
   padding: 43px 17px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .sticky-header .main-menu nav > ul > li > a {
@@ -705,6 +711,7 @@ a:hover {
   color: var(--color-linea);
   padding: 16px 15px;
   border-bottom: 1px solid #f1ebeb;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* mobile menu slicknav*/
@@ -766,6 +773,7 @@ a:hover {
 .slicknav_nav a {
   font-size: 14px;
   letter-spacing: 0.01em;
+  font-family: 'Poppins', sans-serif;
 }
 
 .slicknav_nav .slicknav_arrow {
@@ -821,6 +829,7 @@ a:hover {
   color: var(--color-linea);
   border: none;
   border-radius: 2px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .offset-search button {
@@ -896,6 +905,7 @@ a:hover {
   position: relative;
   padding-left: 70px;
   margin-bottom: 10px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .slider-content h3:before {
@@ -914,6 +924,7 @@ a:hover {
   text-transform: uppercase;
   line-height: 70px;
   margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .slider-content h1 span {
@@ -953,6 +964,7 @@ a:hover {
   color: #5d5d5c !important;
   letter-spacing: 0.1em;
   margin-bottom: 10px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .section-title-style2 span {
@@ -963,6 +975,7 @@ a:hover {
     margin-bottom: 10px;
     text-transform: uppercase;
     font-size: 14px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .line-break {
@@ -1056,6 +1069,7 @@ a.expand-video:hover {
   letter-spacing: 0;
   line-height: 28px;
   margin-bottom: 10px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .course-meta-text h4 a:hover {
@@ -1084,6 +1098,7 @@ ul.course-meta-stats li i {
 .course-meta-details span {
   font-size: 14px;
   color: var(--blanco);
+  font-family: 'Poppins', sans-serif;
 }
 
 .course-meta-details p {
@@ -1091,6 +1106,7 @@ ul.course-meta-stats li i {
   margin-bottom: 0;
   margin-top: 0;
   color: rgba(255,255,255,0.7);
+  font-family: 'Poppins', sans-serif;
 }
 
 .course-meta-details li {
@@ -1267,6 +1283,7 @@ img.title-top-shape {
   font-weight: 600;
   color: var(--blanco);
   letter-spacing: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
 .media-head span sub {
@@ -1283,6 +1300,7 @@ img.title-top-shape {
   line-height: 50px;
   margin-top: 5px;
   margin-bottom: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
 .media-body {
@@ -1297,11 +1315,13 @@ img.title-top-shape {
   letter-spacing: 0;
   margin-bottom: 10px;
   display: block;
+  font-family: 'Poppins', sans-serif;
 }
 
 .media-body p {
   font-weight: 400;
   margin-bottom: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
 .media-body p i {
@@ -1339,11 +1359,13 @@ img.tst-bg {
   font-style: italic;
   line-height: 46px;
   margin-bottom: 35px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .testimonial-content h4 {
   font-weight: 400;
   color: var(--blanco);
+  font-family: 'Poppins', sans-serif;
 }
 
 .testimonial-content > span {
@@ -1351,6 +1373,7 @@ img.tst-bg {
   color: rgba(255,255,255,0.8);
   letter-spacing: 0;
   font-style: italic;
+  font-family: 'Poppins', sans-serif;
 }
 
 /*============================================
@@ -1366,6 +1389,7 @@ img.tst-bg {
   font-weight: 700;
   letter-spacing: 0;
   padding-right: 10px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .card-body ul li i {
@@ -1375,6 +1399,7 @@ img.tst-bg {
 .blog-content h4 a {
   display: block;
   font-size: 22px;
+  font-family: 'Poppins', sans-serif;
 }
 
 /*============================================
@@ -1388,6 +1413,7 @@ img.tst-bg {
 .cta-content span {
   font-weight: 400;
   letter-spacing: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
 .cta-content h2 {
@@ -1395,6 +1421,7 @@ img.tst-bg {
   letter-spacing: 0;
   text-transform: uppercase;
   font-size: 36px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .cta-btn {
@@ -1431,6 +1458,7 @@ img.tst-bg {
   font-weight: 400;
   color: rgba(255,255,255,0.9);
   margin-bottom: 24px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .address {
@@ -1442,11 +1470,13 @@ img.tst-bg {
   color: var(--blanco);
   text-transform: capitalize;
   margin-bottom: 5px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .address p {
   margin-bottom: 20px;
   color: rgba(255,255,255,0.8);
+  font-family: 'Poppins', sans-serif;
 }
 
 .widget-company .social li {
@@ -1467,6 +1497,7 @@ img.tst-bg {
 .fwidget-title {
   position: relative;
   color: var(--blanco);
+  font-family: 'Poppins', sans-serif;
 }
 
 .fwidget-title:before {
@@ -1481,6 +1512,7 @@ img.tst-bg {
 
 .footer-link a {
   color: rgba(255, 255, 255, 0.8);
+  font-family: 'Poppins', sans-serif;
 }
 
 .fz-14 {
@@ -1494,6 +1526,7 @@ span.post-date {
   color: rgba(255,255,255,0.7);
   letter-spacing: 0;
   margin-top: 8px;
+  font-family: 'Poppins', sans-serif;
 }
 
 span.post-date i {
@@ -1508,6 +1541,7 @@ span.post-date i {
   text-transform: uppercase;
   margin-bottom: 16px;
   color: rgba(255, 255, 255, 0.8);
+  font-family: 'Poppins', sans-serif;
 }
 
 .widget-opening ul li span {
@@ -1529,6 +1563,7 @@ span.post-date i {
   font-weight: 400;
   letter-spacing: 0;
   color: rgba(255,255,255,0.7);
+  font-family: 'Poppins', sans-serif;
 }
 
 .footer-link li i {
@@ -1572,6 +1607,7 @@ span.post-date i {
   padding: 54px 17px;
   position: relative;
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  font-family: 'Poppins', sans-serif;
 }
 
 .menu-style2.main-menu nav > ul > li > a:before {
@@ -1669,7 +1705,7 @@ span.post-date i {
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 20px;
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .hero-content h1 {
@@ -1677,11 +1713,13 @@ span.post-date i {
   font-weight: 700;
   margin-bottom: 20px;
   line-height: 69px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .hero-content p {
   font-size: 24px;
   font-weight: 300;
+  font-family: 'Poppins', sans-serif;
 }
 
 /*============================================
@@ -1754,6 +1792,7 @@ span.post-date i {
   text-transform: uppercase;
   line-height: 59px;
   margin-bottom: 18px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .crumb-content h4 span {
@@ -1768,6 +1807,7 @@ span.post-date i {
   letter-spacing: 0;
   padding-left: 80px;
   position: relative;
+  font-family: 'Poppins', sans-serif;
 }
 
 .crumb-title:before {
@@ -1891,6 +1931,7 @@ span.post-date i {
   letter-spacing: 0;
   margin-bottom: 34px;
   position: relative;
+  font-family: 'Poppins', sans-serif;
 }
 
 .cnt-title h4 span {
@@ -1902,6 +1943,7 @@ span.post-date i {
   color: var(--gris);
   max-width: 600px;
   margin: auto;
+  font-family: 'Poppins', sans-serif;
 }
 
 /*============================================
@@ -1923,6 +1965,7 @@ span.post-date i {
   color: var(--gris);
   letter-spacing: 0;
   margin-right: 18px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .blog-top-meta ul li span {
@@ -1962,6 +2005,7 @@ span.post-date i {
   color: var(--azul-principal);
   letter-spacing: 0;
   margin-bottom: 25px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .error-content p {
@@ -1971,6 +2015,7 @@ span.post-date i {
   color: var(--color-linea);
   letter-spacing: 0;
   text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
 }
 
 /*============================================
@@ -2119,6 +2164,7 @@ span.post-date i {
     text-transform: uppercase !important;
     animation: neonPulse 2.5s ease-in-out infinite !important;
     box-shadow: 0 0 25px rgba(37,40,85,0.3) !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 @keyframes neonPulse {
@@ -2148,13 +2194,15 @@ span.post-date i {
     color: var(--blanco) !important;
     text-shadow: 0 5px 20px rgba(0,0,0,0.4), 0 0 30px rgba(37,40,85,0.3) !important;
     letter-spacing: -0.5px !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .hero-title .primary-color {
     color: #252855 !important;
     display: inline-block !important;
     animation: titleGlow 5s ease-in-out infinite !important;
-    text-shadow: 0 0 30px rgb(93, 93, 92), 0 0 60px rgba(37,40,85,0.3) !important;}
+    text-shadow: 0 0 30px rgb(93, 93, 92), 0 0 60px rgba(37,40,85,0.3) !important;
+}
 
 @keyframes titleGlow {
     0%, 100% { text-shadow: 0 0 30px rgba(37,40,85,0.5), 0 0 60px rgba(37,40,85,0.3); }
@@ -2178,6 +2226,7 @@ span.post-date i {
     color: var(--blanco) !important;
     font-weight: 800 !important;
     line-height: 1.2 !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .typing-premium {
@@ -2190,6 +2239,7 @@ span.post-date i {
     font-weight: 800 !important;
     letter-spacing: 1.5px !important;
     text-shadow: 0 0 15px rgba(255,255,255,0.3) !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .hero-description {
@@ -2201,6 +2251,7 @@ span.post-date i {
     font-weight: 400 !important;
     text-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
     letter-spacing: 0.3px !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .highlight-dots {
@@ -2271,6 +2322,7 @@ span.post-date i {
     margin-bottom: 12px !important;
     text-shadow: 0 0 35px rgb(255, 255, 255), 0 0 70px rgba(37,40,85,0.3) !important;
     letter-spacing: 2px !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .stat-label-premium {
@@ -2282,6 +2334,7 @@ span.post-date i {
     font-weight: 700 !important;
     opacity: 1 !important;
     text-shadow: 0 2px 5px rgba(0,0,0,0.4) !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .hero-buttons-wrapper-premium {
@@ -2308,6 +2361,7 @@ span.post-date i {
     letter-spacing: 1.8px !important;
     text-transform: uppercase !important;
     box-shadow: 0 15px 35px rgba(0,0,0,0.4) !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .btn-shine-premium {
@@ -2406,6 +2460,7 @@ span.post-date i {
     font-weight: 700 !important;
     padding: 20px 35px !important;
     box-shadow: 0 0 30px rgba(37,40,85,0.2) !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .flip-card-front-premium i {
@@ -2432,6 +2487,7 @@ span.post-date i {
     padding: 20px 30px !important;
     border: 1px solid rgba(255,255,255,0.3) !important;
     box-shadow: 0 0 30px rgba(37,40,85,0.4) !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .flip-card-back-premium p {
@@ -2440,6 +2496,7 @@ span.post-date i {
     line-height: 1.5 !important;
     font-size: 18px !important;
     text-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .scroll-indicator-premium {
@@ -2517,6 +2574,7 @@ span.post-date i {
     border-radius: 30px !important;
     backdrop-filter: blur(8px) !important;
     border: 1px solid rgba(255,255,255,0.2) !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 @media (max-width: 1200px) {
@@ -2642,6 +2700,7 @@ span.post-date i {
     font-size: 22px !important;
     font-weight: 700 !important;
     transition: all 0.3s ease !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .course-area .card .course-meta-text h4 a:hover {
@@ -2653,6 +2712,7 @@ span.post-date i {
 .course-area .card .card-body p {
     color: rgba(255, 255, 255, 0.8) !important;
     line-height: 1.7 !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .course-area .card .course-meta-details {
@@ -2668,6 +2728,7 @@ span.post-date i {
 
 .course-meta-stats li {
     color: rgba(255, 255, 255, 0.7) !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .course-meta-thumbnail {
@@ -2684,6 +2745,7 @@ span.post-date i {
     box-shadow: 0 5px 15px rgba(0,0,0,0.3) !important;
     color: var(--blanco) !important;
     z-index: 10 !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .course-thumb {
@@ -2741,6 +2803,7 @@ span.post-date i {
     color: var(--blanco) !important;
     font-size: 24px !important;
     font-weight: 700 !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .teacher-area .card-title a:hover {
@@ -2755,11 +2818,13 @@ span.post-date i {
     border-radius: 50px !important;
     display: inline-block !important;
     font-size: 14px !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .teacher-area .card-text {
     color: rgba(255, 255, 255, 0.8) !important;
     line-height: 1.8 !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .teacher-area .list-inline {
@@ -2828,12 +2893,14 @@ span.post-date i {
     font-size: 28px !important;
     position: relative !important;
     z-index: 2 !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .event-area .media-head p {
     font-size: 52px !important;
     position: relative !important;
     z-index: 2 !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .event-area .media-body {
@@ -2846,6 +2913,7 @@ span.post-date i {
     color: var(--azul-principal) !important;
     transition: all 0.3s ease !important;
     margin-bottom: 15px !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .event-area .media-body h4 a:hover {
@@ -2862,6 +2930,7 @@ span.post-date i {
 .event-area .media-body p {
     font-size: 16px !important;
     color: var(--gris) !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 /*============================================
@@ -2889,6 +2958,7 @@ span.post-date i {
     font-style: italic !important;
     position: relative !important;
     padding: 0 20px !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .testimonial-content h3:before,
@@ -2915,12 +2985,14 @@ span.post-date i {
     color: var(--blanco) !important;
     font-weight: 700 !important;
     margin-top: 30px !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .testimonial-content > span {
     font-size: 16px !important;
     color: rgba(255,255,255,0.7) !important;
     display: block !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .tst-carousel .owl-dots .owl-dot {
@@ -2970,6 +3042,7 @@ span.post-date i {
 .feature-blog .card-body ul li {
     font-size: 14px !important;
     color: rgba(255, 255, 255, 0.7) !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .feature-blog .card-body ul li i {
@@ -2983,6 +3056,7 @@ span.post-date i {
     color: var(--blanco) !important;
     line-height: 1.4 !important;
     transition: all 0.3s ease !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .feature-blog .card-title a:hover {
@@ -2994,6 +3068,7 @@ span.post-date i {
     color: rgba(255, 255, 255, 0.8) !important;
     line-height: 1.8 !important;
     margin-bottom: 25px !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .feature-blog .btn {
@@ -3003,6 +3078,7 @@ span.post-date i {
     background: transparent !important;
     border: 2px solid var(--blanco) !important;
     color: var(--blanco) !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .feature-blog .btn:hover {
@@ -3040,6 +3116,7 @@ span.post-date i {
     text-shadow: 0 5px 15px rgba(0,0,0,0.2) !important;
     position: relative !important;
     z-index: 2 !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .cta-content p {
@@ -3047,6 +3124,7 @@ span.post-date i {
     color: rgba(255,255,255,0.9) !important;
     position: relative !important;
     z-index: 2 !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .cta-btn .btn-light {
@@ -3060,6 +3138,7 @@ span.post-date i {
     box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
     position: relative !important;
     z-index: 2 !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .cta-btn .btn-light:hover {
@@ -3095,12 +3174,14 @@ span.post-date i {
     font-size: 18px !important;
     font-weight: 700 !important;
     letter-spacing: 1px !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .widget-company .address p {
     color: rgba(255,255,255,0.8) !important;
     font-size: 16px !important;
     line-height: 1.8 !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .widget-company .social {
@@ -3135,6 +3216,7 @@ span.post-date i {
     margin-bottom: 30px !important;
     position: relative !important;
     padding-bottom: 15px !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .fwidget-title:before {
@@ -3157,6 +3239,7 @@ span.post-date i {
     transition: all 0.3s ease !important;
     display: flex !important;
     align-items: center !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .footer-link li a i {
@@ -3175,6 +3258,7 @@ span.post-date i {
     font-size: 16px !important;
     line-height: 1.8 !important;
     margin-bottom: 25px !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .widget-opening ul li {
@@ -3184,6 +3268,7 @@ span.post-date i {
     padding: 12px 0 !important;
     border-bottom: 1px solid rgba(255,255,255,0.05) !important;
     color: rgba(255,255,255,0.7) !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .widget-opening ul li span {
@@ -3200,12 +3285,14 @@ span.post-date i {
 .footer-bottom p {
     color: rgba(255,255,255,0.6) !important;
     font-size: 15px !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .footer-bottom a {
     color:rgb(255, 255, 255) !important;
     font-weight: 700 !important;
     transition: all 0.3s ease !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .footer-bottom a:hover {
@@ -3345,6 +3432,7 @@ span.post-date i {
     transition: all 0.3s ease !important;
     position: relative !important;
     text-shadow: 0 2px 5px rgba(0,0,0,0.3) !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .menu-style2.main-menu nav > ul > li > a:after {
@@ -3438,6 +3526,7 @@ span.post-date i {
     color: var(--blanco) !important;
     border-bottom: none !important;
     transition: all 0.3s ease !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .main-menu nav .submenu li a:hover {
@@ -3660,6 +3749,7 @@ span.post-date i {
     margin-bottom: 15px;
     font-weight: 600;
     text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    font-family: 'Poppins', sans-serif;
 }
 
 .convenios-title {
@@ -3670,6 +3760,7 @@ span.post-date i {
     margin-bottom: 30px;
     text-shadow: 0 5px 20px rgba(0,0,0,0.5);
     letter-spacing: 2px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .convenios-btn {
@@ -3681,6 +3772,7 @@ span.post-date i {
     background: transparent !important;
     color: var(--blanco) !important;
     transition: all 0.3s ease !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .convenios-btn:hover {
@@ -3775,6 +3867,7 @@ span.post-date i {
     margin-bottom: 15px;
     font-weight: 600;
     text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    font-family: 'Poppins', sans-serif;
 }
 
 .slide-title {
@@ -3785,6 +3878,7 @@ span.post-date i {
     margin-bottom: 20px;
     text-shadow: 0 5px 20px rgba(0,0,0,0.5);
     letter-spacing: 2px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .slide-description {
@@ -3793,6 +3887,7 @@ span.post-date i {
     margin-bottom: 30px;
     text-shadow: 0 2px 10px rgba(0,0,0,0.5);
     color: var(--blanco);
+    font-family: 'Poppins', sans-serif;
 }
 
 .slide-btn {
@@ -3804,6 +3899,7 @@ span.post-date i {
     background: transparent !important;
     color: var(--blanco) !important;
     transition: all 0.3s ease !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .slide-btn:hover {
@@ -3959,7 +4055,7 @@ span.post-date i {
     color: #252855;
     letter-spacing: 0.5px;
     animation: fadeInDown 1s ease;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
 }
 
@@ -3976,7 +4072,7 @@ span.post-date i {
     line-height: 1.1;
     margin-bottom: 20px;
     color: #252855;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
     letter-spacing: -0.5px;
 }
 
@@ -3985,7 +4081,7 @@ span.post-date i {
     font-size: clamp(28px, 4vw, 36px);
     font-weight: 300;
     color: #5d5d5c;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin-top: 10px;
     letter-spacing: 0;
 }
@@ -3997,6 +4093,7 @@ span.post-date i {
     max-width: 600px;
     color: #5d5d5c;
     font-weight: 400;
+    font-family: 'Poppins', sans-serif;
 }
 
 .value-stats {
@@ -4028,7 +4125,7 @@ span.post-date i {
     color: #252855;
     line-height: 1;
     margin-bottom: 5px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .stat-block .stat-label {
@@ -4038,7 +4135,7 @@ span.post-date i {
     color: #5d5d5c;
     opacity: 0.8;
     font-weight: 500;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .value-buttons {
@@ -4065,7 +4162,7 @@ span.post-date i {
     position: relative;
     overflow: hidden;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .btn-value-primary:before {
@@ -4106,7 +4203,7 @@ span.post-date i {
     border: 2px solid rgba(37, 40, 85, 0.15);
     transition: all 0.3s ease;
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .btn-value-secondary:hover {
@@ -4202,7 +4299,7 @@ span.post-date i {
     font-size: 36px;
     font-weight: 800;
     line-height: 1;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .experience-badge .text {
@@ -4211,6 +4308,7 @@ span.post-date i {
     text-transform: uppercase;
     letter-spacing: 1px;
     opacity: 0.9;
+    font-family: 'Poppins', sans-serif;
 }
 
 @keyframes pulse {

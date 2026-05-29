@@ -82,7 +82,7 @@
   </div>
 </div>
 
-<!-- Ventana de Formulario -->
+<!-- Ventana de Formulario (FLOATING) - AHORA CON FETCH (SIN RECARGA) -->
 <div id="form-window" class="form-window">
   <div class="window-header form-header">
     <div class="header-title">
@@ -92,45 +92,51 @@
     <span id="close-form" class="close-icon">✖</span>
   </div>
   
-  <form action="https://formsubmit.co/formularios_pagina_web@rafaelbucheli.com" method="POST" id="main-contact-form">
+  <!-- Cambio principal: eliminamos action y method, agregamos id y manejamos con fetch -->
+  <form id="floating-form">
+    <input type="hidden" name="access_key" value="814d1db1-ce19-48fb-b395-910b5a947ae1">
     <input type="hidden" name="_subject" value="Nuevo Mensaje de Contacto - Rafael Bucheli">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="table">
     
     <div class="form-content">
       <p class="form-instruction">
         <i class="fas fa-info-circle"></i> Completa tus datos y te responderemos por correo en menos de 24 horas.
       </p>
-            <div class="input-with-icon">
+      
+      <div id="floatingFormMessage" style="display: none; margin-bottom: 15px; padding: 10px; border-radius: 8px; text-align: center;"></div>
+      
+      <div class="input-with-icon">
         <i class="fas fa-user"></i>
         <input type="text" name="Nombre" class="interactive-input" placeholder="Nombre completo" required>
       </div>
-          <div class="input-with-icon">
+      <div class="input-with-icon">
         <i class="fas fa-envelope"></i>
         <input type="email" name="Correo" class="interactive-input" placeholder="Correo electrónico" required>
       </div>
-            <div class="input-with-icon">
+      <div class="input-with-icon">
         <i class="fas fa-phone"></i>
         <input type="tel" name="Telefono" class="interactive-input" placeholder="Teléfono / WhatsApp" required>
       </div>
-            <div class="input-with-icon">
+      <div class="input-with-icon">
         <i class="fas fa-edit"></i>
         <textarea name="Mensaje" class="interactive-input textarea-input" placeholder="¿En qué podemos ayudarte? Describe tu consulta..." required></textarea>
       </div>
-            <div class="form-buttons">
-        <button type="submit" class="submit-btn">
+      <!-- hCaptcha (protección anti-spam) -->
+      <div class="h-captcha" data-captcha="true"></div>
+      <div class="form-buttons">
+        <button type="submit" class="submit-btn" id="floatingSubmitBtn">
           <i class="fas fa-paper-plane"></i> Enviar Formulario
         </button>
         <button type="button" onclick="closeForm()" class="cancel-btn">
           <i class="fas fa-times"></i>
         </button>
       </div>
-            <p class="privacy-note">
+      <p class="privacy-note">
         <i class="fas fa-lock"></i> Tus datos están protegidos y no serán compartidos con terceros.
       </p>
     </div>
   </form>
 </div>
+
 <script src="CHATBOT.js"></script>
 </body>
 </html>

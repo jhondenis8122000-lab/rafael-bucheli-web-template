@@ -1,9 +1,5 @@
 // ============================================
-// CHATBOT - VERSIÓN INTEGRADA
-// ============================================
-
-// ============================================
-// CONFIGURACIÓN INICIAL Y RUTAS
+// CHATBOT - VERSIÓN INTEGRADA CON WEB3FORMS (COMPLETA - SIN RECARGA)
 // ============================================
 
 // Configuración global
@@ -12,49 +8,37 @@ window.CHATBOT_CONFIG = {
     institutionName: 'Institución Educativa Rafael Bucheli',
     logoPath: '',
     baseUrl: '',
-    version: '1.0.0'
+    version: '1.0.0',
+    web3formsKey: '814d1db1-ce19-48fb-b395-910b5a947ae1'
 };
 
 // Detectar rutas base automáticamente
 (function detectBasePaths() {
     const scripts = document.getElementsByTagName('script');
     let currentScript = null;
-    
-    // Encontrar este script
     for (let script of scripts) {
         if (script.src.includes('CHATBOT.js')) {
             currentScript = script;
             break;
         }
     }
-    
     if (currentScript) {
         const scriptPath = currentScript.src;
         const pathParts = scriptPath.split('/');
-        pathParts.pop(); // Quitar CHATBOT.js
-        
-        // Construir ruta base
+        pathParts.pop();
         window.CHATBOT_CONFIG.baseUrl = pathParts.join('/') + '/';
         window.CHATBOT_CONFIG.logoPath = window.CHATBOT_CONFIG.baseUrl + 'logo-institucion.png';
     } else {
-        // Fallback a rutas relativas
         window.CHATBOT_CONFIG.baseUrl = 'theme/CHATBOT/';
         window.CHATBOT_CONFIG.logoPath = 'theme/CHATBOT/logo-institucion.png';
     }
-    
     console.log('✅ Chatbot configurado con ruta:', window.CHATBOT_CONFIG.baseUrl);
 })();
 
-// ============================================
-// VARIABLES GLOBALES (se inicializarán después)
-// ============================================
-
-// Elementos del DOM (se asignarán en init)
+// Variables globales
 let mainFloatingBtn, floatingMenu, mainTooltip, chatbotFloatingBtn, formFloatingBtn;
 let whatsappBtn, chatbotWindow, messages, leadForm, inputArea, userInput;
 let nameInput, typingIndicator, statusText, formWindow, closeFormWindow;
-
-// Variables de estado
 let isMenuOpen = false;
 let userName = "";
 let tooltipTimeout;
@@ -63,26 +47,13 @@ let unreadMessages = 0;
 let chatHistory = [];
 let isInitialized = false;
 
-// ============================================
-// FUNCIÓN PRINCIPAL DE INICIALIZACIÓN
-// ============================================
-
+// Inicialización
 window.initChatbot = function(config = {}) {
-    // Evitar múltiples inicializaciones
     if (isInitialized) {
-        console.log('⚠️ Chatbot ya está inicializado');
+        console.log('⚠️ Chatbot ya inicializado');
         return;
     }
-    
-    // Merge de configuraciones
-    const settings = {
-        ...window.CHATBOT_CONFIG,
-        ...config
-    };
-    
-    console.log('🚀 Inicializando chatbot...', settings);
-    
-    // Esperar a que el DOM esté listo
+    const settings = { ...window.CHATBOT_CONFIG, ...config };
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => initializeDOM(settings));
     } else {
@@ -90,21 +61,12 @@ window.initChatbot = function(config = {}) {
     }
 };
 
-// ============================================
-// INICIALIZAR DOM Y ELEMENTOS
-// ============================================
-
 function initializeDOM(settings) {
-    // Asignar elementos del DOM
     assignDOMElements();
-    
-    // Si no existen, crearlos
     if (!mainFloatingBtn) {
         createChatbotElements(settings);
-        assignDOMElements(); // Reasignar después de crear
+        assignDOMElements();
     }
-    
-    // Inicializar funcionalidad
     setupChatbot();
 }
 
@@ -127,45 +89,31 @@ function assignDOMElements() {
     closeFormWindow = document.getElementById("close-form");
 }
 
-// ============================================
-// CREAR ELEMENTOS DEL CHATBOT
-// ============================================
-
 function createChatbotElements(settings) {
-    // Verificar si ya existe
     if (document.getElementById('main-floating-btn')) return;
-    
     const chatbotHTML = `
-        <!-- Botón Principal con Ícono de Signo + -->
         <div id="main-floating-btn" class="main-floating-btn pulse">
             <i class="fas fa-plus"></i>
             <span class="main-tooltip">¡Haz clic para ver opciones!</span>
         </div>
-
-        <!-- Contenedor de botones secundarios (inicialmente oculto) -->
         <div id="floating-menu" class="floating-menu">
             <a href="https://wa.me/${settings.whatsappNumber}" target="_blank" class="floating-btn secondary-btn whatsapp-btn">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="30">
                 <span class="btn-tooltip">WhatsApp Directo</span>
             </a>
-            
             <div id="form-floating-btn" class="floating-btn secondary-btn form-btn">
                 <i class="far fa-file-alt"></i>
                 <span class="btn-tooltip">Enviar Formulario</span>
             </div>
-            
             <div id="chatbot-floating-btn" class="floating-btn secondary-btn chatbot-btn">
                 <i class="far fa-comments"></i>
                 <span class="btn-tooltip">Asistente Virtual</span>
             </div>
         </div>
-
-        <!-- Ventana de Chat -->
         <div id="chatbot-window" class="chat-window">
             <div id="chatbot-header" class="window-header">
                 <div class="header-info">
-                    <img src="${settings.logoPath}" alt="Logo" class="header-logo" 
-                         onerror="this.src='https://via.placeholder.com/40?text=Logo'">
+                    <img src="${settings.logoPath}" alt="Logo" class="header-logo" onerror="this.src='https://via.placeholder.com/40?text=Logo'">
                     <div class="header-text">
                         <b>Asistente ${settings.institutionName}</b>
                         <div class="status-container">
@@ -175,159 +123,79 @@ function createChatbotElements(settings) {
                     </div>
                 </div>
             </div>
-
-            <!-- Formulario de Bienvenida -->
             <div id="lead-form">
                 <div class="welcome-icon">🤖</div>
                 <h3>¡Bienvenido!</h3>
                 <p>Para brindarte una atención personalizada, por favor dinos tu nombre:</p>
                 <input type="text" id="user-name" class="interactive-input" placeholder="Escribe tu nombre completo..." autocomplete="off">
-                <button id="start-btn" onclick="window.startChat()">
-                    <i class="fas fa-comments"></i> Empezar conversación
-                </button>
-                <p class="privacy-note">
-                    <i class="fas fa-shield-alt"></i> Tu información es confidencial
-                </p>
+                <button id="start-btn" onclick="window.startChat()"><i class="fas fa-comments"></i> Empezar conversación</button>
+                <p class="privacy-note"><i class="fas fa-shield-alt"></i> Tu información es confidencial</p>
             </div>
-
-            <!-- Área de Mensajes -->
             <div id="chatbot-messages" style="display:none;"></div>
-            
-            <!-- Indicador de Escritura -->
-            <div id="typing-indicator" class="typing" style="display:none;">
-                <span></span><span></span><span></span>
-            </div>
-
-            <!-- Área de Entrada -->
+            <div id="typing-indicator" class="typing" style="display:none;"><span></span><span></span><span></span></div>
             <div id="chatbot-input-area" style="display:none;">
                 <input type="text" id="user-input" placeholder="Escribe tu duda aquí...">
-                <button id="send-btn" onclick="window.sendCustomMessage()">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
+                <button id="send-btn" onclick="window.sendCustomMessage()"><i class="fas fa-paper-plane"></i></button>
             </div>
         </div>
-
-        <!-- Ventana de Formulario -->
         <div id="form-window" class="form-window">
             <div class="window-header form-header">
-                <div class="header-title">
-                    <i class="far fa-file-alt"></i>
-                    <b>Formulario de Contacto</b>
-                </div>
+                <div class="header-title"><i class="far fa-file-alt"></i> <b>Formulario de Contacto</b></div>
                 <span id="close-form" class="close-icon">✖</span>
             </div>
-            
-            <form action="https://formsubmit.co/formularios_pagina_web@rafaelbucheli.com" method="POST" id="main-contact-form">
+            <form id="floating-form">
+                <input type="hidden" name="access_key" value="${settings.web3formsKey}">
                 <input type="hidden" name="_subject" value="Nuevo Mensaje de Contacto - Rafael Bucheli">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_template" value="table">
-                
                 <div class="form-content">
-                    <p class="form-instruction">
-                        <i class="fas fa-info-circle"></i> Completa tus datos y te responderemos por correo en menos de 24 horas.
-                    </p>
-                    
-                    <div class="input-with-icon">
-                        <i class="fas fa-user"></i>
-                        <input type="text" name="Nombre" class="interactive-input" placeholder="Nombre completo" required>
-                    </div>
-                    
-                    <div class="input-with-icon">
-                        <i class="fas fa-envelope"></i>
-                        <input type="email" name="Correo" class="interactive-input" placeholder="Correo electrónico" required>
-                    </div>
-                    
-                    <div class="input-with-icon">
-                        <i class="fas fa-phone"></i>
-                        <input type="tel" name="Telefono" class="interactive-input" placeholder="Teléfono / WhatsApp" required>
-                    </div>
-                    
-                    <div class="input-with-icon">
-                        <i class="fas fa-edit"></i>
-                        <textarea name="Mensaje" class="interactive-input textarea-input" placeholder="¿En qué podemos ayudarte?" required></textarea>
-                    </div>
-                    
+                    <p class="form-instruction"><i class="fas fa-info-circle"></i> Completa tus datos y te responderemos por correo en menos de 24 horas.</p>
+                    <div id="floatingFormMessage" style="display: none; margin-bottom: 15px; padding: 10px; border-radius: 8px; text-align: center;"></div>
+                    <div class="input-with-icon"><i class="fas fa-user"></i><input type="text" name="Nombre" class="interactive-input" placeholder="Nombre completo" required></div>
+                    <div class="input-with-icon"><i class="fas fa-envelope"></i><input type="email" name="Correo" class="interactive-input" placeholder="Correo electrónico" required></div>
+                    <div class="input-with-icon"><i class="fas fa-phone"></i><input type="tel" name="Telefono" class="interactive-input" placeholder="Teléfono / WhatsApp" required></div>
+                    <div class="input-with-icon"><i class="fas fa-edit"></i><textarea name="Mensaje" class="interactive-input textarea-input" placeholder="¿En qué podemos ayudarte?" required></textarea></div>
+                    <div class="h-captcha" data-captcha="true"></div>
                     <div class="form-buttons">
-                        <button type="submit" class="submit-btn">
-                            <i class="fas fa-paper-plane"></i> Enviar Formulario
-                        </button>
-                        <button type="button" onclick="window.closeForm()" class="cancel-btn">
-                            <i class="fas fa-times"></i>
-                        </button>
+                        <button type="submit" class="submit-btn" id="floatingSubmitBtn"><i class="fas fa-paper-plane"></i> Enviar Formulario</button>
+                        <button type="button" onclick="window.closeForm()" class="cancel-btn"><i class="fas fa-times"></i></button>
                     </div>
-                    
-                    <p class="privacy-note">
-                        <i class="fas fa-lock"></i> Tus datos están protegidos
-                    </p>
+                    <p class="privacy-note"><i class="fas fa-lock"></i> Tus datos están protegidos</p>
                 </div>
             </form>
         </div>
     `;
-    
-    // Crear contenedor y agregar al body
     const container = document.createElement('div');
     container.id = 'chatbot-container';
     container.innerHTML = chatbotHTML;
     document.body.appendChild(container);
 }
 
-// ============================================
-// CONFIGURAR CHATBOT
-// ============================================
-
 function setupChatbot() {
-    // Reasignar elementos por si acaso
     assignDOMElements();
-    
-    // Verificar que todos los elementos existen
     if (!mainFloatingBtn || !floatingMenu) {
-        console.error('❌ No se pudieron encontrar los elementos del chatbot');
+        console.error('❌ No se encontraron los elementos del chatbot');
         return;
     }
-    
-    // Exponer funciones globalmente
     exposeGlobalFunctions();
-    
-    // Inicializar controles
     initializeWindowControls();
-    
-    // Configurar event listeners
     setupEventListeners();
-    
-    // Mostrar tooltip inicial
-    setTimeout(() => {
-        showMainTooltip();
-    }, 1000);
-    
-    // Actualizar estado de conexión
+    setupFloatingFormFetch(); // <--- NUEVA FUNCIÓN para el formulario flotante
+    setTimeout(() => showMainTooltip(), 1000);
     updateConnectionStatus();
     setInterval(updateConnectionStatus, 30000);
-    
-    // Agregar estilos dinámicos
     addDynamicStyles();
-    
     isInitialized = true;
     console.log('✅ Chatbot inicializado correctamente');
 }
 
-// ============================================
-// EXPONER FUNCIONES GLOBALES
-// ============================================
-
 function exposeGlobalFunctions() {
-    // Funciones de interfaz
     window.toggleFloatingMenu = toggleFloatingMenu;
     window.closeChatWindow = closeChatWindow;
     window.closeForm = closeForm;
     window.toggleMinimizeChat = toggleMinimizeChat;
-    
-    // Funciones del chat
     window.startChat = startChat;
     window.initMenu = initMenu;
     window.selectOption = selectOption;
     window.sendCustomMessage = sendCustomMessage;
-    
-    // Funciones de contacto
     window.contactAdvisor = contactAdvisor;
     window.contactAdvisorDirect = contactAdvisorDirect;
     window.openGoogleMaps = openGoogleMaps;
@@ -339,22 +207,11 @@ function exposeGlobalFunctions() {
     window.showMoreOptions = showMoreOptions;
     window.openContactFormWithMessage = openContactFormWithMessage;
     window.redirectToWhatsAppWithMessage = redirectToWhatsAppWithMessage;
-    
-    // Utilidades
     window.cleanOptions = cleanOptions;
 }
 
-// ============================================
-// CONFIGURAR EVENT LISTENERS
-// ============================================
-
 function setupEventListeners() {
-    // Botón principal
-    if (mainFloatingBtn) {
-        mainFloatingBtn.addEventListener("click", toggleFloatingMenu);
-    }
-    
-    // Botones flotantes
+    if (mainFloatingBtn) mainFloatingBtn.addEventListener("click", toggleFloatingMenu);
     if (chatbotFloatingBtn) {
         chatbotFloatingBtn.addEventListener("click", () => {
             if (chatbotWindow) {
@@ -367,7 +224,6 @@ function setupEventListeners() {
             }
         });
     }
-    
     if (formFloatingBtn) {
         formFloatingBtn.addEventListener("click", () => {
             if (formWindow) {
@@ -377,301 +233,219 @@ function setupEventListeners() {
             }
         });
     }
-    
-    if (whatsappBtn) {
-        whatsappBtn.addEventListener("click", toggleFloatingMenu);
-    }
-    
-    // Input events
-    if (nameInput) {
-        nameInput.addEventListener("keydown", (e) => { 
-            if (e.key === "Enter") startChat(); 
-        });
-    }
-    
-    if (userInput) {
-        userInput.addEventListener("keydown", (e) => { 
-            if (e.key === "Enter") sendCustomMessage(); 
-        });
-    }
-    
-    if (closeFormWindow) {
-        closeFormWindow.addEventListener("click", closeForm);
-    }
-    
-    // Form inputs
-    document.querySelectorAll('.interactive-input').forEach(input => {
-        input.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
-                e.preventDefault();
-                const form = document.getElementById('main-contact-form');
-                if (form && form.checkValidity()) {
-                    form.submit();
-                } else if (form) {
-                    form.reportValidity();
-                }
-            }
-        });
-    });
-    
-    // Configurar tooltips
+    if (whatsappBtn) whatsappBtn.addEventListener("click", toggleFloatingMenu);
+    if (nameInput) nameInput.addEventListener("keydown", (e) => { if (e.key === "Enter") startChat(); });
+    if (userInput) userInput.addEventListener("keydown", (e) => { if (e.key === "Enter") sendCustomMessage(); });
+    if (closeFormWindow) closeFormWindow.addEventListener("click", closeForm);
     setupTooltips();
 }
 
-// ============================================
-// CONFIGURACIÓN DE TOOLTIPS
-// ============================================
+// =========== NUEVA FUNCIÓN: formulario flotante con fetch (sin recarga) ===========
+function setupFloatingFormFetch() {
+    const floatingForm = document.getElementById('floating-form');
+    if (!floatingForm) return;
+    
+    floatingForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Obtener campos
+        const formData = new FormData(floatingForm);
+        const data = {};
+        formData.forEach((value, key) => { data[key] = value; });
+        
+        // Validaciones básicas
+        if (!data.Nombre || !data.Correo) {
+            showFloatingFormMessage('Por favor complete nombre y correo electrónico', 'error');
+            return;
+        }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(data.Correo)) {
+            showFloatingFormMessage('Por favor ingrese un correo electrónico válido', 'error');
+            return;
+        }
+        
+        // Deshabilitar botón mientras se envía
+        const submitBtn = document.getElementById('floatingSubmitBtn');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+        submitBtn.disabled = true;
+        
+        try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            const result = await response.json();
+            
+            if (result.success) {
+                showFloatingFormMessage('¡Mensaje enviado exitosamente! Te responderemos en menos de 24 horas.', 'success');
+                // Limpiar formulario
+                floatingForm.reset();
+                // Opcional: cerrar la ventana después de 3 segundos
+                setTimeout(() => {
+                    closeForm();
+                }, 3000);
+            } else {
+                showFloatingFormMessage('Error al enviar: ' + (result.message || 'Intente más tarde'), 'error');
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        } catch (error) {
+            console.error('Error de conexión:', error);
+            showFloatingFormMessage('Error de conexión. Revise su internet e intente nuevamente.', 'error');
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }
+    });
+}
 
+function showFloatingFormMessage(msg, type) {
+    const msgDiv = document.getElementById('floatingFormMessage');
+    if (!msgDiv) return;
+    msgDiv.style.display = 'block';
+    msgDiv.innerHTML = type === 'success' ? `<i class="fas fa-check-circle"></i> ${msg}` : `<i class="fas fa-exclamation-triangle"></i> ${msg}`;
+    msgDiv.style.backgroundColor = type === 'success' ? '#d4edda' : '#f8d7da';
+    msgDiv.style.color = type === 'success' ? '#155724' : '#721c24';
+    msgDiv.style.border = type === 'success' ? '1px solid #c3e6cb' : '1px solid #f5c6cb';
+    
+    // Ocultar mensaje después de 5 segundos
+    setTimeout(() => {
+        if (msgDiv) msgDiv.style.display = 'none';
+    }, 5000);
+}
+
+// =========== RESTO DE FUNCIONES (igual que antes) ===========
 function setupTooltips() {
-    const secondaryButtons = document.querySelectorAll('.secondary-btn');
-    secondaryButtons.forEach(btn => {
+    document.querySelectorAll('.secondary-btn').forEach(btn => {
         const tooltip = btn.querySelector('.btn-tooltip');
         if (tooltip) {
             tooltip.style.right = 'auto';
             tooltip.style.left = '-180px';
             tooltip.style.transform = 'translateX(-10px)';
         }
-        
         btn.addEventListener('mouseenter', function() {
-            const tooltip = this.querySelector('.btn-tooltip');
-            if (tooltip) {
-                tooltip.style.opacity = '1';
-                tooltip.style.visibility = 'visible';
-                tooltip.style.transform = 'translateX(0)';
-            }
+            const tt = this.querySelector('.btn-tooltip');
+            if (tt) { tt.style.opacity = '1'; tt.style.visibility = 'visible'; tt.style.transform = 'translateX(0)'; }
         });
-        
         btn.addEventListener('mouseleave', function() {
-            const tooltip = this.querySelector('.btn-tooltip');
-            if (tooltip) {
-                tooltip.style.opacity = '0';
-                tooltip.style.visibility = 'hidden';
-                tooltip.style.transform = 'translateX(-10px)';
-            }
+            const tt = this.querySelector('.btn-tooltip');
+            if (tt) { tt.style.opacity = '0'; tt.style.visibility = 'hidden'; tt.style.transform = 'translateX(-10px)'; }
         });
     });
 }
 
-// ============================================
-// FUNCIONES DE INTERFAZ (TUS FUNCIONES ORIGINALES)
-// ============================================
-
-// Inicializar controles de ventana
 function initializeWindowControls() {
     if (!chatbotWindow) return;
-    
     const minimizeBtn = document.createElement("button");
     const closeBtn = document.createElement("button");
     const windowHeader = chatbotWindow.querySelector("#chatbot-header");
-    
     if (!windowHeader) return;
-    
-    // Crear contenedor de controles
     const windowControls = document.createElement("div");
     windowControls.className = "window-controls";
-    
-    // Configurar botón de minimizar
     minimizeBtn.innerHTML = '<i class="fas fa-window-minimize"></i>';
     minimizeBtn.className = 'window-btn minimize-btn';
     minimizeBtn.title = 'Minimizar';
-    
-    // Configurar botón de cerrar
     closeBtn.innerHTML = '<i class="fas fa-times"></i>';
     closeBtn.className = 'window-btn close-btn';
     closeBtn.title = 'Cerrar';
-    
-    // Agregar botones al contenedor
     windowControls.appendChild(minimizeBtn);
     windowControls.appendChild(closeBtn);
-    
-    // Agregar contenedor al header
     windowHeader.appendChild(windowControls);
-    
-    // Event listeners
     minimizeBtn.addEventListener('click', toggleMinimizeChat);
     closeBtn.addEventListener('click', closeChatWindow);
 }
 
-// Alternar menú flotante
 function toggleFloatingMenu() {
     if (!floatingMenu || !mainFloatingBtn) return;
-    
     if (isMenuOpen) {
-        // Cerrar menú
         floatingMenu.classList.remove("active");
         mainFloatingBtn.classList.remove("active");
         isMenuOpen = false;
-        
-        if (!isWindowOpen()) {
-            showMainTooltip();
-        }
+        if (!isWindowOpen()) showMainTooltip();
     } else {
-        // Abrir menú
         floatingMenu.classList.add("active");
         mainFloatingBtn.classList.add("active");
         isMenuOpen = true;
-        
         hideMainTooltip();
         showButtonNotifications();
     }
 }
 
-// Mostrar notificaciones en botones
 function showButtonNotifications() {
     const buttons = document.querySelectorAll('.secondary-btn');
-    
     buttons.forEach((btn, index) => {
-        let notificationText = '';
-        let notificationClass = '';
-        let icon = '';
-        
-        if (btn.classList.contains('whatsapp-btn')) {
-            notificationText = 'Contacto directo';
-            notificationClass = 'whatsapp-notification';
-            icon = '📱';
-        } else if (btn.classList.contains('form-btn')) {
-            notificationText = 'Llenar formulario';
-            notificationClass = 'form-notification';
-            icon = '📄';
-        } else if (btn.classList.contains('chatbot-btn')) {
-            notificationText = 'Asistente virtual';
-            notificationClass = 'chatbot-notification';
-            icon = '🤖';
-        }
-        
+        let notificationText = '', notificationClass = '', icon = '';
+        if (btn.classList.contains('whatsapp-btn')) { notificationText = 'Contacto directo'; notificationClass = 'whatsapp-notification'; icon = '📱'; }
+        else if (btn.classList.contains('form-btn')) { notificationText = 'Llenar formulario'; notificationClass = 'form-notification'; icon = '📄'; }
+        else if (btn.classList.contains('chatbot-btn')) { notificationText = 'Asistente virtual'; notificationClass = 'chatbot-notification'; icon = '🤖'; }
         if (notificationText) {
             setTimeout(() => {
-                // Remover notificaciones previas si existen
-                const existingNotification = btn.querySelector('.floating-notification');
-                if (existingNotification) {
-                    existingNotification.remove();
-                }
-                
+                const existing = btn.querySelector('.floating-notification');
+                if (existing) existing.remove();
                 const notification = document.createElement('div');
                 notification.className = `floating-notification ${notificationClass}`;
                 notification.innerHTML = `${icon} ${notificationText}`;
-                
                 btn.appendChild(notification);
-                
-                // Asegurar que la posición sea correcta
                 setTimeout(() => {
                     notification.style.left = '-200px';
                     notification.style.top = '50%';
                     notification.style.transform = 'translateY(-50%)';
                 }, 10);
-                
-                // Remover notificación después de 3 segundos
                 setTimeout(() => {
                     notification.style.opacity = '0';
                     notification.style.transform = 'translateY(-50%) translateX(-10px)';
-                    notification.style.transition = 'all 0.5s ease';
-                    
-                    setTimeout(() => {
-                        if (notification.parentNode) {
-                            notification.parentNode.removeChild(notification);
-                        }
-                    }, 500);
+                    setTimeout(() => notification.parentNode?.removeChild(notification), 500);
                 }, 3000);
             }, index * 300);
         }
     });
 }
 
-// Tooltip del botón principal
 function showMainTooltip() {
     if (!mainTooltip) return;
-    
     clearTimeout(tooltipTimeout);
     mainTooltip.classList.add('active-tooltip');
-    
-    tooltipTimeout = setTimeout(() => {
-        mainTooltip.classList.remove('active-tooltip');
-    }, 4000);
+    tooltipTimeout = setTimeout(() => mainTooltip.classList.remove('active-tooltip'), 4000);
 }
-
-function hideMainTooltip() {
-    if (mainTooltip) {
-        mainTooltip.classList.remove('active-tooltip');
-    }
-}
-
-// Badge de mensajes no leídos
+function hideMainTooltip() { if (mainTooltip) mainTooltip.classList.remove('active-tooltip'); }
 function updateMessageBadge() {
-    if (!isChatMinimized && chatbotWindow && chatbotWindow.style.display === 'flex') {
-        return;
-    }
-    
+    if (!isChatMinimized && chatbotWindow && chatbotWindow.style.display === 'flex') return;
     unreadMessages++;
     let badge = document.querySelector('.new-message-badge');
-    
     if (!badge) {
         badge = document.createElement('div');
         badge.className = 'new-message-badge';
         const chatBtn = document.querySelector('.chatbot-btn');
-        if (chatBtn) {
-            chatBtn.appendChild(badge);
-        }
+        if (chatBtn) chatBtn.appendChild(badge);
     }
-    
-    if (badge) {
-        badge.textContent = unreadMessages > 9 ? '9+' : unreadMessages;
-    }
+    badge.textContent = unreadMessages > 9 ? '9+' : unreadMessages;
 }
-
-function clearMessageBadge() {
-    unreadMessages = 0;
-    const badge = document.querySelector('.new-message-badge');
-    if (badge) {
-        badge.remove();
-    }
-}
-
-// Minimizar/Maximizar chat
+function clearMessageBadge() { unreadMessages = 0; document.querySelector('.new-message-badge')?.remove(); }
 function toggleMinimizeChat() {
     if (!chatbotWindow || !messages || !inputArea) return;
-    
     if (isChatMinimized) {
-        // Maximizar
         chatbotWindow.classList.remove('minimized');
         messages.style.display = 'flex';
         inputArea.style.display = 'flex';
-        const minimizeBtn = document.querySelector('.minimize-btn');
-        if (minimizeBtn) {
-            minimizeBtn.innerHTML = '<i class="fas fa-window-minimize"></i>';
-        }
+        document.querySelector('.minimize-btn').innerHTML = '<i class="fas fa-window-minimize"></i>';
         clearMessageBadge();
     } else {
-        // Minimizar
         chatbotWindow.classList.add('minimized');
         messages.style.display = 'flex';
         inputArea.style.display = 'flex';
-        const minimizeBtn = document.querySelector('.minimize-btn');
-        if (minimizeBtn) {
-            minimizeBtn.innerHTML = '<i class="fas fa-window-restore"></i>';
-        }
+        document.querySelector('.minimize-btn').innerHTML = '<i class="fas fa-window-restore"></i>';
     }
     isChatMinimized = !isChatMinimized;
 }
+function isWindowOpen() { return (chatbotWindow && chatbotWindow.style.display === 'flex') || (formWindow && formWindow.style.display === 'flex'); }
 
-// Verificar si alguna ventana está abierta
-function isWindowOpen() {
-    return (chatbotWindow && chatbotWindow.style.display === 'flex') || 
-           (formWindow && formWindow.style.display === 'flex');
-}
-
-// ============================================
-// FUNCIONES DEL CHATBOT
-// ============================================
-
-// Mostrar indicador de "escribiendo"
 function showTyping(callback) {
     if (!statusText || !typingIndicator || !messages) return;
-    
     statusText.innerText = "escribiendo...";
     statusText.style.fontStyle = "italic";
     typingIndicator.style.display = "flex";
     messages.scrollTop = messages.scrollHeight;
-    
     setTimeout(() => {
         typingIndicator.style.display = "none";
         statusText.innerText = "En línea";
@@ -680,10 +454,8 @@ function showTyping(callback) {
     }, 1200);
 }
 
-// Iniciar chat
 function startChat() {
     if (!nameInput || !leadForm || !messages || !inputArea) return;
-    
     if (nameInput.value.trim().length < 3) {
         nameInput.style.borderColor = "#ff4757";
         nameInput.classList.add('shake');
@@ -697,10 +469,8 @@ function startChat() {
     initMenu();
 }
 
-// Inicializar menú principal
 function initMenu() {
     if (!messages) return;
-    
     showTyping(() => {
         const menuHTML = `
             <div class="bot-message">
@@ -738,14 +508,10 @@ function initMenu() {
     });
 }
 
-// Seleccionar opción del menú
 function selectOption(option) {
     if (!messages) return;
-    
     cleanOptions();
-    let response = "";
-    let btnExtra = "";
-    
+    let response = "", btnExtra = "";
     switch(option) {
         case 'academica':
             response = getAcademicOffer();
@@ -772,7 +538,6 @@ function selectOption(option) {
             btnExtra = getAdvisorButtons();
             break;
     }
-
     showTyping(() => {
         messages.innerHTML += `<div class="bot-message">${response}</div>`;
         if(btnExtra) messages.innerHTML += btnExtra;
@@ -785,7 +550,7 @@ function selectOption(option) {
 }
 
 // ============================================
-// FUNCIONES DE CONTENIDO (TUS FUNCIONES ORIGINALES)
+// FUNCIONES DE CONTENIDO (COMPLETAS)
 // ============================================
 
 function getAcademicOffer() {
@@ -1117,12 +882,10 @@ function getAdvisorInfo() {
 }
 
 // ============================================
-// FUNCIONES PARA BOTONES DE SECCIÓN
+// FUNCIONES PARA BOTONES DE SECCIÓN (Ídem original)
 // ============================================
-
 function getSectionButtons(section) {
     let sectionName = "";
-    
     switch(section) {
         case 'academica':
             sectionName = "Oferta Académica";
@@ -1193,15 +956,12 @@ function getAdvisorButtons() {
 }
 
 // ============================================
-// FUNCIONES DE CONTACTO
+// FUNCIONES DE CONTACTO (Ídem original)
 // ============================================
-
 function contactAdvisor(topic) {
     if (!messages) return;
-    
     const text = encodeURIComponent(`Hola, soy ${userName || 'un interesado'}. Necesito información sobre ${topic}. Me comunico desde el asistente virtual de la Institución Educativa Rafael Bucheli.`);
     const whatsappUrl = `https://wa.me/${window.CHATBOT_CONFIG.whatsappNumber}?text=${text}`;
-    
     showTyping(() => {
         messages.innerHTML += `
             <div class="redirect-message">
@@ -1209,43 +969,27 @@ function contactAdvisor(topic) {
                 <b>¡Perfecto! Redireccionando a WhatsApp...</b><br>
                 <small>Estás siendo conectado con un asesor especializado en <b>${topic}</b>.</small>
             </div>
-            
             <div class="user-query">
                 <i class="fas fa-user-circle"></i> <b>Consulta:</b> ${topic}
             </div>
         `;
         messages.scrollTop = messages.scrollHeight;
-        
-        // Agregar animación de redirección
         const redirectMsg = document.createElement('div');
         redirectMsg.className = 'bot-message';
-        redirectMsg.innerHTML = `<div style="display: flex; align-items: center; gap: 10px;">
-            <i class="fas fa-spinner fa-spin" style="color: #2196f3;"></i>
-            <span>Preparando conexión con asesor educativo...</span>
-        </div>`;
+        redirectMsg.innerHTML = `<div style="display: flex; align-items: center; gap: 10px;"><i class="fas fa-spinner fa-spin" style="color: #2196f3;"></i><span>Preparando conexión con asesor educativo...</span></div>`;
         messages.appendChild(redirectMsg);
-        
-        // Abrir WhatsApp después de un breve retraso
         setTimeout(() => {
-            redirectMsg.innerHTML = `<div style="display: flex; align-items: center; gap: 10px;">
-                <i class="fas fa-check-circle" style="color: #4CAF50;"></i>
-                <span><b>Conexión lista</b> - Redirigiendo a WhatsApp...</span>
-            </div>`;
-            setTimeout(() => {
-                window.open(whatsappUrl, '_blank');
-            }, 800);
+            redirectMsg.innerHTML = `<div style="display: flex; align-items: center; gap: 10px;"><i class="fas fa-check-circle" style="color: #4CAF50;"></i><span><b>Conexión lista</b> - Redirigiendo a WhatsApp...</span></div>`;
+            setTimeout(() => { window.open(whatsappUrl, '_blank'); }, 800);
         }, 1500);
-        
         chatHistory.push({ type: 'action', content: `Redirigido a WhatsApp: ${topic}` });
     });
 }
 
 function contactAdvisorDirect() {
     if (!messages) return;
-    
     const text = encodeURIComponent(`Hola, soy ${userName || 'un interesado'}. Me gustaría recibir asesoría personalizada sobre inscripciones, becas y procesos de admisión. Me comunico desde el asistente virtual de la Unidad Educativa Particular Rafael Bucheli.`);
     const whatsappUrl = `https://wa.me/${window.CHATBOT_CONFIG.whatsappNumber}?text=${text}`;
-    
     showTyping(() => {
         messages.innerHTML += `
             <div class="redirect-message">
@@ -1253,7 +997,6 @@ function contactAdvisorDirect() {
                 <b>Conectando con asesor educativo...</b><br>
                 <small>Serás atendido por un especialista en admisiones.</small>
             </div>
-            
             <div style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); padding: 15px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #4CAF50;">
                 <b><i class="fas fa-info-circle" style="color: #4CAF50;"></i> Preparando tu consulta:</b><br>
                 • Nombre: <b>${userName || 'Por confirmar'}</b><br>
@@ -1262,20 +1005,14 @@ function contactAdvisorDirect() {
             </div>
         `;
         messages.scrollTop = messages.scrollHeight;
-        
-        setTimeout(() => {
-            window.open(whatsappUrl, '_blank');
-        }, 1200);
-        
+        setTimeout(() => { window.open(whatsappUrl, '_blank'); }, 1200);
         chatHistory.push({ type: 'action', content: 'Contacto directo con asesor' });
     });
 }
 
 function openGoogleMaps() {
     if (!messages) return;
-    
     const mapsUrl = 'https://maps.google.com/?q=Institución+Educativa+Rafael+Bucheli,+Av.+Rumichaca+Ñan+y+Morán+Valverde,+Chillogallo,+Quito,+Ecuador';
-    
     showTyping(() => {
         messages.innerHTML += `
             <div class="redirect-message">
@@ -1283,7 +1020,6 @@ function openGoogleMaps() {
                 <b>Abriendo Google Maps...</b><br>
                 <small>Mostrando ubicación exacta de la institución.</small>
             </div>
-            
             <div style="background: linear-gradient(135deg, #e3f2fd, #bbdefb); padding: 15px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #2196f3;">
                 <b><i class="fas fa-location-arrow" style="color: #2196f3;"></i> Dirección para GPS:</b><br>
                 <code style="background: white; padding: 5px 10px; border-radius: 5px; display: inline-block; margin-top: 5px; font-size: 12px;">
@@ -1292,41 +1028,32 @@ function openGoogleMaps() {
             </div>
         `;
         messages.scrollTop = messages.scrollHeight;
-        
-        setTimeout(() => {
-            window.open(mapsUrl, '_blank');
-        }, 1000);
+        setTimeout(() => { window.open(mapsUrl, '_blank'); }, 1000);
     });
 }
 
 function showMoreContactOptions() {
     if (!messages) return;
-    
     cleanOptions();
-    
     showTyping(() => {
         messages.innerHTML += `
             <div class="bot-message">
                 <b>📞 Otras formas de contactarnos</b><br>
                 Elige el método que prefieras para tu consulta personalizada:
             </div>
-            
             <div class="options">
                 <button style="animation-delay: 0.1s" onclick="window.contactAdvisorDirect()" class="whatsapp-option">
                     <i class="fab fa-whatsapp"></i> WhatsApp Inmediato
                     <small>Respuesta en minutos (recomendado)</small>
                 </button>
-                
                 <button style="animation-delay: 0.2s" onclick="window.openContactForm()" class="form-option">
                     <i class="fas fa-envelope"></i> Correo Electrónico
                     <small>Respuesta en 24 horas hábiles</small>
                 </button>
-                
                 <button style="animation-delay: 0.3s" onclick="window.showCallOptions()" class="call-option">
                     <i class="fas fa-phone"></i> Llamada Telefónica
                     <small>Horario: Lunes a Viernes 8:00-16:00</small>
                 </button>
-                
                 <button style="animation-delay: 0.4s" onclick="window.initMenu()" class="back-option">
                     <i class="fas fa-arrow-left"></i> Volver al menú principal
                 </button>
@@ -1338,39 +1065,24 @@ function showMoreContactOptions() {
 
 function showCallOptions() {
     if (!messages) return;
-    
     cleanOptions();
-    
     showTyping(() => {
         messages.innerHTML += `
             <div class="bot-message">
                 <b>📞 Contacto Telefónico</b><br>
                 Para llamadas directas o programar una cita:
             </div>
-            
             <div style="background: linear-gradient(135deg, #ffebee, #ffcdd2); padding: 15px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #f44336;">
                 <b><i class="fas fa-phone-alt" style="color: #f44336;"></i> Teléfono Principal:</b><br>
-                <div style="font-size: 20px; font-weight: bold; color: #d32f2f; margin: 10px 0;">
-                    (02) 123-4567
-                </div>
+                <div style="font-size: 20px; font-weight: bold; color: #d32f2f; margin: 10px 0;">(02) 123-4567</div>
                 <small><i class="fas fa-clock" style="color: #f44336;"></i> Horario: Lunes a Viernes 8:00-16:00</small>
             </div>
-            
             <div style="background: linear-gradient(135deg, #fff3e0, #ffe0b2); padding: 15px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #ff9800;">
                 <b><i class="fas fa-calendar-check" style="color: #ff9800;"></i> Para programar una cita:</b><br>
-                <small>1. Llama al número indicado<br>
-                2. Solicita programar cita con asesor<br>
-                3. Indica que vienes del asistente virtual<br>
-                4. Recibirás confirmación vía WhatsApp</small>
+                <small>1. Llama al número indicado<br>2. Solicita programar cita con asesor<br>3. Indica que vienes del asistente virtual<br>4. Recibirás confirmación vía WhatsApp</small>
             </div>
-            
-            <button class="whatsapp-btn-action" onclick="window.contactAdvisorDirect()" style="margin-top: 10px;">
-                <i class="fab fa-whatsapp"></i> Prefiero contactar por WhatsApp
-            </button>
-            
-            <button class="back-btn" onclick="window.showMoreContactOptions()">
-                <i class="fas fa-arrow-left"></i> Ver otras opciones
-            </button>
+            <button class="whatsapp-btn-action" onclick="window.contactAdvisorDirect()" style="margin-top: 10px;"><i class="fab fa-whatsapp"></i> Prefiero contactar por WhatsApp</button>
+            <button class="back-btn" onclick="window.showMoreContactOptions()"><i class="fas fa-arrow-left"></i> Ver otras opciones</button>
         `;
         messages.scrollTop = messages.scrollHeight;
     });
@@ -1378,20 +1090,16 @@ function showCallOptions() {
 
 function openContactForm() {
     if (!messages) return;
-    
     cleanOptions();
-    
     showTyping(() => {
         messages.innerHTML += `
             <div class="contact-form-container">
                 <b>📧 Formulario de Contacto</b><br>
                 <small>Complete los datos y le responderemos por correo:</small>
-                
                 <input type="text" id="contact-name" class="interactive-input" placeholder="Tu nombre completo" value="${userName || ''}">
                 <input type="email" id="contact-email" class="interactive-input" placeholder="Correo electrónico">
                 <input type="tel" id="contact-phone" class="interactive-input" placeholder="Teléfono / WhatsApp">
                 <textarea id="contact-message" class="interactive-input" placeholder="Mensaje o consulta específica..." style="height: 100px;"></textarea>
-                
                 <div style="display: flex; gap: 10px; margin-top: 15px;">
                     <button onclick="window.submitEmailForm()" style="flex: 1; padding: 12px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 600;">
                         <i class="fas fa-paper-plane"></i> Enviar por Correo
@@ -1401,10 +1109,7 @@ function openContactForm() {
                     </button>
                 </div>
             </div>
-            
-            <button class="back-btn" onclick="window.showMoreContactOptions()">
-                <i class="fas fa-arrow-left"></i> Volver a opciones
-            </button>
+            <button class="back-btn" onclick="window.showMoreContactOptions()"><i class="fas fa-arrow-left"></i> Volver a opciones</button>
         `;
         messages.scrollTop = messages.scrollHeight;
     });
@@ -1412,175 +1117,57 @@ function openContactForm() {
 
 function submitEmailForm() {
     if (!messages) return;
-    
     const name = document.getElementById('contact-name')?.value;
     const email = document.getElementById('contact-email')?.value;
     const phone = document.getElementById('contact-phone')?.value;
     const message = document.getElementById('contact-message')?.value;
-    
-    if (!name || !email) {
-        alert('Por favor ingrese su nombre y correo electrónico');
-        return;
-    }
-    
+    if (!name || !email) { alert('Por favor ingrese su nombre y correo electrónico'); return; }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        alert('Por favor ingrese un correo electrónico válido');
-        return;
-    }
-    
-    showTyping(() => {
-        messages.innerHTML += `
-            <div class="bot-message success-message">
-                <i class="fas fa-check-circle" style="color: #4CAF50;"></i> <b>¡Formulario enviado exitosamente!</b><br>
-                Hemos recibido su consulta. Te contactaremos en:<br>
-                <b>📧 ${email}</b><br>
-                en las próximas 24 horas hábiles.
-            </div>
-            <div style="background: linear-gradient(135deg, #fff8e1, #ffecb3); padding: 12px; border-radius: 10px; margin: 10px 0; border-left: 4px solid #ffc107;">
-                <small><i class="fas fa-info-circle" style="color: #ff9800;"></i> <b>Nota:</b> También hemos enviado un correo de confirmación a tu dirección. Si no lo recibes en 10 minutos, revisa tu carpeta de spam.</small>
-            </div>
-            <button class="back-btn" onclick="window.initMenu()">
-                <i class="fas fa-arrow-left"></i> Volver al menú principal
-            </button>
-        `;
-        messages.scrollTop = messages.scrollHeight;
-        chatHistory.push({ type: 'action', content: 'Formulario de correo enviado' });
-    });
+    if (!emailRegex.test(email)) { alert('Por favor ingrese un correo electrónico válido'); return; }
+
+    const data = {
+        access_key: window.CHATBOT_CONFIG.web3formsKey,
+        name: name,
+        email: email,
+        phone: phone,
+        message: message,
+        subject: "Mensaje desde el Chatbot - Rafael Bucheli"
+    };
+    fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(resp => {
+        if (resp.success) {
+            showTyping(() => {
+                messages.innerHTML += `<div class="bot-message success-message"><i class="fas fa-check-circle" style="color: #4CAF50;"></i> <b>¡Formulario enviado exitosamente!</b><br>Hemos recibido su consulta. Te contactaremos en:<br><b>📧 ${email}</b><br>en las próximas 24 horas hábiles.</div>`;
+                messages.scrollTop = messages.scrollHeight;
+            });
+        } else {
+            alert('Error al enviar: ' + (resp.message || 'Intente más tarde'));
+        }
+    })
+    .catch(err => { alert('Error de conexión. Revise su internet.'); console.error(err); });
 }
 
-function submitEmailForm2() {
-    submitEmailForm(); // Simplificado
-}
-
-// ============================================
-// FUNCIONES DE MENSAJES PERSONALIZADOS
-// ============================================
-
-function sendCustomMessage() {
-    if (!messages || !userInput) return;
-    
-    const text = userInput.value.trim();
-    if (!text) return;
-    
-    // Mostrar mensaje del usuario
-    messages.innerHTML += `<div class="user-message">${escapeHtml(text)}</div>`;
-    userInput.value = "";
-    messages.scrollTop = messages.scrollHeight;
-    chatHistory.push({ type: 'user', content: text });
-    
-    if (isChatMinimized) {
-        updateMessageBadge();
-    }
-    
-    showTyping(() => {
-        const responseHTML = `
-            <div class="bot-message">
-                <b>✅ He recibido tu consulta:</b><br>
-                "<i>${escapeHtml(text)}</i>"
-            </div>
-            
-            <div class="advisor-container">
-                <div class="advisor-icon">👨‍🏫</div>
-                <div class="advisor-title">Conectando con especialista</div>
-                <div class="advisor-description">
-                    Tu consulta será atendida por un asesor educativo especializado.
-                </div>
-                
-                <div class="advisor-buttons">
-                    <button class="advisor-primary-btn" onclick="window.redirectToWhatsAppWithMessage('${encodeURIComponent(text)}')">
-                        <i class="fab fa-whatsapp"></i> 💬 Continuar en WhatsApp
-                    </button>
-                    <button class="advisor-secondary-btn" onclick="window.showMoreOptions('${encodeURIComponent(text)}')">
-                        <i class="fas fa-info-circle"></i> Más opciones de contacto
-                    </button>
-                </div>
-            </div>
-            
-            <button class="back-btn" onclick="window.initMenu()">
-                <i class="fas fa-arrow-left"></i> Volver al menú principal
-            </button>
-        `;
-        messages.innerHTML += responseHTML;
-        messages.scrollTop = messages.scrollHeight;
-        chatHistory.push({ type: 'bot', content: 'Redirección a asesor' });
-    });
-}
-
-function redirectToWhatsAppWithMessage(query) {
-    if (!messages) return;
-    
-    const decodedQuery = decodeURIComponent(query);
-    const text = encodeURIComponent(`Hola, soy ${userName || 'un interesado'}. Mi consulta es: "${decodedQuery}". Me comunico desde el asistente virtual de la Institución Educativa Rafael Bucheli.`);
-    const whatsappUrl = `https://wa.me/${window.CHATBOT_CONFIG.whatsappNumber}?text=${text}`;
-    
-    showTyping(() => {
-        messages.innerHTML += `
-            <div class="redirect-message">
-                <i class="fas fa-external-link-alt" style="color: #ff9800;"></i>
-                <b>Redireccionando a WhatsApp...</b><br>
-                <small>Serás atendido por un asesor educativo.</small>
-            </div>
-            
-            <div class="user-query">
-                <i class="fas fa-user-circle"></i> <b>Consulta:</b> ${decodedQuery}
-            </div>
-        `;
-        messages.scrollTop = messages.scrollHeight;
-        
-        const redirectMsg = document.createElement('div');
-        redirectMsg.className = 'bot-message';
-        redirectMsg.innerHTML = `<div style="display: flex; align-items: center; gap: 10px;">
-            <i class="fas fa-spinner fa-spin" style="color: #2196f3;"></i>
-            <span>Preparando conexión segura...</span>
-        </div>`;
-        messages.appendChild(redirectMsg);
-        
-        setTimeout(() => {
-            redirectMsg.innerHTML = `<div style="display: flex; align-items: center; gap: 10px;">
-                <i class="fas fa-check-circle" style="color: #4CAF50;"></i>
-                <span><b>Conexión lista</b> - Abriendo WhatsApp...</span>
-            </div>`;
-            setTimeout(() => {
-                window.open(whatsappUrl, '_blank');
-            }, 500);
-        }, 1500);
-        
-        chatHistory.push({ type: 'action', content: `Redirigido a WhatsApp: ${decodedQuery}` });
-    });
-}
+function submitEmailForm2() { submitEmailForm(); }
 
 function showMoreOptions(query) {
     if (!messages) return;
-    
     cleanOptions();
-    
     showTyping(() => {
         messages.innerHTML += `
             <div class="bot-message">
                 <b>📞 Otras formas de contactarnos</b><br>
                 Elige el método que prefieras para tu consulta:
             </div>
-            
             <div class="options">
-                <button style="animation-delay: 0.1s" onclick="window.redirectToWhatsAppWithMessage('${query}')" class="whatsapp-option">
-                    <i class="fab fa-whatsapp"></i> WhatsApp Inmediato
-                    <small>Respuesta en minutos (recomendado)</small>
-                </button>
-                
-                <button style="animation-delay: 0.2s" onclick="window.openContactFormWithMessage('${query}')" class="form-option">
-                    <i class="fas fa-envelope"></i> Correo Electrónico
-                    <small>Respuesta en 24 horas hábiles</small>
-                </button>
-                
-                <button style="animation-delay: 0.3s" onclick="window.showCallOptions()" class="call-option">
-                    <i class="fas fa-phone"></i> Llamada Telefónica
-                    <small>Horario: Lunes a Viernes 8:00-16:00</small>
-                </button>
-                
-                <button style="animation-delay: 0.4s" onclick="window.initMenu()" class="back-option">
-                    <i class="fas fa-arrow-left"></i> Volver al menú principal
-                </button>
+                <button onclick="window.redirectToWhatsAppWithMessage('${query}')" class="whatsapp-option"><i class="fab fa-whatsapp"></i> WhatsApp Inmediato</button>
+                <button onclick="window.openContactFormWithMessage('${query}')" class="form-option"><i class="fas fa-envelope"></i> Correo Electrónico</button>
+                <button onclick="window.showCallOptions()" class="call-option"><i class="fas fa-phone"></i> Llamada Telefónica</button>
+                <button onclick="window.initMenu()" class="back-option">Volver al menú principal</button>
             </div>
         `;
         messages.scrollTop = messages.scrollHeight;
@@ -1589,44 +1176,72 @@ function showMoreOptions(query) {
 
 function openContactFormWithMessage(query) {
     if (!messages) return;
-    
     const decodedQuery = decodeURIComponent(query);
-    
     showTyping(() => {
         messages.innerHTML += `
             <div class="contact-form-container">
                 <b>📧 Formulario de Contacto</b><br>
                 <small>Completa tus datos y te responderemos por correo:</small>
-                
                 <input type="text" id="contact-name2" class="interactive-input" placeholder="Tu nombre completo" value="${userName || ''}">
                 <input type="email" id="contact-email2" class="interactive-input" placeholder="Correo electrónico">
                 <input type="tel" id="contact-phone2" class="interactive-input" placeholder="Teléfono / WhatsApp">
                 <textarea id="contact-message2" class="interactive-input" placeholder="Mensaje o consulta específica..." style="height: 100px;">${decodedQuery}</textarea>
-                
                 <div style="display: flex; gap: 10px; margin-top: 15px;">
-                    <button onclick="window.submitEmailForm2()" style="flex: 1; padding: 12px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 600;">
-                        <i class="fas fa-paper-plane"></i> Enviar por Correo
-                    </button>
-                    <button onclick="window.redirectToWhatsAppWithMessage('${query}')" style="padding: 12px 20px; background: linear-gradient(135deg, var(--whatsapp), var(--whatsapp-dark)); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 600;">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
-                    </button>
+                    <button onclick="window.submitEmailForm2()" style="flex: 1; padding: 12px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 600;"><i class="fas fa-paper-plane"></i> Enviar por Correo</button>
+                    <button onclick="window.redirectToWhatsAppWithMessage('${query}')" style="padding: 12px 20px; background: linear-gradient(135deg, var(--whatsapp), var(--whatsapp-dark)); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 600;"><i class="fab fa-whatsapp"></i> WhatsApp</button>
                 </div>
             </div>
-            
-            <button class="back-btn" onclick="window.showMoreOptions('${query}')">
-                <i class="fas fa-arrow-left"></i> Ver otras opciones
-            </button>
+            <button class="back-btn" onclick="window.showMoreOptions('${query}')"><i class="fas fa-arrow-left"></i> Ver otras opciones</button>
         `;
         messages.scrollTop = messages.scrollHeight;
     });
 }
 
-// ============================================
-// FUNCIONES UTILITARIAS
-// ============================================
+function redirectToWhatsAppWithMessage(query) {
+    if (!messages) return;
+    const decodedQuery = decodeURIComponent(query);
+    const text = encodeURIComponent(`Hola, soy ${userName || 'un interesado'}. Mi consulta es: "${decodedQuery}". Me comunico desde el asistente virtual de la Institución Educativa Rafael Bucheli.`);
+    const whatsappUrl = `https://wa.me/${window.CHATBOT_CONFIG.whatsappNumber}?text=${text}`;
+    showTyping(() => {
+        messages.innerHTML += `<div class="redirect-message"><i class="fas fa-external-link-alt"></i> Redireccionando a WhatsApp...</div>`;
+        setTimeout(() => { window.open(whatsappUrl, '_blank'); }, 1200);
+    });
+}
+
+function sendCustomMessage() {
+    if (!messages || !userInput) return;
+    const text = userInput.value.trim();
+    if (!text) return;
+    messages.innerHTML += `<div class="user-message">${escapeHtml(text)}</div>`;
+    userInput.value = "";
+    messages.scrollTop = messages.scrollHeight;
+    chatHistory.push({ type: 'user', content: text });
+    if (isChatMinimized) updateMessageBadge();
+    showTyping(() => {
+        const responseHTML = `
+            <div class="bot-message">
+                <b>✅ He recibido tu consulta:</b><br>
+                "<i>${escapeHtml(text)}</i>"
+            </div>
+            <div class="advisor-container">
+                <div class="advisor-icon">👨‍🏫</div>
+                <div class="advisor-title">Conectando con especialista</div>
+                <div class="advisor-description">Tu consulta será atendida por un asesor educativo especializado.</div>
+                <div class="advisor-buttons">
+                    <button class="advisor-primary-btn" onclick="window.redirectToWhatsAppWithMessage('${encodeURIComponent(text)}')"><i class="fab fa-whatsapp"></i> 💬 Continuar en WhatsApp</button>
+                    <button class="advisor-secondary-btn" onclick="window.showMoreOptions('${encodeURIComponent(text)}')"><i class="fas fa-info-circle"></i> Más opciones de contacto</button>
+                </div>
+            </div>
+            <button class="back-btn" onclick="window.initMenu()"><i class="fas fa-arrow-left"></i> Volver al menú principal</button>
+        `;
+        messages.innerHTML += responseHTML;
+        messages.scrollTop = messages.scrollHeight;
+        chatHistory.push({ type: 'bot', content: 'Redirección a asesor' });
+    });
+}
 
 function cleanOptions() {
-    document.querySelectorAll(".options, .action-btn, .back-btn, .map-btn, .whatsapp-btn-action, .section-btn, .advisor-buttons").forEach(e => e.remove());
+    document.querySelectorAll(".options, .action-btn, .back-btn, .map-btn, .whatsapp-btn-action, .section-btn, .advisor-buttons, .contact-form-container").forEach(e => e.remove());
 }
 
 function escapeHtml(text) {
@@ -1635,193 +1250,42 @@ function escapeHtml(text) {
     return div.innerHTML;
 }
 
-// ============================================
-// FUNCIONES DE ESTADO Y CONEXIÓN
-// ============================================
-
 function updateConnectionStatus() {
-    const statusDot = document.getElementById('status-dot');
-    const statusText = document.getElementById('status-text');
-    
-    if (!statusDot || !statusText) return;
-    
-    const isOnline = Math.random() > 0.1; // Simular 90% de disponibilidad
-    
-    if (isOnline) {
-        statusText.innerText = "En línea";
-        statusText.style.color = "";
-        statusDot.className = "status-dot online";
-    } else {
-        statusText.innerText = "Conectando...";
-        statusText.style.color = "#ff9f43";
-        statusDot.className = "status-dot";
-        statusDot.style.background = "#ff9f43";
-        
-        setTimeout(() => {
-            statusText.innerText = "En línea";
-            statusText.style.color = "";
-            statusDot.className = "status-dot online";
-        }, 5000);
-    }
+    const dot = document.getElementById('status-dot');
+    const text = document.getElementById('status-text');
+    if (!dot || !text) return;
+    text.innerText = "En línea";
+    dot.className = "status-dot online";
 }
 
-// ============================================
-// FUNCIONES DE CIERRE
-// ============================================
-
 function closeChatWindow() {
-    if (chatbotWindow) {
-        chatbotWindow.style.display = "none";
-    }
+    if (chatbotWindow) { chatbotWindow.style.display = "none"; }
     isChatMinimized = false;
     showMainTooltip();
     clearMessageBadge();
 }
 
 function closeForm() {
-    if (formWindow) {
-        formWindow.style.display = "none";
-    }
+    if (formWindow) { formWindow.style.display = "none"; }
     showMainTooltip();
 }
-
-// ============================================
-// ESTILOS DINÁMICOS ADICIONALES
-// ============================================
 
 function addDynamicStyles() {
     const style = document.createElement('style');
     style.textContent = `
-        /* Efectos adicionales para botones de sección */
-        .section-btn:hover {
-            transform: translateY(-3px) scale(1.02) !important;
-            filter: brightness(1.1) !important;
-        }
-        
-        .section-btn:active {
-            transform: translateY(-1px) scale(0.98) !important;
-        }
-        
-        /* Efectos para contenedores */
-        .action-container:hover, .advisor-container:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-        
-        /* Mejoras para mensajes */
-        .user-message:hover {
-            transform: translateX(-5px);
-            transition: transform 0.3s ease;
-        }
-        
-        .bot-message:hover {
-            transform: translateX(5px);
-            transition: transform 0.3s ease;
-        }
-        
-        /* Animaciones para iconos */
-        .action-icon, .advisor-icon {
-            transition: transform 0.5s ease;
-        }
-        
-        .action-container:hover .action-icon,
-        .advisor-container:hover .advisor-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-        
-        /* Efectos para inputs en focus */
-        .interactive-input:focus {
-            box-shadow: 0 0 0 3px rgba(11, 60, 138, 0.1) !important;
-        }
-        
-        /* Transiciones suaves para todo */
-        * {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        }
-        
-        /* Estilos para el badge de mensajes nuevos */
-        .new-message-badge {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background: var(--danger);
-            color: white;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            font-size: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: bounceIn 0.5s;
-            font-weight: bold;
-            z-index: 1;
-        }
-        
-        /* Mejoras responsive */
-        @media (max-width: 768px) {
-            .chat-window {
-                width: 95%;
-                right: 2.5%;
-                bottom: 80px;
-                height: 600px;
-            }
-            
-            .form-window {
-                width: 95%;
-                right: 2.5%;
-                bottom: 80px;
-            }
-            
-            .floating-notification {
-                left: -160px !important;
-                font-size: 12px;
-                min-width: 150px;
-            }
-            
-            .btn-tooltip {
-                left: -150px !important;
-                font-size: 12px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .chat-window {
-                height: 500px;
-            }
-            
-            .main-floating-btn {
-                width: 60px;
-                height: 60px;
-                bottom: 15px;
-                right: 15px;
-            }
-            
-            .floating-menu {
-                bottom: 90px;
-                right: 25px;
-            }
-            
-            .secondary-btn {
-                width: 50px;
-                height: 50px;
-            }
-        }
+        .new-message-badge { position: absolute; top: -5px; right: -5px; background: #ff4757; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 10px; display: flex; align-items: center; justify-content: center; }
+        .section-btn:hover { transform: translateY(-3px) scale(1.02) !important; filter: brightness(1.1) !important; }
+        .floating-notification { position: absolute; left: -200px; top: 50%; transform: translateY(-50%); background: #252855; color: white; padding: 5px 12px; border-radius: 30px; font-size: 13px; white-space: nowrap; transition: all 0.3s; }
+        @media (max-width: 768px) { .chat-window { width: 95%; right: 2.5%; bottom: 80px; height: 600px; } .form-window { width: 95%; right: 2.5%; bottom: 80px; } .floating-notification { left: -160px !important; font-size: 12px; min-width: 150px; } .btn-tooltip { left: -150px !important; font-size: 12px; } }
+        @media (max-width: 480px) { .chat-window { height: 500px; } .main-floating-btn { width: 60px; height: 60px; bottom: 15px; right: 15px; } .floating-menu { bottom: 90px; right: 25px; } .secondary-btn { width: 50px; height: 50px; } }
     `;
     document.head.appendChild(style);
 }
 
-// ============================================
-// INICIALIZACIÓN AUTOMÁTICA (opcional)
-// ============================================
-
-// Auto-inicializar si hay un atributo data-auto-init
 document.addEventListener('DOMContentLoaded', function() {
     const scriptTag = document.querySelector('script[src*="CHATBOT.js"]');
     if (scriptTag && scriptTag.hasAttribute('data-auto-init')) {
         window.initChatbot();
     }
 });
-
-console.log('✅ Chatbot module loaded');
+console.log('✅ Chatbot module loaded (Web3Forms - SIN RECARGA)');
