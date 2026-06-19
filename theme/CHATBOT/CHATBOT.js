@@ -424,18 +424,30 @@ function updateMessageBadge() {
 function clearMessageBadge() { unreadMessages = 0; document.querySelector('.new-message-badge')?.remove(); }
 function toggleMinimizeChat() {
     if (!chatbotWindow || !messages || !inputArea) return;
+
     if (isChatMinimized) {
+        // Restaurar
         chatbotWindow.classList.remove('minimized');
-        messages.style.display = 'flex';
-        inputArea.style.display = 'flex';
-        document.querySelector('.minimize-btn').innerHTML = '<i class="fas fa-window-minimize"></i>';
+        messages.style.display = '';
+        inputArea.style.display = '';
+        const minimizeBtnEl = document.querySelector('.minimize-btn');
+        if (minimizeBtnEl) minimizeBtnEl.innerHTML = '<i class="fas fa-window-minimize"></i>';
         clearMessageBadge();
+        // Asegurar scroll al final al volver a mostrar
+        setTimeout(() => {
+            if (messages) messages.scrollTop = messages.scrollHeight;
+        }, 50);
     } else {
+        // Minimizar (CSS se encarga de ocultar contenido para mantener layout consistente)
         chatbotWindow.classList.add('minimized');
-        messages.style.display = 'flex';
-        inputArea.style.display = 'flex';
-        document.querySelector('.minimize-btn').innerHTML = '<i class="fas fa-window-restore"></i>';
+        const minimizeBtnEl = document.querySelector('.minimize-btn');
+        if (minimizeBtnEl) minimizeBtnEl.innerHTML = '<i class="fas fa-window-restore"></i>';
+        // En móvil, solo afectamos la ventana (CSS se encarga de ocultar contenido).
+        // No cerramos el floating-menu aquí para evitar estados inconsistentes.
+        // (El menú se controla solo con toggleFloatingMenu / botones.)
+        if (!floatingMenu) return;
     }
+
     isChatMinimized = !isChatMinimized;
 }
 function isWindowOpen() { return (chatbotWindow && chatbotWindow.style.display === 'flex') || (formWindow && formWindow.style.display === 'flex'); }
@@ -475,7 +487,7 @@ function initMenu() {
         const menuHTML = `
             <div class="bot-message">
                 ¡Hola <b>${userName}</b>! 👋<br>
-                Soy el asistente virtual de la <b>Institución Educativa Rafael Bucheli</b>.
+                Soy el asistente virtual de la <b>U.E Rafael Bucheli</b>.
                 ¿En qué puedo ayudarte hoy?
                 <div style="font-size: 12px; color: #666; margin-top: 10px;">
                     <i class="fas fa-info-circle"></i> Selecciona una opción:
@@ -483,27 +495,30 @@ function initMenu() {
             </div>
             <div class="options">
                 <button style="animation-delay: 0.1s" onclick="window.selectOption('academica')">
-                    <i class="fas fa-graduation-cap"></i> 🎓 Oferta Académica
+                    <i class="fas fa-graduation-cap"></i> Oferta Académica
                 </button>
                 <button style="animation-delay: 0.2s" onclick="window.selectOption('admisiones')">
-                    <i class="fas fa-file-invoice-dollar"></i> 📝 Admisiones y Costos
+                    <i class="fas fa-file-invoice-dollar"></i> Admisiones y Costos
                 </button>
                 <button style="animation-delay: 0.3s" onclick="window.selectOption('h_atencion')">
-                    <i class="fas fa-clock"></i> ⏰ Horarios de Atención
+                    <i class="fas fa-clock"></i> Horarios de Atención
                 </button>
                 <button style="animation-delay: 0.4s" onclick="window.selectOption('h_clases')">
-                    <i class="fas fa-calendar-alt"></i> 📚 Horario de Clases
+                    <i class="fas fa-calendar-alt"></i> Horario de Clases
                 </button>
                 <button style="animation-delay: 0.5s" onclick="window.selectOption('ubicacion')">
-                    <i class="fas fa-map-marker-alt"></i> 📍 Ubicación y Mapa
+                    <i class="fas fa-map-marker-alt"></i> Ubicación y Mapa
                 </button>
                 <button style="animation-delay: 0.6s" onclick="window.selectOption('asesor')">
-                    <i class="fas fa-user-tie"></i> 👨‍🏫 Hablar con Asesor
+                    <i class="fas fa-user-tie"></i> Hablar con Asesor
                 </button>
             </div>
         `;
+
+        // Asegurar que el contenido nuevo se vea desde arriba
+        messages.scrollTop = 0;
         messages.innerHTML = menuHTML;
-        messages.scrollTop = messages.scrollHeight;
+        messages.scrollTop = 0;
         chatHistory.push({ type: 'bot', content: 'Menú principal' });
     });
 }

@@ -1,4 +1,5 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html class="no-js" lang="es">
 <head>
     <meta charset="utf-8">
@@ -18,10 +19,10 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/loading.css">
     
-    <!-- ===== FONT AWESOME 6 ===== -->
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- ===== CHATBOT STYLES ===== -->
+    <!-- Chatbot -->
     <link rel="stylesheet" href="CHATBOT/CHATBOT.css">
     
     <!-- Google Fonts -->
@@ -30,7 +31,7 @@
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
     
     <style>
-        /* ===== VARIABLES DE COLOR ===== */
+        /* ===== VARIABLES ===== */
         :root {
             --primary-blue: #252855;
             --secondary-gray: #5d5d5c;
@@ -42,7 +43,6 @@
             --shadow-lg: 0 20px 40px rgba(37,40,85,0.15);
         }
 
-        /* ===== RESET ===== */
         * {
             margin: 0;
             padding: 0;
@@ -55,7 +55,6 @@
             background: var(--pure-white);
             color: var(--secondary-gray);
             line-height: 1.7;
-            font-weight: 400;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -64,20 +63,19 @@
             color: var(--primary-blue);
         }
 
-        /* ===== HEADER ELEGANTE ===== */
+        /* HEADER FIJO */
         .header-two {
             position: fixed !important;
-            left: 0 !important;
-            top: 0 !important;
-            width: 100% !important;
-            z-index: 9999 !important;
-            background: rgba(255,255,255,0.98) !important;
-            backdrop-filter: blur(10px) !important;
-            -webkit-backdrop-filter: blur(10px) !important;
-            box-shadow: var(--shadow-sm) !important;
-            border-bottom: 1px solid var(--border-light) !important;
-            padding: 0 !important;
-            transition: all 0.3s ease !important;
+            left: 0;
+            top: 0;
+            width: 100%;
+            z-index: 9999;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid var(--border-light);
+            padding: 0;
+            transition: all 0.3s ease;
         }
 
         .menu-style2 nav > ul > li > a {
@@ -85,303 +83,99 @@
             font-size: 14px;
             font-weight: 600;
             color: var(--primary-blue);
-            position: relative;
-            transition: all 0.3s ease;
-            letter-spacing: 0.3px;
             text-transform: uppercase;
             font-family: 'Montserrat', sans-serif;
             opacity: 0.85;
+            transition: all 0.3s;
         }
-
-        .menu-style2 nav > ul > li > a:hover {
-            color: var(--primary-blue);
-            opacity: 1;
-        }
-
-        .menu-style2 nav > ul > li > a:after {
-            content: '';
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: var(--primary-blue);
-            transition: width 0.3s ease;
-            transform: translateX(-50%);
-            opacity: 0.5;
-        }
-
-        .menu-style2 nav > ul > li > a:hover:after,
-        .menu-style2 nav > ul > li.active > a:after {
-            width: 25px;
-        }
-
-        .menu-style2 nav > ul > li.active > a {
-            color: var(--primary-blue);
-            font-weight: 700;
-            opacity: 1;
-        }
-
-        .middle-logo img {
-            max-height: 60px;
-            transition: all 0.3s ease;
-            filter: brightness(1);
-        }
-
-        .middle-logo:hover img {
-            transform: scale(1.03);
-        }
-
+        .menu-style2 nav > ul > li > a:hover { opacity: 1; }
+        .menu-style2 nav > ul > li.active > a { font-weight: 700; opacity: 1; }
+        .middle-logo img { max-height: 60px; transition: transform 0.3s; }
+        .middle-logo:hover img { transform: scale(1.03); }
         .btn-primary {
             background: var(--primary-blue) !important;
-            border: none !important;
-            color: var(--pure-white) !important;
+            border: none;
             border-radius: 50px !important;
             padding: 10px 24px !important;
-            font-weight: 600 !important;
-            transition: all 0.3s ease !important;
-            box-shadow: var(--shadow-sm) !important;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-size: 12px !important;
-            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            transition: all 0.3s;
         }
+        .btn-primary:hover { background: var(--secondary-gray) !important; transform: translateY(-2px); }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md) !important;
-            background: var(--secondary-gray) !important;
-        }
-
-        /* ===== HERO SECTION ===== */
+        /* HERO */
         .hero-section {
             position: relative;
             min-height: 100vh;
             display: flex;
             align-items: center;
-            overflow: hidden;
-            padding: 0;
             margin-top: 100px;
             background: var(--pure-white);
         }
-
         .hero-pattern {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             background-image: radial-gradient(var(--primary-blue) 0.5px, transparent 0.5px);
             background-size: 30px 30px;
             opacity: 0.03;
-            z-index: 1;
         }
-
-        .container {
-            position: relative;
-            z-index: 10;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        .min-vh-100 {
-            min-height: 100vh;
-        }
-
-        /* ===== CONTENIDO PRINCIPAL ===== */
-        .hero-content {
-            color: var(--secondary-gray);
-            padding-right: 40px;
-        }
-
+        .container { position: relative; z-index: 10; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        .hero-content { padding-right: 40px; }
         .hero-badge {
             display: inline-flex;
-            align-items: center;
-            background: rgba(37, 40, 85, 0.05);
+            background: rgba(37,40,85,0.05);
             padding: 8px 22px;
             border-radius: 60px;
             font-size: 13px;
             font-weight: 500;
-            margin-bottom: 30px;
             border: 1px solid var(--border-light);
             color: var(--primary-blue);
-            letter-spacing: 0.3px;
-            animation: fadeInDown 1s ease;
-            font-family: 'Montserrat', sans-serif;
-            text-transform: uppercase;
+            margin-bottom: 30px;
         }
-
-        .hero-badge i {
-            color: var(--secondary-gray);
-            margin-right: 8px;
-            font-size: 14px;
-            opacity: 0.7;
-        }
-
         .hero-title {
             font-size: clamp(42px, 7vw, 68px);
             font-weight: 800;
             line-height: 1.1;
-            margin-bottom: 20px;
             color: var(--primary-blue);
-            animation: fadeInUp 1s ease 0.2s both;
-            font-family: 'Montserrat', sans-serif;
-            letter-spacing: -0.5px;
         }
-
         .hero-title span {
             display: block;
             font-size: clamp(28px, 5vw, 42px);
-            font-weight: 400;
-            color: var(--secondary-gray);
-            font-family: 'Open Sans', sans-serif;
             font-weight: 300;
-            letter-spacing: 0px;
+            color: var(--secondary-gray);
             margin-top: 10px;
         }
-
-        .hero-text {
-            font-size: 18px;
-            line-height: 1.7;
-            margin-bottom: 40px;
-            max-width: 600px;
-            color: var(--secondary-gray);
-            animation: fadeInUp 1s ease 0.4s both;
-            font-weight: 400;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 50px;
-            margin-bottom: 45px;
-            animation: fadeInUp 1s ease 0.6s both;
-        }
-
-        .stat-item {
-            text-align: left;
-            position: relative;
-        }
-
-        .stat-item:not(:last-child):after {
-            content: '';
-            position: absolute;
-            right: -25px;
-            top: 15px;
-            height: 40px;
-            width: 1px;
-            background: var(--border-light);
-            transform: rotate(15deg);
-        }
-
-        .stat-number {
-            font-size: 48px;
-            font-weight: 800;
-            color: var(--primary-blue);
-            line-height: 1;
-            margin-bottom: 5px;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .stat-label {
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--secondary-gray);
-            opacity: 0.7;
-            font-weight: 500;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease 0.8s both;
-        }
-
-        .btn-primary-custom {
-            background: var(--primary-blue);
-            color: var(--pure-white);
+        .hero-text { font-size: 18px; margin-bottom: 40px; max-width: 600px; }
+        .hero-stats { display: flex; gap: 50px; margin-bottom: 45px; }
+        .stat-number { font-size: 48px; font-weight: 800; color: var(--primary-blue); line-height: 1; }
+        .stat-label { font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.7; }
+        .btn-primary-custom, .btn-secondary-custom {
             padding: 16px 38px;
             border-radius: 60px;
             font-weight: 600;
             font-size: 15px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            border: none;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .btn-primary-custom:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .btn-primary-custom:hover:before {
-            left: 100%;
-        }
-
-        .btn-primary-custom:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-            background: var(--secondary-gray);
-            color: var(--pure-white);
+            transition: all 0.3s;
             text-decoration: none;
         }
+        .btn-primary-custom { background: var(--primary-blue); color: white; border: none; }
+        .btn-primary-custom:hover { background: var(--secondary-gray); transform: translateY(-3px); color: white; }
+        .btn-secondary-custom { background: transparent; color: var(--primary-blue); border: 2px solid var(--border-light); }
+        .btn-secondary-custom:hover { background: var(--primary-blue); color: white; border-color: var(--primary-blue); }
 
-        .btn-secondary-custom {
-            background: transparent;
-            color: var(--primary-blue);
-            padding: 16px 38px;
-            border-radius: 60px;
-            font-weight: 600;
-            font-size: 15px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            border: 2px solid var(--border-light);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .btn-secondary-custom:hover {
-            background: var(--primary-blue);
-            color: var(--pure-white);
-            transform: translateY(-3px);
-            border-color: var(--primary-blue);
-            text-decoration: none;
-        }
-
-        /* ===== FORMULARIO ===== */
+        /* FORMULARIO */
         .hero-form {
-            background: var(--pure-white);
+            background: white;
             border-radius: 30px;
             padding: 45px 35px;
             border: 1px solid var(--border-light);
             box-shadow: var(--shadow-lg);
-            animation: fadeInRight 1s ease;
             position: relative;
         }
-
         .hero-form:before {
             content: '';
             position: absolute;
@@ -391,698 +185,210 @@
             height: 5px;
             background: var(--primary-blue);
             border-radius: 30px 30px 0 0;
-            opacity: 0.8;
         }
-
-        .hero-form h3 {
-            color: var(--primary-blue);
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 30px;
-            text-align: center;
-            font-family: 'Montserrat', sans-serif;
-            position: relative;
-        }
-
-        .hero-form h3:after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 2px;
-            background: var(--border-light);
-            margin: 15px auto 0;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-            position: relative;
-        }
-
+        .hero-form h3 { text-align: center; margin-bottom: 30px; }
         .form-control {
             width: 100%;
             padding: 15px 20px;
             background: var(--light-gray-bg);
             border: 1px solid var(--border-light);
             border-radius: 12px;
-            color: var(--secondary-gray);
-            font-size: 15px;
-            transition: all 0.3s ease;
-            height: auto;
-            font-family: 'Open Sans', sans-serif;
+            transition: 0.3s;
         }
-
-        .form-control:hover {
-            border-color: rgba(37, 40, 85, 0.3);
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary-blue);
-            background: var(--pure-white);
-            box-shadow: 0 0 0 3px rgba(37, 40, 85, 0.1);
-        }
-
-        .form-control::placeholder {
-            color: rgba(93, 93, 92, 0.5);
-            font-weight: 400;
-        }
-
-        /* ===== SOLUCIÓN DEFINITIVA PARA SELECT MÚLTIPLE ===== */
-        .custom-multi-select {
-            position: relative;
-            width: 100%;
-        }
-
+        .form-control:focus { outline: none; border-color: var(--primary-blue); box-shadow: 0 0 0 3px rgba(37,40,85,0.1); }
+        .custom-multi-select { position: relative; }
         .multi-select-toggle {
             display: flex;
-            align-items: center;
             justify-content: space-between;
             padding: 15px 20px;
             background: var(--light-gray-bg);
             border: 1px solid var(--border-light);
             border-radius: 12px;
-            font-size: 15px;
-            font-family: 'Open Sans', sans-serif;
             cursor: pointer;
-            transition: all 0.3s ease;
-            color: var(--secondary-gray);
-            user-select: none;
         }
-
-        .multi-select-toggle:hover {
-            border-color: rgba(37, 40, 85, 0.3);
-        }
-
-        .multi-select-toggle.open {
-            border-color: var(--primary-blue);
-            background: var(--pure-white);
-            box-shadow: 0 0 0 3px rgba(37, 40, 85, 0.1);
-        }
-
-        .multi-select-toggle .toggle-text {
-            color: var(--secondary-gray);
-        }
-
-        .multi-select-toggle .toggle-text.placeholder {
-            color: rgba(93, 93, 92, 0.5);
-        }
-
-        .multi-select-toggle .toggle-arrow {
-            transition: transform 0.3s ease;
-            color: var(--primary-blue);
-            font-size: 14px;
-        }
-
-        .multi-select-toggle.open .toggle-arrow {
-            transform: rotate(180deg);
-        }
-
         .multi-select-options {
             position: absolute;
-            top: calc(100% + 5px);
+            top: 100%;
             left: 0;
             width: 100%;
-            background: var(--pure-white);
+            background: white;
             border: 1px solid var(--border-light);
             border-radius: 12px;
             box-shadow: var(--shadow-lg);
+            display: none;
             z-index: 100;
-            padding: 10px 0;
-            display: none;
-            animation: fadeInUp 0.3s ease;
         }
-
-        .multi-select-options.show {
-            display: block;
-        }
-
-        .multi-select-option {
-            display: flex;
-            align-items: center;
-            padding: 12px 20px;
-            cursor: pointer;
-            font-size: 15px;
-            color: var(--secondary-gray);
-            transition: background 0.2s ease;
-        }
-
-        .multi-select-option:hover {
-            background: var(--light-gray-bg);
-        }
-
-        .multi-select-option input[type="checkbox"] {
-            margin-right: 12px;
-            width: 18px;
-            height: 18px;
-            accent-color: var(--primary-blue);
-            cursor: pointer;
-        }
-
-        .multi-select-option label {
-            margin: 0;
-            cursor: pointer;
-            flex: 1;
-        }
-
-        .form-control.error {
-            border-color: var(--secondary-gray);
-            background: rgba(93, 93, 92, 0.02);
-        }
-
-        .error-message {
-            color: var(--secondary-gray);
-            font-size: 12px;
-            margin-top: 5px;
-            margin-left: 10px;
-            display: none;
-            animation: fadeIn 0.3s ease;
-            font-weight: 500;
-            opacity: 0.8;
-        }
-
-        .form-control.error + .error-message {
-            display: block;
-        }
-
-        .custom-multi-select.error .multi-select-toggle {
-            border-color: var(--secondary-gray);
-            background: rgba(93, 93, 92, 0.02);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-5px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
+        .multi-select-options.show { display: block; }
+        .multi-select-option { padding: 12px 20px; display: flex; align-items: center; gap: 12px; }
+        .error-message { color: var(--secondary-gray); font-size: 12px; margin-top: 5px; display: none; }
+        .form-control.error, .custom-multi-select.error .multi-select-toggle { border-color: var(--secondary-gray); background: rgba(93,93,92,0.02); }
         .btn-submit {
             width: 100%;
             background: var(--primary-blue);
-            color: var(--pure-white);
+            color: white;
             padding: 16px;
             border-radius: 12px;
             font-weight: 600;
-            font-size: 15px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
             border: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
             margin-top: 10px;
-            position: relative;
-            overflow: hidden;
-            font-family: 'Montserrat', sans-serif;
+            transition: 0.3s;
         }
-
-        .btn-submit:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .btn-submit:hover:before {
-            left: 100%;
-        }
-
-        .btn-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-            background: var(--secondary-gray);
-        }
-
-        .form-note {
-            color: rgba(93, 93, 92, 0.6);
-            font-size: 12px;
-            text-align: center;
-            margin-top: 20px;
-            letter-spacing: 0.2px;
-        }
-
-        .form-note i {
-            color: var(--primary-blue);
-            margin-right: 5px;
-            opacity: 0.5;
-        }
-
-        /* Mensaje de éxito/error personalizado */
-        .form-message {
-            display: none;
-            margin-bottom: 20px;
-            padding: 12px;
-            border-radius: 12px;
-            font-size: 14px;
-            text-align: center;
-        }
-
-        /* ===== TARJETA FLOTANTE "CUPOS LIMITADOS" ===== */
+        .btn-submit:hover { background: var(--secondary-gray); transform: translateY(-2px); }
+        .form-message { display: none; margin-bottom: 20px; padding: 12px; border-radius: 12px; text-align: center; }
         .floating-card {
             position: absolute;
             bottom: 50px;
             right: 50px;
-            background: var(--pure-white);
+            background: white;
             padding: 25px 35px;
             border-radius: 20px;
             box-shadow: 0 30px 60px rgba(0,0,0,0.3);
-            z-index: 20;
-            animation: floatCard 4s ease-in-out infinite;
             border-left: 6px solid var(--primary-blue);
             display: flex;
             align-items: center;
             gap: 20px;
+            animation: floatCard 4s infinite;
+            z-index: 20;
         }
+        @keyframes floatCard { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-20px); } }
 
-        .floating-card i {
-            font-size: 48px;
-            color: var(--primary-blue);
-        }
-
-        .floating-card p {
-            margin: 0;
-            font-weight: 800;
-            color: var(--primary-blue);
-            font-size: 20px;
-            line-height: 1.3;
-        }
-
-        .floating-card small {
-            display: block;
-            color: var(--secondary-gray);
-            font-size: 14px;
-            font-weight: 400;
-        }
-
-        @keyframes floatCard {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* ===== SECCIÓN DE PASOS ===== */
-        .steps-section {
-            padding: 80px 0;
-            background: #f8fafd;
-        }
-
-        .section-title-center {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title-center span {
-            display: inline-block;
-            color: var(--primary-blue);
-            font-weight: 600;
-            font-size: 16px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-        }
-
-        .section-title-center h2 {
-            font-size: 42px;
-            font-weight: 800;
-            color: var(--primary-blue);
-            margin-bottom: 20px;
-        }
-
-        .section-title-center p {
-            font-size: 18px;
-            color: var(--secondary-gray);
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.7;
-        }
-
-        .steps-grid {
+        /* PROCESO MEJORADO */
+        .steps-section { padding: 80px 0; background: #f8fafd; }
+        .section-title-center { text-align: center; margin-bottom: 60px; }
+        .section-title-center span { color: var(--primary-blue); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; }
+        .section-title-center h2 { font-size: 42px; margin: 15px 0 20px; }
+        .process-grid {
             display: flex;
             flex-wrap: wrap;
-            margin: 0 -15px;
             justify-content: center;
+            gap: 30px;
         }
-
-        .step-item {
-            width: calc(33.333% - 30px);
-            margin: 0 15px 30px;
-            background: var(--pure-white);
-            border-radius: 20px;
-            padding: 35px 25px;
-            box-shadow: 0 10px 30px rgba(37,40,85,0.08);
+        .process-card {
+            background: white;
+            border-radius: 24px;
+            padding: 35px 28px;
+            box-shadow: var(--shadow-sm);
             transition: all 0.3s ease;
-            position: relative;
-            border: 1px solid rgba(37,40,85,0.05);
+            width: calc(33.333% - 30px);
+            border: 1px solid var(--border-light);
         }
-
-        .step-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(37,40,85,0.15);
-            border-color: var(--primary-blue);
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
+        .process-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); border-color: var(--primary-blue); }
+        .process-icon {
+            width: 70px;
+            height: 70px;
             background: var(--primary-blue);
-            color: var(--pure-white);
+            color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
-            font-weight: 700;
+            font-size: 32px;
             margin-bottom: 25px;
-            box-shadow: 0 10px 20px rgba(37,40,85,0.2);
         }
-
-        .step-item h3 {
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--primary-blue);
-            margin-bottom: 20px;
-        }
-
-        .step-item p {
-            color: var(--secondary-gray);
-            font-size: 15px;
-            line-height: 1.7;
-            margin-bottom: 15px;
-        }
-
-        .step-item .step-detail {
-            background: #f8fafd;
-            padding: 15px;
-            border-radius: 12px;
-            margin-top: 15px;
-            border-left: 3px solid var(--primary-blue);
-        }
-
-        .step-item .step-detail p {
-            margin-bottom: 8px;
-            font-size: 14px;
-            color: var(--secondary-gray);
-        }
-
-        .step-item .step-detail i {
-            color: var(--primary-blue);
-            margin-right: 8px;
-            font-size: 14px;
-        }
-
-        .step-item ul {
-            list-style: none;
-            padding: 0;
-            margin: 15px 0 0;
-        }
-
-        .step-item ul li {
-            color: var(--secondary-gray);
-            font-size: 14px;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .step-item ul li i {
-            color: var(--primary-blue);
-            margin-right: 10px;
-            font-size: 14px;
-            margin-top: 3px;
-        }
-
-        .step-item .highlight {
-            color: var(--primary-blue);
+        .process-card h3 { font-size: 24px; margin-bottom: 15px; }
+        .process-card p { color: var(--secondary-gray); margin-bottom: 15px; }
+        .badge-info {
+            display: inline-block;
+            background: rgba(37,40,85,0.08);
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 13px;
             font-weight: 600;
+            color: var(--primary-blue);
+            margin-top: 12px;
         }
+        .highlight-text { color: var(--primary-blue); font-weight: 600; }
+        .list-check { list-style: none; padding-left: 0; margin-top: 12px; }
+        .list-check li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; font-size: 14px; }
+        .list-check li i { color: var(--primary-blue); width: 20px; }
 
-        /* ===== TARJETAS DE REQUISITOS ===== */
+        /* REQUISITOS + PDF */
         .requisitos-card {
-            background: var(--pure-white);
-            border-radius: 20px;
-            padding: 40px 30px;
-            box-shadow: 0 10px 30px rgba(37,40,85,0.08);
-            height: 100%;
+            background: white;
+            border-radius: 24px;
+            padding: 40px 35px;
+            box-shadow: var(--shadow-sm);
         }
-
-        .requisitos-card h4 {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary-blue);
-            margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .requisitos-card h4 i {
-            color: var(--primary-blue);
-            font-size: 28px;
-        }
-
         .requisito-item {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 15px;
-            padding: 12px 15px;
-            background: #f8fafd;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .requisito-item:hover {
-            background: var(--pure-white);
-            box-shadow: 0 5px 15px rgba(37,40,85,0.08);
-            transform: translateX(5px);
-        }
-
-        .requisito-item i {
-            color: var(--primary-blue);
-            font-size: 20px;
-            margin-right: 15px;
-            min-width: 25px;
-            text-align: center;
-        }
-
-        .requisito-item span {
-            color: var(--secondary-gray);
-            font-size: 15px;
-            line-height: 1.5;
-        }
-
-        .requisito-item strong {
-            color: var(--primary-blue);
-            font-weight: 600;
-        }
-
-        /* ===== CONTACT CARDS ===== */
-        .contact-card-modern {
-            background: var(--pure-white);
-            border-radius: 20px;
-            padding: 35px 25px;
-            box-shadow: 0 15px 40px rgba(37, 40, 85, 0.08);
-            transition: all 0.3s ease;
-            height: 100%;
-            border: 1px solid rgba(37, 40, 85, 0.05);
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-        }
-        .contact-card-modern:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(37, 40, 85, 0.15);
-            border-color: rgba(37, 40, 85, 0.1);
-        }
-        .contact-card-modern .icon-wrapper {
-            width: 80px;
-            height: 80px;
-            background: rgba(37, 40, 85, 0.05);
-            border-radius: 50%;
-            display: flex;
             align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            transition: all 0.3s ease;
+            gap: 16px;
+            padding: 14px 18px;
+            background: #f8fafd;
+            border-radius: 16px;
+            margin-bottom: 14px;
+            transition: 0.2s;
         }
-        .contact-card-modern:hover .icon-wrapper {
+        .requisito-item i { color: var(--primary-blue); font-size: 22px; min-width: 28px; }
+        .btn-download-pdf {
             background: var(--primary-blue);
-            transform: scale(1.1);
-        }
-        .contact-card-modern:hover .icon-wrapper i {
-            color: white !important;
-        }
-        .contact-card-modern .icon-wrapper i {
-            font-size: 36px;
-            color: var(--primary-blue);
-            transition: all 0.3s ease;
-        }
-        .contact-card-modern h4 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--primary-blue) !important;
-            position: relative;
-            padding-bottom: 15px;
-        }
-        .contact-card-modern h4:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 2px;
-            background: var(--primary-blue);
-            opacity: 0.3;
-        }
-        .contact-card-modern p {
-            margin-bottom: 10px;
-            color: var(--secondary-gray);
-            font-size: 16px;
-            line-height: 1.8;
-        }
-        .contact-card-modern p strong {
-            color: var(--primary-blue);
-            font-weight: 600;
-        }
-        .contact-card-modern .highlight-badge {
-            display: inline-block;
-            background: rgba(37, 40, 85, 0.05);
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-size: 14px;
-            color: var(--primary-blue);
-            margin-top: 15px;
-            font-weight: 600;
-        }
-
-        /* ===== FAQ CARDS ===== */
-        .faq-card-modern {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 15px;
-            margin-bottom: 15px;
-            overflow: hidden;
-        }
-        .faq-card-modern .card-header {
-            background: transparent;
+            color: white;
             border: none;
-            padding: 0;
-        }
-        .faq-card-modern .btn-link {
-            color: #ffffff !important;
-            text-decoration: none;
-            padding: 20px 25px;
-            width: 100%;
-            text-align: left;
-            font-size: 18px;
+            border-radius: 60px;
+            padding: 14px 32px;
             font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 20px;
+            transition: 0.3s;
         }
-        .faq-card-modern .btn-link:hover {
-            text-decoration: none;
-            background: rgba(255,255,255,0.05);
+        .btn-download-pdf:hover { background: var(--secondary-gray); transform: translateY(-3px); }
+        .contact-card-modern {
+            background: white;
+            border-radius: 24px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            height: 100%;
         }
-        .faq-card-modern .card-body {
-            padding: 0 25px 25px;
-            color: #ffffff !important;
+        .faq-card-modern {
+            background: rgba(255,255,255,0.08);
+            border-radius: 20px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(4px);
         }
-        .faq-card-modern .card-body p,
-        .faq-card-modern .card-body strong {
-            color: #ffffff !important;
-        }
+        .faq-card-modern .btn-link { color: white !important; text-decoration: none; font-weight: 600; padding: 20px 25px; width: 100%; text-align: left; }
+        .faq-card-modern .card-body { color: white; padding: 0 25px 25px; }
+        footer { background: #141b28; color: white; }
+        .footer-top { padding: 80px 0 30px; }
+        .social { display: flex; gap: 15px; list-style: none; margin-top: 20px; }
+        .social a { color: white; font-size: 20px; transition: 0.3s; }
+        .social a:hover { color: var(--primary-blue); }
 
-        /* ===== ANIMACIONES ===== */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInRight {
-            from { opacity: 0; transform: translateX(30px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
-            100% { transform: translateY(0px); }
-        }
-        .float {
-            animation: float 5s ease-in-out infinite;
-        }
-
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 991px) {
-            .hero-stats { gap: 30px; }
-            .stat-item:not(:last-child):after { display: none; }
-            .hero-form { margin-top: 50px; }
-            .hero-content { padding-right: 0; text-align: center; }
-            .hero-buttons { justify-content: center; }
-            .hero-stats { justify-content: center; }
-            .stat-item { text-align: center; }
-            .hero-text { margin-left: auto; margin-right: auto; }
-            .step-item { width: calc(50% - 30px); }
+            .process-card { width: calc(50% - 30px); }
             .floating-card { display: none; }
+            .hero-content { text-align: center; padding-right: 0; }
+            .hero-stats { justify-content: center; }
         }
-
         @media (max-width: 768px) {
-            .hero-buttons { flex-direction: column; align-items: center; }
-            .btn-primary-custom, .btn-secondary-custom { width: 100%; justify-content: center; }
-            .hero-stats { gap: 20px; flex-wrap: wrap; }
+            .process-card { width: 100%; }
             .hero-title { font-size: 38px; }
-            .hero-title span { font-size: 26px; }
-            .hero-form { padding: 35px 25px; }
-            .hero-form h3 { font-size: 24px; }
-            .stat-number { font-size: 36px; }
-            .step-item { width: calc(100% - 30px); }
-            .section-title-center h2 { font-size: 32px; }
         }
     </style>
 </head>
-
 <body>
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="loader"></div>
-    </div>
+    <div id="preloader"><div class="loader"></div></div>
     
-    <!-- Header -->
     <header id="header">
         <div class="header-two">
             <div class="container-fluid px-0">
                 <div class="row align-items-center g-0 mx-0">
-                    <div class="col-lg-3 col-sm-6 d-block d-lg-none">
-                        <div class="logo">
-                            <a href="inicio.html"><img src="assets/images/icon/logo.png" alt="logo"></a>
-                        </div>
-                    </div>
+                    <div class="col-lg-3 col-sm-6 d-block d-lg-none"><div class="logo"><a href="inicio.html"><img src="assets/images/icon/logo.png" alt="logo"></a></div></div>
                     <div class="col-lg-9 offset-lg-1 d-none d-lg-block">
                         <div class="main-menu menu-style2">
                             <nav>
                                 <ul id="m_menu_active">
                                     <li><a href="inicio.html">Inicio</a></li>
                                     <li><a href="javascript:void(0);">Oferta Academica</a>
-                                        <ul class="submenu">
-                                            <li><a href="oferta_academica.html">Academia</a></li>
-                                            <li><a href="actividades_extracurriculares.html">Clubes</a></li>
-                                        </ul>
+                                        <ul class="submenu"><li><a href="oferta_academica.html">Academia</a></li><li><a href="actividades_extracurriculares.html">Clubes</a></li></ul>
                                     </li>
                                     <li class="active"><a href="admisiones.html">Postulación / Registro</a></li>
-                                    <li class="middle-logo">
-                                        <a href="inicio.html">
-                                            <img src="assets/images/icon/logo-middle.png" alt="logo">
-                                        </a>
-                                    </li>
+                                    <li class="middle-logo"><a href="inicio.html"><img src="assets/images/icon/logo-middle.png" alt="logo"></a></li>
                                     <li><a href="servicios.html">Servicios</a></li>
                                     <li><a href="nosotros.html">Nosotros</a>
-                                        <ul class="submenu">
-                                            <li><a href="nosotros.html">Visión y Misión</a></li>
-                                            <li><a href="nosotros.html">Proyectos</a></li>
-                                            <li><a href="nosotros.html">Blog</a></li>
-                                        </ul>
+                                        <ul class="submenu"><li><a href="nosotros.html">Visión y Misión</a></li><li><a href="nosotros.html">Proyectos</a></li><li><a href="nosotros.html">Blog</a></li></ul>
                                     </li>
                                     <li><a href="contacto.html">Contacto</a></li>
                                 </ul>
@@ -1091,491 +397,196 @@
                     </div>
                     <div class="col-lg-2 col-sm-5">
                         <div class="header-bottom-right-style-2">
-                            <ul>
-                                <li>
-                                    <a href="https://app.rafaelbucheli.com/login/?next=/" 
-                                    class="btn btn-primary" 
-                                    target="_blank">
-                                    <i class="fas fa-user"></i> SIGN UP
-                                    </a>
-                                </li>
-                            </ul>
+                            <ul><li><a href="https://app.rafaelbucheli.com/login/?next=/" class="btn btn-primary" target="_blank"><i class="fas fa-user"></i> SIGN UP</a></li></ul>
                         </div>
                     </div>
-                    <div class="col-12 d-block d-lg-none">
-                        <div id="mobile_menu"></div>
-                    </div>
+                    <div class="col-12 d-block d-lg-none"><div id="mobile_menu"></div></div>
                 </div>
             </div>
         </div>
     </header>
     
-    <!-- Offset Search -->
-    <div class="offset-search">
-        <form action="#">
-            <input type="text" name="search" placeholder="Buscar aquí...">
-            <button type="submit"><i class="fas fa-search"></i></button>
-        </form>
-    </div>
-    
-    <!-- Body Overlay -->
+    <div class="offset-search"><form action="#"><input type="text" name="search" placeholder="Buscar aquí..."><button type="submit"><i class="fas fa-search"></i></button></form></div>
     <div class="body_overlay"></div>
 
-    <!-- HERO SECTION (Landing Page) + TARJETA FLOTANTE -->
+    <!-- HERO SECTION -->
     <section class="hero-section">
         <div class="hero-pattern"></div>
-        
         <div class="container">
             <div class="row align-items-center min-vh-100">
                 <div class="col-lg-7">
                     <div class="hero-content">
-                        <div class="hero-badge">
-                            <i class="fas fa-star"></i> Excelencia Educativa desde 1978
-                        </div>
-                        
-                        <h1 class="hero-title">
-                            El Futuro de tus Hijos
-                            <span>Comienza Aquí</span>
-                        </h1>
-                        
-                        <p class="hero-text">
-                            Descubre una educación innovadora que combina metodologías de vanguardia, valores sólidos y formación académica de excelencia.
-                        </p>
-                        
+                        <div class="hero-badge"><i class="fas fa-star"></i> Excelencia Educativa desde 1978</div>
+                        <h1 class="hero-title">El Futuro de tus Hijos<span>Comienza Aquí</span></h1>
+                        <p class="hero-text">Descubre una educación innovadora que combina metodologías de vanguardia, valores sólidos y formación académica de excelencia.</p>
                         <div class="hero-stats">
-                            <div class="stat-item">
-                                <div class="stat-number">45+</div>
-                                <div class="stat-label">Años</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">1200</div>
-                                <div class="stat-label">Estudiantes</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">98%</div>
-                                <div class="stat-label">Aprobación</div>
-                            </div>
+                            <div><div class="stat-number">45+</div><div class="stat-label">Años</div></div>
+                            <div><div class="stat-number">1200</div><div class="stat-label">Estudiantes</div></div>
+                            <div><div class="stat-number">98%</div><div class="stat-label">Aprobación</div></div>
                         </div>
-                        
                         <div class="hero-buttons">
-                            <a href="#formulario" class="btn-primary-custom">
-                                <i class="fas fa-pen-to-square"></i> Solicitar Información
-                            </a>
-                            <a href="contacto.html" class="btn-secondary-custom">
-                                <i class="fas fa-calendar"></i> Agendar Visita
-                            </a>
+                            <a href="#formulario" class="btn-primary-custom"><i class="fas fa-pen-to-square"></i> Solicitar Información</a>
+                            <a href="contacto.html" class="btn-secondary-custom"><i class="fas fa-calendar"></i> Agendar Visita</a>
                         </div>
                     </div>
                 </div>
-                
                 <div class="col-lg-5">
                     <div class="hero-form float" id="formulario">
-                        <h3>¡Inscripciones 2026!</h3>
-                        
-                        <!-- Mensaje dinámico de éxito/error -->
+                        <h3>¡Información de inscripciones 2026!</h3>
                         <div id="formMessage" class="form-message"></div>
-                        
-                        <!-- FORMULARIO CON FETCH (SIN RECARGA) -->
                         <form id="contactForm">
                             <input type="hidden" name="access_key" value="814d1db1-ce19-48fb-b395-910b5a947ae1">
-                            
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="nombre" name="name" placeholder="Nombre completo" required>
-                                <div class="error-message">Por favor ingresa tu nombre</div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Correo electrónico" required>
-                                <div class="error-message">Por favor ingresa un email válido</div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <input type="tel" class="form-control" id="telefono" name="phone" placeholder="Teléfono" required>
-                                <div class="error-message">Por favor ingresa tu teléfono</div>
-                            </div>
-                            
-                            <!-- Selector múltiple de niveles -->
+                            <div class="form-group"><input type="text" class="form-control" id="nombre" name="name" placeholder="Nombre completo" required><div class="error-message">Nombre requerido</div></div>
+                            <div class="form-group"><input type="email" class="form-control" id="email" name="email" placeholder="Correo electrónico" required><div class="error-message">Email válido</div></div>
+                            <div class="form-group"><input type="tel" class="form-control" id="telefono" name="phone" placeholder="Teléfono" required><div class="error-message">Teléfono requerido</div></div>
                             <div class="form-group">
                                 <div class="custom-multi-select" id="nivelMultiSelect">
-                                    <div class="multi-select-toggle" onclick="toggleMultiSelect()">
-                                        <span class="toggle-text placeholder">Selecciona nivel(es) educativo(s)</span>
-                                        <i class="fas fa-chevron-down toggle-arrow"></i>
-                                    </div>
+                                    <div class="multi-select-toggle" onclick="toggleMultiSelect()"><span class="toggle-text placeholder">Selecciona nivel(es) educativo(s)</span><i class="fas fa-chevron-down toggle-arrow"></i></div>
                                     <div class="multi-select-options">
-                                        <div class="multi-select-option">
-                                            <input type="checkbox" id="nivelInicial" value="Inicial">
-                                            <label for="nivelInicial">Educación Inicial (3-5 años)</label>
-                                        </div>
-                                        <div class="multi-select-option">
-                                            <input type="checkbox" id="nivelPrimaria" value="Primaria">
-                                            <label for="nivelPrimaria">Educación Primaria (6-11 años)</label>
-                                        </div>
-                                        <div class="multi-select-option">
-                                            <input type="checkbox" id="nivelBachillerato" value="Bachillerato">
-                                            <label for="nivelBachillerato">Bachillerato (12-17 años)</label>
-                                        </div>
+                                        <div class="multi-select-option"><input type="checkbox" id="nivelInicial" value="Inicial"><label for="nivelInicial">Educación Inicial</label></div>
+                                        <div class="multi-select-option"><input type="checkbox" id="nivelPrimaria" value="Primaria"><label for="nivelPrimaria">Educación Primaria</label></div>
+                                        <div class="multi-select-option"><input type="checkbox" id="nivelBachillerato" value="Bachillerato"><label for="nivelBachillerato">Bachillerato</label></div>
                                     </div>
                                 </div>
                                 <input type="hidden" name="Nivel" id="nivelHidden">
-                                <div class="error-message" id="nivelError">Por favor selecciona al menos un nivel</div>
+                                <div class="error-message" id="nivelError">Selecciona al menos un nivel</div>
                             </div>
-                            
-                            <!-- hCaptcha -->
                             <div class="h-captcha" data-captcha="true"></div>
-                            
-                            <button type="submit" class="btn-submit" id="submitBtn">
-                                <i class="fas fa-paper-plane"></i> Enviar solicitud
-                            </button>
+                            <button type="submit" class="btn-submit" id="submitBtn"><i class="fas fa-paper-plane"></i> Enviar solicitud</button>
                         </form>
-                        <div class="form-note">
-                            <i class="fas fa-lock"></i> Al enviar aceptas nuestras políticas de privacidad
-                        </div>
+                        <div class="text-center mt-3 small"><i class="fas fa-lock"></i> Al enviar aceptas nuestras políticas</div>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <!-- Tarjeta flotante "Cupos limitados" -->
-        <div class="floating-card">
-            <i class="fas fa-graduation-cap"></i>
-            <div>
-                <p>Cupos limitados 2026</p>
-                <small>Inicia tu proceso hoy</small>
-            </div>
-        </div>
+        <div class="floating-card"><i class="fas fa-graduation-cap"></i><div><p>Cupos limitados 2026</p><small>Inicia tu proceso hoy</small></div></div>
     </section>
-    <!-- HERO SECTION END -->
 
-    <!-- SECCIÓN DE PASOS - 6 PASOS EN 3+3 -->
+    <!-- PROCESO DE ADMISIÓN (MEJORADO) -->
     <div class="steps-section">
         <div class="container">
             <div class="section-title-center">
-                <span>PROCESO DE ADMISIÓN</span>
-                <h2>6 pasos para formar parte</h2>
-                <p>Te guiamos en cada etapa para que la inscripción sea rápida y sencilla</p>
+                <span>PROCESO DE ADMISIÓN 2026</span>
+                <h2>Te guiamos paso a paso</h2>
+                <p>Desde tu primera consulta hasta la matrícula definitiva, te acompañamos en cada etapa.</p>
             </div>
-            
-            <div class="steps-grid">
-                <div class="step-item">
-                    <div class="step-number">1</div>
-                    <h3>Solicitud de Información</h3>
-                    <p>Acude presencial a secretaría para recibir información del proceso.</p>
-                    <div class="step-detail">
-                        <p><i class="fas fa-envelope"></i> Te enviaremos un formulario a tu correo</p>
-                    </div>
+            <div class="process-grid">
+                <!-- 1. Información + Visita guiada (UNIDOS) -->
+                <div class="process-card">
+                    <div class="process-icon"><i class="fas fa-info-circle"></i></div>
+                    <h3>Información y Visita Guiada</h3>
+                    <p>Acude a secretaría para recibir información completa. <strong class="highlight-text">Visita guiada:</strong> Lunes a viernes de 9:00 a 16:00 (cita previa). Conoce instalaciones, programas, valores y costos. Duración aprox. 45 min.</p>
+                    <div class="badge-info"><i class="fas fa-envelope"></i> Te enviaremos un correo con los pasos a seguir</div>
                 </div>
-                
-                <div class="step-item">
-                    <div class="step-number">2</div>
-                    <h3>Visita Guiada</h3>
-                    <p><span class="highlight">Inicio:</span> Sábado 06 de marzo | 8:00 - 9:00</p>
-                    <p>Conoce nuestras instalaciones, programas académicos, valores y costos.</p>
+                <!-- 2. Inscripción Formal (pago primero) -->
+                <div class="process-card">
+                    <div class="process-icon"><i class="fas fa-credit-card"></i></div>
+                    <h3>Inscripción Formal</h3>
+                    <p><strong class="highlight-text">Primero realiza el pago único de inscripción</strong> (consultar valor en secretaría). Una vez pagado, recibirás el formulario digital para completar tus datos.</p>
+                    <div class="badge-info"><i class="fas fa-dollar-sign"></i> Pago obligatorio antes del formulario</div>
                 </div>
-                
-                <div class="step-item">
-                    <div class="step-number">3</div>
-                    <h3>Entrega de Documentos</h3>
-                    <p>Después de la visita, entrega en secretaría:</p>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> Copia de cédula del estudiante y representante</li>
-                        <li><i class="fas fa-check-circle"></i> Reporte de calificaciones (2do trimestre)</li>
-                        <li><i class="fas fa-check-circle"></i> Planilla de servicio básico</li>
-                        <li><i class="fas fa-check-circle"></i> Certificado de no adeudar pensiones</li>
+                <!-- 3. Evaluación + DECE (juntos, diseño elegante) -->
+                <div class="process-card">
+                    <div class="process-icon"><i class="fas fa-chalkboard-user"></i></div>
+                    <h3>Evaluación y Entrevista DECE</h3>
+                    <p>Ambos procesos se realizan de manera <strong class="highlight-text">conjunta</strong> en la misma jornada. Se agenda previamente.</p>
+                    <ul class="list-check">
+                        <li><i class="fas fa-check-circle"></i> <strong>Evaluación:</strong> Lengua, Matemática e Inglés (viernes 14:00-15:30).</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Entrevista DECE:</strong> Psicopedagógica, participan estudiante y representante.</li>
                     </ul>
+                    <div class="badge-info"><i class="fas fa-bell"></i> Notificación con 24h vía email/WhatsApp</div>
                 </div>
-                
-                <div class="step-item">
-                    <div class="step-number">4</div>
-                    <h3>Evaluación Académica</h3>
-                    <p><span class="highlight">Viernes de cada semana | 14:00 - 15:30</span></p>
-                    <p>Lengua, Matemática e Inglés. Se notificará con 24h vía email/WhatsApp.</p>
-                </div>
-                
-                <div class="step-item">
-                    <div class="step-number">5</div>
-                    <h3>Entrevista en el DECE</h3>
-                    <p><span class="highlight">Evaluación Psicopedagógica</span></p>
-                    <p>Entrevista personalizada con el Departamento de Consejería Estudiantil para conocer las necesidades y fortalezas del estudiante.</p>
-                    <div class="step-detail">
-                        <p><i class="fas fa-calendar"></i> Se agenda de manera independiente</p>
-                        <p><i class="fas fa-users"></i> Participan: estudiante y representante</p>
-                    </div>
-                </div>
-                
-                <div class="step-item">
-                    <div class="step-number">6</div>
-                    <h3>Pago de Matrícula</h3>
-                    <p>Evaluaciones aprobadas, te enviaremos:</p>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> Tarifas de matrícula</li>
-                        <li><i class="fas fa-check-circle"></i> Métodos de pago disponibles</li>
-                        <li><i class="fas fa-check-circle"></i> Números de cuenta</li>
-                    </ul>
-                    <div class="step-detail">
-                        <p><span class="highlight">¡Realiza el pago y asegura el cupo!</span></p>
-                    </div>
+                <!-- 4. Matrícula Definitiva + PDF -->
+                <div class="process-card">
+                    <div class="process-icon"><i class="fas fa-file-signature"></i></div>
+                    <h3>Matrícula Definitiva</h3>
+                    <p>Una vez aprobadas la evaluación y entrevista, se presentan los documentos de matrícula. Descarga la lista oficial más abajo.</p>
+                    <div class="badge-info"><i class="fas fa-download"></i> Requisitos disponibles en PDF</div>
                 </div>
             </div>
-            
             <div class="text-center mt-5">
-                <a href="#formulario" class="btn btn-primary btn-round btn-lg" style="padding: 15px 45px; background: var(--primary-blue); color: white;">
-                    <i class="fas fa-pencil mr-2"></i> Iniciar mi Solicitud
-                </a>
+                <a href="#formulario" class="btn-primary-custom" style="padding: 14px 35px;"><i class="fas fa-pencil-alt"></i> Iniciar mi proceso</a>
             </div>
         </div>
     </div>
-    <!-- SECCIÓN DE PASOS END -->
 
-    <!-- SECCIÓN DE REQUISITOS -->
-    <div id="requisitos" class="course-area pt--80 pb--70" style="background: #f8fafd;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 offset-md-1">
-                    <div class="section-title-center" style="margin-bottom: 40px;">
-                        <span>DOCUMENTACIÓN NECESARIA</span>
-                        <h2>Requisitos para la Inscripción 2026</h2>
-                        <p>Asegúrate de tener todos los documentos antes de iniciar el proceso</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-lg-6 mb-4">
-                    <div class="requisitos-card">
-                        <h4>
-                            <i class="fas fa-id-card"></i> Documentos Generales
-                        </h4>
-                        <div class="requisito-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span><strong>Copia de la cédula</strong> del estudiante y del representante</span>
-                        </div>
-                        <div class="requisito-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span><strong>Planilla de servicio básico</strong> a nombre del representante</span>
-                        </div>
-                        <div class="requisito-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span><strong>Certificado de no adeudar pensiones</strong> (si viene de otro particular)</span>
-                        </div>
-                        <div class="requisito-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span><strong>Reporte de calificaciones</strong> del segundo trimestre</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-6 mb-4">
-                    <div class="requisitos-card">
-                        <h4>
-                            <i class="fas fa-calendar"></i> Fechas Importantes
-                        </h4>
-                        <div class="requisito-item">
-                            <i class="fas fa-calendar-check"></i>
-                            <span><strong>Inscripciones:</strong> lunes 2 de marzo del 2026</span>
-                        </div>
-                        <div class="requisito-item">
-                            <i class="fas fa-calendar-check"></i>
-                            <span><strong>Horario:</strong> 8:00 - 13:00 y 14:00 - 16:00</span>
-                        </div>
-                        <div class="requisito-item">
-                            <i class="fas fa-calendar-check"></i>
-                            <span><strong>Visita institucional:</strong> sábado 06 de marzo, 8:00 - 9:00</span>
-                        </div>
-                        <div class="requisito-item">
-                            <i class="fas fa-calendar-check"></i>
-                            <span><strong>Evaluaciones:</strong> viernes 14:00 - 15:30 (previa notificación)</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- SECCIÓN DE REQUISITOS END -->
-
-    <!-- SECCIÓN DE CONTACTO -->
-    <div class="contact-area pt--80 pb--80" style="background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);">
+    <!-- REQUISITOS MATRÍCULA + BOTÓN PDF (SOLO BOTÓN) -->
+    <div id="requisitos" style="background: #f8fafd; padding: 80px 0;">
         <div class="container">
             <div class="row">
                 <div class="col-md-10 offset-md-1">
                     <div class="section-title-center">
-                        <span>ESTAMOS PARA SERVIRTE</span>
-                        <h2>Oficina de Admisiones</h2>
-                        <p>Visítanos, llámanos o escríbenos. Te atenderemos con gusto</p>
+                        <span>DOCUMENTACIÓN NECESARIA</span>
+                        <h2>Requisitos para la Matrícula 2026</h2>
+                        <p>Presenta estos documentos en secretaría una vez superado el proceso de admisión.</p>
                     </div>
                 </div>
             </div>
-            
-            <div class="row mt-5">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="contact-card-modern">
-                        <div class="icon-wrapper">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <h4>Dirección</h4>
-                        <p><strong>Av. Rumichaca Ñan</strong> y Av. Morán Valverde</p>
-                        <p>Sector Quitumbe, Quito</p>
-                        <div class="highlight-badge">
-                            <i class="fas fa-car mr-1"></i> Parqueadero disponible
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="contact-card-modern">
-                        <div class="icon-wrapper">
-                            <i class="far fa-clock"></i>
-                        </div>
-                        <h4>Horario</h4>
-                        <p><strong>Lunes a Viernes</strong></p>
-                        <p>08:00 - 12:00 | 14:00 - 16:00</p>
-                        <p><strong>Sábados:</strong> 09:00 - 12:00 (cita previa)</p>
-                        <div class="highlight-badge">
-                            <i class="fas fa-calendar-check mr-1"></i> Visitas: sábados 8:00 - 9:00
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="contact-card-modern">
-                        <div class="icon-wrapper">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h4>Contacto</h4>
-                        <p><i class="far fa-envelope primary-color mr-2"></i> admisiones@rafaelbucheli.com</p>
-                        <p><i class="fas fa-phone primary-color mr-2"></i> (02) 303-5139</p>
-                        <p><i class="fab fa-whatsapp primary-color mr-2"></i> +593 99 554 9605</p> 
-                    </div>
-                </div>
-            </div>
-            
-            <div class="row mt-4">
-                <div class="col-12 text-center">
-                    <a href="https://maps.app.goo.gl/yoyJfJXWdAaameNaA" target="_blank" class="btn btn-outline-primary btn-round btn-lg" style="padding: 12px 35px; margin: 0 5px; border-color: var(--primary-blue); color: var(--primary-blue);">
-                        <i class="fas fa-map mr-2"></i> Cómo llegar
-                    </a>
-                    <a href="https://wa.me/593995549605?text=Hola,%20quiero%20información%20sobre%20admisiones" target="_blank" class="btn btn-primary btn-round btn-lg" style="padding: 12px 35px; margin: 0 5px; background: var(--primary-blue); color: white;">
-                        <i class="fab fa-whatsapp mr-2"></i> WhatsApp
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- SECCIÓN DE CONTACTO END -->
-
-    <!-- SECCIÓN DE PREGUNTAS FRECUENTES -->
-    <div class="testimonial-area ptb--120" style="background: linear-gradient(135deg, #141b28, #141d33);">
-        <img class="tst-bg" src="assets/images/bg/tst-bg-shape.png" alt="image">
-        <div class="container">
             <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <div class="section-title sec-style-two text-center mb-5">
-                        <span class="text-uppercase primary-color mb-0" style="color: white !important;">Preguntas Frecuentes</span>
-                        <h2 class="text-white">Resolvemos tus dudas</h2>
-                        <p style="color: #ffffff !important;">Lo que todo padre necesita saber antes de inscribir a su hijo</p>
-                    </div>
-                    
-                    <div class="accordion" id="faqAccordion">
-                        <div class="faq-card-modern">
-                            <div class="card-header" id="headingOne">
-                                <h2 class="mb-0">
-                                    <button class="btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="color: #ffffff !important;">
-                                        <i class="fas fa-chevron-down mr-3"></i> ¿Cuál es la edad mínima para Inicial?
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faqAccordion">
-                                <div class="card-body" style="color: #ffffff !important;">
-                                    Para Inicial 1 (3 años) deben tener cumplidos hasta el 31 de diciembre. Para Inicial 2 (4 años), hasta el 31 de diciembre.
-                                </div>
-                            </div>
+                <div class="col-lg-12">
+                    <div class="requisitos-card">
+                        <div class="requisito-item"><i class="fas fa-id-card"></i><span><strong>Copia de cédula del estudiante</strong> (o partida de nacimiento si es menor de 6 años).</span></div>
+                        <div class="requisito-item"><i class="fas fa-id-card"></i><span><strong>Copia de cédula del representante legal</strong>.</span></div>
+                        <div class="requisito-item"><i class="fas fa-file-alt"></i><span><strong>Reporte de calificaciones</strong> del último año cursado (original o certificado).</span></div>
+                        <div class="requisito-item"><i class="fas fa-lightbulb"></i><span><strong>Planilla de servicio básico</strong> (luz, agua o teléfono) a nombre del representante.</span></div>
+                        <div class="requisito-item"><i class="fas fa-school"></i><span><strong>Certificado de no adeudar pensiones</strong> (si viene de otro particular).</span></div>
+                        <div class="requisito-item"><i class="fas fa-camera"></i><span><strong>2 fotografías tamaño carnet</strong> a color, fondo blanco.</span></div>
+                        <div class="text-center mt-4">
+                            <button id="downloadPdfBtn" class="btn-download-pdf"><i class="fas fa-file-pdf fa-lg"></i> Descargar lista oficial en PDF</button>
                         </div>
-                        
-                        <div class="faq-card-modern">
-                            <div class="card-header" id="headingTwo">
-                                <h2 class="mb-0">
-                                    <button class="btn-link text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color: #ffffff !important;">
-                                        <i class="fas fa-chevron-right mr-3"></i> ¿Realizan evaluaciones?
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
-                                <div class="card-body" style="color: #ffffff !important;">
-                                    Sí, los nuevos estudiantes pasan por una entrevista y evaluación diagnóstica (Lengua, Matemática, Inglés). Las evaluaciones psicológicas se agendan por separado en el DECE.
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="faq-card-modern">
-                            <div class="card-header" id="headingThree">
-                                <h2 class="mb-0">
-                                    <button class="btn-link text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="color: #ffffff !important;">
-                                        <i class="fas fa-chevron-right mr-3"></i> ¿Hay costo para iniciar el proceso?
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqAccordion">
-                                <div class="card-body" style="color: #ffffff !important;">
-                                    Para mayor información, acercarse a colecturía.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="faq-card-modern">
-                            <div class="card-header" id="headingFour">
-                                <h2 class="mb-0">
-                                    <button class="btn-link text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" style="color: #ffffff !important;">
-                                        <i class="fas fa-chevron-right mr-3"></i> ¿Cuándo inician las inscripciones?
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#faqAccordion">
-                                <div class="card-body" style="color: #ffffff !important;">
-                                    Las inscripciones iniciaron el <strong style="color: #ffffff !important;">lunes 2 de marzo del 2026</strong> en horario de 8:00 a 13:00 y de 14:00 a 16:00.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="text-center mt-5">
-                        <a href="contacto.html" class="btn btn-light btn-round btn-lg">
-                            <i class="fas fa-comments mr-2"></i> Más preguntas
-                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- SECCIÓN DE PREGUNTAS FRECUENTES END -->
+
+    <!-- CONTACTO -->
+    <div style="padding: 80px 0; background: linear-gradient(135deg,#f5f7fa,#fff);">
+        <div class="container">
+            <div class="section-title-center">
+                <span>ESTAMOS PARA SERVIRTE</span>
+                <h2>Oficina de Admisiones</h2>
+                <p>Visítanos de lunes a viernes para tu visita guiada o consultas.</p>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-4 col-md-6 mb-4"><div class="contact-card-modern"><i class="fas fa-map-marker-alt fa-3x" style="color:var(--primary-blue); margin-bottom:20px;"></i><h4>Dirección</h4><p>Av. Rumichaca Ñan y Av. Morán Valverde, Sector Quitumbe, Quito</p></div></div>
+                <div class="col-lg-4 col-md-6 mb-4"><div class="contact-card-modern"><i class="far fa-clock fa-3x" style="color:var(--primary-blue); margin-bottom:20px;"></i><h4>Horario</h4><p><strong>Atención:</strong> L-V 08:00-12:00 / 14:00-16:00<br><strong>Visitas guiadas:</strong> L-V 09:00-16:00 (cita previa)<br><strong>Evaluaciones:</strong> Viernes 14:00-15:30</p></div></div>
+                <div class="col-lg-4 col-md-6 mb-4"><div class="contact-card-modern"><i class="fas fa-envelope fa-3x" style="color:var(--primary-blue); margin-bottom:20px;"></i><h4>Contacto</h4><p>admisiones@rafaelbucheli.com<br>(02) 303-5139<br>WhatsApp: +593 99 554 9605</p></div></div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="https://maps.app.goo.gl/yoyJfJXWdAaameNaA" target="_blank" class="btn-secondary-custom" style="margin:5px;"><i class="fas fa-map"></i> Cómo llegar</a>
+                <a href="https://wa.me/593995549605?text=Hola,%20quiero%20información%20sobre%20admisiones" target="_blank" class="btn-primary-custom" style="margin:5px;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <div style="background: linear-gradient(135deg,#141b28,#141d33); padding:80px 0; color:white;">
+        <div class="container">
+            <div class="row"><div class="col-lg-8 offset-lg-2 text-center"><span style="color:white; text-transform:uppercase;">Preguntas Frecuentes</span><h2 class="text-white">Resolvemos tus dudas</h2><p style="color:rgba(255,255,255,0.9);">Lo que todo padre necesita saber</p></div></div>
+            <div class="row mt-5"><div class="col-lg-8 offset-lg-2">
+                <div class="faq-card-modern"><div class="card-header"><h2><button class="btn-link" data-toggle="collapse" data-target="#faq1"><i class="fas fa-chevron-down mr-3"></i> ¿Cuál es la edad mínima para Inicial?</button></h2></div><div id="faq1" class="collapse show"><div class="card-body">Inicial 1: 3 años cumplidos hasta 31 diciembre. Inicial 2: 4 años hasta 31 diciembre.</div></div></div>
+                <div class="faq-card-modern"><div class="card-header"><h2><button class="btn-link collapsed" data-toggle="collapse" data-target="#faq2"><i class="fas fa-chevron-right mr-3"></i> ¿Es obligatorio pagar la inscripción antes del formulario?</button></h2></div><div id="faq2" class="collapse"><div class="card-body">Sí, primero se realiza el pago único de inscripción y luego se envía el formulario digital.</div></div></div>
+                <div class="faq-card-modern"><div class="card-header"><h2><button class="btn-link collapsed" data-toggle="collapse" data-target="#faq3"><i class="fas fa-chevron-right mr-3"></i> ¿Evaluación y entrevista DECE se realizan el mismo día?</button></h2></div><div id="faq3" class="collapse"><div class="card-body">Sí, ambos procesos se agendan de manera conjunta para mayor comodidad.</div></div></div>
+                <div class="faq-card-modern"><div class="card-header"><h2><button class="btn-link collapsed" data-toggle="collapse" data-target="#faq4"><i class="fas fa-chevron-right mr-3"></i> ¿Cómo agendo la visita guiada?</button></h2></div><div id="faq4" class="collapse"><div class="card-body">Llama a nuestra oficina de admisiones o escríbenos por WhatsApp para coordinar un horario de lunes a viernes entre 9:00 y 16:00.</div></div></div>
+            </div></div>
+            <div class="text-center mt-5"><a href="contacto.html" class="btn btn-light btn-round btn-lg">Más preguntas</a></div>
+        </div>
+    </div>
 
     <!-- CTA FINAL -->
-    <div class="cta-area secondary-bg has-color ptb--50" style="background: linear-gradient(45deg, var(--primary-blue), #182e4e);">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-8">
-                    <div class="cta-content">
-                        <p class="mb-2" style="color: rgba(255,255,255,0.9);">Unidad Educativa Particular Rafael Bucheli</p>
-                        <h2 style="color: white; font-size: 36px;">¡Cupos limitados 2026!</h2>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="cta-btn text-md-right">
-                        <a class="btn btn-light btn-round btn-lg" href="#formulario" style="padding: 14px 35px;">
-                            <i class="fas fa-pen-to-square mr-2"></i> Inscribirme
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div style="background: linear-gradient(45deg, var(--primary-blue), #182e4e); padding:50px 0;">
+        <div class="container"><div class="row align-items-center"><div class="col-md-8"><p style="color:rgba(255,255,255,0.9);">Unidad Educativa Particular Rafael Bucheli</p><h2 style="color:white;">¡Cupos limitados 2026!</h2></div><div class="col-md-4 text-md-right"><a href="#formulario" class="btn btn-light btn-round btn-lg"><i class="fas fa-pen-to-square"></i> Inscribirme</a></div></div></div>
     </div>
-    <!-- CTA FINAL END -->
 
-    <!-- Footer -->
+    <!-- footer area start (CORREGIDO) -->
     <footer>
         <div class="footer-top has-color pt--120 pb--30">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="widget widget-company">
+                            <!-- ENLACE CORREGIDO: Apunta a inicio.html -->
                             <a href="inicio.html"><img src="assets/images/icon/logo.png" alt="image"></a>
                             <div class="address">
                                 <h6>Dirección</h6>
@@ -1590,6 +601,7 @@
                                 <p>secretaria@rafaelbucheli.edu.ec</p>
                             </div>
                             
+                            <!-- REDES SOCIALES ACTUALIZADAS -->
                             <ul class="social">
                                 <li>
                                     <a href="https://www.facebook.com/uerafaelbucheli/?locale=es_LA" target="_blank" rel="noopener noreferrer">
@@ -1619,6 +631,7 @@
                         <div class="widget footer-link">
                             <h4 class="fwidget-title mb-5 pb-3 primary-color">Menú del Pie</h4> 
                             <ul>
+                                <!-- ENLACES CORREGIDOS: Apuntan a las páginas correspondientes -->
                                 <li><a href="servicios.html"><i class="fas fa-angle-right"></i>Casos de Estudio</a></li>
                                 <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Nosotros</a></li>
                                 <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Nuestra Historia</a></li>
@@ -1647,8 +660,9 @@
             </div>
         </div>
     </footer>
+    <!-- footer area end -->
     
-    <!-- Scripts -->
+    <!-- scripts -->
     <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/owl.carousel.min.js"></script>
@@ -1656,175 +670,11 @@
     <script src="assets/js/jquery.slicknav.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/loading.js"></script>
     
-    <!-- CHATBOT -->
+    <!-- ============================================ -->
+    <!-- CHATBOT - Asistente Virtual -->
+    <!-- ============================================ -->
     <script src="CHATBOT/CHATBOT.js" data-auto-init></script>
-    
-    <!-- Script de Web3Forms (para hCaptcha) -->
-    <script src="https://web3forms.com/client/script.js" async defer></script>
-    
-    <script>
-        $(window).on('load', function() {
-            $('#preloader').fadeOut('slow');
-        });
-        
-        // Funcionalidad del selector múltiple
-        function toggleMultiSelect() {
-            const optionsContainer = document.querySelector('.multi-select-options');
-            const toggle = document.querySelector('.multi-select-toggle');
-            optionsContainer.classList.toggle('show');
-            toggle.classList.toggle('open');
-        }
-        
-        $(document).on('change', '#nivelMultiSelect input[type="checkbox"]', function() {
-            const selectedOptions = [];
-            $('#nivelMultiSelect input:checked').each(function() {
-                selectedOptions.push($(this).val());
-            });
-            const toggleText = $('.multi-select-toggle .toggle-text');
-            const hiddenInput = $('#nivelHidden');
-            
-            if (selectedOptions.length > 0) {
-                toggleText.text(selectedOptions.join(', '));
-                toggleText.removeClass('placeholder');
-                hiddenInput.val(selectedOptions.join(', '));
-            } else {
-                toggleText.text('Selecciona nivel(es) educativo(s)');
-                toggleText.addClass('placeholder');
-                hiddenInput.val('');
-            }
-            $('#nivelMultiSelect').removeClass('error');
-            $('#nivelError').hide();
-        });
-        
-        $(document).on('click', function(event) {
-            if (!$(event.target).closest('#nivelMultiSelect').length) {
-                $('.multi-select-options').removeClass('show');
-                $('.multi-select-toggle').removeClass('open');
-            }
-        });
-        
-        // Función para mostrar mensajes de éxito/error
-        function showFormMessage(message, type) {
-            const msgDiv = document.getElementById('formMessage');
-            msgDiv.style.display = 'block';
-            msgDiv.innerHTML = type === 'success' ? `<i class="fas fa-check-circle"></i> ${message}` : `<i class="fas fa-exclamation-triangle"></i> ${message}`;
-            msgDiv.style.backgroundColor = type === 'success' ? '#d4edda' : '#f8d7da';
-            msgDiv.style.color = type === 'success' ? '#155724' : '#721c24';
-            msgDiv.style.border = type === 'success' ? '1px solid #c3e6cb' : '1px solid #f5c6cb';
-            msgDiv.style.borderRadius = '12px';
-            msgDiv.style.marginBottom = '20px';
-            
-            // Ocultar después de 6 segundos
-            setTimeout(() => {
-                msgDiv.style.opacity = '0';
-                msgDiv.style.transition = 'opacity 0.5s';
-                setTimeout(() => {
-                    msgDiv.style.display = 'none';
-                    msgDiv.style.opacity = '1';
-                }, 500);
-            }, 6000);
-        }
-        
-        // Envío con fetch (sin recarga)
-        $('#contactForm').on('submit', async function(e) {
-            e.preventDefault();
-            
-            // Validaciones
-            let isValid = true;
-            $('.form-control').removeClass('error');
-            $('#nivelMultiSelect').removeClass('error');
-            
-            if ($('#nombre').val().trim() === '') {
-                $('#nombre').addClass('error');
-                isValid = false;
-            }
-            const email = $('#email').val().trim();
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (email === '' || !emailRegex.test(email)) {
-                $('#email').addClass('error');
-                isValid = false;
-            }
-            if ($('#telefono').val().trim() === '') {
-                $('#telefono').addClass('error');
-                isValid = false;
-            }
-            if ($('#nivelHidden').val() === '') {
-                $('#nivelMultiSelect').addClass('error');
-                $('#nivelError').show();
-                isValid = false;
-            } else {
-                $('#nivelError').hide();
-            }
-            
-            if (!isValid) {
-                const firstError = $('.error').first();
-                if (firstError.length) {
-                    $('html, body').animate({
-                        scrollTop: firstError.offset().top - 200
-                    }, 500);
-                }
-                return;
-            }
-            
-            // Deshabilitar botón y mostrar spinner
-            const submitBtn = $('#submitBtn');
-            const originalText = submitBtn.html();
-            submitBtn.html('<i class="fas fa-spinner fa-spin"></i> Enviando...').prop('disabled', true);
-            
-            // Recoger datos del formulario (incluye hCaptcha automáticamente)
-            const formData = new FormData(this);
-            const data = {};
-            formData.forEach((value, key) => { data[key] = value; });
-            
-            try {
-                const response = await fetch('https://api.web3forms.com/submit', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
-                const result = await response.json();
-                
-                if (result.success) {
-                    showFormMessage('¡Solicitud enviada exitosamente! Te responderemos en menos de 24 horas.', 'success');
-                    // Limpiar formulario
-                    this.reset();
-                    // Resetear selector múltiple
-                    $('#nivelMultiSelect input:checked').prop('checked', false);
-                    $('.multi-select-toggle .toggle-text').text('Selecciona nivel(es) educativo(s)').addClass('placeholder');
-                    $('#nivelHidden').val('');
-                    // Resetear hCaptcha (si es posible, recargar)
-                    if (typeof grecaptcha !== 'undefined') {
-                        grecaptcha.reset();
-                    }
-                } else {
-                    showFormMessage('Error al enviar: ' + (result.message || 'Intente más tarde'), 'error');
-                }
-            } catch (error) {
-                console.error('Error de conexión:', error);
-                showFormMessage('Error de conexión. Verifique su internet e intente nuevamente.', 'error');
-            } finally {
-                submitBtn.html(originalText).prop('disabled', false);
-            }
-        });
-        
-        $('.form-control').on('input change', function() {
-            $(this).removeClass('error');
-        });
-        
-        $(window).on('scroll', function() {
-            if ($(window).scrollTop() > 100) {
-                $('.header-two').css({
-                    'background': 'rgba(255,255,255,0.98)',
-                    'box-shadow': '0 5px 20px rgba(37,40,85,0.1)'
-                });
-            } else {
-                $('.header-two').css({
-                    'background': 'rgba(255,255,255,0.98)',
-                    'box-shadow': '0 5px 20px rgba(37,40,85,0.08)'
-                });
-            }
-        });
-    </script>
 </body>
 </html>

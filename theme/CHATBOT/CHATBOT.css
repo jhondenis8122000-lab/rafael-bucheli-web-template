@@ -1,23 +1,28 @@
 :root {
-  --primary: #0b3c8a;
-  --primary-dark: #062b63;
-  --primary-light: #3a6bc5;
+  /* NUEVA PALETA DE COLORES */
+  --primary: #1f2937;        /* azul grisáceo oscuro */
+  --primary-dark: #111827;   /* casi negro */
+  --primary-light: #374151;  /* gris azulado claro */
+  
   --whatsapp: #25d366;
   --whatsapp-dark: #1da851;
   --bg-chat: #ffffff;
-  --bg-msg: #f0f2f5;
-  --text-main: #1c1e21;
-  --text-sub: #65676b;
-  --accent: #ff9f43;
-  --accent-dark: #ff7f00;
-  --success: #00b894;
-  --warning: #fdcb6e;
-  --danger: #e74c3c;
-  --purple: #9b59b6;
-  --gray-light: #f5f7fa;
-  --gray: #e1e5e9;
-  --shadow: 0 8px 30px rgba(0,0,0,0.12);
-  --shadow-heavy: 0 15px 35px rgba(0,0,0,0.2);
+  --bg-msg: #f3f4f6;         /* gris muy claro neutro */
+  --text-main: #000000;
+  --text-sub: #5d5d5c;
+  
+  /* Acento recomendado (ámbar cálido). Si no lo quieres, cambia --accent por --primary en los elementos que lo usan (botón de formulario, etc.) */
+  --accent: #f59e0b;
+  --accent-dark: #d97706;
+  
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --purple: #8b5cf6;
+  --gray-light: #f9fafb;
+  --gray: #e5e7eb;
+  --shadow: 0 8px 30px rgba(0,0,0,0.08);
+  --shadow-heavy: 0 15px 35px rgba(0,0,0,0.15);
 }
 
 * { 
@@ -33,7 +38,7 @@ body {
 }
 
 /* ============================================
-   ANIMACIONES
+   ANIMACIONES (se mantienen igual)
 ============================================ */
 
 @keyframes fadeIn { 
@@ -42,9 +47,9 @@ body {
 }
 
 @keyframes pulse { 
-  0% { box-shadow: 0 0 0 0 rgba(11, 60, 138, 0.4); } 
-  70% { box-shadow: 0 0 0 15px rgba(11, 60, 138, 0); } 
-  100% { box-shadow: 0 0 0 0 rgba(11, 60, 138, 0); } 
+  0% { box-shadow: 0 0 0 0 rgba(31, 41, 55, 0.4); } 
+  70% { box-shadow: 0 0 0 15px rgba(31, 41, 55, 0); } 
+  100% { box-shadow: 0 0 0 0 rgba(31, 41, 55, 0); } 
 }
 
 @keyframes shake { 
@@ -130,7 +135,7 @@ body {
 .shake { animation: shake 0.2s ease-in-out 0s 2; }
 
 /* ============================================
-   NOTIFICACIONES FLOTANTES (ALINEADAS A LA IZQUIERDA MEJORADO)
+   NOTIFICACIONES FLOTANTES
 ============================================ */
 .floating-notification {
   position: absolute;
@@ -221,7 +226,7 @@ body {
 
 .main-floating-btn:hover {
   transform: scale(1.1);
-  box-shadow: 0 12px 35px rgba(11, 60, 138, 0.4);
+  box-shadow: 0 12px 35px rgba(31, 41, 55, 0.4);
 }
 
 .main-floating-btn.active {
@@ -410,6 +415,18 @@ body {
   height: 60px;
   width: 350px;
   overflow: hidden;
+}
+
+/* Ocultamos contenido para que el layout no “salte” al minimizar */
+.chat-window.minimized #chatbot-messages,
+.chat-window.minimized #chatbot-input-area,
+.chat-window.minimized #lead-form,
+.chat-window.minimized #typing-indicator {
+  display: none !important;
+}
+
+.chat-window.minimized .window-header {
+  min-height: 60px;
 }
 
 .form-window { 
@@ -601,7 +618,7 @@ body {
 
 .interactive-input:focus { 
   border-color: var(--primary); 
-  box-shadow: 0 8px 20px rgba(11, 60, 138, 0.15); 
+  box-shadow: 0 8px 20px rgba(31, 41, 55, 0.15); 
   transform: translateY(-2px);
 }
 
@@ -650,9 +667,9 @@ body {
 }
 
 #lead-form button:hover, .submit-btn:hover { 
-  background: linear-gradient(135deg, var(--primary-dark), #051d47); 
+  background: linear-gradient(135deg, var(--primary-dark), #0f131a); 
   transform: translateY(-2px) scale(1.02); 
-  box-shadow: 0 10px 25px rgba(11, 60, 138, 0.25);
+  box-shadow: 0 10px 25px rgba(31, 41, 55, 0.25);
 }
 
 .cancel-btn {
@@ -716,7 +733,7 @@ body {
   border-radius: 18px 18px 4px 18px; 
   font-size: 15px; 
   line-height: 1.5; 
-  box-shadow: 0 3px 10px rgba(11, 60, 138, 0.15); 
+  box-shadow: 0 3px 10px rgba(31, 41, 55, 0.15); 
   animation: popIn 0.3s ease; 
   max-width: 85%;
   align-self: flex-end;
@@ -819,7 +836,7 @@ body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(11, 60, 138, 0.1), transparent);
+  background: linear-gradient(90deg, transparent, rgba(31, 41, 55, 0.1), transparent);
   transition: left 0.7s;
 }
 
@@ -831,7 +848,7 @@ body {
   background: linear-gradient(135deg, var(--primary), var(--primary-dark)); 
   color: white; 
   transform: translateX(5px) scale(1.02); 
-  box-shadow: 0 5px 15px rgba(11, 60, 138, 0.2);
+  box-shadow: 0 5px 15px rgba(31, 41, 55, 0.2);
   border-color: var(--primary-dark);
 }
 
@@ -940,7 +957,7 @@ body {
 
 .map-btn:hover {
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 10px 25px rgba(255, 159, 67, 0.3);
+  box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
   filter: brightness(1.1);
 }
 
@@ -1052,7 +1069,7 @@ body {
 }
 
 /* ============================================
-   BOTONES DE SECCIONES - NUEVO
+   BOTONES DE SECCIONES
 ============================================ */
 
 .section-btn {
@@ -1226,7 +1243,7 @@ body {
 #chatbot-input-area input:focus { 
   border-color: var(--primary); 
   background: white;
-  box-shadow: 0 0 0 3px rgba(11, 60, 138, 0.1);
+  box-shadow: 0 0 0 3px rgba(31, 41, 55, 0.1);
 }
 
 #send-btn { 
@@ -1246,7 +1263,7 @@ body {
 
 #send-btn:hover { 
   transform: rotate(15deg) scale(1.1); 
-  box-shadow: 0 5px 15px rgba(11, 60, 138, 0.3);
+  box-shadow: 0 5px 15px rgba(31, 41, 55, 0.3);
 }
 
 /* ============================================
@@ -1550,6 +1567,16 @@ body {
     height: 50px;
     bottom: 80px;
   }
+  .chat-window.minimized #chatbot-messages,
+  .chat-window.minimized #chatbot-input-area,
+  .chat-window.minimized #lead-form,
+  .chat-window.minimized #typing-indicator {
+    display: none !important;
+  }
+  .chat-window.minimized .window-header {
+    min-height: 50px;
+  }
+
   
   .floating-notification {
     left: -160px;
@@ -1758,15 +1785,57 @@ button:active, .action-btn:active, .whatsapp-btn-action:active {
 }
 
 .cost-table tr:hover {
-  background-color: rgba(11, 60, 138, 0.05) !important;
+  background-color: rgba(31, 41, 55, 0.05) !important;
 }
 
 /* Efectos para inputs en focus */
 .interactive-input:focus {
-  box-shadow: 0 0 0 3px rgba(11, 60, 138, 0.1) !important;
+  box-shadow: 0 0 0 3px rgba(31, 41, 55, 0.1) !important;
 }
 
-/* Transiciones suaves para todo */
-* {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+/* Transiciones suaves para componentes del chatbot.
+   Nota: evitamos aplicar transición global a '*' porque rompe layouts/animaciones entre estados (minimizado/maximizado). */
+#chatbot-messages,
+#chatbot-input-area,
+.chat-window,
+.main-floating-btn,
+.floating-menu,
+.secondary-btn,
+.section-btn,
+.action-btn,
+.advisor-primary-btn,
+.advisor-secondary-btn,
+.user-message,
+.bot-message,
+.interactive-input,
+textarea,
+button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* Asegurar que al minimizar en móvil todo el contenido se oculte y la ventana sea pequeña */
+@media (max-width: 768px) {
+  .chat-window.minimized {
+    height: 60px !important;
+    min-height: 60px !important;
+    max-height: 60px !important;
+    overflow: hidden !important;
+  }
+  .chat-window.minimized #chatbot-messages,
+  .chat-window.minimized #chatbot-input-area,
+  .chat-window.minimized #lead-form,
+  .chat-window.minimized #typing-indicator {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .chat-window.minimized .window-header {
+    height: 60px !important;
+  }
+}
+
+/* Estilo para el botón de limpiar chat */
+.clear-btn:hover {
+  background: rgba(255, 193, 7, 0.8) !important;
 }
