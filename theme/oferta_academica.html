@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <!-- ⚠️ ELIMINADA: <link rel="stylesheet" href="assets/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/css/magnific-popup.css">
     <link rel="stylesheet" href="assets/css/slicknav.min.css">
@@ -20,7 +19,7 @@
     <link rel="stylesheet" id="triggerColor" href="assets/css/triggerplate/color-0.css">
     
     <!-- ===== FONT AWESOME 6 ===== -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <!-- ===== CHATBOT STYLES ===== -->
     <link rel="stylesheet" href="CHATBOT/CHATBOT.css">
@@ -28,6 +27,62 @@
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
     
     <style>
+        /* ============================================================
+           PALETA DE COLORES (variables CSS) – IGUAL QUE ACTIVIDADES
+           ============================================================ */
+        :root {
+            --color-primary: #1F2366;      /* PANTONE 2767 C */
+            --color-secondary: #2E4FA3;    /* PANTONE 7687 C */
+            --color-accent: #F6BE00;       /* PANTONE 7408 C – Amarillo/Oro */
+            --color-gray: #888B93;         /* PANTONE Cool Gray 8 C */
+            --color-gray-light: #D9DADD;   /* PANTONE Cool Gray 1 C */
+            --color-white: #FFFFFF;
+            --font-family-base: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            --shadow-sm: 0 4px 12px rgba(31, 35, 102, 0.08);
+            --shadow-md: 0 8px 30px rgba(31, 35, 102, 0.12);
+            --transition-smooth: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            color: var(--color-primary);
+            background: var(--color-white);
+        }
+        a { text-decoration: none; transition: var(--transition-smooth); }
+        img { max-width: 100%; height: auto; }
+
+        /* ============================================================
+           HEADER – IDÉNTICO AL DE ACTIVIDADES (FONDO BLANCO, SOMBRA)
+           ============================================================ */
+        #header {
+            background: var(--color-white);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            position: relative;
+            z-index: 1000;
+        }
+        .header-two .main-menu ul li a {
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+        .header-two .main-menu ul li a:hover,
+        .header-two .main-menu ul li.active a {
+            color: var(--color-accent);
+        }
+        .header-bottom-right-style-2 .btn-primary {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+        .header-bottom-right-style-2 .btn-primary:hover {
+            background: var(--color-primary);
+            border-color: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        /* ============================================================
+           RESTO DE ESTILOS (se mantienen igual que antes)
+           ============================================================ */
         body {
             padding-top: 0;
         }
@@ -72,6 +127,36 @@
             opacity: 1;
             position: relative;
             color: #666;  /* Texto gris para el subtítulo */
+        }
+        
+        /* --- BOTÓN DE SCROLL HACIA ABAJO (NUEVO) --- */
+        .scroll-down-btn {
+            display: inline-block;
+            margin-top: 30px;
+            color: var(--color-primary);
+            font-size: 32px;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            border-radius: 50%;
+            background: var(--color-accent);
+            box-shadow: 0 8px 25px rgba(246, 190, 0, 0.4);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+            border: none;
+            outline: none;
+        }
+        .scroll-down-btn:hover {
+            transform: translateY(5px);
+            background: var(--color-primary);
+            color: #fff;
+            box-shadow: 0 12px 35px rgba(31, 35, 102, 0.3);
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-8px); }
         }
         
         /* Breadcrumb */
@@ -631,6 +716,12 @@
                 padding: 14px 35px;
                 font-size: 16px;
             }
+            .scroll-down-btn {
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+                font-size: 26px;
+            }
         }
         
         @media (max-width: 576px) {
@@ -655,35 +746,31 @@
     </div>
     <!-- loading area end -->
     
-    <!-- header area start -->
+    <!-- ============================================================
+         HEADER – MENÚ CORREGIDO (copiado EXACTAMENTE de inicio.html)
+         ============================================================ -->
     <header id="header">
-        <!-- header two area start -->
         <div class="header-two">
             <div class="container-fluid px-0">
                 <div class="row align-items-center g-0 mx-0">
                     <div class="col-lg-3 col-sm-6 d-block d-lg-none">
-                        <div class="logo">
-                            <a href="inicio.html"><img src="assets/images/icon/logo.png" alt="logo"></a>
-                        </div>
+                        <div class="logo"><a href="inicio.html"><img src="assets/images/icon/logo.png" alt="Logo Rafael Bucheli"></a></div>
                     </div>
                     <div class="col-lg-9 offset-lg-1 d-none d-lg-block">
                         <div class="main-menu menu-style2">
-                            <nav>
+                            <nav aria-label="Menú principal">
                                 <ul id="m_menu_active">
+                                    <!-- Inicio (sin active) -->
                                     <li><a href="inicio.html">Inicio</a></li>
-                                    <li class="active"><a href="javascript:void(0);">Oferta Academica</a>
+                                    <!-- Oferta Académica (con active) -->
+                                    <li class="active"><a href="javascript:void(0);">Oferta Académica</a>
                                         <ul class="submenu">
                                             <li><a href="oferta_academica.html">Academia</a></li>
                                             <li><a href="actividades_extracurriculares.html">Clubes</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="admisiones.html">Postulación / Registro</a></li>
-                                    <li class="middle-logo">
-                                        <a href="inicio.html">
-                                            <img src="assets/images/icon/logo-middle.png" alt="logo">
-                                            <img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="logo">
-                                        </a>
-                                    </li>
+                                    <li class="middle-logo"><a href="inicio.html"><img src="assets/images/icon/logo-middle.png" alt="Logo central"><img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt=""></a></li>
                                     <li><a href="servicios.html">Servicios</a></li>
                                     <li><a href="nosotros.html">Nosotros</a>
                                         <ul class="submenu">
@@ -700,27 +787,18 @@
                     <div class="col-lg-2 col-sm-5">
                         <div class="header-bottom-right-style-2">
                             <ul>
-                                <li>
-                                    <a href="https://app.rafaelbucheli.com/login/?next=/" 
-                                    class="btn btn-primary btn-round" 
-                                    target="_blank">
-                                    SIGN UP
-                                    </a>
-                                </li>
+                                <li><a href="https://app.rafaelbucheli.com/login/?next=/" class="btn btn-primary btn-round" target="_blank" rel="noopener">SIGN UP</a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-12 d-block d-lg-none">
-                        <div id="mobile_menu"></div>
-                    </div>
+                    <div class="col-12 d-block d-lg-none"><div id="mobile_menu"></div></div>
                 </div>
             </div>
         </div>
-        <!-- header two area end -->
     </header>
     <!-- header area end -->
     
-    <!-- offset search area start - CORREGIDO -->
+    <!-- offset search area start -->
     <div class="offset-search">
         <form action="#">
             <input type="text" name="search" placeholder="Buscar aquí...">
@@ -739,6 +817,12 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1>Oferta Académica</h1>
+                    <!-- BOTÓN DE SCROLL HACIA ABAJO (entre título y subtítulo) -->
+                    <div style="margin: 20px 0 10px;">
+                        <button class="scroll-down-btn" id="scrollDownBtn" aria-label="Desplazarse hacia abajo">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
                     <p>Descubre nuestros niveles educativos y metodologías innovadoras</p>
                 </div>
             </div>
@@ -761,7 +845,7 @@
     <!-- Intro Section End -->
     
     <!-- Academic Levels Start -->
-    <section class="academic-levels">
+    <section class="academic-levels" id="niveles">
         <div class="container">
             <div class="section-title-centered">
                 <h2>Un Proyecto Educativo para Cada Etapa</h2>
@@ -1082,5 +1166,27 @@
     <!-- CHATBOT - Asistente Virtual -->
     <!-- ============================================ -->
     <script src="CHATBOT/CHATBOT.js" data-auto-init></script>
+    
+    <!-- ============================================ -->
+    <!-- SCROLL SCRIPT (para el botón) -->
+    <!-- ============================================ -->
+    <script>
+        (function() {
+            'use strict';
+            
+            const btn = document.getElementById('scrollDownBtn');
+            const targetSection = document.getElementById('niveles');
+            
+            if (btn && targetSection) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                });
+            }
+        })();
+    </script>
 </body>
 </html>

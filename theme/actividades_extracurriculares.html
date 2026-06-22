@@ -1,15 +1,13 @@
 <!doctype html>
 <html class="no-js" lang="es">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Actividades Extracurriculares - UE Rafael Bucheli</title>
-    <meta name="description" content="Descubre nuestras actividades extracurriculares: deportes, artes, talleres técnicos y grupos elite.">
+    <meta name="description" content="Descubre nuestras actividades extracurriculares: deportes, artes, talleres técnicos y pastoral.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Place favicon.ico in the root directory -->
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
-    <!-- all css here -->
+    <!-- CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/css/magnific-popup.css">
@@ -18,59 +16,84 @@
     <link rel="stylesheet" href="assets/css/default-css.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
-    <!-- loading css -->
     <link rel="stylesheet" href="assets/css/loading.css">
-    <!--color css-->
     <link rel="stylesheet" id="triggerColor" href="assets/css/triggerplate/color-0.css">
-    
-    <!-- ===== FONT AWESOME 6 ===== -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- ===== CHATBOT STYLES ===== -->
+    <!-- Font Awesome 6 (versión actualizada) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Chatbot styles -->
     <link rel="stylesheet" href="CHATBOT/CHATBOT.css">
     
-    <!-- modernizr css -->
-    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
-    
     <style>
-        /* ===== ESTILOS CORREGIDOS PARA ACTIVIDADES ===== */
+        /* ============================================================
+           PALETA DE COLORES (variables CSS)
+           ============================================================ */
         :root {
-            --azul-principal: #252855;
-            --gris: #5d5d5c;
-            --blanco: #ffffff;
-            --degradado-interno: #182e4e;
-            --degradado-externo: #141b28;
+            --color-primary: #1F2366;
+            --color-secondary: #2E4FA3;
+            --color-gray: #888B93;          /* Cool Gray 8 C */
+            --color-gray-light: #D9DADD;     /* Cool Gray 1 C */
+            --color-white: #FFFFFF;
+            --color-accent: #FFC72C;
+            --color-degradado-externo: #141b28;
             --color-linea: #141d33;
+            --font-family-base: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            --shadow-sm: 0 4px 12px rgba(31, 35, 102, 0.08);
+            --shadow-md: 0 8px 30px rgba(31, 35, 102, 0.12);
+            --shadow-lg: 0 12px 40px rgba(31, 35, 102, 0.18);
+            --transition-smooth: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --border-radius-round: 60px;
+            --border-radius-card: 20px;
         }
-        
-        /* SOBREESCRIBIR ESTILOS DEL TEMPLATE PARA ESTA PÁGINA */
-        .page-header-actividades h1,
-        .page-header-actividades h1 span,
-        .intro-content h2,
-        .section-title-centered h2,
-        .section-title-centered h2 span,
-        .activity-content h3,
-        .elite-card h3,
-        .achievement-number {
-            color: var(--azul-principal) !important;
+
+        body {
+            font-family: var(--font-family-base);
+            color: var(--color-primary);
+            background: var(--color-white);
         }
-        
-        .elite-card h3,
-        .elite-section .section-title-centered h2 {
-            color: var(--blanco) !important;
+        a { text-decoration: none; transition: var(--transition-smooth); }
+        img { max-width: 100%; height: auto; }
+
+        /* ============================================================
+           HEADER – FONDO BLANCO Y SOMBRA (idéntico al inicio)
+           ============================================================ */
+        #header {
+            background: var(--color-white);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            position: relative;
+            z-index: 1000;
         }
-        
-        /* Page Header */
+        .header-two .main-menu ul li a {
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+        .header-two .main-menu ul li a:hover,
+        .header-two .main-menu ul li.active a {
+            color: var(--color-accent);
+        }
+        .header-bottom-right-style-2 .btn-primary {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+        .header-bottom-right-style-2 .btn-primary:hover {
+            background: var(--color-primary);
+            border-color: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        /* ============================================================
+           PAGE HEADER – ESTILO MODERNO CON LOGO DE FONDO
+           ============================================================ */
         .page-header-actividades {
             position: relative;
-            background: linear-gradient(135deg, var(--degradado-externo) 0%, var(--color-linea) 100%);
+            background: linear-gradient(135deg, var(--color-degradado-externo) 0%, var(--color-linea) 100%);
             padding: 200px 0 120px;
             text-align: center;
-            color: var(--blanco);
+            color: var(--color-white);
             overflow: hidden;
             margin-top: 104px;
         }
-        
         .page-header-actividades::before {
             content: '';
             position: absolute;
@@ -80,95 +103,68 @@
             bottom: 0;
             background: url('assets/images/icon/logo-middle.png') no-repeat center;
             background-size: 600px;
-            opacity: 0.1;
+            opacity: 0.08;
             transform: rotate(-5deg);
         }
-        
         .page-header-actividades h1 {
             font-size: 56px;
             font-weight: 800;
             margin-bottom: 20px;
-            color: var(--blanco) !important;
+            color: var(--color-white) !important;
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
-        
         .page-header-actividades h1 span {
-            color: var(--blanco) !important;
-            font-weight: 800;
+            color: var(--color-accent) !important;
         }
-        
         .page-header-actividades p {
             font-size: 20px;
             max-width: 700px;
             margin: 0 auto;
             color: rgba(255,255,255,0.9);
         }
-        
-        /* Breadcrumb */
-        .breadcrumb-area {
-            background: #f8f9fc;
-            padding: 15px 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .breadcrumb li a {
-            color: var(--azul-principal);
-        }
-        
-        .breadcrumb li.active {
-            color: var(--gris);
-        }
-        
-        .breadcrumb li+li:before {
-            content: "/";
-            padding: 0 10px;
-            color: #ccc;
-        }
-        
-        /* Intro Section */
+
+        /* ============================================================
+           SECCIÓN INTRO
+           ============================================================ */
         .intro-section {
             padding: 80px 0 40px;
-            background: var(--blanco);
+            background: var(--color-white);
         }
-        
         .intro-content {
             text-align: center;
             max-width: 900px;
             margin: 0 auto;
         }
-        
         .intro-content h2 {
             font-size: 48px;
-            color: var(--azul-principal) !important;
+            color: var(--color-primary) !important;
             margin-bottom: 25px;
             font-weight: 800;
         }
-        
         .intro-content .lead {
             font-size: 20px;
-            color: var(--gris);
+            color: var(--color-gray);
             line-height: 1.7;
         }
-        
-        /* Section Title */
+
+        /* ============================================================
+           SECTION TITLE CENTRADO
+           ============================================================ */
         .section-title-centered {
             text-align: center;
             margin-bottom: 50px;
         }
-        
         .section-title-centered h2 {
             font-size: 42px;
-            color: var(--azul-principal) !important;
+            color: var(--color-primary) !important;
             margin-bottom: 15px;
             font-weight: 800;
             position: relative;
             display: inline-block;
         }
-        
         .section-title-centered h2 span {
-            color: var(--color-linea) !important;
+            color: var(--color-accent) !important;
         }
-        
         .section-title-centered h2:after {
             content: '';
             position: absolute;
@@ -177,431 +173,410 @@
             transform: translateX(-50%);
             width: 80px;
             height: 3px;
-            background: var(--azul-principal);
+            background: var(--color-accent);
         }
-        
         .section-title-centered p {
             font-size: 18px;
-            color: var(--gris);
+            color: var(--color-gray);
             max-width: 700px;
             margin: 20px auto 0;
         }
-        
-        /* Tarjetas de Actividades */
+        .section-title-centered .badge-cert {
+            display: inline-block;
+            background: var(--color-accent);
+            color: var(--color-primary);
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        /* ============================================================
+           TARJETAS DE ACTIVIDADES – ESTILO MODERNO CON ICONOS
+           ============================================================ */
         .activities-section {
             padding: 60px 0;
         }
-        
         .activities-section.bg-light {
-            background: #f8fafc;
+            background: var(--color-gray-light);
         }
-        
+
         .activity-card {
-            background: var(--blanco);
-            border-radius: 20px;
+            background: var(--color-white);
+            border-radius: var(--border-radius-card);
             overflow: hidden;
-            box-shadow: 0 15px 30px rgba(37,40,85,0.08);
-            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-smooth);
             height: 100%;
             margin-bottom: 30px;
-            border: 1px solid rgba(37,40,85,0.05);
+            border: 1px solid rgba(31,35,102,0.05);
+            position: relative;
         }
-        
         .activity-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(37,40,85,0.15);
-            border-color: var(--azul-principal);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-accent);
         }
-        
+
         .activity-img {
-            height: 220px;
+            height: 200px;
             background-size: cover;
             background-position: center;
             position: relative;
             background-color: #f0f0f0;
         }
-        
-        .activity-img::after {
-            content: '';
+        .activity-img .activity-icon-overlay {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 50%;
-            background: linear-gradient(to top, var(--azul-principal), transparent);
-            opacity: 0.8;
-        }
-        
-        .activity-tag {
-            position: absolute;
-            top: 20px;
+            bottom: -20px;
             right: 20px;
-            background: var(--azul-principal);
-            color: var(--blanco);
-            padding: 6px 18px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 13px;
-            z-index: 2;
-        }
-        
-        .activity-level {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            background: rgba(255,255,255,0.2);
-            backdrop-filter: blur(10px);
-            color: var(--blanco);
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-size: 13px;
-            z-index: 2;
-        }
-        
-        .activity-level i {
-            margin-right: 5px;
-        }
-        
-        .activity-content {
-            padding: 25px;
-        }
-        
-        .activity-content h3 {
-            font-size: 22px;
-            color: var(--azul-principal) !important;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-        
-        .activity-content p {
-            color: var(--gris);
-            font-size: 15px;
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-        
-        .activity-meta {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .activity-meta span {
-            font-size: 12px;
-            color: var(--gris);
-            background: #f0f0f0;
-            padding: 5px 12px;
-            border-radius: 50px;
-        }
-        
-        .activity-meta span i {
-            color: var(--azul-principal);
-            margin-right: 5px;
-        }
-        
-        .btn-activity {
-            border: 2px solid var(--azul-principal);
-            color: var(--azul-principal);
-            background: transparent;
-            padding: 8px 25px;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-block;
-            text-decoration: none;
-            font-size: 14px;
-        }
-        
-        .btn-activity:hover {
-            background: var(--azul-principal);
-            color: var(--blanco) !important;
-            transform: translateX(5px);
-        }
-        
-        /* Grupos Elite */
-        .elite-section {
-            background: linear-gradient(135deg, var(--degradado-externo) 0%, var(--color-linea) 100%);
-            padding: 80px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .elite-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('assets/images/icon/logo-middle.png') no-repeat center;
-            background-size: 500px;
-            opacity: 0.05;
-            transform: rotate(5deg);
-        }
-        
-        .elite-section .section-title-centered h2 {
-            color: var(--blanco) !important;
-        }
-        
-        .elite-section .section-title-centered p {
-            color: rgba(255,255,255,0.9);
-        }
-        
-        .elite-card {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px 25px;
-            height: 100%;
-            margin-bottom: 30px;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .elite-card:hover {
-            transform: translateY(-8px);
-            background: rgba(255,255,255,0.15);
-            border-color: var(--azul-principal);
-        }
-        
-        .elite-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--azul-principal);
+            width: 60px;
+            height: 60px;
+            background: var(--color-accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
+            color: var(--color-primary);
+            font-size: 28px;
+            box-shadow: var(--shadow-md);
+            border: 3px solid var(--color-white);
+            transition: var(--transition-smooth);
         }
-        
-        .elite-icon i {
-            font-size: 32px;
-            color: var(--blanco);
+        .activity-card:hover .activity-icon-overlay {
+            transform: scale(1.1) rotate(5deg);
+            background: var(--color-primary);
+            color: var(--color-accent);
         }
-        
-        .elite-badge {
-            display: inline-block;
-            background: var(--azul-principal);
-            color: var(--blanco);
-            padding: 4px 12px;
+        .activity-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: 4px 16px;
             border-radius: 50px;
             font-weight: 600;
             font-size: 12px;
-            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-        
-        .elite-card h3 {
-            font-size: 24px;
-            color: var(--blanco) !important;
-            margin-bottom: 15px;
-        }
-        
-        .elite-card p {
-            color: rgba(255,255,255,0.9);
-            font-size: 14px;
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-        
-        .elite-meta span {
-            background: rgba(255,255,255,0.15);
-            color: var(--blanco);
-            padding: 4px 12px;
+        .activity-level {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+            color: var(--color-white);
+            padding: 4px 14px;
             border-radius: 50px;
             font-size: 12px;
         }
-        
-        .elite-meta span i {
-            color: var(--azul-principal);
+        .activity-level i {
+            margin-right: 5px;
+            color: var(--color-accent);
+        }
+
+        .activity-content {
+            padding: 25px 20px 20px;
+        }
+        .activity-content h3 {
+            font-size: 22px;
+            color: var(--color-primary) !important;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .activity-content p {
+            color: var(--color-gray);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        .activity-meta {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        .activity-meta span {
+            font-size: 12px;
+            color: var(--color-gray);
+            background: #f0f0f0;
+            padding: 4px 12px;
+            border-radius: 50px;
+        }
+        .activity-meta span i {
+            color: var(--color-accent);
             margin-right: 5px;
         }
-        
-        .btn-elite {
-            background: var(--azul-principal);
-            color: var(--blanco) !important;
-            padding: 10px 25px;
+        .btn-activity {
+            border: 2px solid var(--color-primary);
+            color: var(--color-primary);
+            background: transparent;
+            padding: 8px 25px;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 14px;
+            transition: var(--transition-smooth);
             display: inline-block;
-            transition: all 0.3s ease;
-            border: none;
-            text-decoration: none;
+            font-size: 14px;
         }
-        
-        .btn-elite:hover {
-            background: var(--blanco);
-            color: var(--azul-principal) !important;
-            transform: translateY(-3px);
+        .btn-activity:hover {
+            background: var(--color-primary);
+            color: var(--color-white) !important;
+            transform: translateX(5px);
         }
-        
-        /* Logros */
+
+        /* Certificado badge en tarjetas de talleres */
+        .cert-badge {
+            display: inline-block;
+            background: var(--color-accent);
+            color: var(--color-primary);
+            font-weight: 700;
+            font-size: 11px;
+            padding: 3px 12px;
+            border-radius: 50px;
+            margin-top: 5px;
+        }
+        .cert-badge i {
+            margin-right: 5px;
+        }
+
+        /* ============================================================
+           SECCIÓN PASTORAL – REFORZADA CON ICONOS DINÁMICOS
+           ============================================================ */
+        .pastoral-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .pastoral-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,199,44,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .pastoral-icon-box {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--color-white);
+            border-radius: var(--border-radius-card);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-smooth);
+            height: 100%;
+            border-bottom: 4px solid var(--color-accent);
+        }
+        .pastoral-icon-box:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+        }
+        .pastoral-icon-box .icon-circle {
+            width: 80px;
+            height: 80px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--color-accent);
+            font-size: 36px;
+            transition: var(--transition-smooth);
+        }
+        .pastoral-icon-box:hover .icon-circle {
+            transform: scale(1.05) rotate(5deg);
+            background: var(--color-accent);
+            color: var(--color-primary);
+        }
+        .pastoral-icon-box h4 {
+            font-size: 20px;
+            color: var(--color-primary);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .pastoral-icon-box p {
+            color: var(--color-gray);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .pastoral-sacramentos {
+            margin-top: 40px;
+            background: var(--color-primary);
+            border-radius: var(--border-radius-card);
+            padding: 40px 30px;
+            color: var(--color-white);
+            box-shadow: var(--shadow-md);
+        }
+        .pastoral-sacramentos h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--color-accent);
+        }
+        .pastoral-sacramentos ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px 30px;
+            justify-content: center;
+        }
+        .pastoral-sacramentos ul li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .pastoral-sacramentos ul li i {
+            color: var(--color-accent);
+            font-size: 20px;
+        }
+
+        /* ============================================================
+           LOGROS (sin elite)
+           ============================================================ */
         .achievements-section {
             padding: 60px 0;
-            background: var(--blanco);
+            background: var(--color-white);
         }
-        
         .achievement-item {
             text-align: center;
             padding: 30px;
-            background: var(--blanco);
+            background: var(--color-white);
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(37,40,85,0.05);
-            border: 1px solid rgba(37,40,85,0.05);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(31,35,102,0.05);
+            transition: var(--transition-smooth);
         }
-        
+        .achievement-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
         .achievement-number {
             font-size: 48px;
             font-weight: 800;
-            color: var(--azul-principal) !important;
+            color: var(--color-primary) !important;
             line-height: 1;
             margin-bottom: 10px;
         }
-        
         .achievement-label {
             font-size: 16px;
-            color: var(--gris);
+            color: var(--color-gray);
             font-weight: 500;
         }
-        
-        /* CTA */
+
+        /* ============================================================
+           CTA – NUEVO ESTILO CON FONDO BLANCO Y BORDE AMARILLO
+           ============================================================ */
         .cta-premium {
-            background: var(--blanco);
+            background: var(--color-white);
             padding: 60px 0;
             text-align: center;
-            border-top: 1px solid #eee;
+            border-top: 4px solid var(--color-accent);
+            box-shadow: 0 -4px 20px rgba(31, 35, 102, 0.05);
         }
-        
         .cta-premium h2 {
             font-size: 36px;
-            color: var(--azul-principal) !important;
+            font-weight: 800;
             margin-bottom: 20px;
+            color: var(--color-primary) !important;
         }
-        
         .cta-premium p {
             font-size: 18px;
-            color: var(--gris);
+            color: var(--color-gray);
             margin-bottom: 30px;
         }
-        
         .btn-cta-premium {
-            background: var(--azul-principal);
-            color: var(--blanco) !important;
+            background: var(--color-accent);
+            color: var(--color-primary) !important;
             padding: 15px 45px;
             border-radius: 50px;
             font-weight: 700;
             font-size: 16px;
             display: inline-block;
-            transition: all 0.3s ease;
-            border: none;
-            box-shadow: 0 10px 25px rgba(37,40,85,0.2);
+            transition: var(--transition-smooth);
+            border: 2px solid var(--color-accent);
+            box-shadow: 0 10px 25px rgba(255,199,44,0.3);
         }
-        
         .btn-cta-premium:hover {
-            background: var(--degradado-interno);
+            background: var(--color-primary);
+            color: var(--color-white) !important;
+            border-color: var(--color-primary);
             transform: translateY(-3px);
-            color: var(--blanco) !important;
+            box-shadow: 0 12px 30px rgba(31, 35, 102, 0.3);
         }
-        
-        /* Footer */
-        .footer-top {
-            background: linear-gradient(135deg, var(--degradado-externo) 0%, var(--color-linea) 100%);
-        }
-        
+
+        /* ============================================================
+           FOOTER – IDÉNTICO AL DE INICIO
+           ============================================================ */
+        .footer-top .fwidget-title { color: #ffffff !important; }
         .widget-company .address h6,
-        .fwidget-title {
-            color: var(--blanco) !important;
-        }
-        
         .widget-company .address p,
-        .footer-link a,
-        .widget-opening ul li {
-            color: rgba(255,255,255,0.7) !important;
+        .widget-opening ul li,
+        .footer-link ul li a,
+        .footer-bottom p,
+        .footer-bottom a { color: #ffffff !important; }
+        .social li a {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
         }
-        
-        .footer-bottom p {
-            color: rgba(255,255,255,0.5);
-        }
-        
-        .footer-bottom a {
-            color: var(--blanco) !important;
-        }
-        
-        /* Responsive */
+        .social li a:hover { background: rgba(255, 255, 255, 0.25); }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
         @media (max-width: 991px) {
-            .page-header-actividades h1 {
-                font-size: 48px;
-            }
-            .intro-content h2 {
-                font-size: 40px;
-            }
+            .page-header-actividades h1 { font-size: 48px; }
+            .intro-content h2 { font-size: 40px; }
+            .section-title-centered h2 { font-size: 36px; }
         }
-        
         @media (max-width: 768px) {
-            .page-header-actividades {
-                padding: 160px 0 80px;
-            }
-            .page-header-actividades h1 {
-                font-size: 42px;
-            }
-            .intro-content h2 {
-                font-size: 36px;
-            }
-            .section-title-centered h2 {
-                font-size: 36px;
-            }
-            .activity-img {
-                height: 180px;
-            }
+            .page-header-actividades { padding: 160px 0 80px; }
+            .page-header-actividades h1 { font-size: 42px; }
+            .intro-content h2 { font-size: 36px; }
+            .section-title-centered h2 { font-size: 32px; }
+            .activity-img { height: 160px; }
+            .pastoral-sacramentos ul { flex-direction: column; align-items: center; }
+            .pastoral-sacramentos ul li { width: 100%; justify-content: center; }
         }
-        
         @media (max-width: 576px) {
-            .page-header-actividades h1 {
-                font-size: 36px;
-            }
+            .page-header-actividades h1 { font-size: 34px; }
         }
     </style>
-</head>
 
+    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
 <body>
-    <!--[if lt IE 8]>
-            <p class="browserupgrade">Estás usando un navegador <strong>obsoleto</strong>. Por favor <a href="http://browsehappy.com/">actualiza tu navegador</a> para mejorar tu experiencia.</p>
-        <![endif]-->
-    
-    <!-- loading area start -->
-    <div id="preloader">
-        <div class="spinner"></div>
-    </div>
-    
-    <!-- ===== HEADER CORREGIDO ===== -->
+    <!-- Preloader -->
+    <div id="preloader"><div class="spinner"></div></div>
+
+    <!-- ===== HEADER (idéntico al inicio) ===== -->
     <header id="header">
         <div class="header-two">
             <div class="container-fluid px-0">
                 <div class="row align-items-center g-0 mx-0">
                     <div class="col-lg-3 col-sm-6 d-block d-lg-none">
-                        <div class="logo">
-                            <a href="inicio.html"><img src="assets/images/icon/logo.png" alt="logo"></a>
-                        </div>
+                        <div class="logo"><a href="inicio.html"><img src="assets/images/icon/logo.png" alt="Logo Rafael Bucheli"></a></div>
                     </div>
                     <div class="col-lg-9 offset-lg-1 d-none d-lg-block">
                         <div class="main-menu menu-style2">
-                            <nav>
+                            <nav aria-label="Menú principal">
                                 <ul id="m_menu_active">
                                     <li><a href="inicio.html">Inicio</a></li>
-                                    <li class="active"><a href="javascript:void(0);">Oferta Academica</a>
+                                    <li class="active"><a href="javascript:void(0);">Oferta Académica</a>
                                         <ul class="submenu">
                                             <li><a href="oferta_academica.html">Academia</a></li>
                                             <li><a href="actividades_extracurriculares.html">Actividades</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="admisiones.html">Postulación / Registro</a></li>
-                                    <li class="middle-logo">
-                                        <a href="inicio.html">
-                                            <img src="assets/images/icon/logo-middle.png" alt="logo">
-                                        </a>
-                                    </li>
+                                    <li class="middle-logo"><a href="inicio.html"><img src="assets/images/icon/logo-middle.png" alt="Logo central"><img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt=""></a></li>
                                     <li><a href="servicios.html">Servicios</a></li>
                                     <li><a href="nosotros.html">Nosotros</a>
                                         <ul class="submenu">
@@ -618,71 +593,63 @@
                     <div class="col-lg-2 col-sm-5">
                         <div class="header-bottom-right-style-2">
                             <ul>
-                                <li>
-                                    <a href="https://app.rafaelbucheli.com/login/?next=/" 
-                                    class="btn btn-primary btn-round" 
-                                    target="_blank">
-                                    SIGN UP
-                                    </a>
-                                </li>
+                                <li><a href="https://app.rafaelbucheli.com/login/?next=/" class="btn btn-primary btn-round" target="_blank" rel="noopener">SIGN UP</a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-12 d-block d-lg-none">
-                        <div id="mobile_menu"></div>
-                    </div>
+                    <div class="col-12 d-block d-lg-none"><div id="mobile_menu"></div></div>
                 </div>
             </div>
         </div>
     </header>
-    
-    <!-- offset search area start - CORREGIDO -->
-    <div class="offset-search">
-        <form action="#">
-            <input type="text" name="search" placeholder="Buscar aquí...">
-            <button type="submit"><i class="fas fa-search"></i></button>
-        </form>
-    </div>
-    
-    <!-- body overlay area start -->
+
+    <!-- Offser search -->
+    <div class="offset-search"><form action="#"><input type="text" name="search" placeholder="Buscar aquí..."><button type="submit" aria-label="Buscar"><i class="fas fa-search"></i></button></form></div>
     <div class="body_overlay"></div>
-    
-    <!-- ===== PAGE HEADER ===== -->
+
+    <!-- ============================================================
+         PAGE HEADER
+         ============================================================ -->
     <section class="page-header-actividades">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <h1>Actividades <span>Extracurriculares</span></h1>
-                    <p>Descubre talleres, deportes y grupos artísticos que complementan la formación integral de nuestros estudiantes</p>
+                    <p>Descubre talleres, deportes, arte y formación espiritual que complementan la educación integral de nuestros estudiantes</p>
                 </div>
             </div>
         </div>
-    </section>   
-    
-    <!-- ===== INTRO SECTION ===== -->
+    </section>
+
+    <!-- ============================================================
+         INTRO
+         ============================================================ -->
     <section class="intro-section">
         <div class="container">
             <div class="intro-content">
                 <h2>Más allá del aula</h2>
-                <p class="lead">En la Unidad Educativa Rafael Bucheli, creemos que la formación integral va más allá de lo académico. Por eso ofrecemos una amplia variedad de actividades extracurriculares diseñadas para descubrir y potenciar los talentos de cada estudiante.</p>
+                <p class="lead">En la Unidad Educativa Rafael Bucheli, creemos que la formación integral va más allá de lo académico. Ofrecemos una amplia variedad de actividades extracurriculares diseñadas para descubrir y potenciar los talentos de cada estudiante, en un ambiente de valores y crecimiento personal.</p>
             </div>
         </div>
     </section>
-    
-    <!-- ===== PRIMARIA ACTIVITIES ===== -->
+
+    <!-- ============================================================
+         ACTIVIDADES PRIMARIA
+         ============================================================ -->
     <section class="activities-section">
         <div class="container">
             <div class="section-title-centered">
-                <h2>Primaria</h2>
-                <p>Actividades para niños de 6 a 11 años</p>
+                <h2>Primaria <span>· 1° a 7°</span></h2>
+                <p>Actividades deportivas, artísticas y lúdicas para los más pequeños</p>
             </div>
             <div class="row">
-                <!-- Basket -->
+                <!-- Básquetbol -->
                 <div class="col-lg-4 col-md-6">
                     <div class="activity-card">
                         <div class="activity-img" style="background-image: url('assets/images/recursos/cancha_basquetbol.jpg');">
                             <span class="activity-tag">Deporte</span>
                             <span class="activity-level"><i class="fas fa-users"></i> 1° a 7°</span>
+                            <div class="activity-icon-overlay"><i class="fas fa-basketball-ball"></i></div>
                         </div>
                         <div class="activity-content">
                             <h3>Básquetbol</h3>
@@ -695,13 +662,13 @@
                         </div>
                     </div>
                 </div>
-                
                 <!-- Danza -->
                 <div class="col-lg-4 col-md-6">
                     <div class="activity-card">
                         <div class="activity-img" style="background-image: url('assets/images/recursos/danza_2.jpeg');">
                             <span class="activity-tag">Arte</span>
                             <span class="activity-level"><i class="fas fa-users"></i> 3° a 7°</span>
+                            <div class="activity-icon-overlay"><i class="fas fa-music"></i></div>
                         </div>
                         <div class="activity-content">
                             <h3>Danza</h3>
@@ -714,13 +681,13 @@
                         </div>
                     </div>
                 </div>
-                
                 <!-- Defensa Personal -->
                 <div class="col-lg-4 col-md-6">
                     <div class="activity-card">
                         <div class="activity-img" style="background-image: url('assets/images/recursos/defensa_personal.png');">
                             <span class="activity-tag">Disciplina</span>
                             <span class="activity-level"><i class="fas fa-users"></i> 5° a 7°</span>
+                            <div class="activity-icon-overlay"><i class="fas fa-shield-alt"></i></div>
                         </div>
                         <div class="activity-content">
                             <h3>Defensa Personal</h3>
@@ -733,13 +700,13 @@
                         </div>
                     </div>
                 </div>
-                
                 <!-- Música -->
                 <div class="col-lg-4 col-md-6">
                     <div class="activity-card">
                         <div class="activity-img" style="background-image: url('assets/images/recursos/musica.jpeg');">
                             <span class="activity-tag">Arte</span>
                             <span class="activity-level"><i class="fas fa-users"></i> 1° a 7°</span>
+                            <div class="activity-icon-overlay"><i class="fas fa-guitar"></i></div>
                         </div>
                         <div class="activity-content">
                             <h3>Música</h3>
@@ -752,13 +719,13 @@
                         </div>
                     </div>
                 </div>
-                
                 <!-- Artes Plásticas -->
                 <div class="col-lg-4 col-md-6">
                     <div class="activity-card">
                         <div class="activity-img" style="background-image: url('assets/images/recursos/artes_plasticas.jpeg');">
                             <span class="activity-tag">Creatividad</span>
                             <span class="activity-level"><i class="fas fa-users"></i> 1° a 5°</span>
+                            <div class="activity-icon-overlay"><i class="fas fa-paint-brush"></i></div>
                         </div>
                         <div class="activity-content">
                             <h3>Artes Plásticas</h3>
@@ -771,13 +738,13 @@
                         </div>
                     </div>
                 </div>
-                
                 <!-- Bastoneras -->
                 <div class="col-lg-4 col-md-6">
                     <div class="activity-card">
                         <div class="activity-img" style="background-image: url('assets/images/recursos/bastoneras.jpeg');">
                             <span class="activity-tag">Ritmo</span>
                             <span class="activity-level"><i class="fas fa-users"></i> 4° a 7°</span>
+                            <div class="activity-icon-overlay"><i class="fas fa-flag"></i></div>
                         </div>
                         <div class="activity-content">
                             <h3>Bastoneras</h3>
@@ -790,13 +757,13 @@
                         </div>
                     </div>
                 </div>
-                
                 <!-- Fútbol Recreativo -->
                 <div class="col-lg-4 col-md-6">
                     <div class="activity-card">
                         <div class="activity-img" style="background-image: url('assets/images/recursos/futbol_recreativo.jpg');">
                             <span class="activity-tag">Deporte</span>
                             <span class="activity-level"><i class="fas fa-users"></i> 1° a 7°</span>
+                            <div class="activity-icon-overlay"><i class="fas fa-futbol"></i></div>
                         </div>
                         <div class="activity-content">
                             <h3>Fútbol Recreativo</h3>
@@ -809,13 +776,13 @@
                         </div>
                     </div>
                 </div>
-                
                 <!-- Inglés Lúdico -->
                 <div class="col-lg-4 col-md-6">
                     <div class="activity-card">
                         <div class="activity-img" style="background-image: url('assets/images/recursos/ingles_recreativo.jpeg');">
                             <span class="activity-tag">Idiomas</span>
                             <span class="activity-level"><i class="fas fa-users"></i> 1° a 5°</span>
+                            <div class="activity-icon-overlay"><i class="fas fa-language"></i></div>
                         </div>
                         <div class="activity-content">
                             <h3>Inglés Recreativo</h3>
@@ -828,13 +795,13 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Alegrez (Animación) -->
+                <!-- Alegrez -->
                 <div class="col-lg-4 col-md-6">
                     <div class="activity-card">
                         <div class="activity-img" style="background-image: url('assets/images/recursos/ajedrez.png');">
                             <span class="activity-tag">Animación</span>
                             <span class="activity-level"><i class="fas fa-users"></i> 3° a 7°</span>
+                            <div class="activity-icon-overlay"><i class="fas fa-smile"></i></div>
                         </div>
                         <div class="activity-content">
                             <h3>Alegrez</h3>
@@ -850,13 +817,16 @@
             </div>
         </div>
     </section>
-    
-    <!-- ===== EGB ACTIVITIES ===== -->
+
+    <!-- ============================================================
+         TALLERES ARTESANALES – EGB (8vo a 10mo) CON CERTIFICACIÓN OCCE
+         ============================================================ -->
     <section class="activities-section bg-light">
         <div class="container">
             <div class="section-title-centered">
-                <h2>Educación General Básica</h2>
-                <p>Talleres técnicos para 8vo a 10mo</p>
+                <h2>Talleres Artesanales <span>· 8° a 10°</span></h2>
+                <p>Formación en oficios con certificación nacional e internacional avalada por la OCCE</p>
+                <span class="badge-cert"><i class="fas fa-certificate"></i> Convenio con la OCCE – Organismo Certificador de Capacitación y Comercio del Ecuador</span>
             </div>
             <div class="row">
                 <!-- Gastronomía Artesanal -->
@@ -865,10 +835,12 @@
                         <div class="activity-img" style="background-image: url('assets/images/recursos/gastronomia_artesanal.jpeg');">
                             <span class="activity-tag">Taller</span>
                             <span class="activity-level"><i class="fas fa-users"></i> 8° a 10°</span>
+                            <div class="activity-icon-overlay"><i class="fas fa-utensils"></i></div>
                         </div>
                         <div class="activity-content">
                             <h3>Gastronomía Artesanal</h3>
-                            <p>Técnicas básicas de cocina y repostería tradicional. Enfoque en recetas locales.</p>
+                            <p>Técnicas básicas de cocina y repostería tradicional. Enfoque en recetas locales y conservación de sabores.</p>
+                            <span class="cert-badge"><i class="fas fa-certificate"></i> Cert. OCCE</span>
                             <div class="activity-meta">
                                 <span><i class="far fa-calendar"></i> Lun y Mié</span>
                                 <span><i class="far fa-clock"></i> 14:00 - 16:00</span>
@@ -877,17 +849,18 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Gastronomía Avanzada -->
+                <!-- Cocina Creativa -->
                 <div class="col-lg-3 col-md-6">
                     <div class="activity-card">
                         <div class="activity-img" style="background-image: url('assets/images/recursos/gastronomia.png');">
                             <span class="activity-tag">Taller</span>
                             <span class="activity-level"><i class="fas fa-users"></i> 9° a 10°</span>
+                            <div class="activity-icon-overlay"><i class="fas fa-chef"></i></div>
                         </div>
                         <div class="activity-content">
-                            <h3>Gastronomía</h3>
-                            <p>Cocina internacional, técnicas de chef y presentación profesional.</p>
+                            <h3>Cocina Creativa</h3>
+                            <p>Innovación culinaria, técnicas de vanguardia y presentación artística de platos.</p>
+                            <span class="cert-badge"><i class="fas fa-certificate"></i> Cert. OCCE</span>
                             <div class="activity-meta">
                                 <span><i class="far fa-calendar"></i> Mar y Jue</span>
                                 <span><i class="far fa-clock"></i> 14:00 - 16:00</span>
@@ -896,17 +869,18 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Barbería -->
+                <!-- Barbería Artesanal -->
                 <div class="col-lg-3 col-md-6">
                     <div class="activity-card">
                         <div class="activity-img" style="background-image: url('assets/images/recursos/barberia.png');">
                             <span class="activity-tag">Oficio</span>
                             <span class="activity-level"><i class="fas fa-users"></i> 9° a 10°</span>
+                            <div class="activity-icon-overlay"><i class="fas fa-cut"></i></div>
                         </div>
                         <div class="activity-content">
-                            <h3>Barbería</h3>
-                            <p>Técnicas de corte, peinado y cuidado personal. Orientación vocacional.</p>
+                            <h3>Barbería Artesanal</h3>
+                            <p>Técnicas de corte clásico, afeitado y cuidado personal con un enfoque tradicional y moderno.</p>
+                            <span class="cert-badge"><i class="fas fa-certificate"></i> Cert. OCCE</span>
                             <div class="activity-meta">
                                 <span><i class="far fa-calendar"></i> Mar y Jue</span>
                                 <span><i class="far fa-clock"></i> 14:00 - 16:00</span>
@@ -915,17 +889,18 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Enfermería Básica -->
+                <!-- Auxiliar de Enfermería -->
                 <div class="col-lg-3 col-md-6">
                     <div class="activity-card">
                         <div class="activity-img" style="background-image: url('assets/images/recursos/departamento_medico_2.jpg');">
                             <span class="activity-tag">Salud</span>
                             <span class="activity-level"><i class="fas fa-users"></i> 8° a 10°</span>
+                            <div class="activity-icon-overlay"><i class="fas fa-heartbeat"></i></div>
                         </div>
                         <div class="activity-content">
-                            <h3>Enfermería Básica</h3>
-                            <p>Primeros auxilios, signos vitales y promoción de la salud.</p>
+                            <h3>Auxiliar de Enfermería</h3>
+                            <p>Primeros auxilios, signos vitales, higiene y promoción de la salud en la comunidad.</p>
+                            <span class="cert-badge"><i class="fas fa-certificate"></i> Cert. OCCE</span>
                             <div class="activity-meta">
                                 <span><i class="far fa-calendar"></i> Mié y Vie</span>
                                 <span><i class="far fa-clock"></i> 14:00 - 16:00</span>
@@ -937,201 +912,131 @@
             </div>
         </div>
     </section>
-    
-    <!-- ===== GRUPOS ELITE ===== -->
-    <section class="elite-section">
+
+    <!-- ============================================================
+         PASTORAL – FORMACIÓN ESPIRITUAL (REFORZADA)
+         ============================================================ -->
+    <section class="pastoral-section">
         <div class="container">
             <div class="section-title-centered">
-                <h2>Grupos Elite</h2>
-                <p>Seleccionados para representar al colegio en competencias</p>
+                <h2>Pastoral <span>· Formación en Valores</span></h2>
+                <p>El departamento de Pastoral acompaña a los estudiantes en su crecimiento espiritual, moral y humano, educando en valores cristianos y brindando apoyo emocional.</p>
             </div>
-            
+
             <div class="row">
-                <!-- Ecuavoley Elite -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="elite-card">
-                        <div class="elite-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <span class="elite-badge">Campeones 2025</span>
-                        <h3>Ecuavoley Elite</h3>
-                        <p>Equipo competitivo de ecuavoley que entrena para torneos intercolegiales.</p>
-                        <div class="elite-meta">
-                            <span><i class="fas fa-trophy"></i> 3 campeonatos</span>
-                        </div>
-                        <a href="contacto.html" class="btn-elite">Probarse →</a>
+                    <div class="pastoral-icon-box">
+                        <div class="icon-circle"><i class="fas fa-hands-praying"></i></div>
+                        <h4>Acompañamiento Espiritual</h4>
+                        <p>Retiros, convivencias y encuentros que fortalecen la fe y la relación con Dios en un ambiente de confianza.</p>
                     </div>
                 </div>
-                
-                <!-- Danza Elite -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="elite-card">
-                        <div class="elite-icon">
-                            <i class="fas fa-music"></i>
-                        </div>
-                        <span class="elite-badge">Selección</span>
-                        <h3>Danza Elite</h3>
-                        <p>Grupo representativo de danza contemporánea y folclore.</p>
-                        <div class="elite-meta">
-                            <span><i class="fas fa-star"></i> 5 festivales</span>
-                        </div>
-                        <a href="contacto.html" class="btn-elite">Audicionar →</a>
+                    <div class="pastoral-icon-box">
+                        <div class="icon-circle"><i class="fas fa-heart"></i></div>
+                        <h4>Apoyo Emocional</h4>
+                        <p>Escucha activa, consejería y espacios de diálogo que promueven el bienestar integral de los estudiantes.</p>
                     </div>
                 </div>
-                
-                <!-- Basket Elite -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="elite-card">
-                        <div class="elite-icon">
-                            <i class="fas fa-basketball-ball"></i>
-                        </div>
-                        <span class="elite-badge">Bicampeones</span>
-                        <h3>Básquetbol Elite</h3>
-                        <p>Equipo de alto rendimiento con participación en ligas escolares.</p>
-                        <div class="elite-meta">
-                            <span><i class="fas fa-trophy"></i> 2 campeonatos</span>
-                        </div>
-                        <a href="contacto.html" class="btn-elite">Probarse →</a>
-                    </div>
-                </div>
-                
-                <!-- Fútbol Elite -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="elite-card">
-                        <div class="elite-icon">
-                            <i class="fas fa-futbol"></i>
-                        </div>
-                        <span class="elite-badge">Finalistas 2025</span>
-                        <h3>Fútbol Elite</h3>
-                        <p>Selección de fútbol que compite en torneos intercolegiales.</p>
-                        <div class="elite-meta">
-                            <span><i class="fas fa-trophy"></i> Finalistas</span>
-                        </div>
-                        <a href="contacto.html" class="btn-elite">Probarse →</a>
-                    </div>
-                </div>
-                
-                <!-- Bastoneras Elite -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="elite-card">
-                        <div class="elite-icon">
-                            <i class="fas fa-flag"></i>
-                        </div>
-                        <span class="elite-badge">1er Lugar</span>
-                        <h3>Bastoneras Elite</h3>
-                        <p>Grupo representativo con coreografías de alta dificultad.</p>
-                        <div class="elite-meta">
-                            <span><i class="fas fa-star"></i> 1er lugar</span>
-                        </div>
-                        <a href="contacto.html" class="btn-elite">Audicionar →</a>
+                    <div class="pastoral-icon-box">
+                        <div class="icon-circle"><i class="fas fa-users"></i></div>
+                        <h4>Voluntariado y Solidaridad</h4>
+                        <p>Proyectos de ayuda comunitaria, campañas solidarias y servicio a los demás como expresión del amor cristiano.</p>
                     </div>
                 </div>
             </div>
-            
-            <div class="text-center mt-5">
-                <p style="color: rgba(255,255,255,0.9);">Pruebas de selección en marzo y septiembre.</p>
-                <a href="contacto.html" class="btn-elite" style="padding: 15px 45px;">Agendar prueba</a>
+
+            <!-- Sacramentos -->
+            <div class="pastoral-sacramentos">
+                <h3><i class="fas fa-cross"></i> Sacramentos en la Vida Escolar</h3>
+                <ul>
+                    <li><i class="fas fa-droplet"></i> Bautismo</li>
+                    <li><i class="fas fa-bread-slice"></i> Primera Comunión</li> <!-- Icono corregido -->
+                    <li><i class="fas fa-hand-holding-heart"></i> Confirmación</li>
+                    <li><i class="fas fa-praying-hands"></i> Reconciliación</li>
+                    <li><i class="fas fa-ring"></i> Matrimonio (para la comunidad educativa)</li>
+                    <li><i class="fas fa-hospital-alt"></i> Unción de los Enfermos</li>
+                </ul>
+                <p style="margin-top: 25px; opacity: 0.9; font-size: 15px;">La pastoral acompaña a los estudiantes y sus familias en la preparación y celebración de los sacramentos, integrando la fe en la vida cotidiana.</p>
             </div>
         </div>
     </section>
-    
-    <!-- ===== LOGROS ===== -->
+
+    <!-- ============================================================
+         LOGROS (sin elite)
+         ============================================================ -->
     <section class="achievements-section">
         <div class="container">
             <div class="section-title-centered">
-                <h2>Nuestros Logros</h2>
+                <h2>Nuestros <span>Logros</span></h2>
+                <p>Resultados que reflejan el compromiso con la excelencia</p>
             </div>
             <div class="row">
                 <div class="col-md-3 col-6">
                     <div class="achievement-item">
                         <div class="achievement-number">15+</div>
-                        <div class="achievement-label">Trofeos</div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6">
-                    <div class="achievement-item">
-                        <div class="achievement-number">8</div>
-                        <div class="achievement-label">Campeonatos</div>
+                        <div class="achievement-label">Trofeos deportivos</div>
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
                     <div class="achievement-item">
                         <div class="achievement-number">200+</div>
-                        <div class="achievement-label">Estudiantes Elite</div>
+                        <div class="achievement-label">Estudiantes certificados</div>
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
                     <div class="achievement-item">
-                        <div class="achievement-number">5</div>
-                        <div class="achievement-label">Festivales</div>
+                        <div class="achievement-number">10</div>
+                        <div class="achievement-label">Talleres técnicos</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="achievement-item">
+                        <div class="achievement-number">99</div>
+                        <div class="achievement-label">Años de historia</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- ===== CTA ===== -->
+
+    <!-- ============================================================
+         CTA – NUEVO ESTILO CON FONDO BLANCO Y BORDE AMARILLO
+         ============================================================ -->
     <section class="cta-premium">
         <div class="container">
             <h2>¿Listo para desarrollar tu talento?</h2>
-            <p>Inscripciones abiertas para actividades extracurriculares 2026</p>
+            <p>Inscripciones abiertas para todas las actividades extracurriculares 2026</p>
             <a href="admisiones.html" class="btn-cta-premium">Solicitar cupo</a>
         </div>
     </section>
-    
-   <!-- footer area start (CORREGIDO) -->
+
+    <!-- ============================================================
+         FOOTER (idéntico al inicio)
+         ============================================================ -->
     <footer>
-        <div class="footer-top has-color pt--120 pb--30">
+        <div class="footer-top has-color pt--120 pb--30" style="background: var(--color-primary);">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="widget widget-company">
-                            <!-- ENLACE CORREGIDO: Apunta a inicio.html -->
-                            <a href="inicio.html"><img src="assets/images/icon/logo.png" alt="image"></a>
-                            <div class="address">
-                                <h6>Dirección</h6>
-                                <p>Unidad Educativa Rafael Bucheli, Quito, Ecuador.</p>
-                            </div>
-                            <div class="address">
-                                <h6>Teléfono</h6>
-                                <p>(02) 303-5139</p>
-                            </div>
-                            <div class="address">
-                                <h6>Correo Electrónico</h6>
-                                <p>secretaria@rafaelbucheli.edu.ec</p>
-                            </div>
-                            
-                            <!-- REDES SOCIALES ACTUALIZADAS -->
+                            <a href="inicio.html"><img src="assets/images/icon/logo.png" alt="Logo Rafael Bucheli"></a>
+                            <div class="address"><h6>Dirección</h6><p>Unidad Educativa Rafael Bucheli, Quito, Ecuador.</p></div>
+                            <div class="address"><h6>Teléfono</h6><p>(02) 303-5139</p></div>
+                            <div class="address"><h6>Correo Electrónico</h6><p>secretaria@rafaelbucheli.edu.ec</p></div>
                             <ul class="social">
-                                <li>
-                                    <a href="https://www.facebook.com/uerafaelbucheli/?locale=es_LA" target="_blank" rel="noopener noreferrer">
-                                        <i class="fab fa-facebook"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.tiktok.com/@uerafaelbucheli" target="_blank" rel="noopener noreferrer">
-                                        <i class="fab fa-tiktok"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.instagram.com/u.e.rafaelbucheli/" target="_blank" rel="noopener noreferrer">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.youtube.com/@uecatolicaparticularrafael41" target="_blank" rel="noopener noreferrer">
-                                        <i class="fab fa-youtube"></i>
-                                    </a>
-                                </li>
+                                <li><a href="https://www.facebook.com/uerafaelbucheli/?locale=es_LA" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
+                                <li><a href="https://www.tiktok.com/@uerafaelbucheli" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a></li>
+                                <li><a href="https://www.instagram.com/u.e.rafaelbucheli/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="https://www.youtube.com/@uecatolicaparticularrafael41" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li>
                             </ul>
                         </div>
                     </div>
-                    
                     <div class="col-md-3">
                         <div class="widget footer-link">
-                            <h4 class="fwidget-title mb-5 pb-3 primary-color">Menú del Pie</h4> 
+                            <h4 class="fwidget-title mb-5 pb-3">Menú del Pie</h4>
                             <ul>
-                                <!-- ENLACES CORREGIDOS: Apuntan a las páginas correspondientes -->
                                 <li><a href="servicios.html"><i class="fas fa-angle-right"></i>Casos de Estudio</a></li>
                                 <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Nosotros</a></li>
                                 <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Nuestra Historia</a></li>
@@ -1140,10 +1045,9 @@
                             </ul>
                         </div>
                     </div>
-                    
                     <div class="col-md-5">
                         <div class="widget widget-opening">
-                            <h4 class="fwidget-title mb-5 pb-3 primary-color">Días y Horas de Trabajo</h4>
+                            <h4 class="fwidget-title mb-5 pb-3">Días y Horas de Trabajo</h4>
                             <ul>
                                 <li><span>Lun - Mar :</span>6.00 am - 10.00 pm</li>
                                 <li><span>Mié - Jue :</span>8.00 am - 6.00 pm</li>
@@ -1153,16 +1057,16 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="footer-bottom">
-                    <p>Copyright © 2026 <span><a class="primary-color" href="https://rafaelbucheli.com/" target="_blank">Unidad Educativa Particular Rafael Bucheli</a> </span> - Todos los derechos reservados.</p>
+                    <p>Copyright © 2026 <span><a href="https://rafaelbucheli.com/" target="_blank" rel="noopener">Unidad Educativa Particular Rafael Bucheli</a></span> - Todos los derechos reservados.</p>
                 </div>
             </div>
         </div>
     </footer>
-    <!-- footer area end -->
-    
-    <!-- scripts -->
+
+    <!-- ============================================================
+         SCRIPTS
+         ============================================================ -->
     <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/owl.carousel.min.js"></script>
@@ -1171,10 +1075,6 @@
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/scripts.js"></script>
     <script src="assets/js/loading.js"></script>
-    
-    <!-- ============================================ -->
-    <!-- CHATBOT - Asistente Virtual -->
-    <!-- ============================================ -->
     <script src="CHATBOT/CHATBOT.js" data-auto-init></script>
 </body>
 </html>
