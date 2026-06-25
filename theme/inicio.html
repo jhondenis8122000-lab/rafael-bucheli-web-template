@@ -273,7 +273,10 @@
         }
 
         .btn-elegant {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
             padding: 8px 16px;
             font-weight: 600;
             font-size: 13px;
@@ -284,6 +287,43 @@
             text-decoration: none;
             box-shadow: none !important;
             cursor: pointer;
+        }
+        .btn-inscripciones-hero {
+            position: relative;
+            padding: 14px 28px;
+            min-height: 56px;
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 0.2px;
+            box-shadow: 0 14px 34px rgba(255, 199, 44, 0.36) !important;
+            animation: inscriptionPulse 2.4s ease-in-out infinite;
+            overflow: hidden;
+        }
+        .btn-inscripciones-hero i {
+            width: 26px;
+            height: 26px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(31, 35, 102, 0.12);
+        }
+        .btn-inscripciones-hero::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.45) 45%, transparent 70%);
+            transform: translateX(-120%);
+            animation: inscriptionShine 3.2s ease-in-out infinite;
+            pointer-events: none;
+        }
+        @keyframes inscriptionPulse {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-3px) scale(1.035); }
+        }
+        @keyframes inscriptionShine {
+            0%, 55% { transform: translateX(-120%); }
+            78%, 100% { transform: translateX(120%); }
         }
         .btn-elegant-primary {
             background: var(--hero-btn-primary-bg);
@@ -358,6 +398,11 @@
             .btn-elegant {
                 padding: 6px 14px;
                 font-size: 12px;
+            }
+            .btn-inscripciones-hero {
+                padding: 12px 20px;
+                min-height: 52px;
+                font-size: 14px;
             }
             .stats-grid-premium {
                 gap: 8px;
@@ -1013,7 +1058,10 @@
                             </div>
                             
                             <div class="hero-buttons-wrapper-premium">
-                                <a href="admisiones.html" class="btn-elegant btn-elegant-primary">Inscribirse</a>
+                                <a href="admisiones.html" class="btn-elegant btn-elegant-primary btn-inscripciones-hero" aria-label="Ir a Inscripciones 2026-2027">
+                                    <i class="fas fa-file-signature" aria-hidden="true"></i>
+                                    Inscripciones 2026-2027
+                                </a>
                                 <a href="https://api.whatsapp.com/send/?phone=593995549605&text=Hola%2C%20me%20interesa%20recibir%20informaci%C3%B3n%20general" class="btn-elegant btn-elegant-outline" target="_blank" rel="noopener noreferrer"><span class="btn-icon">📞</span> Contactar Ahora</a>
                             </div>
                             
