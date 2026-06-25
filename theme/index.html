@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Unidad Educativa Rafael Bucheli - Formando Líderes del Futuro</title>
     <meta name="description" content="Excelencia educativa con metodologías innovadoras. Formamos líderes con valores desde 1978.">
-    <meta name="robots" content="noindex, follow">
+    <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://rafaelbucheli.com/">
     <meta property="og:locale" content="es_EC">
     <meta property="og:type" content="website">
@@ -36,6 +36,46 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Chatbot styles -->
     <link rel="stylesheet" href="CHATBOT/CHATBOT.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "@id": "https://rafaelbucheli.com/#organization",
+      "name": "Unidad Educativa Particular Rafael Bucheli",
+      "alternateName": "UE Rafael Bucheli",
+      "url": "https://rafaelbucheli.com/",
+      "logo": "https://rafaelbucheli.com/assets/images/icon/logo.png",
+      "image": "https://rafaelbucheli.com/assets/images/og-rafael-bucheli.jpg",
+      "description": "Unidad educativa particular en Quito con formación académica, valores y metodologías innovadoras.",
+      "telephone": "+593995549605",
+      "email": "secretaria@rafaelbucheli.edu.ec",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Rumichaca Ñan y Av. Morán Valverde, Sector Quitumbe",
+        "addressLocality": "Quito",
+        "addressCountry": "EC"
+      },
+      "sameAs": [
+        "https://www.facebook.com/uerafaelbucheli/",
+        "https://www.tiktok.com/@uerafaelbucheli",
+        "https://www.instagram.com/u.e.rafaelbucheli/",
+        "https://www.youtube.com/@uecatolicaparticularrafael41"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://rafaelbucheli.com/#website",
+      "url": "https://rafaelbucheli.com/",
+      "name": "Unidad Educativa Rafael Bucheli",
+      "publisher": {
+        "@id": "https://rafaelbucheli.com/#organization"
+      },
+      "inLanguage": "es-EC"
+    }
+    </script>
     
     <style>
         /* ============================================================
@@ -65,32 +105,13 @@
             --hero-badge-bg: rgba(0, 0, 0, 0.45);
             --hero-badge-border: var(--color-accent);
 
-/* Variables específicas para la sección CTA "Formación en futuros líderes" */
-
---cta-bg: #1B1B2F;                     /* Opción 4 – Fondo oscuro con textura sutil */
-
---cta-title-color: var(--color-accent);    /* Dorado para el título */
---cta-text-color: rgba(255,255,255,0.85);  /* Blanco translúcido para texto secundario */
---cta-btn-bg: var(--color-accent);         /* Botón en dorado */
---cta-btn-color: var(--color-primary);     /* Texto del botón en azul primario */
-
-            /* Variables específicas para la sección de Testimonios */
-            --testimonial-bg: #f8f9fa;                /* Fondo claro */
-            --testimonial-title-color: var(--color-primary);
-            --testimonial-highlight: var(--color-accent); /* Dorado para subtítulos y acentos */
-            --testimonial-quote-color: #333;
-            --testimonial-author-color: var(--color-primary);
-            --testimonial-role-color: var(--color-gray);
-
             --font-family-base: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
             --font-weight-normal: 400;
             --font-weight-bold: 700;
             --font-weight-light: 300;
-            
-            --shadow-sm: 10px 4px 12px rgba(0, 0, 0, 0.06);
-            --shadow-md: 12px 8px 30px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 15px 12px 40px rgba(0, 0, 0, 0.12);
-            
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12);
             --transition-smooth: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             --border-radius-round: 60px;
             --border-radius-card: 20px;
@@ -105,7 +126,7 @@
         img { max-width: 100%; height: auto; }
 
         /* ============================================================
-           HEADER – FONDO BLANCO Y SOMBRA (sin modificar)
+           HEADER – FONDO BLANCO Y SOMBRA
            ============================================================ */
         #header {
             background: var(--color-white);
@@ -134,17 +155,17 @@
         }
 
         /* ============================================================
-           HERO – SIN SOMBRAS (cambios aplicados)
+           HERO – MÁS BAJO Y MÁS COMPACTO
            ============================================================ */
         .image-slide-item {
             position: relative;
             width: 100%;
-            min-height: 60vh;
+            min-height: 60vh;          /* mantengo altura pero añado padding-top */
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            padding: 80px 0 30px 0;
+            padding: 80px 0 30px 0;    /* padding-top grande para bajar el contenido */
         }
 
         .slide-background-image {
@@ -157,6 +178,7 @@
             background-position: center center;
             z-index: 0;
         }
+
         .slide-background-image::after {
             content: '';
             position: absolute;
@@ -164,7 +186,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to left, rgba(31, 35, 102, 0.342) 0%, rgba(31, 35, 102, 0) 100%);
+            background: transparent;
             z-index: 1;
         }
 
@@ -172,18 +194,18 @@
             position: relative;
             z-index: 2;
             text-align: center;
-            padding: 5px 15px 10px;
-            max-width: 750px;
+            padding: 5px 15px 10px;     /* reducido */
+            max-width: 750px;           /* más compacto */
             margin: 0 auto;
         }
 
         .hero-title {
-            font-size: 2.2rem;
+            font-size: 2.2rem;          /* reducido de 2.8rem */
             font-weight: 800;
             color: var(--hero-title-color) !important;
-            text-shadow: none !important;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.7);
             line-height: 1.1;
-            margin-bottom: 6px;
+            margin-bottom: 6px;         /* menos margen */
         }
         .hero-title .highlight {
             color: var(--hero-highlight-color) !important;
@@ -192,21 +214,21 @@
         .typing-container {
             display: inline-block;
             background: var(--hero-typing-bg);
-            padding: 2px 12px;
+            padding: 2px 12px;          /* más pequeño */
             border-radius: 6px;
             border-left: 4px solid var(--hero-typing-border);
-            margin-bottom: 8px;
+            margin-bottom: 8px;         /* reducido */
             backdrop-filter: blur(4px);
         }
         .typing-premium {
-            font-size: 1.1rem;
+            font-size: 1.1rem;          /* reducido de 1.5rem */
             font-weight: 700;
             color: var(--hero-text-color) !important;
             text-shadow: 0 2px 8px rgba(0,0,0,0.6);
         }
         .cursor {
             display: inline-block;
-            font-size: 1.1rem;
+            font-size: 1.1rem;          /* reducido */
             color: var(--hero-highlight-color);
             animation: blink 0.7s infinite;
             margin-left: 2px;
@@ -217,11 +239,11 @@
         }
 
         .hero-description {
-            font-size: 0.95rem;
+            font-size: 0.95rem;         /* reducido de 1rem */
             color: var(--hero-description-color) !important;
             max-width: 500px;
             line-height: 1.5;
-            margin: 0 auto 10px;
+            margin: 0 auto 10px;        /* reducido */
             text-shadow: 0 2px 12px rgba(0,0,0,0.8);
         }
         .highlight-dots {
@@ -232,32 +254,32 @@
             background: rgba(0,0,0,0.4);
             backdrop-filter: blur(10px);
             border-radius: var(--border-radius-card);
-            padding: 8px 12px;
+            padding: 8px 12px;          /* más pequeño */
             border: 1px solid rgba(255,255,255,0.15);
-            box-shadow: none !important;
-            margin-bottom: 8px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 8px;         /* reducido */
             display: inline-block;
             width: 100%;
-            max-width: 520px;
+            max-width: 520px;           /* más compacto */
         }
         .stats-grid-premium {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 12px;                 /* reducido */
             flex-wrap: wrap;
         }
         .stat-item-premium {
             text-align: center;
         }
         .stat-number-premium {
-            font-size: 1.4rem;
+            font-size: 1.4rem;          /* reducido de 2rem */
             font-weight: 800;
             color: var(--hero-stat-number-color);
             display: block;
             line-height: 1.2;
         }
         .stat-label-premium {
-            font-size: 0.7rem;
+            font-size: 0.7rem;          /* reducido de 0.75rem */
             color: var(--hero-stat-label-color);
             text-transform: uppercase;
             letter-spacing: 0.3px;
@@ -266,23 +288,23 @@
 
         .hero-buttons-wrapper-premium {
             display: flex;
-            gap: 10px;
+            gap: 10px;                 /* reducido */
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 6px;
+            margin-bottom: 6px;         /* reducido */
         }
 
         .btn-elegant {
             display: inline-block;
-            padding: 8px 16px;
+            padding: 8px 16px;          /* más compacto */
             font-weight: 600;
-            font-size: 13px;
+            font-size: 13px;            /* reducido */
             letter-spacing: 0.3px;
             border-radius: var(--border-radius-round);
             border: 2px solid transparent;
             transition: var(--transition-smooth);
             text-decoration: none;
-            box-shadow: none !important;
+            box-shadow: var(--shadow-sm);
             cursor: pointer;
         }
         .btn-elegant-primary {
@@ -312,15 +334,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            margin: 6px auto 0;
+            gap: 8px;                  /* reducido */
+            margin: 6px auto 0;        /* reducido */
             background: var(--hero-badge-bg);
             backdrop-filter: blur(8px);
-            padding: 5px 14px;
+            padding: 5px 14px;          /* más pequeño */
             border-radius: 50px;
             border-left: 4px solid var(--hero-badge-border);
             color: #fff;
-            font-size: 0.75rem;
+            font-size: 0.75rem;         /* reducido */
             max-width: 100%;
             width: fit-content;
         }
@@ -341,7 +363,7 @@
         @media (max-width: 767px) {
             .image-slide-item {
                 min-height: 50vh;
-                padding: 60px 0 20px 0;
+                padding: 60px 0 20px 0; /* ajuste para móvil */
             }
             .hero-title {
                 font-size: 1.8rem;
@@ -369,7 +391,7 @@
         }
 
         /* ============================================================
-           SECCIÓN ACREDITACIONES (sin cambios)
+           SECCIÓN ACREDITACIONES (sin cambios, solo se incluye)
            ============================================================ */
         .acreditados-fullscreen {
             position: relative;
@@ -484,7 +506,7 @@
         .social li a:hover { background: rgba(255, 255, 255, 0.25); }
 
         /* ============================================================
-           PROPUESTA DE VALOR – las sombras se ajustan con variables
+           PROPUESTA DE VALOR – sin cambios relevantes
            ============================================================ */
         .value-proposal-section {
             padding: 80px 0;
@@ -583,7 +605,7 @@
         }
 
         /* ============================================================
-           FULLSCREEN CAROUSEL (las sombras se ajustan con variables)
+           FULLSCREEN CAROUSEL (sin cambios)
            ============================================================ */
         .fullscreen-carousel-area {
             position: relative;
@@ -802,130 +824,6 @@
             .slide-description-mejorado { font-size: 16px; }
             .btn-slide-primary, .btn-slide-secondary { padding: 12px 24px; font-size: 14px; }
         }
-
-        /* ============================================================
-           SECCIÓN CTA – "Formación en futuros líderes" (CORREGIDA)
-           ============================================================ */
-        .cta-area {
-            background: var(--cta-bg) !important;
-            padding: 60px 0;
-        }
-        .cta-content p {
-            color: var(--cta-text-color) !important;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-        .cta-content h2 {
-            color: var(--cta-title-color) !important;
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.2);
-            letter-spacing: 0.5px;
-        }
-        .cta-btn .btn {
-            background: var(--cta-btn-bg) !important;
-            color: var(--cta-btn-color) !important;
-            border-color: var(--cta-btn-bg) !important;
-            font-weight: 700;
-            padding: 12px 32px;
-            border-radius: 60px;
-            transition: var(--transition-smooth);
-        }
-        .cta-btn .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 28px rgba(255, 199, 44, 0.4);
-            background: #fff !important;
-            color: var(--color-primary) !important;
-        }
-
-        /* ============================================================
-           SECCIÓN TESTIMONIOS – CON VARIABLES DORADAS INDEPENDIENTES
-           ============================================================ */
-        .testimonial-area {
-            background: var(--testimonial-bg);
-            padding: 80px 0;
-            position: relative;
-        }
-        .testimonial-area .tst-bg {
-            display: none; /* ocultamos la imagen de fondo anterior */
-        }
-        .testimonial-content {
-            text-align: center;
-            padding: 20px 30px;
-        }
-        .testimonial-content .section-title span {
-            color: var(--testimonial-highlight) !important;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        .testimonial-content .section-title h2 {
-            color: var(--testimonial-title-color);
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-        .testimonial-content h3 {
-            color: var(--testimonial-quote-color);
-            font-size: 1.6rem;
-            font-weight: 400;
-            font-style: italic;
-            line-height: 1.5;
-            margin: 20px 0 15px;
-        }
-        .testimonial-content h3::before {
-            content: "\201C";
-            color: var(--testimonial-highlight);
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-right: 5px;
-        }
-        .testimonial-content h3::after {
-            content: "\201D";
-            color: var(--testimonial-highlight);
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-left: 5px;
-        }
-        .testimonial-content h4 {
-            color: var(--testimonial-author-color);
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin-bottom: 2px;
-        }
-        .testimonial-content span {
-            color: var(--testimonial-role-color);
-            font-size: 0.95rem;
-        }
-
-        /* Dots del carrusel de testimonios en dorado */
-        .tst-carousel.owl-carousel .owl-dots .owl-dot span {
-            background: var(--color-gray-light);
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            transition: 0.2s;
-        }
-        .tst-carousel.owl-carousel .owl-dots .owl-dot.active span {
-            background: var(--testimonial-highlight);
-            width: 16px;
-            height: 16px;
-        }
-
-        /* ============================================================
-           RESPONSIVE PARA TESTIMONIOS Y CTA
-           ============================================================ */
-        @media (max-width: 767px) {
-            .cta-content h2 {
-                font-size: 1.8rem;
-            }
-            .testimonial-content h3 {
-                font-size: 1.2rem;
-            }
-            .testimonial-content .section-title h2 {
-                font-size: 1.8rem;
-            }
-        }
     </style>
 
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
@@ -953,8 +851,7 @@
                                     <li><a href="admisiones.html">Postulación / Registro</a></li>
                                     <li class="middle-logo"><a href="index.html"><img src="assets/images/icon/logo-middle.png" alt="Logo central" decoding="async"><img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="" loading="lazy" decoding="async"></a></li>
                                     <li><a href="servicios.html">Servicios</a></li>
-                                    <li><a href="nosotros.html">Nosotros</a><ul class="submenu"><li><a href="nosotros.html">Visión y Misión</a>
-                                    </ul></li>
+                                    <li><a href="nosotros.html">Nosotros</a><ul class="submenu"><li><a href="nosotros.html">Visión y Misión</a></li><li><a href="nosotros.html">Proyectos</a></li><li><a href="nosotros.html">Historia</a></li></ul></li>
                                     <li><a href="contacto.html">Contacto</a></li>
                                 </ul>
                             </nav>
@@ -978,7 +875,7 @@
     <div class="body_overlay"></div>
 
     <!-- ============================================================
-         HERO – CON SOMBRAS ELIMINADAS
+         HERO – MÁS BAJO Y MÁS COMPACTO
          ============================================================ -->
     <main>
         <div class="image-slide-item">
@@ -1188,38 +1085,14 @@
         <div class="event-area pt--120 pb--80"><div class="container"><div class="row"><div class="col-md-10 offset-md-1"><div class="section-title-style2 black-title text-center"><span>Únete a nosotros</span><h2>Próximos Eventos</h2></div></div></div><div class="row"><div class="col-md-6"><div class="media align-items-center mb-5"><div class="media-head primary-bg" style="background: var(--color-primary);"><span><sub>MAR</sub>25</span><p>2026</p></div><div class="media-body"><h4><a href="actividades_extracurriculares.html" style="color: var(--color-primary);">Jornada de Puertas Abiertas</a></h4><p><i class="fa fa-clock-o"></i>08:00 AM - 12:00 PM</p></div></div></div><div class="col-md-6"><div class="media align-items-center mb-5"><div class="media-head primary-bg" style="background: var(--color-primary);"><span><sub>OCT</sub>25</span><p>2026</p></div><div class="media-body"><h4><a href="actividades_extracurriculares.html" style="color: var(--color-primary);">Taller para Padres</a></h4><p><i class="fa fa-clock-o"></i>03:00 PM - 05:00 PM</p></div></div></div><div class="col-md-6"><div class="media align-items-center mb-5"><div class="media-head primary-bg" style="background: var(--color-primary);"><span><sub>NOV</sub>25</span><p>2026</p></div><div class="media-body"><h4><a href="oferta_academica.html" style="color: var(--color-primary);">Feria Científica Anual</a></h4><p><i class="fa fa-clock-o"></i>09:00 AM - 02:00 PM</p></div></div></div><div class="col-md-6"><div class="media align-items-center mb-5"><div class="media-head primary-bg" style="background: var(--color-primary);"><span><sub>DIC</sub>25</span><p>2026</p></div><div class="media-body"><h4><a href="actividades_extracurriculares.html" style="color: var(--color-primary);">Taller de Programación</a></h4><p><i class="fa fa-clock-o"></i>10:00 AM - 12:00 PM</p></div></div></div></div></div></div>
 
         <!-- ============================================================
-             TESTIMONIOS – CON VARIABLES DORADAS INDEPENDIENTES
+             TESTIMONIOS
              ============================================================ -->
         <div class="testimonial-area ptb--120">
-            <!-- ocultamos la imagen de fondo original -->
+            <img class="tst-bg" src="assets/images/bg/tst-bg-shape.png" alt="" loading="lazy" decoding="async">
             <div class="container"><div class="row"><div class="col-lg-6 offset-lg-3 text-center"><div class="tst-carousel owl-carousel">
-                <div class="testimonial-content pb--40">
-                    <div class="section-title sec-style-two">
-                        <span class="text-uppercase primary-color mb-0" style="color: var(--testimonial-highlight) !important;">Estudiantes felices</span>
-                        <h2 style="color: var(--testimonial-title-color);">Testimonios</h2>
-                    </div>
-                    <h3>"Debes disfrutar la vida. Siempre ama, piensa positivamente."</h3>
-                    <h4>Laura Fernández</h4>
-                    <span>Madre de estudiante</span>
-                </div>
-                <div class="testimonial-content pb--40">
-                    <div class="section-title sec-style-two">
-                        <span class="text-uppercase primary-color mb-0" style="color: var(--testimonial-highlight) !important;">Estudiantes felices</span>
-                        <h2 style="color: var(--testimonial-title-color);">Testimonios</h2>
-                    </div>
-                    <h3>"Debes disfrutar la vida. Siempre ama, piensa positivamente."</h3>
-                    <h4>Carlos Mendoza</h4>
-                    <span>Padre de estudiante</span>
-                </div>
-                <div class="testimonial-content pb--40">
-                    <div class="section-title sec-style-two">
-                        <span class="text-uppercase primary-color mb-0" style="color: var(--testimonial-highlight) !important;">Estudiantes felices</span>
-                        <h2 style="color: var(--testimonial-title-color);">Testimonios</h2>
-                    </div>
-                    <h3>"Debes disfrutar la vida. Siempre ama, piensa positivamente."</h3>
-                    <h4>Ana Rodríguez</h4>
-                    <span>Madre de estudiante</span>
-                </div>
+                <div class="testimonial-content pb--40"><div class="section-title sec-style-two"><span class="text-uppercase primary-color mb-0" style="color: var(--color-accent);">Estudiantes felices</span><h2>Testimonios</h2></div><h3>"Debes disfrutar la vida. Siempre ama, piensa positivamente."</h3><h4>Laura Fernández</h4><span>Madre de estudiante</span></div>
+                <div class="testimonial-content pb--40"><div class="section-title sec-style-two"><span class="text-uppercase primary-color mb-0" style="color: var(--color-accent);">Estudiantes felices</span><h2>Testimonios</h2></div><h3>"Debes disfrutar la vida. Siempre ama, piensa positivamente."</h3><h4>Carlos Mendoza</h4><span>Padre de estudiante</span></div>
+                <div class="testimonial-content pb--40"><div class="section-title sec-style-two"><span class="text-uppercase primary-color mb-0" style="color: var(--color-accent);">Estudiantes felices</span><h2>Testimonios</h2></div><h3>"Debes disfrutar la vida. Siempre ama, piensa positivamente."</h3><h4>Ana Rodríguez</h4><span>Madre de estudiante</span></div>
             </div></div></div></div>
         </div>
 
@@ -1229,25 +1102,9 @@
         <div class="convenios-area" style="background-image: url('assets/images/slider/convenios.webp');"><div class="container"><div class="row"><div class="col-lg-12"><div class="convenios-content text-center"><span class="convenios-subtitle" style="color: var(--color-accent);">Socios Estratégicos</span><h2 class="convenios-title">Convenios</h2><a href="servicios.html" class="btn btn-primary btn-round convenios-btn" style="background: var(--color-accent); border-color: var(--color-accent); color: var(--color-primary);">Más información...</a></div></div></div></div></div>
 
         <!-- ============================================================
-             CTA – "Formación en futuros líderes" CORREGIDO
+             CTA
              ============================================================ -->
-        <div class="cta-area secondary-bg has-color cta-area ptb--50" style="background: var(--cta-bg) !important;">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-9">
-                        <div class="cta-content">
-                            <p class="mb-2">Unidad Educativa Particular Rafael Bucheli</p>
-                            <h2>Formación en futuros líderes</h2>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="cta-btn">
-                            <a class="btn btn-light btn-round" href="admisiones.html">Únete Ahora</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="cta-area secondary-bg has-color cta-area ptb--50" style="background: var(--color-primary);"><div class="container"><div class="row align-items-center"><div class="col-md-9"><div class="cta-content"><p class="mb-2" style="color: rgba(255,255,255,0.8);">Unidad Educativa Particular Rafael Bucheli</p><h2 style="color: #fff;">Formación en futuros líderes</h2></div></div><div class="col-md-3"><div class="cta-btn"><a class="btn btn-light btn-round" href="admisiones.html" style="background: var(--color-accent); color: var(--color-primary); border-color: var(--color-accent);">Únete Ahora</a></div></div></div></div></div>
 
         <!-- ============================================================
              ACREDITACIONES

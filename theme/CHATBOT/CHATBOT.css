@@ -303,8 +303,10 @@ body {
 
 .secondary-btn {
   position: relative;
-  width: 55px;
-  height: 55px;
+  width: 58px;
+  height: 58px;
+  min-width: 58px;
+  min-height: 58px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -318,6 +320,12 @@ body {
   outline: none;
   z-index: 10001;
   overflow: visible !important;
+}
+
+.secondary-btn img {
+  width: 30px;
+  height: 30px;
+  display: block;
 }
 
 .floating-menu.active .secondary-btn {
@@ -409,6 +417,13 @@ body {
   z-index: 10000;
   animation: fadeIn 0.4s ease-out;
   border: 1px solid var(--gray);
+}
+
+#chatbot-container button,
+#chatbot-container a,
+#chatbot-container input,
+#chatbot-container textarea {
+  box-sizing: border-box;
 }
 
 .chat-window.minimized {
@@ -635,6 +650,8 @@ body {
 
 #lead-form button, .submit-btn {
   padding: 16px; 
+  min-height: 52px;
+  width: 100%;
   background: linear-gradient(135deg, var(--primary), var(--primary-dark)); 
   color: white; 
   border: none; 
@@ -682,6 +699,8 @@ body {
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   width: 50px;
+  min-width: 50px;
+  min-height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -863,6 +882,7 @@ body {
 
 .action-btn { 
   width: 100%; 
+  min-height: 48px;
   padding: 14px; 
   border-radius: 12px; 
   font-weight: 600; 
@@ -1053,6 +1073,7 @@ body {
   font-size: 14px; 
   align-self: center; 
   padding: 10px 20px;
+  min-height: 44px;
   border-radius: 25px;
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: flex;
@@ -1074,6 +1095,7 @@ body {
 
 .section-btn {
   width: 100%;
+  min-height: 48px;
   padding: 14px;
   border-radius: 12px;
   font-weight: 600;
@@ -1350,11 +1372,18 @@ body {
 .whatsapp-option, .form-option, .call-option, .back-option {
   display: flex !important;
   flex-direction: column !important;
-  align-items: flex-start !important;
-  padding: 15px !important;
+  align-items: stretch !important;
+  justify-content: center !important;
+  width: 100% !important;
+  min-height: 64px !important;
+  padding: 14px 16px !important;
   text-align: left !important;
   position: relative;
   overflow: hidden;
+  border-radius: 12px !important;
+  line-height: 1.25 !important;
+  white-space: normal !important;
+  word-break: normal !important;
 }
 
 .whatsapp-option::before, .form-option::before, .call-option::before, .back-option::before {
@@ -1377,6 +1406,7 @@ body {
   opacity: 0.8;
   margin-top: 5px;
   font-weight: normal;
+  line-height: 1.3;
 }
 
 .whatsapp-option {
@@ -1456,6 +1486,90 @@ body {
   font-size: 14px;
   line-height: 1.5;
   margin-bottom: 20px;
+}
+
+.advisor-buttons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  width: 100%;
+}
+
+.advisor-buttons button,
+.contact-form-container button,
+.form-buttons button,
+.options button {
+  min-height: 46px;
+  max-width: 100%;
+  white-space: normal;
+}
+
+.options button {
+  width: 100%;
+  justify-content: flex-start;
+  line-height: 1.25;
+}
+
+/* ============================================
+   AJUSTES DE ESTABILIDAD PARA BOTONES
+============================================ */
+
+#chatbot-container .action-btn,
+#chatbot-container .whatsapp-btn-action,
+#chatbot-container .map-btn,
+#chatbot-container .section-btn,
+#chatbot-container .advisor-primary-btn,
+#chatbot-container .advisor-secondary-btn,
+#chatbot-container .back-btn,
+#chatbot-container .whatsapp-option,
+#chatbot-container .form-option,
+#chatbot-container .call-option,
+#chatbot-container .back-option,
+#chatbot-container .submit-btn,
+#chatbot-container #lead-form button {
+  appearance: none;
+  box-sizing: border-box;
+  max-width: 100%;
+  text-decoration: none;
+}
+
+#chatbot-container .action-btn i,
+#chatbot-container .section-btn i,
+#chatbot-container .advisor-primary-btn i,
+#chatbot-container .advisor-secondary-btn i,
+#chatbot-container .whatsapp-option i,
+#chatbot-container .form-option i,
+#chatbot-container .call-option i,
+#chatbot-container .back-option i {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 768px) {
+  #chatbot-container .section-btn,
+  #chatbot-container .action-btn,
+  #chatbot-container .whatsapp-btn-action,
+  #chatbot-container .map-btn,
+  #chatbot-container .advisor-primary-btn,
+  #chatbot-container .advisor-secondary-btn,
+  #chatbot-container .whatsapp-option,
+  #chatbot-container .form-option,
+  #chatbot-container .call-option,
+  #chatbot-container .back-option {
+    min-height: 50px;
+    padding: 12px 14px !important;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  #chatbot-container .section-btn,
+  #chatbot-container .action-btn,
+  #chatbot-container .whatsapp-btn-action,
+  #chatbot-container .map-btn,
+  #chatbot-container .advisor-primary-btn,
+  #chatbot-container .advisor-secondary-btn {
+    justify-content: center;
+  }
 }
 
 .advisor-buttons {

@@ -5,8 +5,23 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Oferta Académica - UE Rafael Bucheli</title>
     <meta name="description" content="Conoce nuestra oferta académica: Inicial, Primaria y Bachillerato con metodologías innovadoras.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://rafaelbucheli.com/oferta_academica.html">
+    <meta property="og:locale" content="es_EC">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Oferta Académica - UE Rafael Bucheli">
+    <meta property="og:description" content="Conoce nuestra oferta académica: Inicial, Primaria y Bachillerato con metodologías innovadoras.">
+    <meta property="og:url" content="https://rafaelbucheli.com/oferta_academica.html">
+    <meta property="og:site_name" content="Unidad Educativa Rafael Bucheli">
+    <meta property="og:image" content="https://rafaelbucheli.com/assets/images/og-rafael-bucheli.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Oferta Académica - UE Rafael Bucheli">
+    <meta name="twitter:description" content="Conoce nuestra oferta académica: Inicial, Primaria y Bachillerato con metodologías innovadoras.">
+    <meta name="twitter:image" content="https://rafaelbucheli.com/assets/images/og-rafael-bucheli.jpg">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
+    <link rel="shortcut icon" type="image/png" href="assets/images/icon/logo.png">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/css/magnific-popup.css">
@@ -16,7 +31,6 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/loading.css">
-    <link rel="stylesheet" id="triggerColor" href="assets/css/triggerplate/color-0.css">
     
     <!-- ===== FONT AWESOME 6 ===== -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -98,9 +112,12 @@
         .page-header::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: url('assets/images/pattern.png') repeat;
-            opacity: 0.02;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255,255,255,0.04);
+            opacity: 0.02;  /* Más sutil para fondo blanco */
         }
         .page-header h1 {
             font-size: 52px;
@@ -418,14 +435,18 @@
         .psicologia-seccion::before {
             content: '';
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-image: radial-gradient(circle at 20% 50%, rgba(31,35,102,0.03) 0%, transparent 50%),
-                              radial-gradient(circle at 80% 20%, rgba(31,35,102,0.03) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255,255,255,0.04);
+            opacity: 0.02;
         }
-        .psicologia-seccion > * {
+
+        .cta-section h2 {
+            font-size: 42px;
+            color: #182e4e !important;
+            margin-bottom: 20px;
             position: relative;
             z-index: 1;
         }
@@ -931,13 +952,15 @@
             <div class="container-fluid px-0">
                 <div class="row align-items-center g-0 mx-0">
                     <div class="col-lg-3 col-sm-6 d-block d-lg-none">
-                        <div class="logo"><a href="inicio.html"><img src="assets/images/icon/logo.png" alt="Logo Rafael Bucheli"></a></div>
+                        <div class="logo"><a href="index.html"><img src="assets/images/icon/logo.png" alt="Logo Rafael Bucheli" decoding="async"></a></div>
                     </div>
                     <div class="col-lg-9 offset-lg-1 d-none d-lg-block">
                         <div class="main-menu menu-style2">
                             <nav aria-label="Menú principal">
                                 <ul id="m_menu_active">
-                                    <li><a href="inicio.html">Inicio</a></li>
+                                    <!-- Inicio (sin active) -->
+                                    <li><a href="index.html">Inicio</a></li>
+                                    <!-- Oferta Académica (con active) -->
                                     <li class="active"><a href="javascript:void(0);">Oferta Académica</a>
                                         <ul class="submenu">
                                             <li><a href="oferta_academica.html">Academia</a></li>
@@ -945,7 +968,7 @@
                                         </ul>
                                     </li>
                                     <li><a href="admisiones.html">Postulación / Registro</a></li>
-                                    <li class="middle-logo"><a href="inicio.html"><img src="assets/images/icon/logo-middle.png" alt="Logo central"><img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt=""></a></li>
+                                    <li class="middle-logo"><a href="index.html"><img src="assets/images/icon/logo-middle.png" alt="Logo central" decoding="async"><img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="" loading="lazy" decoding="async"></a></li>
                                     <li><a href="servicios.html">Servicios</a></li>
                                     <li><a href="nosotros.html">Nosotros</a>
                                         <ul class="submenu">
@@ -960,7 +983,7 @@
                     <div class="col-lg-2 col-sm-5">
                         <div class="header-bottom-right-style-2">
                             <ul>
-                                <li><a href="https://app.rafaelbucheli.com/login/?next=/" class="btn btn-primary btn-round" target="_blank" rel="noopener">SIGN UP</a></li>
+                                <li><a href="https://app.rafaelbucheli.com/login/?next=/" class="btn btn-primary btn-round portal-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-user-graduate portal-icon"></i><span>Portal</span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -1019,7 +1042,7 @@
                 <!-- Inicial -->
                 <div class="col-lg-4 col-md-6">
                     <div class="level-card">
-                        <div class="level-img" style="background-image: url('assets/images/recursos/inicial.png');">
+                        <div class="level-img" style="background-image: url('assets/images/recursos/inicial.webp');">
                             <span class="level-tag">Educación Inicial</span>
                         </div>
                         <div class="level-content">
@@ -1037,7 +1060,7 @@
                 <!-- Básica -->
                 <div class="col-lg-4 col-md-6">
                     <div class="level-card">
-                        <div class="level-img" style="background-image: url('assets/images/recursos/educacion_basica1.png');">
+                        <div class="level-img" style="background-image: url('assets/images/recursos/educacion_basica1.webp');">
                             <span class="level-tag">Educación Básica</span>
                         </div>
                         <div class="level-content">
@@ -1117,7 +1140,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="service-card">
-                        <div class="service-img" style="background-image: url('assets/images/blog/blog-thumbnail1.jpg');"></div>
+                        <div class="service-img" style="background-image: url('assets/images/blog/blog-thumbnail1.webp');"></div>
                         <div class="service-content">
                             <h3>Nivelación académica</h3>
                             <p>Nivelamos y preparamos a nuestros estudiantes para un mejor desarrollo académico – integral.</p>
@@ -1127,7 +1150,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-card">
-                        <div class="service-img" style="background-image: url('assets/images/blog/blog-thumbnail2.jpg');"></div>
+                        <div class="service-img" style="background-image: url('assets/images/blog/blog-thumbnail2.webp');"></div>
                         <div class="service-content">
                             <h3>Tareas dirigidas</h3>
                             <p>Nuestros docentes están capacitados para ayudar a que nuestros estudiantes puedan cumplir con sus objetivos académicos.</p>
@@ -1137,7 +1160,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="service-card">
-                        <div class="service-img" style="background-image: url('assets/images/recursos/transporte-escolar.jpeg');"></div>
+                        <div class="service-img" style="background-image: url('assets/images/recursos/transporte-escolar.webp');"></div>
                         <div class="service-content">
                             <h3>Alimentación y transporte</h3>
                             <p>Ofrecemos servicios de alimentación saludable y transporte seguro para garantizar el bienestar y el rendimiento académico.</p>
@@ -1244,8 +1267,11 @@
                         <i class="fas fa-quote-right"></i>
                         <p>"El servicio de transporte es seguro y puntual. Me da tranquilidad saber que mi hijo llega bien."</p>
                         <div class="testimonial-author">
-                            <img src="assets/images/author/auth1.jpg" alt="Autor">
-                            <div><h5>Juan Rodríguez</h5><span>Padre de familia</span></div>
+                            <img src="assets/images/author/auth1.webp" alt="Autor" loading="lazy" decoding="async">
+                            <div>
+                                <h5>Juan Rodríguez</h5>
+                                <span>Padre de familia</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1260,7 +1286,7 @@
                 <div class="col-lg-8 offset-lg-2">
                     <h2>¿Listo para formar parte?</h2>
                     <p>Inscripciones abiertas para el año lectivo 2026. Cupos limitados.</p>
-                    <a href="https://api.whatsapp.com/send/?phone=593995549605&text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20la%20oferta%20acad%C3%A9mica%20y%20el%20proceso%20de%20admisiones%20para%20el%20a%C3%B1o%20lectivo%202026.&type=phone_number&app_absent=0" class="btn-cta" target="_blank"><i class="fab fa-whatsapp"></i> Quiero información</a>
+                    <a href="https://api.whatsapp.com/send/?phone=593995549605&text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20la%20oferta%20acad%C3%A9mica%20y%20el%20proceso%20de%20admisiones%20para%20el%20a%C3%B1o%20lectivo%202026.&type=phone_number&app_absent=0" class="btn-cta" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Quiero información</a>
                 </div>
             </div>
         </div>
@@ -1273,7 +1299,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="widget widget-company">
-                            <a href="inicio.html"><img src="assets/images/icon/logo.png" alt="image"></a>
+                            <a href="index.html"><img src="assets/images/icon/logo.png" alt="image" decoding="async"></a>
                             <div class="address">
                                 <h6>Dirección</h6>
                                 <p>Unidad Educativa Rafael Bucheli, Quito, Ecuador.</p>
@@ -1296,30 +1322,30 @@
                     </div>
                     <div class="col-md-3">
                         <div class="widget footer-link">
-                            <h4 class="fwidget-title mb-5 pb-3 primary-color">Menú del Pie</h4> 
+                            <h4 class="fwidget-title mb-5 pb-3 primary-color">Enlaces</h4> 
                             <ul>
-                                <li><a href="servicios.html"><i class="fas fa-angle-right"></i>Casos de Estudio</a></li>
+                                <li><a href="servicios.html"><i class="fas fa-angle-right"></i>Servicios</a></li>
                                 <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Nosotros</a></li>
                                 <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Nuestra Historia</a></li>
-                                <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Publicaciones</a></li>
-                                <li><a href="contacto.html"><i class="fas fa-angle-right"></i>Trabaja con Nosotros</a></li>
+                                <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Admisiones</a></li>
+                                <li><a href="contacto.html"><i class="fas fa-angle-right"></i>Contacto</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="widget widget-opening">
-                            <h4 class="fwidget-title mb-5 pb-3 primary-color">Días y Horas de Trabajo</h4>
+                            <h4 class="fwidget-title mb-5 pb-3 primary-color">Horario de Atención</h4>
                             <ul>
-                                <li><span>Lun - Mar :</span>6.00 am - 10.00 pm</li>
-                                <li><span>Mié - Jue :</span>8.00 am - 6.00 pm</li>
-                                <li><span>Viernes :</span>3.00 pm - 8.00 pm</li>
-                                <li><span>Domingo :</span>Cerrado</li>
+                                <li><span>Lunes a viernes :</span>08:00 - 16:00</li>
+                                <li><span>Secretaría :</span>08:00 - 16:00</li>
+                                <li><span>Admisiones :</span>09:00 - 16:00</li>
+                                <li><span>Fines de semana :</span>Cerrado</li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>Copyright © 2026 <span><a class="primary-color" href="https://rafaelbucheli.com/" target="_blank">Unidad Educativa Particular Rafael Bucheli</a> </span> - Todos los derechos reservados.</p>
+                    <p>Copyright © 2026 <span><a class="primary-color" href="https://rafaelbucheli.com/" target="_blank" rel="noopener noreferrer">Unidad Educativa Particular Rafael Bucheli</a> </span> - Todos los derechos reservados.</p>
                 </div>
             </div>
         </div>

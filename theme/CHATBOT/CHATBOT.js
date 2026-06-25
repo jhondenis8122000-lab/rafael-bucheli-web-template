@@ -1290,9 +1290,9 @@ function addDynamicStyles() {
     style.textContent = `
         .new-message-badge { position: absolute; top: -5px; right: -5px; background: #ff4757; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 10px; display: flex; align-items: center; justify-content: center; }
         .section-btn:hover { transform: translateY(-3px) scale(1.02) !important; filter: brightness(1.1) !important; }
-        .floating-notification { position: absolute; left: -200px; top: 50%; transform: translateY(-50%); background: #252855; color: white; padding: 5px 12px; border-radius: 30px; font-size: 13px; white-space: nowrap; transition: all 0.3s; }
-        @media (max-width: 768px) { .chat-window { width: 95%; right: 2.5%; bottom: 80px; height: 600px; } .form-window { width: 95%; right: 2.5%; bottom: 80px; } .floating-notification { left: -160px !important; font-size: 12px; min-width: 150px; } .btn-tooltip { left: -150px !important; font-size: 12px; } }
-        @media (max-width: 480px) { .chat-window { height: 500px; } .main-floating-btn { width: 60px; height: 60px; bottom: 15px; right: 15px; } .floating-menu { bottom: 90px; right: 25px; } .secondary-btn { width: 50px; height: 50px; } }
+        .floating-notification { position: absolute; left: -200px; top: 50%; transform: translateY(-50%); background: #252855; color: white; padding: 8px 14px; border-radius: 30px; font-size: 13px; white-space: nowrap; transition: all 0.3s; }
+        @media (max-width: 768px) { .chat-window, .form-window { width: 95%; right: 2.5%; bottom: 84px; max-height: calc(100vh - 110px); } .floating-notification { left: -160px !important; font-size: 12px; min-width: 150px; } .btn-tooltip { left: -150px !important; font-size: 12px; } }
+        @media (max-width: 480px) { .chat-window, .form-window { width: calc(100vw - 24px); right: 12px; left: 12px; min-height: 520px; } .main-floating-btn { width: 62px; height: 62px; bottom: 15px; right: 15px; } .floating-menu { bottom: 92px; right: 20px; } .secondary-btn { width: 54px; height: 54px; min-width: 54px; min-height: 54px; } }
     `;
     document.head.appendChild(style);
 }
