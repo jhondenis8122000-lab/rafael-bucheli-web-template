@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /CHATBOT/CHATBOT.html
+
+Sitemap: https://rafaelbucheli.com/sitemap.xml

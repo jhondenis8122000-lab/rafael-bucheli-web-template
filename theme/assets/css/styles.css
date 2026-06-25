@@ -894,7 +894,7 @@ a:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('../images/bg/slider.jpg') center/cover no-repeat;
+  background: url('../images/bg/slider.webp') center/cover no-repeat;
   z-index: -1;
   animation: parallax 20s linear infinite;
 }
@@ -996,7 +996,7 @@ a:hover {
 .abt-rt-inner {
   height: 100%;
   display: flex;
-  background: url(../images/about/abt-right-thumb.jpg) center/cover no-repeat;
+  background: url(../images/about/abt-right-thumb.webp) center/cover no-repeat;
 }
 
 a.expand-video {
@@ -1206,7 +1206,7 @@ img.title-top-shape {
   display: flex;
   border-radius: 10px;
   overflow: hidden;
-  background: url(../images/bg/take-toure-bg.jpg) center/cover no-repeat;
+  background: url(../images/bg/take-toure-bg.webp) center/cover no-repeat;
 }
 
 .video-area:before {
@@ -1681,7 +1681,7 @@ span.post-date i {
   position: relative;
   z-index: 1;
   padding: 170px 0;
-  background: url(../images/bg/slider.jpg) center/cover no-repeat;
+  background: url(../images/bg/slider.webp) center/cover no-repeat;
 }
 
 .hero-area:before {
@@ -1767,7 +1767,7 @@ span.post-date i {
 .crumbs-area {
   position: relative;
   z-index: 1;
-  background: url(../images/bg/bg1.jpg);
+  background: url(../images/bg/bg1.webp);
   padding: 213px 0 114px;
   background-size: cover;
 }
@@ -2058,7 +2058,7 @@ span.post-date i {
     left: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
-    background: url('../images/bg/slider.jpg') center/cover no-repeat !important;
+    background: url('../images/bg/slider.webp') center/cover no-repeat !important;
     opacity: 0.15 !important;
     animation: slowZoom 25s ease-in-out infinite alternate !important;
     z-index: 0 !important;
@@ -4424,5 +4424,78 @@ span.post-date i {
     
     .experience-badge .years {
         font-size: 22px;
+    }
+}
+
+/* Botón de acceso al portal institucional */
+.header-bottom-right-style-2 li a.portal-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 9px !important;
+    min-height: 46px !important;
+    min-width: 126px !important;
+    padding: 12px 24px !important;
+    border-radius: 999px !important;
+    background: #f59e0b !important;
+    border: 2px solid #f59e0b !important;
+    color: #111827 !important;
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0 !important;
+    line-height: 1 !important;
+    box-shadow: 0 12px 26px rgba(245, 158, 11, 0.28) !important;
+    text-transform: none !important;
+}
+
+.header-bottom-right-style-2 li a.portal-btn .portal-icon {
+    width: 26px !important;
+    height: 26px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    background: #111827 !important;
+    color: #ffffff !important;
+    font-size: 13px !important;
+    flex: 0 0 26px !important;
+}
+
+.header-bottom-right-style-2 li a.portal-btn:hover {
+    background: #ffffff !important;
+    border-color: #f59e0b !important;
+    color: #111827 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 16px 30px rgba(17, 24, 39, 0.18) !important;
+}
+
+.header-two.scrolled .header-bottom-right-style-2 li a.portal-btn {
+    background: #f59e0b !important;
+    border-color: #f59e0b !important;
+    color: #111827 !important;
+}
+
+@media (max-width: 991px) {
+    .header-bottom-right-style-2 li a.portal-btn {
+        min-width: 112px !important;
+        min-height: 42px !important;
+        padding: 10px 18px !important;
+        font-size: 14px !important;
+    }
+}
+
+@media (max-width: 575px) {
+    .header-bottom-right-style-2 li a.portal-btn {
+        min-width: 104px !important;
+        min-height: 40px !important;
+        padding: 9px 14px !important;
+        font-size: 13px !important;
+    }
+
+    .header-bottom-right-style-2 li a.portal-btn .portal-icon {
+        width: 23px !important;
+        height: 23px !important;
+        flex-basis: 23px !important;
+        font-size: 12px !important;
     }
 }
