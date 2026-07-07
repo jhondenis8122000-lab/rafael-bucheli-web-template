@@ -683,7 +683,7 @@ function getAttentionHours() {
         
         <div style="background: linear-gradient(135deg, #fce4ec, #f8bbd9); padding: 12px; border-radius: 10px; margin-top: 15px;">
             <small><i class="fas fa-lightbulb" style="color: #e91e63;"></i> <b>Recomendación:</b><br>
-            Para trámites extensos (inscripciones, becas), se sugiere acudir en la mañana para mayor disponibilidad.</small>
+            Para trámites extensos (admisiones), se sugiere acudir en la mañana para mayor disponibilidad.</small>
         </div>
     `;
 }
@@ -815,7 +815,7 @@ function getAdvisorInfo() {
             <div class="advisor-icon">👨‍🏫</div>
             <div class="advisor-title">Atención Personalizada con Asesor</div>
             <div class="advisor-description">
-                Perfecto <b>${userName}</b>. Un asesor educativo especializado te atenderá personalmente para resolver todas tus dudas sobre inscripciones, becas, horarios y más.
+                Perfecto <b>${userName}</b>. Un asesor educativo especializado te atenderá personalmente para resolver todas tus dudas sobre admisiones, horarios y más.
             </div>
             
             <div style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); padding: 15px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #4CAF50;">
@@ -943,7 +943,7 @@ function contactAdvisor(topic) {
 
 function contactAdvisorDirect() {
     if (!messages) return;
-    const text = encodeURIComponent(`Hola, soy ${userName || 'un interesado'}. Me gustaría recibir asesoría personalizada sobre inscripciones, becas y procesos de admisión. Me comunico desde el asistente virtual de la Unidad Educativa Particular Rafael Bucheli.`);
+    const text = encodeURIComponent(`Hola, soy ${userName || 'un interesado'}. Me gustaría recibir asesoría personalizada sobre admisiones. Me comunico desde el asistente virtual de la Unidad Educativa Particular Rafael Bucheli.`);
     const whatsappUrl = `https://wa.me/${window.CHATBOT_CONFIG.whatsappNumber}?text=${text}`;
     showTyping(() => {
         messages.innerHTML += `
