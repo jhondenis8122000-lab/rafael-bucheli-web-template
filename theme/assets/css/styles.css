@@ -4427,7 +4427,7 @@ span.post-date i {
     }
 }
 
-/* Botón de acceso al portal institucional */
+/* Botón de acceso al portal institucional - AMARILLO INSTITUCIONAL */
 .header-bottom-right-style-2 li a.portal-btn {
     display: inline-flex !important;
     align-items: center !important;
@@ -4437,15 +4437,16 @@ span.post-date i {
     min-width: 126px !important;
     padding: 12px 24px !important;
     border-radius: 999px !important;
-    background: #f59e0b !important;
-    border: 2px solid #f59e0b !important;
-    color: #111827 !important;
+    background: var(--amarillo-oro, #F6BE00) !important;  /* Amarillo institucional */
+    border: 2px solid var(--amarillo-oro, #F6BE00) !important;
+    color: var(--azul-principal, #1F2366) !important;    /* Texto azul institucional */
     font-size: 15px !important;
     font-weight: 800 !important;
     letter-spacing: 0 !important;
     line-height: 1 !important;
-    box-shadow: 0 12px 26px rgba(245, 158, 11, 0.28) !important;
+    box-shadow: 0 12px 26px rgba(246, 190, 0, 0.35) !important; /* Sombra amarilla suave */
     text-transform: none !important;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease !important;
 }
 
 .header-bottom-right-style-2 li a.portal-btn .portal-icon {
@@ -4455,24 +4456,25 @@ span.post-date i {
     align-items: center !important;
     justify-content: center !important;
     border-radius: 50% !important;
-    background: #111827 !important;
-    color: #ffffff !important;
+    background: var(--azul-principal, #1F2366) !important; /* Círculo azul */
+    color: #ffffff !important;                            /* Icono blanco */
     font-size: 13px !important;
     flex: 0 0 26px !important;
 }
 
 .header-bottom-right-style-2 li a.portal-btn:hover {
-    background: #ffffff !important;
-    border-color: #f59e0b !important;
-    color: #111827 !important;
+    background: #e5ac00 !important;                      /* Amarillo ligeramente más oscuro */
+    border-color: #e5ac00 !important;
+    color: var(--azul-principal, #1F2366) !important;
     transform: translateY(-2px) !important;
-    box-shadow: 0 16px 30px rgba(17, 24, 39, 0.18) !important;
+    box-shadow: 0 16px 30px rgba(246, 190, 0, 0.45) !important;
 }
 
+/* Versión cuando el header se vuelve opaco (scroll) */
 .header-two.scrolled .header-bottom-right-style-2 li a.portal-btn {
-    background: #f59e0b !important;
-    border-color: #f59e0b !important;
-    color: #111827 !important;
+    background: var(--amarillo-oro, #F6BE00) !important;
+    border-color: var(--amarillo-oro, #F6BE00) !important;
+    color: var(--azul-principal, #1F2366) !important;
 }
 
 @media (max-width: 991px) {

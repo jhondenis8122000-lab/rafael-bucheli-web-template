@@ -1,5 +1,6 @@
 // ============================================
-// CHATBOT - VERSIÓN INTEGRADA CON WEB3FORMS (COMPLETA - SIN RECARGA)
+// CHATBOT - VERSIÓN COMPLETA CON WEB3FORMS
+// (paleta #1F2365, sin emojis duplicados, tamaño reducido)
 // ============================================
 
 // Configuración global
@@ -38,7 +39,7 @@ window.CHATBOT_CONFIG = {
 // Variables globales
 let mainFloatingBtn, floatingMenu, mainTooltip, chatbotFloatingBtn, formFloatingBtn;
 let whatsappBtn, chatbotWindow, messages, leadForm, inputArea, userInput;
-let nameInput, typingIndicator, statusText, formWindow, closeFormWindow;
+let nameInput, typingIndicator, statusText, formWindow, overlay;
 let isMenuOpen = false;
 let userName = "";
 let tooltipTimeout;
@@ -86,27 +87,28 @@ function assignDOMElements() {
     typingIndicator = document.getElementById("typing-indicator");
     statusText = document.getElementById("status-text");
     formWindow = document.getElementById("form-window");
-    closeFormWindow = document.getElementById("close-form");
+    overlay = document.getElementById("chatbot-overlay");
 }
 
 function createChatbotElements(settings) {
     if (document.getElementById('main-floating-btn')) return;
     const chatbotHTML = `
+        <div id="chatbot-overlay" class="chatbot-overlay"></div>
         <div id="main-floating-btn" class="main-floating-btn pulse">
             <i class="fas fa-plus"></i>
             <span class="main-tooltip">¡Haz clic para ver opciones!</span>
         </div>
         <div id="floating-menu" class="floating-menu">
             <a href="https://wa.me/${settings.whatsappNumber}" target="_blank" class="floating-btn secondary-btn whatsapp-btn">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="30">
+                <i class="fab fa-whatsapp"></i>
                 <span class="btn-tooltip">WhatsApp Directo</span>
             </a>
             <div id="form-floating-btn" class="floating-btn secondary-btn form-btn">
-                <i class="far fa-file-alt"></i>
+                <i class="fas fa-file-alt"></i>
                 <span class="btn-tooltip">Enviar Formulario</span>
             </div>
             <div id="chatbot-floating-btn" class="floating-btn secondary-btn chatbot-btn">
-                <i class="far fa-comments"></i>
+                <i class="fas fa-comment"></i>
                 <span class="btn-tooltip">Asistente Virtual</span>
             </div>
         </div>
@@ -122,26 +124,32 @@ function createChatbotElements(settings) {
                         </div>
                     </div>
                 </div>
+                <div class="window-controls">
+                    <button class="window-btn minimize-btn" id="minimize-chat-btn"><i class="fas fa-window-minimize"></i></button>
+                    <button class="window-btn close-btn" id="close-chat-btn"><i class="fas fa-times"></i></button>
+                </div>
             </div>
             <div id="lead-form">
                 <div class="welcome-icon">🤖</div>
                 <h3>¡Bienvenido!</h3>
                 <p>Para brindarte una atención personalizada, por favor dinos tu nombre:</p>
                 <input type="text" id="user-name" class="interactive-input" placeholder="Escribe tu nombre completo..." autocomplete="off">
-                <button id="start-btn" onclick="window.startChat()"><i class="fas fa-comments"></i> Empezar conversación</button>
+                <button id="start-btn" class="submit-btn"><i class="fas fa-comments"></i> Empezar conversación</button>
                 <p class="privacy-note"><i class="fas fa-shield-alt"></i> Tu información es confidencial</p>
             </div>
             <div id="chatbot-messages" style="display:none;"></div>
             <div id="typing-indicator" class="typing" style="display:none;"><span></span><span></span><span></span></div>
             <div id="chatbot-input-area" style="display:none;">
                 <input type="text" id="user-input" placeholder="Escribe tu duda aquí...">
-                <button id="send-btn" onclick="window.sendCustomMessage()"><i class="fas fa-paper-plane"></i></button>
+                <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
             </div>
         </div>
         <div id="form-window" class="form-window">
             <div class="window-header form-header">
-                <div class="header-title"><i class="far fa-file-alt"></i> <b>Formulario de Contacto</b></div>
-                <span id="close-form" class="close-icon">✖</span>
+                <div class="header-title"><i class="fas fa-file-alt"></i> <b>Formulario de Contacto</b></div>
+                <div class="window-controls">
+                    <button class="window-btn close-btn" id="close-form-btn"><i class="fas fa-times"></i></button>
+                </div>
             </div>
             <form id="floating-form">
                 <input type="hidden" name="access_key" value="${settings.web3formsKey}">
@@ -153,10 +161,9 @@ function createChatbotElements(settings) {
                     <div class="input-with-icon"><i class="fas fa-envelope"></i><input type="email" name="Correo" class="interactive-input" placeholder="Correo electrónico" required></div>
                     <div class="input-with-icon"><i class="fas fa-phone"></i><input type="tel" name="Telefono" class="interactive-input" placeholder="Teléfono / WhatsApp" required></div>
                     <div class="input-with-icon"><i class="fas fa-edit"></i><textarea name="Mensaje" class="interactive-input textarea-input" placeholder="¿En qué podemos ayudarte?" required></textarea></div>
-                    <div class="h-captcha" data-captcha="true"></div>
                     <div class="form-buttons">
                         <button type="submit" class="submit-btn" id="floatingSubmitBtn"><i class="fas fa-paper-plane"></i> Enviar Formulario</button>
-                        <button type="button" onclick="window.closeForm()" class="cancel-btn"><i class="fas fa-times"></i></button>
+                        <button type="button" id="cancel-form-btn" class="cancel-btn"><i class="fas fa-times"></i></button>
                     </div>
                     <p class="privacy-note"><i class="fas fa-lock"></i> Tus datos están protegidos</p>
                 </div>
@@ -176,9 +183,8 @@ function setupChatbot() {
         return;
     }
     exposeGlobalFunctions();
-    initializeWindowControls();
     setupEventListeners();
-    setupFloatingFormFetch(); // <--- NUEVA FUNCIÓN para el formulario flotante
+    setupFloatingFormFetch();
     setTimeout(() => showMainTooltip(), 1000);
     updateConnectionStatus();
     setInterval(updateConnectionStatus, 30000);
@@ -189,8 +195,8 @@ function setupChatbot() {
 
 function exposeGlobalFunctions() {
     window.toggleFloatingMenu = toggleFloatingMenu;
-    window.closeChatWindow = closeChatWindow;
-    window.closeForm = closeForm;
+    window.closeChatWindow = closeAllWindows;
+    window.closeForm = closeAllWindows;
     window.toggleMinimizeChat = toggleMinimizeChat;
     window.startChat = startChat;
     window.initMenu = initMenu;
@@ -211,36 +217,65 @@ function exposeGlobalFunctions() {
 }
 
 function setupEventListeners() {
-    if (mainFloatingBtn) mainFloatingBtn.addEventListener("click", toggleFloatingMenu);
-    if (chatbotFloatingBtn) {
-        chatbotFloatingBtn.addEventListener("click", () => {
-            if (chatbotWindow) {
-                chatbotWindow.style.display = "flex";
-                if (formWindow) formWindow.style.display = "none";
-                chatbotWindow.classList.remove('minimized');
-                isChatMinimized = false;
-                clearMessageBadge();
-                toggleFloatingMenu();
+    if (mainFloatingBtn) {
+        mainFloatingBtn.addEventListener("click", () => {
+            if (isWindowOpen()) {
+                closeAllWindows();
+                return;
             }
+            toggleFloatingMenu();
         });
+    }
+    if (chatbotFloatingBtn) {
+        chatbotFloatingBtn.addEventListener("click", () => openWindow(chatbotWindow));
     }
     if (formFloatingBtn) {
-        formFloatingBtn.addEventListener("click", () => {
-            if (formWindow) {
-                formWindow.style.display = "flex";
-                if (chatbotWindow) chatbotWindow.style.display = "none";
-                toggleFloatingMenu();
-            }
-        });
+        formFloatingBtn.addEventListener("click", () => openWindow(formWindow));
     }
     if (whatsappBtn) whatsappBtn.addEventListener("click", toggleFloatingMenu);
+    document.getElementById('close-chat-btn')?.addEventListener('click', closeAllWindows);
+    document.getElementById('close-form-btn')?.addEventListener('click', closeAllWindows);
+    document.getElementById('cancel-form-btn')?.addEventListener('click', closeAllWindows);
+    document.getElementById('minimize-chat-btn')?.addEventListener('click', toggleMinimizeChat);
+    if (overlay) overlay.addEventListener('click', closeAllWindows);
+    document.getElementById('start-btn')?.addEventListener('click', startChat);
     if (nameInput) nameInput.addEventListener("keydown", (e) => { if (e.key === "Enter") startChat(); });
+    document.getElementById('send-btn')?.addEventListener('click', sendCustomMessage);
     if (userInput) userInput.addEventListener("keydown", (e) => { if (e.key === "Enter") sendCustomMessage(); });
-    if (closeFormWindow) closeFormWindow.addEventListener("click", closeForm);
     setupTooltips();
 }
 
-// =========== NUEVA FUNCIÓN: formulario flotante con fetch (sin recarga) ===========
+function openWindow(win) {
+    closeAllWindows();
+    win.style.display = 'flex';
+    overlay.classList.add('active');
+    floatingMenu.classList.remove('active');
+    mainFloatingBtn.classList.add('active');
+    isMenuOpen = false;
+    hideMainTooltip();
+}
+
+function closeAllWindows() {
+    if (chatbotWindow) {
+        chatbotWindow.style.display = 'none';
+        if (isChatMinimized) {
+            chatbotWindow.classList.remove('minimized');
+            isChatMinimized = false;
+            const btn = document.getElementById('minimize-chat-btn');
+            if (btn) btn.innerHTML = '<i class="fas fa-window-minimize"></i>';
+        }
+    }
+    if (formWindow) formWindow.style.display = 'none';
+    if (overlay) overlay.classList.remove('active');
+    mainFloatingBtn.classList.remove('active');
+    showMainTooltip();
+}
+
+function isWindowOpen() {
+    return (chatbotWindow && chatbotWindow.style.display === 'flex') || (formWindow && formWindow.style.display === 'flex');
+}
+
+// ========== FORMULARIO FLOTANTE CON FETCH ==========
 function setupFloatingFormFetch() {
     const floatingForm = document.getElementById('floating-form');
     if (!floatingForm) return;
@@ -248,12 +283,10 @@ function setupFloatingFormFetch() {
     floatingForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         
-        // Obtener campos
         const formData = new FormData(floatingForm);
         const data = {};
         formData.forEach((value, key) => { data[key] = value; });
         
-        // Validaciones básicas
         if (!data.Nombre || !data.Correo) {
             showFloatingFormMessage('Por favor complete nombre y correo electrónico', 'error');
             return;
@@ -264,7 +297,6 @@ function setupFloatingFormFetch() {
             return;
         }
         
-        // Deshabilitar botón mientras se envía
         const submitBtn = document.getElementById('floatingSubmitBtn');
         const originalText = submitBtn.innerHTML;
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
@@ -280,11 +312,9 @@ function setupFloatingFormFetch() {
             
             if (result.success) {
                 showFloatingFormMessage('¡Mensaje enviado exitosamente! Te responderemos en menos de 24 horas.', 'success');
-                // Limpiar formulario
                 floatingForm.reset();
-                // Opcional: cerrar la ventana después de 3 segundos
                 setTimeout(() => {
-                    closeForm();
+                    closeAllWindows();
                 }, 3000);
             } else {
                 showFloatingFormMessage('Error al enviar: ' + (result.message || 'Intente más tarde'), 'error');
@@ -309,53 +339,12 @@ function showFloatingFormMessage(msg, type) {
     msgDiv.style.color = type === 'success' ? '#155724' : '#721c24';
     msgDiv.style.border = type === 'success' ? '1px solid #c3e6cb' : '1px solid #f5c6cb';
     
-    // Ocultar mensaje después de 5 segundos
     setTimeout(() => {
         if (msgDiv) msgDiv.style.display = 'none';
     }, 5000);
 }
 
-// =========== RESTO DE FUNCIONES (igual que antes) ===========
-function setupTooltips() {
-    document.querySelectorAll('.secondary-btn').forEach(btn => {
-        const tooltip = btn.querySelector('.btn-tooltip');
-        if (tooltip) {
-            tooltip.style.right = 'auto';
-            tooltip.style.left = '-180px';
-            tooltip.style.transform = 'translateX(-10px)';
-        }
-        btn.addEventListener('mouseenter', function() {
-            const tt = this.querySelector('.btn-tooltip');
-            if (tt) { tt.style.opacity = '1'; tt.style.visibility = 'visible'; tt.style.transform = 'translateX(0)'; }
-        });
-        btn.addEventListener('mouseleave', function() {
-            const tt = this.querySelector('.btn-tooltip');
-            if (tt) { tt.style.opacity = '0'; tt.style.visibility = 'hidden'; tt.style.transform = 'translateX(-10px)'; }
-        });
-    });
-}
-
-function initializeWindowControls() {
-    if (!chatbotWindow) return;
-    const minimizeBtn = document.createElement("button");
-    const closeBtn = document.createElement("button");
-    const windowHeader = chatbotWindow.querySelector("#chatbot-header");
-    if (!windowHeader) return;
-    const windowControls = document.createElement("div");
-    windowControls.className = "window-controls";
-    minimizeBtn.innerHTML = '<i class="fas fa-window-minimize"></i>';
-    minimizeBtn.className = 'window-btn minimize-btn';
-    minimizeBtn.title = 'Minimizar';
-    closeBtn.innerHTML = '<i class="fas fa-times"></i>';
-    closeBtn.className = 'window-btn close-btn';
-    closeBtn.title = 'Cerrar';
-    windowControls.appendChild(minimizeBtn);
-    windowControls.appendChild(closeBtn);
-    windowHeader.appendChild(windowControls);
-    minimizeBtn.addEventListener('click', toggleMinimizeChat);
-    closeBtn.addEventListener('click', closeChatWindow);
-}
-
+// ========== FUNCIONES DE CHAT ==========
 function toggleFloatingMenu() {
     if (!floatingMenu || !mainFloatingBtn) return;
     if (isMenuOpen) {
@@ -372,85 +361,25 @@ function toggleFloatingMenu() {
     }
 }
 
-function showButtonNotifications() {
-    const buttons = document.querySelectorAll('.secondary-btn');
-    buttons.forEach((btn, index) => {
-        let notificationText = '', notificationClass = '', icon = '';
-        if (btn.classList.contains('whatsapp-btn')) { notificationText = 'Contacto directo'; notificationClass = 'whatsapp-notification'; icon = '📱'; }
-        else if (btn.classList.contains('form-btn')) { notificationText = 'Llenar formulario'; notificationClass = 'form-notification'; icon = '📄'; }
-        else if (btn.classList.contains('chatbot-btn')) { notificationText = 'Asistente virtual'; notificationClass = 'chatbot-notification'; icon = '🤖'; }
-        if (notificationText) {
-            setTimeout(() => {
-                const existing = btn.querySelector('.floating-notification');
-                if (existing) existing.remove();
-                const notification = document.createElement('div');
-                notification.className = `floating-notification ${notificationClass}`;
-                notification.innerHTML = `${icon} ${notificationText}`;
-                btn.appendChild(notification);
-                setTimeout(() => {
-                    notification.style.left = '-200px';
-                    notification.style.top = '50%';
-                    notification.style.transform = 'translateY(-50%)';
-                }, 10);
-                setTimeout(() => {
-                    notification.style.opacity = '0';
-                    notification.style.transform = 'translateY(-50%) translateX(-10px)';
-                    setTimeout(() => notification.parentNode?.removeChild(notification), 500);
-                }, 3000);
-            }, index * 300);
-        }
-    });
-}
-
-function showMainTooltip() {
-    if (!mainTooltip) return;
-    clearTimeout(tooltipTimeout);
-    mainTooltip.classList.add('active-tooltip');
-    tooltipTimeout = setTimeout(() => mainTooltip.classList.remove('active-tooltip'), 4000);
-}
-function hideMainTooltip() { if (mainTooltip) mainTooltip.classList.remove('active-tooltip'); }
-function updateMessageBadge() {
-    if (!isChatMinimized && chatbotWindow && chatbotWindow.style.display === 'flex') return;
-    unreadMessages++;
-    let badge = document.querySelector('.new-message-badge');
-    if (!badge) {
-        badge = document.createElement('div');
-        badge.className = 'new-message-badge';
-        const chatBtn = document.querySelector('.chatbot-btn');
-        if (chatBtn) chatBtn.appendChild(badge);
-    }
-    badge.textContent = unreadMessages > 9 ? '9+' : unreadMessages;
-}
-function clearMessageBadge() { unreadMessages = 0; document.querySelector('.new-message-badge')?.remove(); }
 function toggleMinimizeChat() {
     if (!chatbotWindow || !messages || !inputArea) return;
-
     if (isChatMinimized) {
-        // Restaurar
         chatbotWindow.classList.remove('minimized');
         messages.style.display = '';
         inputArea.style.display = '';
-        const minimizeBtnEl = document.querySelector('.minimize-btn');
+        const minimizeBtnEl = document.getElementById('minimize-chat-btn');
         if (minimizeBtnEl) minimizeBtnEl.innerHTML = '<i class="fas fa-window-minimize"></i>';
         clearMessageBadge();
-        // Asegurar scroll al final al volver a mostrar
         setTimeout(() => {
             if (messages) messages.scrollTop = messages.scrollHeight;
         }, 50);
     } else {
-        // Minimizar (CSS se encarga de ocultar contenido para mantener layout consistente)
         chatbotWindow.classList.add('minimized');
-        const minimizeBtnEl = document.querySelector('.minimize-btn');
+        const minimizeBtnEl = document.getElementById('minimize-chat-btn');
         if (minimizeBtnEl) minimizeBtnEl.innerHTML = '<i class="fas fa-window-restore"></i>';
-        // En móvil, solo afectamos la ventana (CSS se encarga de ocultar contenido).
-        // No cerramos el floating-menu aquí para evitar estados inconsistentes.
-        // (El menú se controla solo con toggleFloatingMenu / botones.)
-        if (!floatingMenu) return;
     }
-
     isChatMinimized = !isChatMinimized;
 }
-function isWindowOpen() { return (chatbotWindow && chatbotWindow.style.display === 'flex') || (formWindow && formWindow.style.display === 'flex'); }
 
 function showTyping(callback) {
     if (!statusText || !typingIndicator || !messages) return;
@@ -514,8 +443,6 @@ function initMenu() {
                 </button>
             </div>
         `;
-
-        // Asegurar que el contenido nuevo se vea desde arriba
         messages.scrollTop = 0;
         messages.innerHTML = menuHTML;
         messages.scrollTop = 0;
@@ -556,18 +483,13 @@ function selectOption(option) {
     showTyping(() => {
         messages.innerHTML += `<div class="bot-message">${response}</div>`;
         if(btnExtra) messages.innerHTML += btnExtra;
-        messages.innerHTML += `<button class="back-btn" onclick="window.initMenu()">
-            <i class="fas fa-arrow-left"></i> Volver al menú principal
-        </button>`;
+        messages.innerHTML += `<button class="back-btn" onclick="window.initMenu()"><i class="fas fa-arrow-left"></i> Volver al menú principal</button>`;
         messages.scrollTop = messages.scrollHeight;
         chatHistory.push({ type: 'bot', content: option });
     });
 }
 
-// ============================================
-// FUNCIONES DE CONTENIDO (COMPLETAS)
-// ============================================
-
+// ========== FUNCIONES DE CONTENIDO (COMPLETAS, ORIGINALES) ==========
 function getAcademicOffer() {
     return `
         <div class="action-container">
@@ -896,9 +818,7 @@ function getAdvisorInfo() {
     `;
 }
 
-// ============================================
-// FUNCIONES PARA BOTONES DE SECCIÓN (Ídem original)
-// ============================================
+// ========== BOTONES DE SECCIÓN (SIN EMOJIS DUPLICADOS) ==========
 function getSectionButtons(section) {
     let sectionName = "";
     switch(section) {
@@ -906,50 +826,50 @@ function getSectionButtons(section) {
             sectionName = "Oferta Académica";
             return `
                 <button class="section-btn academic-section-btn" onclick="window.contactAdvisor('${sectionName}')">
-                    <i class="fab fa-whatsapp"></i> 📚 Consultar sobre ${sectionName}
+                    <i class="fab fa-whatsapp"></i> Consultar sobre ${sectionName}
                 </button>
-                <button class="section-btn admission-section-btn" onclick="window.selectOption('admisiones')" style="background: linear-gradient(135deg, #9b59b6, #8e44ad);">
-                    <i class="fas fa-dollar-sign"></i> 💰 Ver información de admisión
+                <button class="section-btn admission-section-btn" onclick="window.selectOption('admisiones')">
+                    <i class="fas fa-file-invoice-dollar"></i> Ver información de admisión
                 </button>
             `;
         case 'admisiones':
             sectionName = "Admisiones";
             return `
                 <button class="section-btn admission-section-btn" onclick="window.contactAdvisor('${sectionName}')">
-                    <i class="fab fa-whatsapp"></i>  Consultar sobre ${sectionName}
+                    <i class="fab fa-whatsapp"></i> Consultar sobre ${sectionName}
                 </button>
-                <button class="section-btn academic-section-btn" onclick="window.selectOption('academica')" style="background: linear-gradient(135deg, #3498db, #2980b9);">
-                    <i class="fas fa-graduation-cap"></i> 🎓 Ver oferta académica
+                <button class="section-btn academic-section-btn" onclick="window.selectOption('academica')">
+                    <i class="fas fa-graduation-cap"></i> Ver oferta académica
                 </button>
             `;
         case 'h_atencion':
             sectionName = "Horarios de Atención";
             return `
                 <button class="section-btn schedule-section-btn" onclick="window.contactAdvisor('${sectionName}')">
-                    <i class="fab fa-whatsapp"></i>  Consultar  ${sectionName}
+                    <i class="fab fa-whatsapp"></i> Consultar ${sectionName}
                 </button>
-                <button class="section-btn location-section-btn" onclick="window.openGoogleMaps()" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">
-                    <i class="fas fa-map-marked-alt"></i>  Ver ubicación en mapa
+                <button class="section-btn location-section-btn" onclick="window.openGoogleMaps()">
+                    <i class="fas fa-map-marked-alt"></i> Ver ubicación en mapa
                 </button>
             `;
         case 'h_clases':
             sectionName = "Horario de Clases";
             return `
                 <button class="section-btn schedule-section-btn" onclick="window.contactAdvisor('${sectionName}')">
-                    <i class="fab fa-whatsapp"></i>  Consultar sobre ${sectionName}
+                    <i class="fab fa-whatsapp"></i> Consultar sobre ${sectionName}
                 </button>
-                <button class="section-btn admission-section-btn" onclick="window.selectOption('admisiones')" style="background: linear-gradient(135deg, #9b59b6, #8e44ad);">
-                    <i class="fas fa-file-signature"></i> 📝 Iniciar proceso de inscripción
+                <button class="section-btn admission-section-btn" onclick="window.selectOption('admisiones')">
+                    <i class="fas fa-file-signature"></i> Iniciar proceso de inscripción
                 </button>
             `;
         case 'ubicacion':
             sectionName = "Ubicación";
             return `
                 <button class="section-btn location-section-btn" onclick="window.openGoogleMaps()">
-                    <i class="fas fa-map-marked-alt"></i>  Abrir en Google Maps
+                    <i class="fas fa-map-marked-alt"></i> Abrir en Google Maps
                 </button>
-                <button class="section-btn schedule-section-btn" onclick="window.contactAdvisor('${sectionName}')" style="background: linear-gradient(135deg, #2ecc71, #27ae60);">
-                    <i class="fab fa-whatsapp"></i>  Solicitar indicaciones detalladas
+                <button class="section-btn schedule-section-btn" onclick="window.contactAdvisor('${sectionName}')">
+                    <i class="fab fa-whatsapp"></i> Solicitar indicaciones detalladas
                 </button>
             `;
         default:
@@ -961,7 +881,7 @@ function getAdvisorButtons() {
     return `
         <div class="advisor-buttons">
             <button class="advisor-primary-btn" onclick="window.contactAdvisorDirect()">
-                <i class="fab fa-whatsapp"></i>  Contactar con Asesor ahora
+                <i class="fab fa-whatsapp"></i> Contactar con Asesor ahora
             </button>
             <button class="advisor-secondary-btn" onclick="window.showMoreContactOptions()">
                 <i class="fas fa-ellipsis-h"></i> Más opciones de contacto
@@ -970,9 +890,7 @@ function getAdvisorButtons() {
     `;
 }
 
-// ============================================
-// FUNCIONES DE CONTACTO (Ídem original)
-// ============================================
+// ========== FUNCIONES DE CONTACTO (ORIGINALES) ==========
 function contactAdvisor(topic) {
     if (!messages) return;
     const text = encodeURIComponent(`Hola, soy ${userName || 'un interesado'}. Necesito información sobre ${topic}. Me comunico desde el asistente virtual de la Institución Educativa Rafael Bucheli.`);
@@ -1116,7 +1034,7 @@ function openContactForm() {
                 <input type="tel" id="contact-phone" class="interactive-input" placeholder="Teléfono / WhatsApp">
                 <textarea id="contact-message" class="interactive-input" placeholder="Mensaje o consulta específica..." style="height: 100px;"></textarea>
                 <div style="display: flex; gap: 10px; margin-top: 15px;">
-                    <button onclick="window.submitEmailForm()" style="flex: 1; padding: 12px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 600;">
+                    <button onclick="window.submitEmailForm()" style="flex: 1; padding: 12px; background: linear-gradient(135deg, var(--azul-institucional), var(--azul-complementario)); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 600;">
                         <i class="fas fa-paper-plane"></i> Enviar por Correo
                     </button>
                     <button onclick="window.contactAdvisorDirect()" style="padding: 12px 20px; background: linear-gradient(135deg, var(--whatsapp), var(--whatsapp-dark)); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 600;">
@@ -1202,7 +1120,7 @@ function openContactFormWithMessage(query) {
                 <input type="tel" id="contact-phone2" class="interactive-input" placeholder="Teléfono / WhatsApp">
                 <textarea id="contact-message2" class="interactive-input" placeholder="Mensaje o consulta específica..." style="height: 100px;">${decodedQuery}</textarea>
                 <div style="display: flex; gap: 10px; margin-top: 15px;">
-                    <button onclick="window.submitEmailForm2()" style="flex: 1; padding: 12px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 600;"><i class="fas fa-paper-plane"></i> Enviar por Correo</button>
+                    <button onclick="window.submitEmailForm2()" style="flex: 1; padding: 12px; background: linear-gradient(135deg, var(--azul-institucional), var(--azul-complementario)); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 600;"><i class="fas fa-paper-plane"></i> Enviar por Correo</button>
                     <button onclick="window.redirectToWhatsAppWithMessage('${query}')" style="padding: 12px 20px; background: linear-gradient(135deg, var(--whatsapp), var(--whatsapp-dark)); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 600;"><i class="fab fa-whatsapp"></i> WhatsApp</button>
                 </div>
             </div>
@@ -1265,6 +1183,31 @@ function escapeHtml(text) {
     return div.innerHTML;
 }
 
+// ========== UTILIDADES ==========
+function showMainTooltip() {
+    if (!mainTooltip) return;
+    clearTimeout(tooltipTimeout);
+    mainTooltip.classList.add('active-tooltip');
+    tooltipTimeout = setTimeout(() => mainTooltip.classList.remove('active-tooltip'), 4000);
+}
+
+function hideMainTooltip() { if (mainTooltip) mainTooltip.classList.remove('active-tooltip'); }
+
+function updateMessageBadge() {
+    if (!isChatMinimized && chatbotWindow && chatbotWindow.style.display === 'flex') return;
+    unreadMessages++;
+    let badge = document.querySelector('.new-message-badge');
+    if (!badge) {
+        badge = document.createElement('div');
+        badge.className = 'new-message-badge';
+        const chatBtn = document.querySelector('.chatbot-btn');
+        if (chatBtn) chatBtn.appendChild(badge);
+    }
+    badge.textContent = unreadMessages > 9 ? '9+' : unreadMessages;
+}
+
+function clearMessageBadge() { unreadMessages = 0; document.querySelector('.new-message-badge')?.remove(); }
+
 function updateConnectionStatus() {
     const dot = document.getElementById('status-dot');
     const text = document.getElementById('status-text');
@@ -1273,34 +1216,74 @@ function updateConnectionStatus() {
     dot.className = "status-dot online";
 }
 
-function closeChatWindow() {
-    if (chatbotWindow) { chatbotWindow.style.display = "none"; }
-    isChatMinimized = false;
-    showMainTooltip();
-    clearMessageBadge();
-}
-
-function closeForm() {
-    if (formWindow) { formWindow.style.display = "none"; }
-    showMainTooltip();
-}
-
 function addDynamicStyles() {
     const style = document.createElement('style');
     style.textContent = `
+        .chatbot-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 9998; display: none; backdrop-filter: blur(2px); }
+        .chatbot-overlay.active { display: block; }
         .new-message-badge { position: absolute; top: -5px; right: -5px; background: #ff4757; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 10px; display: flex; align-items: center; justify-content: center; }
         .section-btn:hover { transform: translateY(-3px) scale(1.02) !important; filter: brightness(1.1) !important; }
-        .floating-notification { position: absolute; left: -200px; top: 50%; transform: translateY(-50%); background: #252855; color: white; padding: 8px 14px; border-radius: 30px; font-size: 13px; white-space: nowrap; transition: all 0.3s; }
+        .floating-notification { position: absolute; left: -200px; top: 50%; transform: translateY(-50%); background: #1F2365; color: white; padding: 8px 14px; border-radius: 30px; font-size: 13px; white-space: nowrap; transition: all 0.3s; }
         @media (max-width: 768px) { .chat-window, .form-window { width: 95%; right: 2.5%; bottom: 84px; max-height: calc(100vh - 110px); } .floating-notification { left: -160px !important; font-size: 12px; min-width: 150px; } .btn-tooltip { left: -150px !important; font-size: 12px; } }
         @media (max-width: 480px) { .chat-window, .form-window { width: calc(100vw - 24px); right: 12px; left: 12px; min-height: 520px; } .main-floating-btn { width: 62px; height: 62px; bottom: 15px; right: 15px; } .floating-menu { bottom: 92px; right: 20px; } .secondary-btn { width: 54px; height: 54px; min-width: 54px; min-height: 54px; } }
     `;
     document.head.appendChild(style);
 }
 
+function showButtonNotifications() {
+    const buttons = document.querySelectorAll('.secondary-btn');
+    buttons.forEach((btn, index) => {
+        let notificationText = '', notificationClass = '', icon = '';
+        if (btn.classList.contains('whatsapp-btn')) { notificationText = 'Contacto directo'; notificationClass = 'whatsapp-notification'; icon = '📱'; }
+        else if (btn.classList.contains('form-btn')) { notificationText = 'Llenar formulario'; notificationClass = 'form-notification'; icon = '📄'; }
+        else if (btn.classList.contains('chatbot-btn')) { notificationText = 'Asistente virtual'; notificationClass = 'chatbot-notification'; icon = '🤖'; }
+        if (notificationText) {
+            setTimeout(() => {
+                const existing = btn.querySelector('.floating-notification');
+                if (existing) existing.remove();
+                const notification = document.createElement('div');
+                notification.className = `floating-notification ${notificationClass}`;
+                notification.innerHTML = `${icon} ${notificationText}`;
+                btn.appendChild(notification);
+                setTimeout(() => {
+                    notification.style.left = '-200px';
+                    notification.style.top = '50%';
+                    notification.style.transform = 'translateY(-50%)';
+                }, 10);
+                setTimeout(() => {
+                    notification.style.opacity = '0';
+                    notification.style.transform = 'translateY(-50%) translateX(-10px)';
+                    setTimeout(() => notification.parentNode?.removeChild(notification), 500);
+                }, 3000);
+            }, index * 300);
+        }
+    });
+}
+
+function setupTooltips() {
+    document.querySelectorAll('.secondary-btn').forEach(btn => {
+        const tooltip = btn.querySelector('.btn-tooltip');
+        if (tooltip) {
+            tooltip.style.right = 'auto';
+            tooltip.style.left = '-180px';
+            tooltip.style.transform = 'translateX(-10px)';
+        }
+        btn.addEventListener('mouseenter', function() {
+            const tt = this.querySelector('.btn-tooltip');
+            if (tt) { tt.style.opacity = '1'; tt.style.visibility = 'visible'; tt.style.transform = 'translateX(0)'; }
+        });
+        btn.addEventListener('mouseleave', function() {
+            const tt = this.querySelector('.btn-tooltip');
+            if (tt) { tt.style.opacity = '0'; tt.style.visibility = 'hidden'; tt.style.transform = 'translateX(-10px)'; }
+        });
+    });
+}
+
+// Auto-inicialización
 document.addEventListener('DOMContentLoaded', function() {
     const scriptTag = document.querySelector('script[src*="CHATBOT.js"]');
     if (scriptTag && scriptTag.hasAttribute('data-auto-init')) {
         window.initChatbot();
     }
 });
-console.log('✅ Chatbot module loaded (Web3Forms - SIN RECARGA)');
+console.log('✅ Chatbot completo cargado (paleta #1F2365, sin emojis duplicados)');

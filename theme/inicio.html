@@ -39,16 +39,29 @@
     
     <style>
         /* ============================================================
-           PALETA DE COLORES (variables CSS)
+           PALETA DE COLORES INSTITUCIONAL (APLICACIÓN EXPERTA)
            ============================================================ */
         :root {
-            --color-primary: #1F2366;
-            --color-secondary: #2E4FA3;
-            --color-gray: #888B93;
-            --color-gray-light: #D9DADD;
-            --color-white: #FFFFFF;
-            --color-accent: #FFC72C;
+            /* Azul institucional principal (no se modifica – es el favorito) */
+            --color-primary: #1F2366;       /* Pantone 2767 C */
+            /* Azul secundario */
+            --color-secondary: #2E4FA3;     /* Pantone 7687 C */
+            /* Gris elegante */
+            --color-gray: #888B93;          /* Pantone Cool Gray 8 C */
+            /* Gris claro */
+            --color-gray-light: #D9DADD;    /* Pantone Cool Gray 1 C */
+            /* Blanco */
+            --color-white: #FFFFFF;         /* Pantone White */
+            /* Amarillo acento */
+            --color-accent: #FFC72C;        /* Pantone 123 C */
 
+            /* Variables derivadas para un diseño más rico */
+            --color-primary-dark: #151844;   /* para fondos oscuros que conserven el azul */
+            --color-primary-light: #3A3F7A;  /* para hover o degradados sutiles */
+            --color-accent-soft: #FFD966;    /* amarillo más claro para fondos claros */
+            --color-gray-dark: #6C6F77;      /* tono medio para textos secundarios */
+
+            /* Aplicaciones específicas */
             --hero-bg-overlay: rgba(255, 255, 255, 0.65);
             --hero-text-color: var(--color-white);
             --hero-title-color: var(--color-white);
@@ -65,20 +78,18 @@
             --hero-badge-bg: rgba(0, 0, 0, 0.45);
             --hero-badge-border: var(--color-accent);
 
-/* Variables específicas para la sección CTA "Formación en futuros líderes" */
+            /* CTA “Formación en futuros líderes” */
+            --cta-bg: var(--color-primary-dark);          /* azul oscuro derivado */
+            --cta-title-color: var(--color-accent);
+            --cta-text-color: rgba(255,255,255,0.9);
+            --cta-btn-bg: var(--color-accent);
+            --cta-btn-color: var(--color-primary);
 
---cta-bg: #1B1B2F;                     /* Opción 4 – Fondo oscuro con textura sutil */
-
---cta-title-color: var(--color-accent);    /* Dorado para el título */
---cta-text-color: rgba(255,255,255,0.85);  /* Blanco translúcido para texto secundario */
---cta-btn-bg: var(--color-accent);         /* Botón en dorado */
---cta-btn-color: var(--color-primary);     /* Texto del botón en azul primario */
-
-            /* Variables específicas para la sección de Testimonios */
-            --testimonial-bg: #f8f9fa;                /* Fondo claro */
+            /* Testimonios */
+            --testimonial-bg: var(--color-gray-light);    /* gris claro de la paleta */
             --testimonial-title-color: var(--color-primary);
-            --testimonial-highlight: var(--color-accent); /* Dorado para subtítulos y acentos */
-            --testimonial-quote-color: #333;
+            --testimonial-highlight: var(--color-accent);
+            --testimonial-quote-color: var(--color-gray-dark);
             --testimonial-author-color: var(--color-primary);
             --testimonial-role-color: var(--color-gray);
 
@@ -87,9 +98,9 @@
             --font-weight-bold: 700;
             --font-weight-light: 300;
             
-            --shadow-sm: 10px 4px 12px rgba(0, 0, 0, 0.06);
-            --shadow-md: 12px 8px 30px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 15px 12px 40px rgba(0, 0, 0, 0.12);
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12);
             
             --transition-smooth: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             --border-radius-round: 60px;
@@ -105,7 +116,7 @@
         img { max-width: 100%; height: auto; }
 
         /* ============================================================
-           HEADER – FONDO BLANCO Y SOMBRA (sin modificar)
+           HEADER – LIMPIO Y PROFESIONAL
            ============================================================ */
         #header {
             background: var(--color-white);
@@ -134,7 +145,7 @@
         }
 
         /* ============================================================
-           HERO – SIN SOMBRAS (cambios aplicados)
+           HERO – IMPACTO VISUAL CON LA PALETA
            ============================================================ */
         .image-slide-item {
             position: relative;
@@ -414,7 +425,7 @@
         }
 
         /* ============================================================
-           SECCIÓN ACREDITACIONES (sin cambios)
+           SECCIÓN ACREDITACIONES
            ============================================================ */
         .acreditados-fullscreen {
             position: relative;
@@ -474,7 +485,7 @@
         }
 
         /* ============================================================
-           OTROS ELEMENTOS (carrusel, metodologías, etc.) – sin cambios
+           BOTONES Y ELEMENTOS COMUNES
            ============================================================ */
         .btn-slide-primary {
             background: var(--color-accent);
@@ -514,22 +525,22 @@
             box-shadow: 0 10px 28px rgba(255, 199, 44, 0.3);
         }
 
-        /* Footer – todo blanco */
-        .footer-top .fwidget-title { color: #ffffff !important; }
+        /* Footer – todo blanco sobre azul institucional */
+        .footer-top .fwidget-title { color: var(--color-white) !important; }
         .widget-company .address h6,
         .widget-company .address p,
         .widget-opening ul li,
         .footer-link ul li a,
         .footer-bottom p,
-        .footer-bottom a { color: #ffffff !important; }
+        .footer-bottom a { color: var(--color-white) !important; }
         .social li a {
             background: rgba(255, 255, 255, 0.1);
-            color: #ffffff;
+            color: var(--color-white);
         }
         .social li a:hover { background: rgba(255, 255, 255, 0.25); }
 
         /* ============================================================
-           PROPUESTA DE VALOR – las sombras se ajustan con variables
+           PROPUESTA DE VALOR
            ============================================================ */
         .value-proposal-section {
             padding: 80px 0;
@@ -596,7 +607,7 @@
         }
         .grid-item img {
             width: 100%;
-            height: 180px;
+            height: 100%;
             object-fit: cover;
             border-radius: 12px;
             box-shadow: var(--shadow-sm);
@@ -628,7 +639,7 @@
         }
 
         /* ============================================================
-           FULLSCREEN CAROUSEL (las sombras se ajustan con variables)
+           FULLSCREEN CAROUSEL
            ============================================================ */
         .fullscreen-carousel-area {
             position: relative;
@@ -849,7 +860,7 @@
         }
 
         /* ============================================================
-           SECCIÓN CTA – "Formación en futuros líderes" (CORREGIDA)
+           SECCIÓN CTA – FORMACIÓN EN LÍDERES
            ============================================================ */
         .cta-area {
             background: var(--cta-bg) !important;
@@ -884,7 +895,7 @@
         }
 
         /* ============================================================
-           SECCIÓN TESTIMONIOS – CON VARIABLES DORADAS INDEPENDIENTES
+           TESTIMONIOS – CON GRIS CLARO DE LA PALETA
            ============================================================ */
         .testimonial-area {
             background: var(--testimonial-bg);
@@ -892,7 +903,7 @@
             position: relative;
         }
         .testimonial-area .tst-bg {
-            display: none; /* ocultamos la imagen de fondo anterior */
+            display: none;
         }
         .testimonial-content {
             text-align: center;
@@ -943,9 +954,8 @@
             font-size: 0.95rem;
         }
 
-        /* Dots del carrusel de testimonios en dorado */
         .tst-carousel.owl-carousel .owl-dots .owl-dot span {
-            background: var(--color-gray-light);
+            background: var(--color-gray);
             width: 12px;
             height: 12px;
             border-radius: 50%;
@@ -958,7 +968,46 @@
         }
 
         /* ============================================================
-           RESPONSIVE PARA TESTIMONIOS Y CTA
+           TARJETAS DE METODOLOGÍAS – TAMAÑOS UNIFORMES
+           ============================================================ */
+        .teacher-area .card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .teacher-area .card img {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+            border-top-left-radius: calc(0.25rem - 1px);
+            border-top-right-radius: calc(0.25rem - 1px);
+        }
+        .teacher-area .card-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .teacher-area .card-body .card-text {
+            flex: 1;
+            margin-bottom: 15px;
+        }
+        .teacher-area .card-body ul.list-inline {
+            margin-top: auto;
+        }
+        .commn-carousel.owl-carousel .owl-stage {
+            display: flex;
+            align-items: stretch;
+        }
+        .commn-carousel.owl-carousel .owl-item {
+            display: flex;
+            height: auto;
+        }
+        .commn-carousel.owl-carousel .owl-item .card {
+            width: 100%;
+        }
+
+        /* ============================================================
+           RESPONSIVE FINAL
            ============================================================ */
         @media (max-width: 767px) {
             .cta-content h2 {
@@ -985,19 +1034,19 @@
             <div class="container-fluid px-0">
                 <div class="row align-items-center g-0 mx-0">
                     <div class="col-lg-3 col-sm-6 d-block d-lg-none">
-                        <div class="logo"><a href="index.html"><img src="assets/images/icon/logo.png" alt="Logo Rafael Bucheli" decoding="async"></a></div>
+                        <div class="logo"><a href="inicio.html"><img src="assets/images/icon/logo.png" alt="Logo Rafael Bucheli" decoding="async"></a></div>
                     </div>
                     <div class="col-lg-9 offset-lg-1 d-none d-lg-block">
                         <div class="main-menu menu-style2">
                             <nav aria-label="Menú principal">
                                 <ul id="m_menu_active">
-                                    <li class="active"><a href="index.html">Inicio</a></li>
+                                    <li class="active"><a href="inicio.html">Inicio</a></li>
                                     <li><a href="javascript:void(0);">Oferta Académica</a>
                                         <ul class="submenu"><li><a href="oferta_academica.html">Academia</a></li><li><a href="actividades_extracurriculares.html">Clubes</a></li></ul>
                                     </li>
                             
-                                    <li><a href="admisiones.html">Postulación / Registro</a></li>
-                                    <li class="middle-logo"><a href="index.html"><img src="assets/images/icon/logo-middle.png" alt="Logo central" decoding="async"><img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="" loading="lazy" decoding="async"></a></li>
+                                    <li><a href="admisiones.html">Admisiones 2026</a></li>
+                                    <li class="middle-logo"><a href="inicio.html"><img src="assets/images/icon/logo-middle.png" alt="Logo central" decoding="async"><img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="" loading="lazy" decoding="async"></a></li>
                                     <li><a href="servicios.html">Servicios</a></li>
                                     <li><a href="nosotros.html">Nosotros</a><ul class="submenu"><li><a href="nosotros.html">Visión y Misión</a>
                                     </ul></li>
@@ -1024,11 +1073,11 @@
     <div class="body_overlay"></div>
 
     <!-- ============================================================
-         HERO – CON SOMBRAS ELIMINADAS
+         HERO
          ============================================================ -->
     <main>
         <div class="image-slide-item">
-            <div class="slide-background-image" style="background-image: url('assets/images/recursos/institucion.webp');"></div>
+            <div class="slide-background-image" style="background-image: url('assets/images/recursos/institucion1.webp');"></div>
             
             <div class="container">
                 <div class="row justify-content-center">
@@ -1097,7 +1146,7 @@
                         <div class="value-image-wrapper">
                             <div class="value-image-grid">
                                 <div class="grid-item grid-item-1"><img src="assets/images/recursos/bastoneras.webp" alt="Estudiantes en actividad" loading="lazy" decoding="async"></div>
-                                <div class="grid-item grid-item-2"><img src="assets/images/recursos/leon_rafael_bucheli_2.webp" alt="Aula moderna" loading="lazy" decoding="async"></div>
+                                <div class="grid-item grid-item-2"><img src="assets/images/recursos/uniformes.jpg" alt="Aula moderna" loading="lazy" decoding="async"></div>
                                 <div class="grid-item grid-item-3"><img src="assets/images/recursos/juramento_1.webp" alt="Ceremonia institucional" loading="lazy" decoding="async"></div>
                                 <div class="grid-item grid-item-4"><img src="assets/images/recursos/institucion.webp" alt="Campus" loading="lazy" decoding="async"></div>
                             </div>
@@ -1117,7 +1166,7 @@
         <div class="fullscreen-carousel-area" aria-label="Carrusel de servicios">
             <div class="fullscreen-carousel owl-carousel">
                 <!-- Slide 1 -->
-                <div class="fullscreen-slide" style="background-image: url('assets/images/slider/buchelino.webp');">
+                <div class="fullscreen-slide" style="background-image: url('assets/images/slider/buchelino1.webp');">
                     <div class="slide-overlay-mejorado"></div><div class="slide-pattern"></div>
                     <div class="container-mejorado"><div class="row"><div class="col-lg-7">
                         <div class="slide-content-mejorado">
@@ -1131,7 +1180,7 @@
                     <div class="slide-info-card"><h4>Buchelino</h4><ul><li><i class="fas fa-check-circle"></i> Edades: 2 a 4 años</li><li><i class="fas fa-check-circle"></i> Metodología Montessori</li><li><i class="fas fa-check-circle"></i> Estimulación temprana</li><li><i class="fas fa-check-circle"></i> Horario extendido</li></ul></div>
                 </div>
                 <!-- Slide 2 -->
-                <div class="fullscreen-slide" style="background-image: url('assets/images/slider/crecimiento.webp');">
+                <div class="fullscreen-slide" style="background-image: url('assets/images/slider/crecimiento1.webp');">
                     <div class="slide-overlay-mejorado"></div><div class="slide-pattern"></div>
                     <div class="container-mejorado"><div class="row"><div class="col-lg-7">
                         <div class="slide-content-mejorado">
@@ -1159,7 +1208,7 @@
                     <div class="slide-info-card"><h4>Nuestros Valores</h4><ul><li><i class="fas fa-check-circle"></i> Excelencia académica</li><li><i class="fas fa-check-circle"></i> Formación ética</li><li><i class="fas fa-check-circle"></i> Respeto y responsabilidad</li><li><i class="fas fa-check-circle"></i> Liderazgo positivo</li></ul></div>
                 </div>
                 <!-- Slide 4 -->
-                <div class="fullscreen-slide" style="background-image: url('assets/images/slider/motivacional.webp');">
+                <div class="fullscreen-slide" style="background-image: url('assets/images/slider/motivacional1.webp');">
                     <div class="slide-overlay-mejorado"></div><div class="slide-pattern"></div>
                     <div class="container-mejorado"><div class="row"><div class="col-lg-7">
                         <div class="slide-content-mejorado">
@@ -1173,7 +1222,7 @@
                     <div class="slide-info-card"><h4>Frases destacadas</h4><ul><li><i class="fas fa-check-circle"></i> "Nunca es tarde para aprender"</li><li><i class="fas fa-check-circle"></i> "El esfuerzo trae recompensas"</li><li><i class="fas fa-check-circle"></i> "Cree en ti mismo"</li></ul></div>
                 </div>
                 <!-- Slide 5 -->
-                <div class="fullscreen-slide" style="background-image: url('assets/images/slider/rafaelbucheli.webp');">
+                <div class="fullscreen-slide" style="background-image: url('assets/images/slider/rafaelbucheli1.webp');">
                     <div class="slide-overlay-mejorado"></div><div class="slide-pattern"></div>
                     <div class="container-mejorado"><div class="row"><div class="col-lg-7">
                         <div class="slide-content-mejorado">
@@ -1218,15 +1267,15 @@
         </div>
 
         <!-- ============================================================
-             METODOLOGÍAS
+             METODOLOGÍAS – TAMAÑO UNIFORME
              ============================================================ -->
         <div class="teacher-area pb--100">
             <div class="container">
                 <div class="row"><div class="col-md-10 offset-md-1"><div class="section-title-style2 black-title title-tb text-center"><span>Aprende de los mejores</span><h2 class="primary-color" style="color: var(--color-primary) !important;">Nuestras metodologías</h2></div></div></div>
                 <div class="commn-carousel owl-carousel card-deck">
-                    <div class="card mb-5"><img src="assets/images/teacher/teacher-member1.webp" alt="Kindergarten" loading="lazy" decoding="async"><div class="card-body teacher-content p-25"><h4 class="card-title mb-4"><a href="oferta_academica.html" style="color: var(--color-primary);">Kindergarten</a></h4><span class="primary-color d-block mb-4" style="color: var(--color-accent);">Metodología Montessori</span><p class="card-text">Potenciamos el desarrollo integral, cultivando la autonomía y curiosidad de los niños en un ambiente diseñado para que aprendan explorando a su propio ritmo.</p><ul class="list-inline"><li><a href="https://www.facebook.com/uerafaelbucheli/?locale=es_LA" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li><li><a href="https://www.tiktok.com/@uerafaelbucheli" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a></li><li><a href="https://www.instagram.com/u.e.rafaelbucheli/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li><li><a href="https://www.youtube.com/@uecatolicaparticularrafael41" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li></ul></div></div>
-                    <div class="card mb-5"><img src="assets/images/teacher/teacher-member2.webp" alt="Primaria" loading="lazy" decoding="async"><div class="card-body teacher-content p-25"><h4 class="card-title mb-4"><a href="oferta_academica.html" style="color: var(--color-primary);">Primaria</a></h4><span class="primary-color d-block mb-4" style="color: var(--color-accent);">Metodología Singapur</span><p class="card-text">Impulsamos el razonamiento lógico y el liderazgo a nuestros alumnos de las herramientas necesarias para resolver problemas y triunfar en un mundo en constante cambio.</p><ul class="list-inline"><li><a href="https://www.facebook.com/uerafaelbucheli/?locale=es_LA" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li><li><a href="https://www.tiktok.com/@uerafaelbucheli" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a></li><li><a href="https://www.instagram.com/u.e.rafaelbucheli/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li><li><a href="https://www.youtube.com/@uecatolicaparticularrafael41" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li></ul></div></div>
-                    <div class="card mb-5"><img src="assets/images/teacher/teacher-member4.webp" alt="Secundaria" loading="lazy" decoding="async"><div class="card-body teacher-content p-25"><h4 class="card-title mb-4"><a href="oferta_academica.html" style="color: var(--color-primary);">Secundaria</a></h4><span class="primary-color d-block mb-4" style="color: var(--color-accent);">Metodología TBL</span><p class="card-text">Implementamos la metodología TBL para desarrollar el pensamiento crítico y colaborativo, brindando un enfoque personalizado que fortalece la confianza y el liderazgo.</p><ul class="list-inline"><li><a href="https://www.facebook.com/uerafaelbucheli/?locale=es_LA" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li><li><a href="https://www.tiktok.com/@uerafaelbucheli" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a></li><li><a href="https://www.instagram.com/u.e.rafaelbucheli/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li><li><a href="https://www.youtube.com/@uecatolicaparticularrafael41" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li></ul></div></div>
+                    <div class="card mb-5"><img src="assets/images/recursos/kindergarten.jpg" alt="Kindergarten" loading="lazy" decoding="async"><div class="card-body teacher-content p-25"><h4 class="card-title mb-4"><a href="oferta_academica.html" style="color: var(--color-primary);">Kindergarten</a></h4><span class="primary-color d-block mb-4" style="color: var(--color-accent);">Metodología Montessori</span><p class="card-text">Potenciamos el desarrollo integral, cultivando la autonomía y curiosidad de los niños en un ambiente diseñado para que aprendan explorando a su propio ritmo.</p><ul class="list-inline"><li><a href="https://www.facebook.com/uerafaelbucheli/?locale=es_LA" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li><li><a href="https://www.tiktok.com/@uerafaelbucheli" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a></li><li><a href="https://www.instagram.com/u.e.rafaelbucheli/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li><li><a href="https://www.youtube.com/@uecatolicaparticularrafael41" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li></ul></div></div>
+                    <div class="card mb-5"><img src="assets/images/recursos/primaria.jpg" alt="Primaria" loading="lazy" decoding="async"><div class="card-body teacher-content p-25"><h4 class="card-title mb-4"><a href="oferta_academica.html" style="color: var(--color-primary);">Primaria</a></h4><span class="primary-color d-block mb-4" style="color: var(--color-accent);">Metodología Singapur</span><p class="card-text">Impulsamos el razonamiento lógico y el liderazgo a nuestros alumnos de las herramientas necesarias para resolver problemas y triunfar en un mundo en constante cambio.</p><ul class="list-inline"><li><a href="https://www.facebook.com/uerafaelbucheli/?locale=es_LA" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li><li><a href="https://www.tiktok.com/@uerafaelbucheli" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a></li><li><a href="https://www.instagram.com/u.e.rafaelbucheli/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li><li><a href="https://www.youtube.com/@uecatolicaparticularrafael41" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li></ul></div></div>
+                    <div class="card mb-5"><img src="assets/images/recursos/secundaria.jpg" alt="Secundaria" loading="lazy" decoding="async"><div class="card-body teacher-content p-25"><h4 class="card-title mb-4"><a href="oferta_academica.html" style="color: var(--color-primary);">Secundaria</a></h4><span class="primary-color d-block mb-4" style="color: var(--color-accent);">Metodología TBL</span><p class="card-text">Implementamos la metodología TBL para desarrollar el pensamiento crítico y colaborativo, brindando un enfoque personalizado que fortalece la confianza y el liderazgo.</p><ul class="list-inline"><li><a href="https://www.facebook.com/uerafaelbucheli/?locale=es_LA" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li><li><a href="https://www.tiktok.com/@uerafaelbucheli" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a></li><li><a href="https://www.instagram.com/u.e.rafaelbucheli/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li><li><a href="https://www.youtube.com/@uecatolicaparticularrafael41" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li></ul></div></div>
                 </div>
             </div>
         </div>
@@ -1237,10 +1286,9 @@
         <div class="event-area pt--120 pb--80"><div class="container"><div class="row"><div class="col-md-10 offset-md-1"><div class="section-title-style2 black-title text-center"><span>Únete a nosotros</span><h2>Próximos Eventos</h2></div></div></div><div class="row"><div class="col-md-6"><div class="media align-items-center mb-5"><div class="media-head primary-bg" style="background: var(--color-primary);"><span><sub>MAR</sub>25</span><p>2026</p></div><div class="media-body"><h4><a href="actividades_extracurriculares.html" style="color: var(--color-primary);">Jornada de Puertas Abiertas</a></h4><p><i class="fa fa-clock-o"></i>08:00 AM - 12:00 PM</p></div></div></div><div class="col-md-6"><div class="media align-items-center mb-5"><div class="media-head primary-bg" style="background: var(--color-primary);"><span><sub>OCT</sub>25</span><p>2026</p></div><div class="media-body"><h4><a href="actividades_extracurriculares.html" style="color: var(--color-primary);">Taller para Padres</a></h4><p><i class="fa fa-clock-o"></i>03:00 PM - 05:00 PM</p></div></div></div><div class="col-md-6"><div class="media align-items-center mb-5"><div class="media-head primary-bg" style="background: var(--color-primary);"><span><sub>NOV</sub>25</span><p>2026</p></div><div class="media-body"><h4><a href="oferta_academica.html" style="color: var(--color-primary);">Feria Científica Anual</a></h4><p><i class="fa fa-clock-o"></i>09:00 AM - 02:00 PM</p></div></div></div><div class="col-md-6"><div class="media align-items-center mb-5"><div class="media-head primary-bg" style="background: var(--color-primary);"><span><sub>DIC</sub>25</span><p>2026</p></div><div class="media-body"><h4><a href="actividades_extracurriculares.html" style="color: var(--color-primary);">Taller de Programación</a></h4><p><i class="fa fa-clock-o"></i>10:00 AM - 12:00 PM</p></div></div></div></div></div></div>
 
         <!-- ============================================================
-             TESTIMONIOS – CON VARIABLES DORADAS INDEPENDIENTES
+             TESTIMONIOS
              ============================================================ -->
         <div class="testimonial-area ptb--120">
-            <!-- ocultamos la imagen de fondo original -->
             <div class="container"><div class="row"><div class="col-lg-6 offset-lg-3 text-center"><div class="tst-carousel owl-carousel">
                 <div class="testimonial-content pb--40">
                     <div class="section-title sec-style-two">
@@ -1278,7 +1326,7 @@
         <div class="convenios-area" style="background-image: url('assets/images/slider/convenios.webp');"><div class="container"><div class="row"><div class="col-lg-12"><div class="convenios-content text-center"><span class="convenios-subtitle" style="color: var(--color-accent);">Socios Estratégicos</span><h2 class="convenios-title">Convenios</h2><a href="servicios.html" class="btn btn-primary btn-round convenios-btn" style="background: var(--color-accent); border-color: var(--color-accent); color: var(--color-primary);">Más información...</a></div></div></div></div></div>
 
         <!-- ============================================================
-             CTA – "Formación en futuros líderes" CORREGIDO
+             CTA – FORMACIÓN EN LÍDERES
              ============================================================ -->
         <div class="cta-area secondary-bg has-color cta-area ptb--50" style="background: var(--cta-bg) !important;">
             <div class="container">
@@ -1316,7 +1364,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="widget widget-company">
-                            <a href="index.html"><img src="assets/images/icon/logo.png" alt="Logo Rafael Bucheli" decoding="async"></a>
+                            <a href="inicio.html"><img src="assets/images/icon/logo.png" alt="Logo Rafael Bucheli" decoding="async"></a>
                             <div class="address"><h6>Dirección</h6><p>Unidad Educativa Rafael Bucheli, Quito, Ecuador.</p></div>
                             <div class="address"><h6>Teléfono</h6><p>(02) 303-5139</p></div>
                             <div class="address"><h6>Correo Electrónico</h6><p>secretaria@rafaelbucheli.edu.ec</p></div>
