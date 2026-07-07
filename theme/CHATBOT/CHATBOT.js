@@ -161,6 +161,7 @@ function createChatbotElements(settings) {
                     <div class="input-with-icon"><i class="fas fa-envelope"></i><input type="email" name="Correo" class="interactive-input" placeholder="Correo electrónico" required></div>
                     <div class="input-with-icon"><i class="fas fa-phone"></i><input type="tel" name="Telefono" class="interactive-input" placeholder="Teléfono / WhatsApp" required></div>
                     <div class="input-with-icon"><i class="fas fa-edit"></i><textarea name="Mensaje" class="interactive-input textarea-input" placeholder="¿En qué podemos ayudarte?" required></textarea></div>
+                    <div class="h-captcha" data-captcha="true"></div>
                     <div class="form-buttons">
                         <button type="submit" class="submit-btn" id="floatingSubmitBtn"><i class="fas fa-paper-plane"></i> Enviar Formulario</button>
                         <button type="button" id="cancel-form-btn" class="cancel-btn"><i class="fas fa-times"></i></button>
@@ -174,6 +175,7 @@ function createChatbotElements(settings) {
     container.id = 'chatbot-container';
     container.innerHTML = chatbotHTML;
     document.body.appendChild(container);
+    loadWeb3FormsCaptcha();
 }
 
 function setupChatbot() {
@@ -296,6 +298,10 @@ function setupFloatingFormFetch() {
             showFloatingFormMessage('Por favor ingrese un correo electrónico válido', 'error');
             return;
         }
+        if (!data['h-captcha-response']) {
+            showFloatingFormMessage('Por favor complete la verificación de seguridad', 'error');
+            return;
+        }
         
         const submitBtn = document.getElementById('floatingSubmitBtn');
         const originalText = submitBtn.innerHTML;
@@ -313,6 +319,7 @@ function setupFloatingFormFetch() {
             if (result.success) {
                 showFloatingFormMessage('¡Mensaje enviado exitosamente! Te responderemos en menos de 24 horas.', 'success');
                 floatingForm.reset();
+                if (window.hcaptcha) window.hcaptcha.reset();
                 setTimeout(() => {
                     closeAllWindows();
                 }, 3000);
@@ -333,8 +340,14 @@ function setupFloatingFormFetch() {
 function showFloatingFormMessage(msg, type) {
     const msgDiv = document.getElementById('floatingFormMessage');
     if (!msgDiv) return;
+    const icon = type === 'success' ? 'fas fa-check-circle' : 'fas fa-exclamation-triangle';
     msgDiv.style.display = 'block';
-    msgDiv.innerHTML = type === 'success' ? `<i class="fas fa-check-circle"></i> ${msg}` : `<i class="fas fa-exclamation-triangle"></i> ${msg}`;
+    msgDiv.textContent = '';
+    const iconEl = document.createElement('i');
+    iconEl.className = icon;
+    iconEl.setAttribute('aria-hidden', 'true');
+    msgDiv.appendChild(iconEl);
+    msgDiv.appendChild(document.createTextNode(' ' + msg));
     msgDiv.style.backgroundColor = type === 'success' ? '#d4edda' : '#f8d7da';
     msgDiv.style.color = type === 'success' ? '#155724' : '#721c24';
     msgDiv.style.border = type === 'success' ? '1px solid #c3e6cb' : '1px solid #f5c6cb';
@@ -342,6 +355,15 @@ function showFloatingFormMessage(msg, type) {
     setTimeout(() => {
         if (msgDiv) msgDiv.style.display = 'none';
     }, 5000);
+}
+
+function loadWeb3FormsCaptcha() {
+    if (document.querySelector('script[src*="web3forms.com/client/script.js"]')) return;
+    const script = document.createElement('script');
+    script.src = 'https://web3forms.com/client/script.js';
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
 }
 
 // ========== FUNCIONES DE CHAT ==========
@@ -1075,7 +1097,7 @@ function submitEmailForm() {
     .then(resp => {
         if (resp.success) {
             showTyping(() => {
-                messages.innerHTML += `<div class="bot-message success-message"><i class="fas fa-check-circle" style="color: #4CAF50;"></i> <b>¡Formulario enviado exitosamente!</b><br>Hemos recibido su consulta. Te contactaremos en:<br><b>📧 ${email}</b><br>en las próximas 24 horas hábiles.</div>`;
+                messages.innerHTML += `<div class="bot-message success-message"><i class="fas fa-check-circle" style="color: #4CAF50;"></i> <b>¡Formulario enviado exitosamente!</b><br>Hemos recibido su consulta. Te contactaremos en:<br><b>📧 ${escapeHtml(email)}</b><br>en las próximas 24 horas hábiles.</div>`;
                 messages.scrollTop = messages.scrollHeight;
             });
         } else {

@@ -7,15 +7,54 @@ AddType image/webp .webp
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    RewriteBase /
 
     RewriteCond %{HTTPS} !=on
     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
     RewriteCond %{THE_REQUEST} \s/+inicio\.html[\s?] [NC]
-    RewriteRule ^inicio\.html$ /index.html [L,R=301]
+    RewriteRule ^inicio\.html$ / [L,R=301]
 
-    RewriteCond %{THE_REQUEST} \s/+pscologia\.html[\s?] [NC]
-    RewriteRule ^pscologia\.html$ /psicologia.html [L,R=301]
+    RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+    RewriteRule ^index\.html$ / [L,R=301]
+
+    RewriteCond %{THE_REQUEST} \s/+admisiones\.html[\s?] [NC]
+    RewriteRule ^admisiones\.html$ /admisiones [L,R=301]
+
+    RewriteCond %{THE_REQUEST} \s/+oferta_academica\.html[\s?] [NC]
+    RewriteRule ^oferta_academica\.html$ /oferta-academica [L,R=301]
+
+    RewriteCond %{THE_REQUEST} \s/+actividades_extracurriculares\.html[\s?] [NC]
+    RewriteRule ^actividades_extracurriculares\.html$ /actividades-extracurriculares [L,R=301]
+
+    RewriteCond %{THE_REQUEST} \s/+servicios\.html[\s?] [NC]
+    RewriteRule ^servicios\.html$ /servicios [L,R=301]
+
+    RewriteCond %{THE_REQUEST} \s/+nosotros\.html[\s?] [NC]
+    RewriteRule ^nosotros\.html$ /nosotros [L,R=301]
+
+    RewriteCond %{THE_REQUEST} \s/+contacto\.html[\s?] [NC]
+    RewriteRule ^contacto\.html$ /contacto [L,R=301]
+
+    RewriteCond %{THE_REQUEST} \s/+landing_page\.html[\s?] [NC]
+    RewriteRule ^landing_page\.html$ /landing-page [L,R=301]
+
+    RewriteCond %{THE_REQUEST} \s/+404\.html[\s?] [NC]
+    RewriteRule ^404\.html$ /404 [L,R=301]
+
+    RewriteRule ^admisiones/?$ admisiones.html [L]
+    RewriteRule ^oferta-academica/?$ oferta_academica.html [L]
+    RewriteRule ^actividades-extracurriculares/?$ actividades_extracurriculares.html [L]
+    RewriteRule ^servicios/?$ servicios.html [L]
+    RewriteRule ^nosotros/?$ nosotros.html [L]
+    RewriteRule ^contacto/?$ contacto.html [L]
+    RewriteRule ^landing-page/?$ landing_page.html [L]
+    RewriteRule ^404/?$ 404.html [L]
+
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}.html -f
+    RewriteRule ^(.+?)/?$ $1.html [L]
+
 </IfModule>
 
 <IfModule mod_headers.c>
