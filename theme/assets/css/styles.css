@@ -715,7 +715,7 @@ a:hover {
 }
 
 /* mobile menu slicknav*/
-.slicknav_menu .slicknav_menutxt {
+/* .slicknav_menu .slicknav_menutxt {
   display: none;
 }
 
@@ -4499,5 +4499,189 @@ span.post-date i {
         height: 23px !important;
         flex-basis: 23px !important;
         font-size: 12px !important;
+    }
+}
+/* ============================================================
+   FIX: LOGO IZQUIERDA + BOTÓN CENTRADO + MENÚ ABAJO
+   ============================================================ */
+@media (max-width: 991px) {
+    /* 1. El row: logo y botón en misma línea, menú abajo */
+    #header .row.align-items-center {
+        flex-wrap: wrap !important;
+        align-items: center !important;   /* centra verticalmente */
+    }
+
+    /* 2. Columna del logo: izquierda, con ancho automático */
+    #header .col-sm-6 {
+        flex: 0 0 auto !important;
+        max-width: 40% !important;        /* ajusta si quieres más o menos */
+        padding: 0 !important;
+        align-self: center !important;
+    }
+
+    /* 3. Columna del botón: ocupa el resto del espacio, centrado */
+    #header .col-sm-5 {
+        flex: 1 0 auto !important;        /* ocupa el espacio sobrante */
+        max-width: 60% !important;        /* el resto del ancho */
+        text-align: center !important;    /* centra el contenido */
+        padding: 0 !important;
+        align-self: center !important;
+        display: flex !important;
+        justify-content: center !important; /* centra el contenido horizontalmente */
+    }
+
+    /* 4. Columna del menú móvil: siempre abajo, ocupando todo el ancho */
+    #header .col-12 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        order: 2 !important;              /* asegura que vaya después */
+        padding: 5px 0 !important;
+        display: block !important;
+    }
+
+    /* 5. Logo: sin márgenes extra, alineado a la izquierda */
+    .logo {
+        display: flex !important;
+        align-items: center !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        line-height: 1 !important;
+    }
+    .logo img {
+        display: block !important;
+        max-height: 45px !important;
+        width: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* 6. Botón Portal Web: centrado en su columna */
+    .header-bottom-right-style-2 {
+        display: flex !important;
+        justify-content: center !important; /* centra el contenido */
+        align-items: center !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+    }
+    .header-bottom-right-style-2 ul {
+        display: flex !important;
+        align-items: center !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .header-bottom-right-style-2 li {
+        display: flex !important;
+        align-items: center !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .header-bottom-right-style-2 li a.portal-btn {
+        margin: 0 !important;
+        padding: 6px 10px !important;
+        min-height: 32px !important;
+        min-width: 80px !important;
+        font-size: 12px !important;
+        line-height: 1 !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        /* Asegurar visibilidad */
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    /* 7. Menú móvil (hamburguesa) visible abajo */
+    #mobile_menu {
+        display: flex !important;
+        justify-content: center !important; /* si quieres centrado, o left/right */
+        align-items: center !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .slicknav_btn {
+        position: static !important;
+        float: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: transparent !important;
+        display: inline-block !important;
+    }
+    .slicknav_btn .slicknav_icon-bar {
+        background-color: #1F2366 !important; /* color del ícono */
+        height: 3px !important;
+        width: 25px !important;
+        margin: 3px 0 !important;
+        border-radius: 2px !important;
+        display: block !important;
+    }
+    .slicknav_menu {
+        background: transparent !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+}
+/* ============================================================
+   ESTILOS PARA EL MENÚ MÓVIL (SLICKNAV) - VERSIÓN BLANCA
+   ============================================================ */
+@media (max-width: 991px) {
+    /* Fondo del menú desplegable */
+    .slicknav_nav {
+        background: #ffffff !important;     /* blanco */
+        padding: 10px 0 !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+    }
+
+    /* Enlaces principales */
+    .slicknav_nav a {
+        color: #1F2366 !important;          /* azul institucional */
+        font-weight: 600 !important;
+        font-size: 15px !important;
+        padding: 12px 20px !important;
+        border-bottom: 1px solid rgba(31,35,102,0.08) !important;
+        transition: all 0.3s ease !important;
+    }
+
+    /* Enlaces al hacer hover/tap */
+    .slicknav_nav a:hover,
+    .slicknav_nav a:focus,
+    .slicknav_nav .slicknav_row:hover {
+        background: rgba(255, 199, 44, 0.2) !important; /* amarillo suave */
+        color: #1F2366 !important;           /* texto azul */
+        padding-left: 25px !important;
+    }
+
+    /* Enlace activo (página actual) */
+    .slicknav_nav .slicknav_active a {
+        color: #FFC72C !important;
+        background: rgba(255, 199, 44, 0.15) !important;
+    }
+
+    /* Submenús */
+    .slicknav_nav .slicknav_arrow {
+        color: #1F2366 !important;           /* flecha azul */
+    }
+
+    .slicknav_nav .submenu {
+        background: rgba(31, 35, 102, 0.03) !important;
+    }
+
+    .slicknav_nav .submenu a {
+        padding-left: 35px !important;
+        font-size: 14px !important;
+        border-bottom: 1px solid rgba(31,35,102,0.05) !important;
+        color: #2E4FA3 !important;           /* azul secundario */
+    }
+
+    .slicknav_nav .submenu a:hover {
+        padding-left: 40px !important;
+        background: rgba(255, 199, 44, 0.1) !important;
+        color: #1F2366 !important;
+    }
+
+    /* Ícono de hamburguesa */
+    .slicknav_btn .slicknav_icon-bar {
+        background-color: #1F2366 !important;
     }
 }
