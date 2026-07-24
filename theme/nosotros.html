@@ -68,7 +68,7 @@
             text-align: center;
             color: var(--blanco);
             overflow: hidden;
-            margin-top: 104px;
+            margin-top: 80px;
         }
         
         .page-header-nosotros::before {
@@ -514,7 +514,14 @@
     
     <!-- loading area start -->
     <div id="preloader">
-        <div class="spinner"></div>
+        <div class="loading-container">
+            <video id="loadingVideo" muted playsinline preload="auto" poster="assets/images/icon/logo.png">
+                <source src="assets/images/recursos/pantalla-de-carga.webm" type="video/webm">
+                <source src="assets/images/recursos/pantalla-de-ccarga.mp4" type="video/mp4">
+            </video>
+            <div class="spinner"></div>
+            <div class="loading-text">Cargando...</div>
+        </div>
     </div>
     <!-- loading area end -->
     
@@ -524,9 +531,8 @@
         <div class="header-two">
             <div class="container-fluid px-0">
                 <div class="row align-items-center g-0 mx-0">
-                    <div class="col-lg-3 col-sm-6 d-block d-lg-none">
+                    <div class="col-lg-3 col-6 d-block d-lg-none">
                         <div class="logo">
-                            <!-- ENLACE CORREGIDO: Apunta a index.html -->
                             <a href="index.html"><img src="assets/images/icon/logo.png" alt="logo" decoding="async"></a>
                         </div>
                     </div>
@@ -534,7 +540,6 @@
                         <div class="main-menu menu-style2">
                             <nav>
                                 <ul id="m_menu_active">
-                                    <!-- ENLACES CORREGIDOS: Mismos que en las otras páginas -->
                                     <li><a href="index.html">Inicio</a></li>
                                     <li><a href="javascript:void(0);">Oferta Académica</a>
                                         <ul class="submenu">
@@ -543,9 +548,7 @@
                                         </ul>
                                     </li>
                                     <li><a href="admisiones.html">Admisiones</a></li>
-
                                     <li class="middle-logo">
-                                        <!-- ENLACE CORREGIDO: Apunta a inicio.html -->
                                         <a href="index.html">
                                             <img src="assets/images/icon/logo-middle.png" alt="logo" decoding="async">
                                             <img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="logo" loading="lazy" decoding="async">
@@ -555,7 +558,6 @@
                                     <li class="active"><a href="nosotros.html">Nosotros</a>
                                         <ul class="submenu">
                                             <li><a href="nosotros.html">Visión y Misión</a></li>
-
                                         </ul>
                                     </li>
                                     <li><a href="contacto.html">Contacto</a></li>
@@ -563,7 +565,7 @@
                             </nav>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-sm-5">
+                    <div class="col-lg-2 col-6">
                         <div class="header-bottom-right-style-2">
                             <ul>
                                 <li>
@@ -571,11 +573,9 @@
                                     class="btn btn-primary btn-round portal-btn" 
                                     target="_blank" rel="noopener noreferrer"><i class="fas fa-user-graduate portal-icon"></i><span>Portal Web</span></a>
                                 </li>
+                                <li class="d-block d-lg-none"><div id="mobile_menu"></div></li>
                             </ul>
                         </div>
-                    </div><!-- col-lg-2 -->
-                    <div class="col-12 d-block d-lg-none">
-                        <div id="mobile_menu"></div>
                     </div>
                 </div>
             </div>
@@ -845,6 +845,8 @@
     <script src="assets/js/jquery.slicknav.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/mobile-menu.js"></script>
+
     <!-- loading js -->
     <script src="assets/js/loading.js"></script>
     

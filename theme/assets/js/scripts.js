@@ -1,39 +1,66 @@
 /*============================
-   js index - VERSIÓN SIMPLIFICADA (UN SOLO SLIDER)
+   scripts.js - COMPLETO
    ============================*/
 
 (function($) {
     "use strict";
 
     /*================================
-    INICIALIZACIÓN
+    INICIALIZACIÓN PRINCIPAL
     ==================================*/
     $(document).ready(function() {
-        // initPreloader() eliminado para evitar conflicto con loading.js
+        // 1. Efectos del header (scroll)
         initHeaderEffects();
+
+        // 2. Animaciones al hacer scroll
         initAnimations();
+
+        // 3. Búsqueda (offcanvas)
         initSearch();
+
+        // 4. Scroll suave para anclas
         initSmoothScroll();
+
+        // 5. Contadores animados
         initCounters();
-        initCardEffects();
+
+        // 6. Carruseles (todos los que usa el sitio)
+        initCarousels();
+
+        // 7. Video popup (magnific)
         initVideoPopup();
+
+        // 8. Efectos de tarjetas (retrasos de animación)
+        initCardEffects();
     });
 
     /*================================
-    HEADER EFFECTS
+    1. HEADER EFFECTS (SCROLL + SLICKNAV)
     ==================================*/
     function initHeaderEffects() {
+        // Cambiar clase al hacer scroll
         $(window).on('scroll', function() {
             var scroll = $(window).scrollTop();
             $('.header-two').toggleClass('scrolled', scroll > 50);
         });
-        $('ul#m_menu_active').slicknav({
-            prependTo: "#mobile_menu"
-        });
+
+        // INICIALIZACIÓN DE SLICKNAV (MENÚ MÓVIL)
+        // Eliminado: el menú móvil fue rediseñado sin slicknav.
+
+        // initMobileMenu ahora vive en assets/js/mobile-menu.js (nuevo menú sin slicknav)
     }
 
     /*================================
-    ANIMACIONES SCROLL
+      INIT MOBILE MENU
+      (Ahora manejado por assets/js/mobile-menu.js)
+    ==================================*/
+    // La función initMobileMenu y sus helpers fueron movidos a mobile-menu.js
+    // para evitar duplicación de código.
+
+
+
+    /*================================
+    2. ANIMACIONES AL SCROLL
     ==================================*/
     function initAnimations() {
         function animateOnScroll() {
@@ -57,7 +84,7 @@
     }
 
     /*================================
-    SEARCH OFFCANVAS
+    3. BÚSQUEDA OFFCANVAS
     ==================================*/
     function initSearch() {
         var $offsetSearch = $('.offset-search');
@@ -79,7 +106,7 @@
     }
 
     /*================================
-    SMOOTH SCROLL - CORREGIDO (IGNORA ENLACES NORMALES)
+    4. SCROLL SUAVE PARA ANCLAS
     ==================================*/
     function initSmoothScroll() {
         $(document).on('click', 'a[href^="#"]', function(event) {
@@ -94,7 +121,7 @@
     }
 
     /*================================
-    CONTADORES ANIMADOS
+    5. CONTADORES ANIMADOS
     ==================================*/
     function initCounters() {
         var countersStarted = false;
@@ -138,9 +165,43 @@
     }
 
     /*================================
-    CARD EFFECTS (para cursos, docentes, blog)
+    6. CARRUSELES (todos)
     ==================================*/
-    function initCardEffects() {
+    function initCarousels() {
+        // 6.1 Hero Slider (principal)
+        if ($('#heroSlider').length) {
+            $('#heroSlider').owlCarousel({
+                loop: true,
+                items: 1,
+                nav: false,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 5500,
+                autoplayHoverPause: true,
+                smartSpeed: 800,
+                animateOut: 'fadeOut',
+                animateIn: 'fadeIn'
+            });
+        }
+
+        // 6.2 Fullscreen Carousel (sección de servicios)
+        if ($('.fullscreen-carousel').length) {
+            $('.fullscreen-carousel').owlCarousel({
+                loop: true,
+                items: 1,
+                nav: true,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                animateOut: 'fadeOut',
+                animateIn: 'fadeIn',
+                smartSpeed: 800,
+                navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>']
+            });
+        }
+
+        // 6.3 Carrusel común (metodologías, docentes, etc.)
         if ($('.commn-carousel').length) {
             $('.commn-carousel').owlCarousel({
                 loop: true,
@@ -156,6 +217,8 @@
                 }
             });
         }
+
+        // 6.4 Blog carousel (si existe)
         if ($('.blog-carousel').length) {
             $('.blog-carousel').owlCarousel({
                 loop: true,
@@ -172,6 +235,8 @@
                 }
             });
         }
+
+        // 6.5 Testimonios
         if ($('.tst-carousel').length) {
             $('.tst-carousel').owlCarousel({
                 loop: true,
@@ -182,13 +247,10 @@
                 smartSpeed: 800
             });
         }
-        $('.course-area .card, .teacher-area .card, .feature-blog .card').each(function(index) {
-            $(this).css('animation-delay', (index * 0.2) + 's');
-        });
     }
 
     /*================================
-    VIDEO POPUP
+    7. VIDEO POPUP
     ==================================*/
     function initVideoPopup() {
         $('.expand-video').magnificPopup({
@@ -197,10 +259,19 @@
         });
     }
 
+    /*================================
+    8. EFECTOS DE TARJETAS (retrasos)
+    ==================================*/
+    function initCardEffects() {
+        $('.course-area .card, .teacher-area .card, .feature-blog .card').each(function(index) {
+            $(this).css('animation-delay', (index * 0.2) + 's');
+        });
+    }
+
 })(jQuery);
 
 /*================================
-GOOGLE MAPS (si lo usas)
+GOOGLE MAPS (opcional)
 ==================================*/
 function initMap() {
     var mapElement = document.getElementById('google_map');
@@ -215,3 +286,6 @@ function initMap() {
         map: map
     });
 }
+
+
+

@@ -49,13 +49,14 @@
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
     
     <style>
-        /* ===== VARIABLES ACTUALIZADAS CON PALETA INSTITUCIONAL ===== */
+        /* ===== ESTILOS PROPIOS DE LA PÁGINA DE ADMISIONES ===== */
+        /* (NO AFECTAN AL HEADER) */
         :root {
-            --azul-institucional: #1F2366;    /* Azul principal - confianza y liderazgo */
-            --azul-complementario: #2E4FA3;   /* Azul secundario - dinamismo */
-            --amarillo-oro: #F6BE00;          /* Amarillo énfasis - energía y éxito */
-            --gris-neutro: #888B93;           /* Gris de apoyo - equilibrio */
-            --gris-claro: #D9DADD;            /* Gris fondos - limpieza */
+            --azul-institucional: #1F2366;
+            --azul-complementario: #2E4FA3;
+            --amarillo-oro: #F6BE00;
+            --gris-neutro: #888B93;
+            --gris-claro: #D9DADD;
             --pure-white: #ffffff;
             --border-light: rgba(31, 35, 102, 0.12);
             --shadow-sm: 0 5px 20px rgba(31,35,102,0.06);
@@ -80,56 +81,7 @@
             color: var(--azul-institucional);
         }
 
-        /* HEADER FIJO */
-        .header-two {
-            position: fixed !important;
-            left: 0;
-            top: 0;
-            width: 100%;
-            z-index: 9999;
-            background: rgba(255,255,255,0.97);
-            backdrop-filter: blur(8px);
-            box-shadow: var(--shadow-sm);
-            border-bottom: 1px solid var(--border-light);
-            padding: 0;
-            transition: all 0.3s ease;
-        }
-
-        .menu-style2 nav > ul > li > a {
-            padding: 8px 12px;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--azul-institucional);
-            text-transform: uppercase;
-            font-family: 'Montserrat', sans-serif;
-            opacity: 0.8;
-            transition: all 0.3s;
-        }
-        .menu-style2 nav > ul > li > a:hover { opacity: 1; color: var(--azul-complementario); }
-        .menu-style2 nav > ul > li.active > a { font-weight: 700; opacity: 1; color: var(--azul-institucional); }
-        .middle-logo img { max-height: 60px; transition: transform 0.3s; }
-        .middle-logo:hover img { transform: scale(1.03); }
-        
-        /* Botones mejorados con nueva paleta */
-        .btn-primary {
-            background: var(--azul-institucional) !important;
-            border: none;
-            border-radius: 50px !important;
-            padding: 10px 24px !important;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 12px;
-            transition: all 0.3s;
-            color: white !important;
-            letter-spacing: 0.5px;
-        }
-        .btn-primary:hover {
-            background: var(--azul-complementario) !important;
-            transform: translateY(-2px);
-            color: white !important;
-            box-shadow: 0 8px 20px rgba(31,35,102,0.25);
-        }
-
+        /* ===== BOTONES PERSONALIZADOS (no afectan al header) ===== */
         .btn-primary-custom, .btn-secondary-custom {
             padding: 16px 38px;
             border-radius: 60px;
@@ -168,13 +120,13 @@
             transform: translateY(-3px);
         }
 
-        /* HERO */
+        /* ===== HERO ===== */
         .hero-section {
             position: relative;
             min-height: auto;
             display: flex;
             align-items: flex-start;
-            margin-top: 100px;
+            margin-top: 80px;
             padding: 42px 0 58px;
             background: linear-gradient(135deg, #ffffff 0%, #f4f6fc 100%);
         }
@@ -384,7 +336,7 @@
             margin-top: 3px;
         }
 
-        /* GUÍA RÁPIDA */
+        /* ===== GUÍA RÁPIDA (DIÁLOGO) ===== */
         .guide-dialog {
             position: fixed;
             top: 50%;
@@ -473,7 +425,7 @@
             background: #ffffff;
         }
 
-        /* BENEFICIOS INSCRIPCIÓN */
+        /* ===== BENEFICIOS ===== */
         .benefits-section {
             padding: 82px 0;
             background: #ffffff;
@@ -544,130 +496,7 @@
             line-height: 1.6;
         }
 
-        /* FORMULARIO (legado, se mantiene por compatibilidad) */
-        .hero-form {
-            background: white;
-            border-radius: 30px;
-            padding: 45px 35px;
-            border: 1px solid var(--gris-claro);
-            box-shadow: var(--shadow-lg);
-            position: relative;
-        }
-        .hero-form:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(to right, var(--azul-institucional), var(--amarillo-oro));
-            border-radius: 30px 30px 0 0;
-        }
-        .hero-form h3 { text-align: center; margin-bottom: 30px; color: var(--azul-institucional); }
-        .form-control {
-            width: 100%;
-            padding: 15px 20px;
-            background: #f8f9fc;
-            border: 1px solid var(--gris-claro);
-            border-radius: 12px;
-            transition: 0.3s;
-            font-size: 15px;
-            color: #333;
-        }
-        .form-control:focus { outline: none; border-color: var(--azul-institucional); box-shadow: 0 0 0 3px rgba(31,35,102,0.08); }
-        .form-group { margin-bottom: 20px; }
-        .error-message { color: #d9534f; font-size: 13px; margin-top: 5px; display: none; }
-        .form-control.error, .custom-multi-select.error .multi-select-toggle { border-color: #d9534f; background: rgba(217,83,79,0.04); }
-
-        .custom-multi-select { position: relative; }
-        .multi-select-toggle {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            background: #f8f9fc;
-            border: 1px solid var(--gris-claro);
-            border-radius: 12px;
-            cursor: pointer;
-            transition: 0.2s;
-            user-select: none;
-            color: var(--gris-neutro);
-        }
-        .multi-select-toggle:hover { background: rgba(31,35,102,0.04); }
-        .multi-select-toggle .toggle-text { flex: 1; font-size: 15px; }
-        .multi-select-toggle .toggle-text.placeholder { color: #aaa; }
-        .multi-select-toggle .toggle-arrow { transition: transform 0.3s; color: var(--azul-institucional); }
-        .multi-select-toggle.open .toggle-arrow { transform: rotate(180deg); }
-        .multi-select-options {
-            position: absolute;
-            top: calc(100% + 6px);
-            left: 0;
-            width: 100%;
-            background: white;
-            border: 1px solid var(--gris-claro);
-            border-radius: 12px;
-            box-shadow: var(--shadow-md);
-            display: none;
-            z-index: 100;
-            padding: 8px 0;
-        }
-        .multi-select-options.show { display: block; }
-        .multi-select-option {
-            padding: 12px 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            cursor: pointer;
-            transition: 0.15s;
-        }
-        .multi-select-option:hover { background: var(--hover-bg); }
-        .multi-select-option input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            accent-color: var(--azul-institucional);
-            cursor: pointer;
-        }
-        .multi-select-option label {
-            cursor: pointer;
-            margin: 0;
-            font-weight: 500;
-            color: var(--azul-institucional);
-            font-size: 15px;
-        }
-
-        .btn-submit {
-            width: 100%;
-            background: var(--azul-institucional);
-            color: white;
-            padding: 16px;
-            border-radius: 12px;
-            font-weight: 600;
-            border: none;
-            margin-top: 10px;
-            transition: 0.3s;
-            font-size: 16px;
-            letter-spacing: 0.5px;
-        }
-        .btn-submit:hover { background: var(--azul-complementario); transform: translateY(-2px); color: white; }
-        .form-message { display: none; margin-bottom: 20px; padding: 12px; border-radius: 12px; text-align: center; }
-        .floating-card {
-            position: absolute;
-            bottom: 50px;
-            right: 50px;
-            background: white;
-            padding: 25px 35px;
-            border-radius: 20px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
-            border-left: 6px solid var(--amarillo-oro);
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            animation: floatCard 4s infinite;
-            z-index: 20;
-        }
-        @keyframes floatCard { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-20px); } }
-
-        /* PROCESO */
+        /* ===== PROCESO ===== */
         .steps-section { padding: 80px 0; background: #f8f9fc; }
         .section-title-center { text-align: center; margin-bottom: 60px; }
         .section-title-center span {
@@ -738,12 +567,8 @@
             color: #8a6d00;
             margin-top: 12px;
         }
-        .highlight-text { color: var(--azul-institucional); font-weight: 600; }
-        .list-check { list-style: none; padding-left: 0; margin-top: 12px; }
-        .list-check li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; font-size: 14px; }
-        .list-check li i { color: var(--azul-institucional); width: 20px; }
 
-        /* DOCUMENTOS */
+        /* ===== DOCUMENTOS ===== */
         .documents-section {
             background: #ffffff;
             padding: 82px 0;
@@ -866,7 +691,7 @@
             transform: translateY(-2px);
         }
 
-        /* CONTACTO */
+        /* ===== CONTACTO (sección de contacto dentro de admisiones) ===== */
         .contact-card-modern {
             background: white;
             border-radius: 24px;
@@ -881,7 +706,7 @@
         .contact-card-modern i { color: var(--azul-institucional); }
         .contact-card-modern h4 { color: var(--azul-institucional); margin-top: 15px; }
 
-        /* FAQ */
+        /* ===== FAQ ===== */
         .faq-card-modern {
             background: rgba(255,255,255,0.06);
             border-radius: 20px;
@@ -909,7 +734,7 @@
         .faq-card-modern .card-header h3 { margin: 0; }
         .faq-card-modern .card-body { color: rgba(255,255,255,0.85); padding: 0 25px 25px; }
 
-        /* CTA FINAL */
+        /* ===== CTA FINAL ===== */
         .cta-final {
             background: linear-gradient(135deg, #f0f4fa, #ffffff);
             padding: 50px 0;
@@ -949,23 +774,12 @@
             box-shadow: 0 12px 25px rgba(31,35,102,0.3);
         }
 
-        /* FOOTER */
-        footer { background: #141b28; color: white; }
-        .footer-top { padding: 80px 0 30px; }
-        .social { display: flex; gap: 15px; list-style: none; margin-top: 20px; padding-left: 0; }
-        .social a { color: white; font-size: 20px; transition: 0.3s; }
-        .social a:hover { color: var(--amarillo-oro); transform: translateY(-3px); }
-        .footer-link ul li a { color: #ccc; transition: 0.2s; }
-        .footer-link ul li a:hover { color: var(--amarillo-oro); }
-        .widget-opening ul li span { color: var(--amarillo-oro); }
-
-        /* RESPONSIVE */
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 991px) {
             .benefits-grid,
             .process-grid,
             .documents-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
             .documents-layout { grid-template-columns: 1fr; }
-            .floating-card { display: none; }
             .hero-content { text-align: center; padding-right: 0; }
             .hero-actions,
             .hero-trust-note { justify-content: center; }
@@ -974,7 +788,6 @@
         @media (max-width: 768px) {
             .hero-title { font-size: 38px; }
             .hero-title-sub { font-size: 28px; }
-            .hero-form { padding: 30px 20px; }
             .hero-section { padding: 34px 0 48px; }
             .hero-benefits { grid-template-columns: 1fr; }
             .hero-benefit { min-height: auto; }
@@ -997,41 +810,76 @@
     </style>
 </head>
 <body>
-    <div id="preloader"><div class="loader"></div></div>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loading-container">
+            <video id="loadingVideo" muted playsinline preload="auto" poster="assets/images/icon/logo.png">
+                <source src="assets/images/recursos/pantalla-de-carga.webm" type="video/webm">
+                <source src="assets/images/recursos/pantalla-de-ccarga.mp4" type="video/mp4">
+            </video>
+            <div class="spinner"></div>
+            <div class="loading-text">Cargando...</div>
+        </div>
+    </div>
     
+    <!-- ============================================================ -->
+    <!-- HEADER: CLONADO EXACTO DE LA PÁGINA DE CONTACTO              -->
+    <!-- ============================================================ -->
     <header id="header">
         <div class="header-two">
-
             <div class="container-fluid px-0">
                 <div class="row align-items-center g-0 mx-0">
-                    <div class="col-lg-3 col-sm-6 d-block d-lg-none"><div class="logo"><a href="index.html"><img src="assets/images/icon/logo.png" alt="logo" decoding="async"></a></div></div>
+                    <div class="col-lg-3 col-6 d-block d-lg-none">
+                        <div class="logo">
+                            <a href="index.html"><img src="assets/images/icon/logo.png" alt="logo" decoding="async"></a>
+                        </div>
+                    </div>
                     <div class="col-lg-9 offset-lg-1 d-none d-lg-block">
                         <div class="main-menu menu-style2">
                             <nav>
                                 <ul id="m_menu_active">
                                     <li><a href="index.html">Inicio</a></li>
                                     <li><a href="javascript:void(0);">Oferta Académica</a>
-                                        <ul class="submenu"><li><a href="oferta_academica.html">Academia</a></li><li><a href="actividades_extracurriculares.html">Actividades Extracurriculares</a></li></ul>
+                                        <ul class="submenu">
+                                            <li><a href="oferta_academica.html">Academia</a></li>
+                                            <li><a href="actividades_extracurriculares.html">Actividades Extracurriculares</a></li>
+                                        </ul>
                                     </li>
-                                    <li class="active"><a href="admisiones.html">Admisiones </a></li>
-                                    <li class="middle-logo"><a href="index.html"><img src="assets/images/icon/logo-middle.png" alt="Logo central" decoding="async"><img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="" loading="lazy" decoding="async"></a></li>
+                                    <li class="active"><a href="admisiones.html">Admisiones</a></li>
+                                    <li class="middle-logo">
+                                        <a href="index.html">
+                                            <img src="assets/images/icon/logo-middle.png" alt="logo" decoding="async">
+                                            <img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="logo" loading="lazy" decoding="async">
+                                        </a>
+                                    </li>
                                     <li><a href="servicios.html">Servicios</a></li>
-                                    <li><a href="nosotros.html">Nosotros</a><ul class="submenu"><li><a href="nosotros.html">Visión y Misión</a></li></ul></li>
+                                    <li><a href="nosotros.html">Nosotros</a>
+                                        <ul class="submenu">
+                                            <li><a href="nosotros.html">Visión y Misión</a></li>
+                                        </ul>
+                                    </li>
                                     <li><a href="contacto.html">Contacto</a></li>
                                 </ul>
                             </nav>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-sm-5">
+                    <div class="col-lg-2 col-6">
                         <div class="header-bottom-right-style-2">
-                            <ul><li><a href="https://app.rafaelbucheli.com/login/?next=/" class="btn btn-primary portal-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-user-graduate portal-icon"></i><span>Portal Web</span></a></li></ul>
+                            <ul>
+                                <li>
+                                    <a href="https://app.rafaelbucheli.com/login/?next=/" 
+                                    class="btn btn-primary btn-round portal-btn" 
+                                    target="_blank" rel="noopener noreferrer"><i class="fas fa-user-graduate portal-icon"></i><span>Portal Web</span></a>
+                                </li>
+                                <li class="d-block d-lg-none"><div id="mobile_menu"></div></li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="col-12 d-block d-lg-none"><div id="mobile_menu"></div></div>
                 </div>
             </div>
         </div>
     </header>
+    <!-- ============================================================ -->
     
     <div class="offset-search"><form action="#"><input type="text" name="search" placeholder="Buscar aquí..."><button type="submit"><i class="fas fa-search"></i></button></form></div>
     <div class="body_overlay"></div>
@@ -1249,7 +1097,7 @@
         </div>
     </section>
 
-    <!-- CONTACTO -->
+    <!-- CONTACTO (oficina de admisiones) -->
     <div style="padding: 80px 0; background: #ffffff;">
         <div class="container">
             <div class="section-title-center">
@@ -1368,11 +1216,12 @@
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/scripts.js"></script>
     <script src="assets/js/loading.js"></script>
+    <script src="assets/js/mobile-menu.js"></script>
     
     <!-- CHATBOT -->
     <script src="CHATBOT/CHATBOT.js" data-auto-init></script>
 
-    <!-- FUNCIONES ADICIONALES -->
+    <!-- FUNCIONES ADICIONALES (guía, PDF, etc.) -->
     <script>
         (function() {
             'use strict';
@@ -1416,141 +1265,6 @@
                 });
             }
 
-            // ========== VALIDACIÓN DEL FORMULARIO LEGADO ==========
-            const form = document.getElementById('contactForm');
-            if (form) {
-                const toggle = document.querySelector('.multi-select-toggle');
-                const optionsContainer = document.getElementById('multiSelectOptions');
-                const checkboxes = optionsContainer ? optionsContainer.querySelectorAll('input[type="checkbox"]') : [];
-                const toggleText = toggle ? toggle.querySelector('.toggle-text') : null;
-                const hiddenInput = document.getElementById('nivelHidden');
-                const nivelError = document.getElementById('nivelError');
-                const submitBtn = document.getElementById('submitBtn');
-                const formMessage = document.getElementById('formMessage');
-                const nombre = document.getElementById('nombre');
-                const email = document.getElementById('email');
-                const telefono = document.getElementById('telefono');
-
-                window.toggleMultiSelect = function() {
-                    if (!optionsContainer || !toggle) return;
-                    optionsContainer.classList.toggle('show');
-                    toggle.classList.toggle('open');
-                };
-
-                document.addEventListener('click', function(e) {
-                    const container = document.getElementById('nivelMultiSelect');
-                    if (container && !container.contains(e.target)) {
-                        optionsContainer.classList.remove('show');
-                        toggle.classList.remove('open');
-                    }
-                });
-
-                function updateSelection() {
-                    const selected = [];
-                    checkboxes.forEach(cb => { if (cb.checked) selected.push(cb.value); });
-                    if (selected.length === 0) {
-                        toggleText.textContent = 'Selecciona nivel(es) educativo(s)';
-                        toggleText.classList.add('placeholder');
-                        hiddenInput.value = '';
-                    } else {
-                        toggleText.textContent = selected.join(', ');
-                        toggleText.classList.remove('placeholder');
-                        hiddenInput.value = selected.join(',');
-                    }
-                    if (selected.length === 0) {
-                        toggle.closest('.form-group').querySelector('.custom-multi-select').classList.add('error');
-                        nivelError.style.display = 'block';
-                    } else {
-                        toggle.closest('.form-group').querySelector('.custom-multi-select').classList.remove('error');
-                        nivelError.style.display = 'none';
-                    }
-                }
-
-                function showError(input, message) {
-                    const group = input.closest('.form-group');
-                    const error = group.querySelector('.error-message');
-                    input.classList.add('error');
-                    error.textContent = message;
-                    error.style.display = 'block';
-                }
-
-                function clearError(input) {
-                    const group = input.closest('.form-group');
-                    const error = group.querySelector('.error-message');
-                    input.classList.remove('error');
-                    error.style.display = 'none';
-                }
-
-                function validateField(input) {
-                    if (input.id === 'nombre' && input.value.trim().length < 2) {
-                        showError(input, 'Nombre completo requerido (mínimo 2 caracteres)');
-                        return false;
-                    }
-                    if (input.id === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim())) {
-                        showError(input, 'Ingresa un correo electrónico válido');
-                        return false;
-                    }
-                    if (input.id === 'telefono' && input.value.trim().length < 7) {
-                        showError(input, 'Teléfono inválido (mínimo 7 dígitos)');
-                        return false;
-                    }
-                    clearError(input);
-                    return true;
-                }
-
-                checkboxes.forEach(cb => cb.addEventListener('change', updateSelection));
-                [nombre, email, telefono].forEach(input => {
-                    input.addEventListener('blur', function() { validateField(this); });
-                    input.addEventListener('input', function() { validateField(this); });
-                });
-
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    let valid = true;
-                    [nombre, email, telefono].forEach(input => { if (!validateField(input)) valid = false; });
-
-                    const selected = [];
-                    checkboxes.forEach(cb => { if (cb.checked) selected.push(cb.value); });
-                    if (selected.length === 0) {
-                        toggle.closest('.form-group').querySelector('.custom-multi-select').classList.add('error');
-                        nivelError.style.display = 'block';
-                        valid = false;
-                    } else {
-                        toggle.closest('.form-group').querySelector('.custom-multi-select').classList.remove('error');
-                        nivelError.style.display = 'none';
-                    }
-
-                    if (!valid) {
-                        formMessage.style.display = 'block';
-                        formMessage.className = 'form-message alert alert-danger';
-                        formMessage.textContent = 'Por favor, completa todos los campos correctamente.';
-                        return;
-                    }
-
-                    submitBtn.disabled = true;
-                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-                    fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(form) })
-                        .then(res => res.json())
-                        .then(data => {
-                            if (!data.success) throw new Error(data.message || 'Error al enviar');
-                            formMessage.style.display = 'block';
-                            formMessage.className = 'form-message alert alert-success';
-                            formMessage.textContent = '¡Solicitud enviada con éxito! Te contactaremos pronto.';
-                            form.reset();
-                            updateSelection();
-                        })
-                        .catch(() => {
-                            formMessage.style.display = 'block';
-                            formMessage.className = 'form-message alert alert-danger';
-                            formMessage.textContent = 'Ocurrió un error. Por favor, inténtalo de nuevo más tarde.';
-                        })
-                        .finally(() => {
-                            submitBtn.disabled = false;
-                            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar solicitud';
-                        });
-                });
-            }
-
             // ========== DESCARGAR PDF ==========
             const downloadPdfBtn = document.getElementById('downloadPdfBtn');
             if (downloadPdfBtn) {
@@ -1560,7 +1274,7 @@
                     const doc = new jsPDF('p', 'mm', 'a4');
 
                     doc.setFontSize(18);
-                    doc.setTextColor(31, 35, 102); // azul institucional
+                    doc.setTextColor(31, 35, 102);
                     doc.text('Documentos para inscripción en línea 2026', 20, 25);
 
                     doc.setFontSize(12);
@@ -1581,7 +1295,7 @@
                     });
 
                     doc.setFontSize(10);
-                    doc.setTextColor(136, 139, 147); // gris neutro
+                    doc.setTextColor(136, 139, 147);
                     doc.text('Unidad Educativa Particular Rafael Bucheli', 20, y + 15);
                     doc.text('www.rafaelbucheli.com', 20, y + 22);
 

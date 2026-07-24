@@ -9,9 +9,9 @@
     .pt--120 { padding-top: 90px; }
     .pb--120 { padding-bottom: 90px; }
     
-    /* Header */
+    /* Header - fondo blanco fijo en móvil */
     .header-two {
-        background: rgba(37, 40, 85, 0.95);
+        background: rgba(255, 255, 255, 0.98) !important;
         padding: 10px 0;
     }
     .middle-logo { display: none !important; }
@@ -44,9 +44,9 @@
 
 /* === MÓVILES GRANDES (480px - 767px) === */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-    /* Header */
+    /* Header - fondo blanco fijo en móvil */
     .header-two {
-        background: rgba(37, 40, 85, 0.98);
+        background: rgba(255, 255, 255, 0.98) !important;
         padding: 8px 0;
     }
     .logo img { max-width: 100px; }
@@ -131,9 +131,9 @@
 
 /* === MÓVILES PEQUEÑOS (hasta 479px) === */
 @media (min-width: 240px) and (max-width: 479px) {
-    /* Header */
+    /* Header - fondo blanco fijo en móvil */
     .header-two {
-        background: rgba(37, 40, 85, 1);
+        background: rgba(255, 255, 255, 0.98) !important;
         padding: 5px 0;
     }
     .logo img { max-width: 80px; }
@@ -141,7 +141,6 @@
         padding: 4px 8px !important;
         font-size: 9px !important;
     }
-    .slicknav_btn { margin-top: -35px; }
     
     /* Hero */
     .video-slide { 
@@ -242,3 +241,134 @@
     .slide-title { font-size: 28px !important; }
     .convenios-title { font-size: 30px; }
 }
+
+/* ==========================================================================
+   ADDICIONES: RESPONSIVE PARA PÁGINAS INTERNAS NUEVAS
+   ========================================================================== */
+
+/* === TABLETS (768px - 991px) === */
+@media (min-width: 768px) and (max-width: 991px) {
+    .page-header-servicios { padding: 160px 0 80px; }
+    .page-header-servicios h1 { font-size: 42px; }
+    .page-header-contacto { padding: 160px 0 80px; }
+    .page-header-actividades { padding: 160px 0 80px; }
+
+    .guide-dialog { padding: 30px; }
+    .process-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .activity-card .activity-img { height: 160px; }
+    .psicologia-seccion .psy-servicios { grid-template-columns: repeat(2, 1fr); }
+    .psy-equipo { grid-template-columns: 1fr; }
+
+    .schedule-grid { grid-template-columns: 1fr; gap: 15px; }
+
+    .slide-info-card { display: none; }
+}
+
+/* === MÓVILES GRANDES (480px - 767px) === */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .page-header-servicios { padding: 140px 0 60px; }
+    .page-header-servicios h1 { font-size: 36px; }
+    .page-header-contacto { padding: 140px 0 60px; }
+    .page-header-contacto h1 { font-size: 36px; }
+    .page-header-actividades { padding: 140px 0 60px; }
+    .page-header-actividades h1 { font-size: 36px; }
+
+    .service-card .service-img { height: 180px; }
+
+    .guide-dialog { padding: 25px; }
+    .process-grid { grid-template-columns: 1fr; }
+    .documents-section .document-card { padding: 20px; }
+
+    .activity-card .activity-img { height: 160px; }
+    .pastoral-sacramentos ul { flex-direction: column; align-items: center; }
+
+    .psicologia-seccion .psy-hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px 20px;
+    }
+    .psy-hero .estadisticas { justify-content: center; }
+    .psy-hero .btn-cita { white-space: normal; }
+    .psy-header h2 { font-size: 28px; }
+    .psy-servicios { grid-template-columns: 1fr; }
+    .psy-equipo { grid-template-columns: 1fr; }
+    .psy-equipo .member {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-card { padding: 25px 15px; }
+    .form-container { padding: 30px 20px; }
+    .schedule-card-contacto { padding: 30px 20px; }
+
+    .testimonial-card { padding: 25px; }
+
+    .slide-info-card { display: none; }
+}
+
+/* === MÓVILES PEQUEÑOS (hasta 479px) === */
+@media (min-width: 240px) and (max-width: 479px) {
+    .page-header-servicios { padding: 130px 0 50px; }
+    .page-header-servicios h1 { font-size: 32px; }
+    .page-header-contacto { padding: 130px 0 50px; }
+    .page-header-contacto h1 { font-size: 32px; }
+    .page-header-actividades { padding: 130px 0 50px; }
+    .page-header-actividades h1 { font-size: 32px; }
+
+    .service-card .service-img { height: 160px; }
+    .service-content { padding: 20px 15px; }
+    .service-content h3 { font-size: 18px; }
+
+    .methodology-item { padding: 25px 20px; }
+    .methodology-item h4 { font-size: 18px; }
+
+    .guide-dialog { padding: 20px; }
+    .process-grid { grid-template-columns: 1fr; }
+    .benefits-section .benefit-card { padding: 25px 15px; }
+
+    .activity-card .activity-img { height: 140px; }
+    .activity-content { padding: 18px 15px; }
+    .activity-content h3 { font-size: 18px; }
+    .pastoral-icon-box { padding: 20px; }
+    .pastoral-sacramentos { padding: 25px 15px; }
+    .pastoral-sacramentos h3 { font-size: 22px; }
+
+    .psicologia-seccion { padding: 30px 10px; }
+    .psy-header h2 { font-size: 24px; }
+    .psy-testimonios { padding: 20px 12px; }
+    .psy-servicios { grid-template-columns: 1fr; gap: 12px; }
+
+    .testimonial-card { padding: 25px 15px; }
+
+    .contact-card { padding: 20px 12px; }
+    .contact-card h3 { font-size: 18px; }
+    .form-container { padding: 25px 15px; }
+    .form-container h3 { font-size: 24px; }
+    .schedule-card-contacto { padding: 25px 15px; }
+    .schedule-card-contacto h3 { font-size: 26px; }
+
+    .slide-info-card { display: none; }
+}
+
+/* === AJUSTES PARA DISPOSITIVOS MUY PEQUEÑOS (hasta 360px) === */
+@media (max-width: 360px) {
+    .page-header-servicios h1 { font-size: 28px; }
+    .page-header-contacto h1 { font-size: 28px; }
+    .page-header-actividades h1 { font-size: 28px; }
+    .testimonial-card p { font-size: 14px; }
+    .psy-header h2 { font-size: 20px; }
+}
+
+/* === ACCESSIBILIDAD: Reducir movimiento === */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+

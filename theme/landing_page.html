@@ -25,7 +25,6 @@
     
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <!-- ⚠️ ELIMINADA: <link rel="stylesheet" href="assets/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/css/magnific-popup.css">
     <link rel="stylesheet" href="assets/css/slicknav.min.css">
@@ -35,10 +34,10 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/loading.css">
     
-    <!-- ===== FONT AWESOME 6 ===== -->
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- ===== CHATBOT STYLES ===== -->
+    <!-- Chatbot styles -->
     <link rel="stylesheet" href="CHATBOT/CHATBOT.css">
     
     <!-- Google Fonts -->
@@ -47,7 +46,9 @@
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
     
     <style>
-        /* ===== VARIABLES DE COLOR ===== */
+        /* ============================================================
+           ESTILOS PROPIOS DE LA LANDING (NO AFECTAN AL HEADER)
+           ============================================================ */
         :root {
             --primary-blue: #252855;
             --secondary-gray: #5d5d5c;
@@ -57,9 +58,9 @@
             --shadow-sm: 0 5px 20px rgba(37,40,85,0.08);
             --shadow-md: 0 10px 30px rgba(37,40,85,0.12);
             --shadow-lg: 0 20px 40px rgba(37,40,85,0.15);
+            --hover-dark: #1a1d3f;
         }
 
-        /* ===== RESET ===== */
         * {
             margin: 0;
             padding: 0;
@@ -81,95 +82,6 @@
             color: var(--primary-blue);
         }
 
-        /* ===== HEADER ELEGANTE ===== */
-        .header-two {
-            position: fixed !important;
-            left: 0 !important;
-            top: 0 !important;
-            width: 100% !important;
-            z-index: 9999 !important;
-            background: rgba(255,255,255,0.98) !important;
-            backdrop-filter: blur(10px) !important;
-            -webkit-backdrop-filter: blur(10px) !important;
-            box-shadow: var(--shadow-sm) !important;
-            border-bottom: 1px solid var(--border-light) !important;
-            padding: 0 !important;
-            transition: all 0.3s ease !important;
-        }
-
-        .menu-style2 nav > ul > li > a {
-            padding: 8px 12px;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--primary-blue);
-            position: relative;
-            transition: all 0.3s ease;
-            letter-spacing: 0.3px;
-            text-transform: uppercase;
-            font-family: 'Montserrat', sans-serif;
-            opacity: 0.85;
-        }
-
-        .menu-style2 nav > ul > li > a:hover {
-            color: var(--primary-blue);
-            opacity: 1;
-        }
-
-        .menu-style2 nav > ul > li > a:after {
-            content: '';
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: var(--primary-blue);
-            transition: width 0.3s ease;
-            transform: translateX(-50%);
-            opacity: 0.5;
-        }
-
-        .menu-style2 nav > ul > li > a:hover:after,
-        .menu-style2 nav > ul > li.active > a:after {
-            width: 25px;
-        }
-
-        .menu-style2 nav > ul > li.active > a {
-            color: var(--primary-blue);
-            font-weight: 700;
-            opacity: 1;
-        }
-
-        .middle-logo img {
-            max-height: 60px;
-            transition: all 0.3s ease;
-            filter: brightness(1);
-        }
-
-        .middle-logo:hover img {
-            transform: scale(1.03);
-        }
-
-        .btn-primary {
-            background: var(--primary-blue) !important;
-            border: none !important;
-            color: var(--pure-white) !important;
-            border-radius: 50px !important;
-            padding: 10px 24px !important;
-            font-weight: 600 !important;
-            transition: all 0.3s ease !important;
-            box-shadow: var(--shadow-sm) !important;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-size: 12px !important;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md) !important;
-            background: var(--secondary-gray) !important;
-        }
-
         /* ===== HERO SECTION ===== */
         .hero-section {
             position: relative;
@@ -178,11 +90,10 @@
             align-items: center;
             overflow: hidden;
             padding: 0;
-            margin-top: 100px;
+            margin-top: 80px; /* Altura del header */
             background: var(--pure-white);
         }
 
-        /* Patrón de fondo muy sutil */
         .hero-pattern {
             position: absolute;
             top: 0;
@@ -218,11 +129,11 @@
             display: inline-flex;
             align-items: center;
             background: rgba(37, 40, 85, 0.05);
-            padding: 8px 22px;
+            padding: 6px 18px;
             border-radius: 60px;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 500;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             border: 1px solid var(--border-light);
             color: var(--primary-blue);
             letter-spacing: 0.3px;
@@ -234,15 +145,15 @@
         .hero-badge i {
             color: var(--secondary-gray);
             margin-right: 8px;
-            font-size: 14px;
+            font-size: 12px;
             opacity: 0.7;
         }
 
         .hero-title {
-            font-size: clamp(42px, 7vw, 68px);
+            font-size: clamp(38px, 6vw, 60px);
             font-weight: 800;
             line-height: 1.1;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             color: var(--primary-blue);
             animation: fadeInUp 1s ease 0.2s both;
             font-family: 'Montserrat', sans-serif;
@@ -251,20 +162,18 @@
 
         .hero-title span {
             display: block;
-            font-size: clamp(28px, 5vw, 42px);
-            font-weight: 400;
+            font-size: clamp(24px, 4vw, 36px);
+            font-weight: 300;
             color: var(--secondary-gray);
             font-family: 'Open Sans', sans-serif;
-            font-weight: 300;
-            letter-spacing: 0px;
-            margin-top: 10px;
+            margin-top: 8px;
         }
 
         .hero-text {
-            font-size: 18px;
+            font-size: 17px;
             line-height: 1.7;
-            margin-bottom: 40px;
-            max-width: 600px;
+            margin-bottom: 30px;
+            max-width: 550px;
             color: var(--secondary-gray);
             animation: fadeInUp 1s ease 0.4s both;
             font-weight: 400;
@@ -272,8 +181,8 @@
 
         .hero-stats {
             display: flex;
-            gap: 50px;
-            margin-bottom: 45px;
+            gap: 40px;
+            margin-bottom: 35px;
             animation: fadeInUp 1s ease 0.6s both;
         }
 
@@ -285,25 +194,25 @@
         .stat-item:not(:last-child):after {
             content: '';
             position: absolute;
-            right: -25px;
+            right: -20px;
             top: 15px;
-            height: 40px;
+            height: 35px;
             width: 1px;
             background: var(--border-light);
             transform: rotate(15deg);
         }
 
         .stat-number {
-            font-size: 48px;
+            font-size: 40px;
             font-weight: 800;
             color: var(--primary-blue);
             line-height: 1;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
             font-family: 'Montserrat', sans-serif;
         }
 
         .stat-label {
-            font-size: 14px;
+            font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             color: var(--secondary-gray);
@@ -314,23 +223,24 @@
 
         .hero-buttons {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
             animation: fadeInUp 1s ease 0.8s both;
         }
 
+        /* ===== BOTONES MEJORADOS Y MÁS COMPACTOS ===== */
         .btn-primary-custom {
             background: var(--primary-blue);
             color: var(--pure-white);
-            padding: 16px 38px;
+            padding: 14px 32px;
             border-radius: 60px;
             font-weight: 600;
-            font-size: 15px;
+            font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             border: none;
             box-shadow: var(--shadow-sm);
             transition: all 0.3s ease;
@@ -347,7 +257,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
             transition: left 0.6s ease;
         }
 
@@ -358,7 +268,7 @@
         .btn-primary-custom:hover {
             transform: translateY(-3px);
             box-shadow: var(--shadow-md);
-            background: var(--secondary-gray);
+            background: var(--hover-dark);
             color: var(--pure-white);
             text-decoration: none;
         }
@@ -366,16 +276,16 @@
         .btn-secondary-custom {
             background: transparent;
             color: var(--primary-blue);
-            padding: 16px 38px;
+            padding: 14px 32px;
             border-radius: 60px;
             font-weight: 600;
-            font-size: 15px;
+            font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            border: 2px solid var(--border-light);
+            gap: 8px;
+            border: 2px solid var(--primary-blue);
             transition: all 0.3s ease;
             text-decoration: none;
             font-family: 'Montserrat', sans-serif;
@@ -385,15 +295,16 @@
             background: var(--primary-blue);
             color: var(--pure-white);
             transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
             border-color: var(--primary-blue);
             text-decoration: none;
         }
 
-        /* ===== FORMULARIO ===== */
+        /* ===== FORMULARIO COMPACTO ===== */
         .hero-form {
             background: var(--pure-white);
-            border-radius: 30px;
-            padding: 45px 35px;
+            border-radius: 24px;
+            padding: 30px 25px 28px;
             border: 1px solid var(--border-light);
             box-shadow: var(--shadow-lg);
             animation: fadeInRight 1s ease;
@@ -406,17 +317,17 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 5px;
+            height: 4px;
             background: var(--primary-blue);
-            border-radius: 30px 30px 0 0;
+            border-radius: 24px 24px 0 0;
             opacity: 0.8;
         }
 
         .hero-form h3 {
             color: var(--primary-blue);
-            font-size: 28px;
+            font-size: 22px;
             font-weight: 700;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             text-align: center;
             font-family: 'Montserrat', sans-serif;
             position: relative;
@@ -425,25 +336,25 @@
         .hero-form h3:after {
             content: '';
             display: block;
-            width: 50px;
+            width: 40px;
             height: 2px;
             background: var(--border-light);
-            margin: 15px auto 0;
+            margin: 12px auto 0;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             position: relative;
         }
 
         .form-control {
             width: 100%;
-            padding: 15px 20px;
+            padding: 12px 16px;
             background: var(--light-gray-bg);
             border: 1px solid var(--border-light);
-            border-radius: 12px;
+            border-radius: 10px;
             color: var(--secondary-gray);
-            font-size: 15px;
+            font-size: 14px;
             transition: all 0.3s ease;
             height: auto;
             font-family: 'Open Sans', sans-serif;
@@ -457,7 +368,7 @@
             outline: none;
             border-color: var(--primary-blue);
             background: var(--pure-white);
-            box-shadow: 0 0 0 3px rgba(37, 40, 85, 0.1);
+            box-shadow: 0 0 0 3px rgba(37, 40, 85, 0.08);
         }
 
         .form-control::placeholder {
@@ -465,65 +376,92 @@
             font-weight: 400;
         }
 
-        /* SELECT */
-        select.form-control {
-            cursor: pointer;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23252855' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
-            background-repeat: no-repeat;
-            background-position: right 20px center;
-            background-size: 16px;
-            color: var(--secondary-gray);
-        }
-
-        select.form-control option {
-            background: var(--pure-white);
-            color: var(--secondary-gray);
-            padding: 12px;
-        }
-
-        /* VALIDACIÓN */
         .form-control.error {
-            border-color: var(--secondary-gray);
-            background: rgba(93, 93, 92, 0.02);
+            border-color: #e74c3c;
+            background: rgba(231, 76, 60, 0.02);
         }
 
         .error-message {
-            color: var(--secondary-gray);
-            font-size: 12px;
-            margin-top: 5px;
-            margin-left: 10px;
+            color: #e74c3c;
+            font-size: 11px;
+            margin-top: 4px;
+            margin-left: 8px;
             display: none;
             animation: fadeIn 0.3s ease;
             font-weight: 500;
-            opacity: 0.8;
         }
 
         .form-control.error + .error-message {
             display: block;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-5px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* ===== CHECKBOXES COMPACTOS ===== */
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 4px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 14px;
+            background: var(--light-gray-bg);
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+
+        .checkbox-item:hover {
+            background: rgba(37, 40, 85, 0.04);
+            border-color: rgba(37, 40, 85, 0.2);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary-blue);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .checkbox-item label {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--secondary-gray);
+            cursor: pointer;
+            width: 100%;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .checkbox-item.error {
+            border-color: #e74c3c;
+            background: rgba(231, 76, 60, 0.04);
+        }
+
+        .checkbox-group-error .error-message {
+            display: block;
+            margin-top: 6px;
         }
 
         .btn-submit {
             width: 100%;
             background: var(--primary-blue);
             color: var(--pure-white);
-            padding: 16px;
-            border-radius: 12px;
+            padding: 14px;
+            border-radius: 10px;
             font-weight: 600;
-            font-size: 15px;
+            font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             border: none;
             transition: all 0.3s ease;
             cursor: pointer;
-            margin-top: 10px;
+            margin-top: 6px;
             position: relative;
             overflow: hidden;
             font-family: 'Montserrat', sans-serif;
@@ -547,14 +485,14 @@
         .btn-submit:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-md);
-            background: var(--secondary-gray);
+            background: var(--hover-dark);
         }
 
         .form-note {
             color: rgba(93, 93, 92, 0.6);
-            font-size: 12px;
+            font-size: 11px;
             text-align: center;
-            margin-top: 20px;
+            margin-top: 14px;
             letter-spacing: 0.2px;
         }
 
@@ -564,7 +502,7 @@
             opacity: 0.5;
         }
 
-        /* ANIMACIONES */
+        /* ===== ANIMACIONES ===== */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -598,9 +536,14 @@
             }
         }
 
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         @keyframes float {
             0% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
+            50% { transform: translateY(-6px); }
             100% { transform: translateY(0px); }
         }
 
@@ -608,10 +551,10 @@
             animation: float 5s ease-in-out infinite;
         }
 
-        /* RESPONSIVE */
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 991px) {
             .hero-stats {
-                gap: 30px;
+                gap: 25px;
             }
             
             .stat-item:not(:last-child):after {
@@ -619,7 +562,8 @@
             }
             
             .hero-form {
-                margin-top: 50px;
+                margin-top: 40px;
+                padding: 25px 20px;
             }
             
             .hero-content {
@@ -655,31 +599,48 @@
             .btn-secondary-custom {
                 width: 100%;
                 justify-content: center;
+                padding: 12px 20px;
+                font-size: 13px;
             }
             
             .hero-stats {
-                gap: 20px;
+                gap: 15px;
                 flex-wrap: wrap;
             }
             
+            .stat-number {
+                font-size: 32px;
+            }
+            
             .hero-title {
-                font-size: 38px;
+                font-size: 32px;
             }
             
             .hero-title span {
-                font-size: 26px;
+                font-size: 22px;
             }
             
             .hero-form {
-                padding: 35px 25px;
+                padding: 20px 18px;
             }
             
             .hero-form h3 {
-                font-size: 24px;
+                font-size: 20px;
             }
             
-            .stat-number {
-                font-size: 36px;
+            .checkbox-item {
+                padding: 6px 10px;
+            }
+            .checkbox-item label {
+                font-size: 13px;
+            }
+            .form-control {
+                padding: 10px 14px;
+                font-size: 13px;
+            }
+            .btn-submit {
+                padding: 12px;
+                font-size: 13px;
             }
         }
     </style>
@@ -688,17 +649,26 @@
 <body>
     <!-- Preloader -->
     <div id="preloader">
-        <div class="loader"></div>
+        <div class="loading-container">
+            <video id="loadingVideo" muted playsinline preload="auto" poster="assets/images/icon/logo.png">
+                <source src="assets/images/recursos/pantalla-de-carga.webm" type="video/webm">
+                <source src="assets/images/recursos/pantalla-de-ccarga.mp4" type="video/mp4">
+            </video>
+            <div class="spinner"></div>
+            <div class="loading-text">Cargando...</div>
+        </div>
     </div>
     
-    <!-- Header -->
+    <!-- ============================================================ -->
+    <!-- HEADER: CLONADO EXACTO DE LA PÁGINA DE CONTACTO              -->
+    <!-- ============================================================ -->
     <header id="header">
         <div class="header-two">
             <div class="container-fluid px-0">
                 <div class="row align-items-center g-0 mx-0">
-                    <div class="col-lg-3 col-sm-6 d-block d-lg-none">
+                    <div class="col-lg-3 col-6 d-block d-lg-none">
                         <div class="logo">
-                            <a href="/"><img src="assets/images/icon/logo.png" alt="logo" decoding="async"></a>
+                            <a href="index.html"><img src="assets/images/icon/logo.png" alt="logo" decoding="async"></a>
                         </div>
                     </div>
                     <div class="col-lg-9 offset-lg-1 d-none d-lg-block">
@@ -706,50 +676,49 @@
                             <nav>
                                 <ul id="m_menu_active">
                                     <li><a href="index.html">Inicio</a></li>
-                                    <li><a href="javascript:void(0);">Oferta</a>
+                                    <li><a href="javascript:void(0);">Oferta Académica</a>
                                         <ul class="submenu">
-                                            <li><a href="/oferta-academica">Academia</a></li>
-                                            <li><a href="/actividades-extracurriculares">Actividades Extracurriculares</a></li>
+                                            <li><a href="oferta_academica.html">Academia</a></li>
+                                            <li><a href="actividades_extracurriculares.html">Actividades Extracurriculares</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="/admisiones">Admisiones</a></li>
-                                    <li class="active"><a href="/landing-page">Landing Page</a></li>
+                                    <li><a href="admisiones.html">Admisiones</a></li>
                                     <li class="middle-logo">
-                                        <a href="/">
+                                        <a href="index.html">
                                             <img src="assets/images/icon/logo-middle.png" alt="logo" decoding="async">
+                                            <img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="logo" loading="lazy" decoding="async">
                                         </a>
                                     </li>
-                                    <li><a href="/servicios">Servicios</a></li>
-                                    <li><a href="/nosotros">Nosotros</a>
+                                    <li><a href="servicios.html">Servicios</a></li>
+                                    <li><a href="nosotros.html">Nosotros</a>
                                         <ul class="submenu">
-                                            <li><a href="/nosotros">Visión y Misión</a></li>
+                                            <li><a href="nosotros.html">Visión y Misión</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="/contacto">Contacto</a></li>
+                                    <li><a href="contacto.html">Contacto</a></li>
                                 </ul>
                             </nav>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-sm-5">
+                    <div class="col-lg-2 col-6">
                         <div class="header-bottom-right-style-2">
                             <ul>
                                 <li>
                                     <a href="https://app.rafaelbucheli.com/login/?next=/" 
-                                    class="btn btn-primary portal-btn" 
+                                    class="btn btn-primary btn-round portal-btn" 
                                     target="_blank" rel="noopener noreferrer"><i class="fas fa-user-graduate portal-icon"></i><span>Portal Web</span></a>
                                 </li>
+                                <li class="d-block d-lg-none"><div id="mobile_menu"></div></li>
                             </ul>
                         </div>
-                    </div>
-                    <div class="col-12 d-block d-lg-none">
-                        <div id="mobile_menu"></div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
+    <!-- ============================================================ -->
     
-    <!-- Offset Search - CORREGIDO -->
+    <!-- Offset Search -->
     <div class="offset-search">
         <form action="#">
             <input type="text" name="search" placeholder="Buscar aquí...">
@@ -783,11 +752,11 @@
                         
                         <div class="hero-stats">
                             <div class="stat-item">
-                                <div class="stat-number">45+</div>
+                                <div class="stat-number">99</div>
                                 <div class="stat-label">Años</div>
                             </div>
                             <div class="stat-item">
-                                <div class="stat-number">1200</div>
+                                <div class="stat-number">5000</div>
                                 <div class="stat-label">Estudiantes</div>
                             </div>
                             <div class="stat-item">
@@ -796,7 +765,7 @@
                             </div>
                         </div>
                         
-<div class="hero-buttons">
+                        <div class="hero-buttons">
                             <a href="admisiones.html" class="btn-primary-custom">
                                 <i class="fas fa-pen-to-square"></i> Solicitar Información
                             </a>
@@ -809,7 +778,7 @@
                 
                 <div class="col-lg-5">
                     <div class="hero-form float">
-                        <h3>¡Inscripciones 2026!</h3>
+                        <h3>Informacion de Inscripciones 2026</h3>
                         <form id="contactForm">
                             <div class="form-group">
                                 <input type="text" class="form-control" id="nombre" placeholder="Nombre completo" required>
@@ -826,15 +795,28 @@
                                 <div class="error-message">Por favor ingresa tu teléfono</div>
                             </div>
                             
+                            <!-- ===== CHECKBOXES COMPACTOS ===== -->
                             <div class="form-group">
-                                <select class="form-control" id="nivel" required>
-                                    <option value="" disabled selected>Selecciona el nivel educativo</option>
-                                    <option value="inicial">Educación Inicial (3-5 años)</option>
-                                    <option value="primaria">Educación Primaria (6-11 años)</option>
-                                    <option value="bachillerato">Bachillerato (12-17 años)</option>
-                                </select>
-                                <div class="error-message">Por favor selecciona un nivel</div>
+                                <label style="font-weight:600; font-size:14px; color:var(--primary-blue); margin-bottom:6px; display:block;">
+                                    <i class="fas fa-graduation-cap" style="margin-right:6px;"></i>Niveles educativos de interés
+                                </label>
+                                <div class="checkbox-group" id="nivelGroup">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="nivel_inicial" value="inicial">
+                                        <label for="nivel_inicial">Educación Inicial (3-5 años)</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="nivel_primaria" value="primaria">
+                                        <label for="nivel_primaria">Educación Primaria (6-11 años)</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="nivel_bachillerato" value="bachillerato">
+                                        <label for="nivel_bachillerato">Bachillerato (12-17 años)</label>
+                                    </div>
+                                </div>
+                                <div class="error-message" id="nivelError" style="display:none;">Selecciona al menos un nivel educativo</div>
                             </div>
+                            <!-- ===== FIN CHECKBOXES ===== -->
                             
                             <button type="submit" class="btn-submit">
                                 <i class="fas fa-paper-plane"></i> Enviar solicitud
@@ -849,14 +831,14 @@
         </div>
     </section>
     
-    <!-- footer area start (CORREGIDO) -->
+    <!-- footer area start -->
     <footer>
         <div class="footer-top has-color pt--120 pb--30">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="widget widget-company">
-                            <a href="/"><img src="assets/images/icon/logo.png" alt="image" decoding="async"></a>
+                            <a href="index.html"><img src="assets/images/icon/logo.png" alt="image" decoding="async"></a>
                             <div class="address">
                                 <h6>Dirección</h6>
                                 <p>Unidad Educativa Rafael Bucheli, Quito, Ecuador.</p>
@@ -870,7 +852,6 @@
                                 <p>secretaria@rafaelbucheli.edu.ec</p>
                             </div>
                             
-                            <!-- REDES SOCIALES ACTUALIZADAS -->
                             <ul class="social">
                                 <li>
                                     <a href="https://www.facebook.com/uerafaelbucheli/?locale=es_LA" target="_blank" rel="noopener noreferrer">
@@ -900,11 +881,11 @@
                         <div class="widget footer-link">
                             <h4 class="fwidget-title mb-5 pb-3 primary-color">Enlaces</h4> 
                             <ul>
-                                <li><a href="/servicios"><i class="fas fa-angle-right"></i>Servicios</a></li>
-                                <li><a href="/nosotros"><i class="fas fa-angle-right"></i>Nosotros</a></li>
-                                <li><a href="/nosotros"><i class="fas fa-angle-right"></i>Nuestra Historia</a></li>
-                                <li><a href="/nosotros"><i class="fas fa-angle-right"></i>Admisiones</a></li>
-                                <li><a href="/contacto"><i class="fas fa-angle-right"></i>Contacto</a></li>
+                                <li><a href="servicios.html"><i class="fas fa-angle-right"></i>Servicios</a></li>
+                                <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Nosotros</a></li>
+                                <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Nuestra Historia</a></li>
+                                <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Admisiones</a></li>
+                                <li><a href="contacto.html"><i class="fas fa-angle-right"></i>Contacto</a></li>
                             </ul>
                         </div>
                     </div>
@@ -938,10 +919,10 @@
     <script src="assets/js/jquery.slicknav.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/loading.js"></script>
+    <script src="assets/js/mobile-menu.js"></script>
     
-    <!-- ============================================ -->
-    <!-- CHATBOT - Asistente Virtual -->
-    <!-- ============================================ -->
+    <!-- Chatbot -->
     <script src="CHATBOT/CHATBOT.js" data-auto-init></script>
     
     <script>
@@ -949,7 +930,9 @@
             $('#preloader').fadeOut('slow');
         });
 
-        // Validación del formulario
+        // ============================================================
+        // VALIDACIÓN DEL FORMULARIO CON CHECKBOXES
+        // ============================================================
         $('#contactForm').on('submit', function(e) {
             e.preventDefault();
             
@@ -957,6 +940,8 @@
             
             // Resetear errores
             $('.form-control').removeClass('error');
+            $('.checkbox-item').removeClass('error');
+            $('#nivelError').hide();
             
             // Validar nombre
             if ($('#nombre').val().trim() === '') {
@@ -978,9 +963,11 @@
                 isValid = false;
             }
             
-            // Validar select
-            if ($('#nivel').val() === null || $('#nivel').val() === '') {
-                $('#nivel').addClass('error');
+            // Validar checkboxes: al menos uno marcado
+            const checked = $('#nivelGroup input[type="checkbox"]:checked');
+            if (checked.length === 0) {
+                $('#nivelGroup .checkbox-item').addClass('error');
+                $('#nivelError').show();
                 isValid = false;
             }
             
@@ -992,33 +979,30 @@
                     alert('¡Gracias por tu interés! Te contactaremos pronto.');
                     this.reset();
                     $('.btn-submit').html('<i class="fas fa-paper-plane"></i> Enviar solicitud').css('background', '#252855');
+                    $('#nivelError').hide();
+                    $('.checkbox-item').removeClass('error');
                 }, 500);
             } else {
-                // Mostrar mensaje de error general
                 const firstError = $('.error').first();
-                $('html, body').animate({
-                    scrollTop: firstError.offset().top - 200
-                }, 500);
+                if (firstError.length) {
+                    $('html, body').animate({
+                        scrollTop: firstError.offset().top - 200
+                    }, 500);
+                }
             }
         });
 
-        // Quitar error al escribir
+        // Quitar error al escribir o cambiar
         $('.form-control').on('input change', function() {
             $(this).removeClass('error');
         });
 
-        // Efecto de scroll en header
-        $(window).on('scroll', function() {
-            if ($(window).scrollTop() > 100) {
-                $('.header-two').css({
-                    'background': 'rgba(255,255,255,0.98)',
-                    'box-shadow': '0 5px 20px rgba(37,40,85,0.1)'
-                });
-            } else {
-                $('.header-two').css({
-                    'background': 'rgba(255,255,255,0.98)',
-                    'box-shadow': '0 5px 20px rgba(37,40,85,0.08)'
-                });
+        // Quitar error de checkboxes al marcar/desmarcar
+        $('#nivelGroup input[type="checkbox"]').on('change', function() {
+            const checked = $('#nivelGroup input[type="checkbox"]:checked');
+            if (checked.length > 0) {
+                $('#nivelGroup .checkbox-item').removeClass('error');
+                $('#nivelError').hide();
             }
         });
     </script>

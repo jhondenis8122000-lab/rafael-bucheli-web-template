@@ -44,8 +44,8 @@
         :root {
             --color-primary: #1F2366;
             --color-secondary: #2E4FA3;
-            --color-gray: #888B93;          /* Cool Gray 8 C */
-            --color-gray-light: #D9DADD;     /* Cool Gray 1 C */
+            --color-gray: #888B93;
+            --color-gray-light: #D9DADD;
             --color-white: #FFFFFF;
             --color-accent: #FFC72C;
             --color-degradado-externo: #141b28;
@@ -68,35 +68,6 @@
         img { max-width: 100%; height: auto; }
 
         /* ============================================================
-           HEADER – FONDO BLANCO Y SOMBRA (idéntico al inicio)
-           ============================================================ */
-        #header {
-            background: var(--color-white);
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-            position: relative;
-            z-index: 1000;
-        }
-        .header-two .main-menu ul li a {
-            color: var(--color-primary);
-            font-weight: 600;
-        }
-        .header-two .main-menu ul li a:hover,
-        .header-two .main-menu ul li.active a {
-            color: var(--color-accent);
-        }
-        .header-bottom-right-style-2 .btn-primary {
-            background: var(--color-accent);
-            border-color: var(--color-accent);
-            color: var(--color-primary);
-            font-weight: 700;
-        }
-        .header-bottom-right-style-2 .btn-primary:hover {
-            background: var(--color-primary);
-            border-color: var(--color-primary);
-            color: var(--color-white);
-        }
-
-        /* ============================================================
            PAGE HEADER – ESTILO MODERNO CON LOGO DE FONDO
            ============================================================ */
         .page-header-actividades {
@@ -106,7 +77,7 @@
             text-align: center;
             color: var(--color-white);
             overflow: hidden;
-            margin-top: 104px;
+            margin-top: 80px;
         }
         .page-header-actividades::before {
             content: '';
@@ -340,7 +311,6 @@
             transform: translateX(5px);
         }
 
-        /* Certificado badge en tarjetas de talleres */
         .cert-badge {
             display: inline-block;
             background: var(--color-accent);
@@ -453,7 +423,7 @@
         }
 
         /* ============================================================
-           LOGROS (sin elite)
+           LOGROS
            ============================================================ */
         .achievements-section {
             padding: 60px 0;
@@ -562,37 +532,58 @@
         @media (max-width: 576px) {
             .page-header-actividades h1 { font-size: 34px; }
         }
+        /* NOTA: Se ha eliminado el bloque "FIX DE CONFLICTOS" que sobrescribía el header */
     </style>
 
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
     <!-- Preloader -->
-    <div id="preloader"><div class="spinner"></div></div>
+    <div id="preloader">
+        <div class="loading-container">
+            <video id="loadingVideo" muted playsinline preload="auto" poster="assets/images/icon/logo.png">
+                <source src="assets/images/recursos/pantalla-de-carga.webm" type="video/webm">
+                <source src="assets/images/recursos/pantalla-de-ccarga.mp4" type="video/mp4">
+            </video>
+            <div class="spinner"></div>
+            <div class="loading-text">Cargando...</div>
+        </div>
+    </div>
 
-    <!-- ===== HEADER (con enlaces actualizados a index.html y .html) ===== -->
+    <!-- ============================================================ -->
+    <!-- HEADER: CLONADO EXACTO DE LA PÁGINA DE CONTACTO              -->
+    <!-- ============================================================ -->
     <header id="header">
         <div class="header-two">
             <div class="container-fluid px-0">
                 <div class="row align-items-center g-0 mx-0">
-                    <div class="col-lg-3 col-sm-6 d-block d-lg-none">
-                        <div class="logo"><a href="index.html"><img src="assets/images/icon/logo.png" alt="Logo Rafael Bucheli" decoding="async"></a></div>
+                    <div class="col-lg-3 col-6 d-block d-lg-none">
+                        <div class="logo">
+                            <a href="index.html"><img src="assets/images/icon/logo.png" alt="logo" decoding="async"></a>
+                        </div>
                     </div>
                     <div class="col-lg-9 offset-lg-1 d-none d-lg-block">
                         <div class="main-menu menu-style2">
-                            <nav aria-label="Menú principal">
+                            <nav>
                                 <ul id="m_menu_active">
                                     <li><a href="index.html">Inicio</a></li>
                                     <li class="active"><a href="javascript:void(0);">Oferta Académica</a>
-                                        <ul class="submenu"><li><a href="oferta_academica.html">Academia</a></li><li><a href="actividades_extracurriculares.html">Actividades Extracurriculares</a></li></ul>
+                                        <ul class="submenu">
+                                            <li><a href="oferta_academica.html">Academia</a></li>
+                                            <li><a href="actividades_extracurriculares.html">Actividades Extracurriculares</a></li>
+                                        </ul>
                                     </li>
                                     <li><a href="admisiones.html">Admisiones</a></li>
-                                    <li class="middle-logo"><a href="index.html"><img src="assets/images/icon/logo-middle.png" alt="Logo central" decoding="async"><img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="" loading="lazy" decoding="async"></a></li>
+                                    <li class="middle-logo">
+                                        <a href="index.html">
+                                            <img src="assets/images/icon/logo-middle.png" alt="logo" decoding="async">
+                                            <img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="logo" loading="lazy" decoding="async">
+                                        </a>
+                                    </li>
                                     <li><a href="servicios.html">Servicios</a></li>
                                     <li><a href="nosotros.html">Nosotros</a>
                                         <ul class="submenu">
                                             <li><a href="nosotros.html">Visión y Misión</a></li>
-                                            <li><a href="nosotros.html">Proyectos</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="contacto.html">Contacto</a></li>
@@ -600,18 +591,23 @@
                             </nav>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-sm-5">
+                    <div class="col-lg-2 col-6">
                         <div class="header-bottom-right-style-2">
                             <ul>
-                                <li><a href="https://app.rafaelbucheli.com/login/?next=/" class="btn btn-primary btn-round portal-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-user-graduate portal-icon"></i><span>Portal Web</span></a></li>
+                                <li>
+                                    <a href="https://app.rafaelbucheli.com/login/?next=/" 
+                                    class="btn btn-primary btn-round portal-btn" 
+                                    target="_blank" rel="noopener noreferrer"><i class="fas fa-user-graduate portal-icon"></i><span>Portal Web</span></a>
+                                </li>
+                                <li class="d-block d-lg-none"><div id="mobile_menu"></div></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-12 d-block d-lg-none"><div id="mobile_menu"></div></div>
                 </div>
             </div>
         </div>
     </header>
+    <!-- ============================================================ -->
 
     <!-- Offser search -->
     <div class="offset-search"><form action="#"><input type="text" name="search" placeholder="Buscar aquí..."><button type="submit" aria-label="Buscar"><i class="fas fa-search"></i></button></form></div>
@@ -1086,5 +1082,7 @@
     <script src="assets/js/scripts.js"></script>
     <script src="assets/js/loading.js"></script>
     <script src="CHATBOT/CHATBOT.js" data-auto-init></script>
+    <script src="assets/js/mobile-menu.js"></script>
+
 </body>
 </html>

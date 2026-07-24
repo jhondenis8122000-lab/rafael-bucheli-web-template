@@ -68,35 +68,6 @@
         img { max-width: 100%; height: auto; }
 
         /* ============================================================
-           HEADER – IDÉNTICO AL ORIGINAL
-           ============================================================ */
-        #header {
-            background: var(--color-white);
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-            position: relative;
-            z-index: 1000;
-        }
-        .header-two .main-menu ul li a {
-            color: var(--color-primary);
-            font-weight: 600;
-        }
-        .header-two .main-menu ul li a:hover,
-        .header-two .main-menu ul li.active a {
-            color: var(--color-accent);
-        }
-        .header-bottom-right-style-2 .btn-primary {
-            background: var(--color-accent);
-            border-color: var(--color-accent);
-            color: var(--color-primary);
-            font-weight: 700;
-        }
-        .header-bottom-right-style-2 .btn-primary:hover {
-            background: var(--color-primary);
-            border-color: var(--color-primary);
-            color: var(--color-white);
-        }
-
-        /* ============================================================
            RESTO DE ESTILOS (se mantienen igual que antes)
            ============================================================ */
         main { position: relative; z-index: 1; }
@@ -107,7 +78,7 @@
             text-align: center;
             color: #182e4e;
             overflow: hidden;
-            margin-top: 0;
+            margin-top: 80px;
         }
         .page-header::before {
             content: '';
@@ -884,10 +855,9 @@
             border: none;
             box-shadow: 0 10px 25px rgba(24, 46, 78, 0.2);
         }
-        /* ===== CORRECCIÓN DEL HOVER ===== */
         .btn-cta:hover {
-            background: var(--color-accent);   /* Amarillo */
-            color: var(--color-primary) !important; /* Azul oscuro */
+            background: var(--color-accent);
+            color: var(--color-primary) !important;
             transform: translateY(-3px);
             box-shadow: 0 15px 35px rgba(246, 190, 0, 0.4);
             text-decoration: none;
@@ -934,6 +904,12 @@
             .page-header { padding: 200px 0 50px; }
             .intro-content h2 { font-size: 28px; }
         }
+
+        /* ============================================================
+           NOTA: Se ha eliminado el bloque "FIX DE CONFLICTOS" que
+           sobrescribía los estilos del header para que el menú se
+           vea exactamente igual que en las páginas que funcionan.
+           ============================================================ */
     </style>
 </head>
 
@@ -943,47 +919,76 @@
     <![endif]-->
     
     <!-- loading area start -->
-    <div id="preloader"><div class="spinner"></div></div>
+    <div id="preloader">
+        <div class="loading-container">
+            <video id="loadingVideo" muted playsinline preload="auto" poster="assets/images/icon/logo.png">
+                <source src="assets/images/recursos/pantalla-de-carga.webm" type="video/webm">
+                <source src="assets/images/recursos/pantalla-de-ccarga.mp4" type="video/mp4">
+            </video>
+            <div class="spinner"></div>
+            <div class="loading-text">Cargando...</div>
+        </div>
+    </div>
     <!-- loading area end -->
     
-    <!-- ===== HEADER ===== -->
+    <!-- ============================================================ -->
+    <!-- HEADER: CLONADO EXACTO DE LA PÁGINA DE CONTACTO              -->
+    <!-- ============================================================ -->
     <header id="header">
         <div class="header-two">
             <div class="container-fluid px-0">
                 <div class="row align-items-center g-0 mx-0">
-                    <div class="col-lg-3 col-sm-6 d-block d-lg-none">
-                        <div class="logo"><a href="index.html"><img src="assets/images/icon/logo.png" alt="Logo Rafael Bucheli" decoding="async"></a></div>
+                    <div class="col-lg-3 col-6 d-block d-lg-none">
+                        <div class="logo">
+                            <a href="index.html"><img src="assets/images/icon/logo.png" alt="logo" decoding="async"></a>
+                        </div>
                     </div>
                     <div class="col-lg-9 offset-lg-1 d-none d-lg-block">
                         <div class="main-menu menu-style2">
-                            <nav aria-label="Menú principal">
+                            <nav>
                                 <ul id="m_menu_active">
                                     <li><a href="index.html">Inicio</a></li>
                                     <li class="active"><a href="javascript:void(0);">Oferta Académica</a>
-                                        <ul class="submenu"><li><a href="oferta_academica.html">Academia</a></li><li><a href="actividades_extracurriculares.html">Actividades Extracurriculares</a></li></ul>
+                                        <ul class="submenu">
+                                            <li><a href="oferta_academica.html">Academia</a></li>
+                                            <li><a href="actividades_extracurriculares.html">Actividades Extracurriculares</a></li>
+                                        </ul>
                                     </li>
                                     <li><a href="admisiones.html">Admisiones</a></li>
-                                    <li class="middle-logo"><a href="index.html"><img src="assets/images/icon/logo-middle.png" alt="Logo central" decoding="async"><img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="" loading="lazy" decoding="async"></a></li>
+                                    <li class="middle-logo">
+                                        <a href="index.html">
+                                            <img src="assets/images/icon/logo-middle.png" alt="logo" decoding="async">
+                                            <img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="logo" loading="lazy" decoding="async">
+                                        </a>
+                                    </li>
                                     <li><a href="servicios.html">Servicios</a></li>
-                                    <li><a href="nosotros.html">Nosotros</a><ul class="submenu"><li><a href="nosotros.html">Visión y Misión</a></li></ul></li>
+                                    <li><a href="nosotros.html">Nosotros</a>
+                                        <ul class="submenu">
+                                            <li><a href="nosotros.html">Visión y Misión</a></li>
+                                        </ul>
+                                    </li>
                                     <li><a href="contacto.html">Contacto</a></li>
                                 </ul>
                             </nav>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-sm-5">
+                    <div class="col-lg-2 col-6">
                         <div class="header-bottom-right-style-2">
                             <ul>
-                                <li><a href="https://app.rafaelbucheli.com/login/?next=/" class="btn btn-primary btn-round portal-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-user-graduate portal-icon"></i><span>Portal Web</span></a></li>
+                                <li>
+                                    <a href="https://app.rafaelbucheli.com/login/?next=/" 
+                                    class="btn btn-primary btn-round portal-btn" 
+                                    target="_blank" rel="noopener noreferrer"><i class="fas fa-user-graduate portal-icon"></i><span>Portal Web</span></a>
+                                </li>
+                                <li class="d-block d-lg-none"><div id="mobile_menu"></div></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-12 d-block d-lg-none"><div id="mobile_menu"></div></div>
                 </div>
             </div>
         </div>
     </header>
-    <!-- header area end -->
+    <!-- ============================================================ -->
     
     <!-- offset search area start -->
     <div class="offset-search">
@@ -1351,9 +1356,10 @@
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/scripts.js"></script>
     <script src="assets/js/loading.js"></script>
+    <script src="assets/js/mobile-menu.js"></script>
     
     <!-- ===== CHATBOT ===== -->
-<script src="CHATBOT/CHATBOT.js" data-auto-init></script>
+    <script src="CHATBOT/CHATBOT.js" data-auto-init></script>
 
     <script>
         (function() {

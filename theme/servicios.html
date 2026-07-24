@@ -26,7 +26,6 @@
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/logo.png">
     <!-- all css here -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <!-- ⚠️ ELIMINADA: <link rel="stylesheet" href="assets/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/css/magnific-popup.css">
     <link rel="stylesheet" href="assets/css/slicknav.min.css">
@@ -36,7 +35,6 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
     <!-- loading css -->
     <link rel="stylesheet" href="assets/css/loading.css">
-    <!--color css-->
 
     <!-- ===== FONT AWESOME 6 ===== -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -66,7 +64,7 @@
             text-align: center;
             color: var(--blanco);
             overflow: hidden;
-            margin-top: 104px;
+            margin-top: 80px;
         }
 
         .page-header-servicios::before {
@@ -521,6 +519,7 @@
                 height: 180px;
             }
         }
+        /* NOTA: Se ha eliminado el bloque "FIX DE CONFLICTOS" que sobrescribía los estilos del header */
     </style>
 </head>
 
@@ -529,19 +528,24 @@
             <p class="browserupgrade">Estás usando un navegador <strong>obsoleto</strong>. Por favor <a href="http://browsehappy.com/">actualiza tu navegador</a> para mejorar tu experiencia.</p>
         <![endif]-->
 
-    <!-- loading area start - SIMPLIFICADO -->
+    <!-- loading area start -->
     <div id="preloader">
-        <div class="spinner"></div>
+        <div class="loading-container">
+            <video id="loadingVideo" muted playsinline preload="auto" poster="assets/images/icon/logo.png">
+                <source src="assets/images/recursos/pantalla-de-carga.webm" type="video/webm">
+                <source src="assets/images/recursos/pantalla-de-ccarga.mp4" type="video/mp4">
+            </video>
+            <div class="spinner"></div>
+            <div class="loading-text">Cargando...</div>
+        </div>
     </div>
     <!-- loading area end -->
-
-    <!-- header area start (CORREGIDO) -->
     <header id="header">
         <!-- header two area start -->
         <div class="header-two">
             <div class="container-fluid px-0">
                 <div class="row align-items-center g-0 mx-0">
-                    <div class="col-lg-3 col-sm-6 d-block d-lg-none">
+                    <div class="col-lg-3 col-6 d-block d-lg-none">
                         <div class="logo">
                             <a href="index.html"><img src="assets/images/icon/logo.png" alt="logo" decoding="async"></a>
                         </div>
@@ -557,7 +561,7 @@
                                             <li><a href="actividades_extracurriculares.html">Actividades Extracurriculares</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="admisiones.html">Admisiones 2026</a></li>
+                                    <li><a href="admisiones.html">Admisiones</a></li>
                                     <li class="middle-logo">
                                         <a href="index.html">
                                             <img src="assets/images/icon/logo-middle.png" alt="logo" decoding="async">
@@ -575,7 +579,7 @@
                             </nav>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-sm-5">
+                    <div class="col-lg-2 col-6">
                         <div class="header-bottom-right-style-2">
                             <ul>
                                 <li>
@@ -583,11 +587,9 @@
                                     class="btn btn-primary btn-round portal-btn" 
                                     target="_blank" rel="noopener noreferrer"><i class="fas fa-user-graduate portal-icon"></i><span>Portal Web</span></a>
                                 </li>
+                                <li class="d-block d-lg-none"><div id="mobile_menu"></div></li>
                             </ul>
                         </div>
-                    </div><!-- col-lg-2 -->
-                    <div class="col-12 d-block d-lg-none">
-                        <div id="mobile_menu"></div>
                     </div>
                 </div>
             </div>
@@ -596,7 +598,7 @@
     </header>
     <!-- header area end -->
 
-    <!-- offset search area start - CORREGIDO -->
+    <!-- offset search area start -->
     <div class="offset-search">
         <form action="#">
             <input type="text" name="search" placeholder="Buscar aquí...">
@@ -631,7 +633,7 @@
         </div>
     </section>
 
-    <!-- SERVICIOS PRINCIPALES - CORREGIDO -->
+    <!-- SERVICIOS PRINCIPALES -->
     <section class="services-section">
         <div class="container">
             <div class="section-title-centered">
@@ -728,7 +730,7 @@
         </div>
     </section>
 
-    <!-- BENEFICIOS - CORREGIDO -->
+    <!-- BENEFICIOS -->
     <section class="benefits-section">
         <div class="container">
             <div class="section-title-centered">
@@ -785,7 +787,7 @@
         </div>
     </section>
 
-    <!-- footer area start (CORREGIDO) -->
+    <!-- footer area start -->
     <footer>
         <div class="footer-top has-color pt--120 pb--30">
             <div class="container">
@@ -876,6 +878,7 @@
     <script src="assets/js/jquery.slicknav.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/mobile-menu.js"></script>
     <!-- loading js -->
     <script src="assets/js/loading.js"></script>
 
@@ -886,4 +889,3 @@
 </body>
 
 </html>
-

@@ -652,30 +652,38 @@ body {
   outline-offset: 2px;
 }
 .textarea-input {
-  height: 120px;
+  height: 80px;
+  min-height: 60px;
   resize: vertical;
-  padding-top: 15px;
-  line-height: 1.5;
+  padding-top: 12px;
+  line-height: 1.4;
 }
 
 /* Input con icono */
 .input-with-icon {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 .input-with-icon i {
   position: absolute;
-  left: 15px;
+  left: 14px;
   top: 50%;
   transform: translateY(-50%);
   color: var(--azul-institucional);
-  z-index: 1;
+  z-index: 2;
+  font-size: 15px;
+  width: 16px;
+  text-align: center;
+  pointer-events: none;
 }
 .input-with-icon.textarea-icon i {
-  top: 20px;
+  top: 18px;
   transform: none;
+  align-self: flex-start;
 }
 .input-with-icon .interactive-input {
-  padding-left: 45px;
+  padding-left: 40px;
 }
 
 /* ============================================
@@ -1320,23 +1328,26 @@ body {
    FORMULARIO DE CONTACTO INTERNO
 ============================================ */
 .form-content {
-  padding: 25px;
+  padding: 10px 14px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 6px;
   overflow-y: auto;
+  flex: 1;
+  min-height: 0;
 }
 .form-instruction {
-  font-size: 14px;
+  font-size: 12px;
   color: var(--text-sub);
-  margin-bottom: 10px;
+  margin-bottom: 2px;
   text-align: center;
-  line-height: 1.5;
+  line-height: 1.3;
 }
 .form-buttons {
   display: flex;
-  gap: 10px;
-  margin-top: 10px;
+  gap: 6px;
+  margin-top: 1px;
+  flex-shrink: 0;
 }
 .submit-btn {
   flex: 1;
@@ -1352,7 +1363,27 @@ body {
 }
 .contact-form-container input,
 .contact-form-container textarea {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
+}
+
+/* Form inputs más compactos */
+.form-content .interactive-input {
+  padding: 9px 12px;
+  font-size: 13px;
+  border-radius: 10px;
+}
+
+/* Input con icono dentro del form compacto - mantener espacio para el icono */
+.form-content .input-with-icon .interactive-input {
+  padding: 9px 12px 9px 36px;
+}
+
+/* Submit button más compacto en form content */
+.form-content .submit-btn {
+  padding: 10px;
+  min-height: 38px;
+  font-size: 13px;
+  border-radius: 10px;
 }
 
 /* ============================================

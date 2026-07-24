@@ -37,8 +37,7 @@
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Animate.css: REQUERIDO por Owl Carousel para animateOut/animateIn (fadeOut/fadeIn).
-         Esta librería faltaba y era la causa principal de que el slider se viera roto. -->
+    <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
     <!-- Chatbot styles -->
@@ -88,7 +87,6 @@
             --hero-badge-border: var(--color-accent);
             --hero-highlight-color: var(--color-accent);
 
-            /* Alturas de header sincronizadas con el hero (misma variable en ambos) */
             --header-h-desktop: 80px;
             --header-h-tablet: 70px;
             --header-h-mobile: 60px;
@@ -105,90 +103,7 @@
         img { max-width: 100%; height: auto; }
 
         /* ============================================================
-           HEADER – FIJO, BLANCO, ALTURA SINCRONIZADA CON EL HERO
-           ============================================================ */
-        #header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 9999;
-            background: #ffffff !important;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-            height: var(--header-h-desktop);
-            display: flex;
-            align-items: center;
-            transition: height 0.2s ease;
-        }
-        #header .header-two,
-        #header .container-fluid,
-        #header .row { height: 100%; width: 100%; }
-
-        .header-two .main-menu ul li a {
-            color: var(--color-primary);
-            font-weight: 600;
-        }
-        .header-two .main-menu ul li a:hover,
-        .header-two .main-menu ul li.active a {
-            color: var(--color-accent);
-        }
-        .header-bottom-right-style-2 .btn-primary {
-            background: var(--color-accent);
-            border-color: var(--color-accent);
-            color: var(--color-primary);
-            font-weight: 700;
-        }
-        .header-bottom-right-style-2 .btn-primary:hover {
-            background: var(--color-primary);
-            border-color: var(--color-primary);
-            color: var(--color-white);
-        }
-
-        .header-bottom-right-style-2 li a.portal-btn {
-            display: inline-flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            gap: 9px !important;
-            min-height: 46px !important;
-            min-width: 126px !important;
-            padding: 12px 24px !important;
-            border-radius: 999px !important;
-            background: #F6BE00 !important;
-            border: 2px solid #F6BE00 !important;
-            color: #1F2366 !important;
-            font-size: 15px !important;
-            font-weight: 800 !important;
-            letter-spacing: 0 !important;
-            line-height: 1 !important;
-            box-shadow: 0 12px 26px rgba(246,190,0,0.35) !important;
-            text-transform: none !important;
-            transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease !important;
-        }
-        .header-bottom-right-style-2 li a.portal-btn .portal-icon {
-            width: 26px !important;
-            height: 26px !important;
-            display: inline-flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            border-radius: 50% !important;
-            background: #1F2366 !important;
-            color: #ffffff !important;
-            font-size: 13px !important;
-            flex: 0 0 26px !important;
-        }
-        .header-bottom-right-style-2 li a.portal-btn:hover {
-            background: #e5ac00 !important;
-            border-color: #e5ac00 !important;
-            color: #1F2366 !important;
-            transform: translateY(-2px) !important;
-            box-shadow: 0 16px 30px rgba(246,190,0,0.45) !important;
-        }
-
-        /* ============================================================
-           HERO SLIDER — RECONSTRUIDO
-           Separado del header con el mismo alto de referencia
-           (var(--header-h-desktop) etc.) para que nunca se solapen
-           ni dejen huecos, en ningún breakpoint.
+           HERO SLIDER
            ============================================================ */
         .hero-slider {
             position: relative;
@@ -201,14 +116,9 @@
             z-index: 1;
             background: var(--color-primary-dark);
         }
-
         .hero-slider .owl-stage-outer,
         .hero-slider .owl-stage,
         .hero-slider .owl-item { height: 100%; }
-
-        /* Owl Carousel tarda un instante en inicializar: mientras tanto
-           mostramos el primer slide para evitar el "flash" en blanco
-           que hacía ver el slider roto al cargar la página. */
         .hero-slider:not(.owl-loaded) .hero-slide { display: none; }
         .hero-slider:not(.owl-loaded) .hero-slide:first-child { display: flex; }
 
@@ -222,7 +132,6 @@
             align-items: center;
             justify-content: center;
         }
-
         .hero-slide::after {
             content: '';
             position: absolute;
@@ -240,11 +149,9 @@
             margin: 0 auto;
             text-align: center;
         }
-
         .owl-item.active .hero-content {
             animation: heroFadeIn 0.9s ease forwards;
         }
-
         @keyframes heroFadeIn {
             from { opacity: 0; transform: translateY(28px); }
             to { opacity: 1; transform: translateY(0); }
@@ -277,15 +184,6 @@
             letter-spacing: -0.02em;
         }
         .hero-title .accent { color: var(--accent); }
-
-        .hero-description {
-            font-size: clamp(1rem, 1.3vw, 1.15rem);
-            color: rgba(255,255,255,0.88);
-            line-height: 1.6;
-            margin: 0 auto 26px;
-            max-width: 520px;
-            font-weight: 400;
-        }
 
         .hero-stats-card-3d {
             background: rgba(0,0,0,0.38);
@@ -328,7 +226,6 @@
             justify-content: center;
             margin-bottom: 22px;
         }
-
         .btn-primary-hero {
             display: inline-flex;
             align-items: center;
@@ -350,6 +247,29 @@
             box-shadow: 0 14px 36px rgba(244,184,0,0.45);
             color: var(--primary-dark);
         }
+
+        .btn-azul-hero {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 32px;
+            background: var(--color-primary);
+            color: var(--color-white);
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 15px;
+            border: 1.5px solid var(--color-primary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .btn-azul-hero:hover {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+            color: var(--color-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(255,199,44,0.3);
+        }
+
         .btn-outline-hero {
             display: inline-flex;
             align-items: center;
@@ -414,7 +334,6 @@
             box-shadow: 0 0 12px rgba(244,184,0,0.6);
         }
 
-        /* Barra de estadísticas inferior, fuera del slider */
         .hero-stats-bar {
             background: var(--color-primary-dark);
             padding: 26px 0;
@@ -444,21 +363,9 @@
         }
 
         /* ============================================================
-           RESPONSIVE — Header y hero comparten los mismos breakpoints
-           y las mismas alturas, para que nunca se desalineen.
+           IMÁGENES PARA MÓVIL (cambiamos el background-image)
            ============================================================ */
-        @media (max-width: 991px) {
-            #header { height: var(--header-h-tablet); }
-            .hero-slider {
-                margin-top: var(--header-h-tablet);
-                height: calc(100vh - var(--header-h-tablet));
-                min-height: 540px;
-            }
-            .hero-stats-grid { gap: 30px; }
-        }
-
         @media (max-width: 767px) {
-            #header { height: var(--header-h-mobile); }
             .hero-slider {
                 margin-top: var(--header-h-mobile);
                 height: calc(100vh - var(--header-h-mobile));
@@ -467,9 +374,11 @@
             }
             .hero-content { padding: 0 18px; }
             .hero-actions { flex-direction: column; }
-            .btn-primary-hero, .btn-outline-hero { width: 100%; justify-content: center; }
+            .btn-primary-hero, .btn-azul-hero, .btn-outline-hero {
+                width: 100%;
+                justify-content: center;
+            }
             .hero-title { font-size: 2.1rem; }
-            .hero-description { font-size: 0.92rem; }
             .hero-stats-card-3d { padding: 10px; max-width: 100%; }
             .stats-grid-premium { gap: 14px; }
             .stat-number-premium { font-size: 1.35rem; }
@@ -477,6 +386,16 @@
             .hero-stats-bar { padding: 18px 0; }
             .hero-stats-grid { gap: 22px; }
             .hero-stat-number { font-size: 1.5rem; }
+
+            .slide-1 {
+                background-image: url("assets/images/recursos/slider_principal_3-mobile.jpg") !important;
+            }
+            .slide-2 {
+                background-image: url("assets/images/recursos/slider_principal.jpg") !important;
+            }
+            .slide-3 {
+                background-image: url("assets/images/recursos/slider_principal_4-mobile.jpg") !important;
+            }
         }
 
         /* ============================================================
@@ -541,6 +460,7 @@
             transform: translateY(-3px);
             box-shadow: 0 10px 28px rgba(255,199,44,0.3);
         }
+
         .footer-top .fwidget-title { color: var(--color-white) !important; }
         .widget-company .address h6,
         .widget-company .address p,
@@ -723,6 +643,7 @@
             .slide-description-mejorado { font-size: 16px; }
             .btn-slide-primary, .btn-slide-secondary { padding: 12px 24px; font-size: 14px; }
         }
+
         .cta-area { background: var(--cta-bg) !important; padding: 60px 0; }
         .cta-content p { color: var(--cta-text-color) !important; font-size: 1.1rem; margin-bottom: 5px; }
         .cta-content h2 {
@@ -738,6 +659,7 @@
             transform: translateY(-3px); box-shadow: 0 10px 28px rgba(255,199,44,0.4);
             background: #fff !important; color: var(--color-primary) !important;
         }
+
         .testimonial-area { background: var(--testimonial-bg); padding: 80px 0; position: relative; }
         .testimonial-area .tst-bg { display: none; }
         .testimonial-content { text-align: center; padding: 20px 30px; }
@@ -757,6 +679,7 @@
             background: var(--color-gray); width: 12px; height: 12px; border-radius: 50%; transition: 0.2s;
         }
         .tst-carousel.owl-carousel .owl-dots .owl-dot.active span { background: var(--testimonial-highlight); width: 16px; height: 16px; }
+
         .teacher-area .card { height: 100%; display: flex; flex-direction: column; }
         .teacher-area .card img {
             height: 250px; object-fit: cover; width: 100%;
@@ -773,6 +696,7 @@
             .testimonial-content h3 { font-size: 1.2rem; }
             .testimonial-content .section-title h2 { font-size: 1.8rem; }
         }
+
         .convenios-area {
             position: relative; width: 100%; min-height: 500px;
             background-size: cover; background-position: center; background-repeat: no-repeat;
@@ -811,208 +735,277 @@
             .convenios-title { font-size: 48px; }
             .convenios-subtitle { font-size: 16px; letter-spacing: 2px; }
         }
-        @media (max-width: 991px) {
-            .header-bottom-right-style-2 li a.portal-btn {
-                min-width: 112px !important; min-height: 42px !important; padding: 10px 18px !important; font-size: 14px !important;
-            }
-        }
-        @media (max-width: 575px) {
-            .header-bottom-right-style-2 li a.portal-btn {
-                min-width: 104px !important; min-height: 40px !important; padding: 9px 14px !important; font-size: 13px !important;
-            }
-            .header-bottom-right-style-2 li a.portal-btn .portal-icon { width: 23px !important; height: 23px !important; flex-basis: 23px !important; font-size: 12px !important; }
-        }
 
         /* ============================================================
-           FIX DE CONFLICTOS CON default-css.css (template original)
-           default-css.css trae reglas para un header TRANSPARENTE sobre
-           un hero oscuro (.header-two, .header-two.scrolled, .menu-style2
-           nav > ul > li > a, media query <=991px) con !important y mayor
-           especificidad que las de arriba, por lo que ganaban la cascada
-           y rompían el header blanco fijo. Aquí se fuerza todo con el
-           selector #header (ID = máxima especificidad) para que SIEMPRE
-           gane, sin importar el estado "scrolled" ni el breakpoint.
+           MODAL DE MATRÍCULAS ABIERTAS (VERSIÓN COMPACTA - ESQUINA INF. IZQ.)
            ============================================================ */
-        #header,
-        #header.scrolled,
-        #header .header-two,
-        #header .header-two.scrolled {
-            background: #ffffff !important;
-            backdrop-filter: none !important;
-            -webkit-backdrop-filter: none !important;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08) !important;
-            border-bottom: none !important;
-            padding: 0 !important;
+        .modal-matriculas {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* overlay más suave */
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            justify-content: flex-start;  /* alineación horizontal: izquierda */
+            align-items: flex-end;        /* alineación vertical: abajo */
+            padding: 20px;
         }
-        #header .header-two {
-            position: static !important;
-            width: 100% !important;
-            height: 100% !important;
+
+        .modal-matriculas.active {
+            display: flex;
         }
-        #header .menu-style2 nav > ul > li > a,
-        #header .menu-style2.main-menu nav > ul > li > a {
-            color: var(--color-primary) !important;
-            text-shadow: none !important;
-            padding: 0 14px !important;
-            font-weight: 600 !important;
+
+        .modal-contenido {
+            position: relative;
+            background: var(--color-white);
+            border-radius: var(--border-radius-card);
+            max-width: 320px;  /* más pequeño */
+            width: 100%;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            border: 2px solid var(--color-accent);
+            animation: slideUpModal 0.4s ease;
+            margin: 0; /* eliminamos el centrado */
         }
-        #header .menu-style2 nav > ul > li > a:after,
-        #header .menu-style2.main-menu nav > ul > li > a:after {
-            background: var(--color-accent) !important;
+
+        @keyframes slideUpModal {
+            from { transform: translateY(30px); opacity: 0; }
+            to   { transform: translateY(0); opacity: 1; }
         }
-        #header .menu-style2 nav > ul > li > a:hover,
-        #header .menu-style2 nav > ul > li.active > a,
-        #header.scrolled .menu-style2 nav > ul > li > a,
-        #header.scrolled .menu-style2 nav > ul > li.active > a {
-            color: var(--color-accent) !important;
+
+        .modal-cerrar {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            font-size: 22px;
+            font-weight: 300;
+            color: var(--color-primary);
+            background: rgba(255, 255, 255, 0.8);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            z-index: 10;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            line-height: 1;
         }
-        #header .menu-style2 nav ul li.middle-logo a img {
-            filter: none !important;
-            max-width: 105px !important;
+        .modal-cerrar:hover {
+            background: var(--color-accent);
+            color: var(--color-primary);
+            transform: rotate(90deg);
         }
-        #header .main-menu nav .submenu {
-            background: #ffffff !important;
-            backdrop-filter: none !important;
-            border: 1px solid rgba(31,35,102,0.08) !important;
-            box-shadow: var(--shadow-md) !important;
+
+        .modal-imagen {
+            width: 100%;
+            display: block;
+            height: auto;
+            max-height: 180px;  /* imagen más pequeña */
+            object-fit: cover;
+            border-bottom: 2px solid var(--color-accent);
         }
-        #header .main-menu nav .submenu li a {
-            color: var(--color-primary) !important;
+
+        .modal-pie {
+            padding: 16px 18px 18px;
+            text-align: center;
+            background: #fafafc;
         }
-        #header .main-menu nav .submenu li a:hover {
-            background: rgba(31,35,102,0.06) !important;
-            color: var(--color-accent) !important;
+
+        .modal-pie h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 4px;
         }
-        /* Neutraliza el forzado oscuro/translúcido de tablet-mobile del template */
-        @media (max-width: 991px) {
-            #header,
-            #header .header-two {
-                background: #ffffff !important;
-                padding: 0 !important;
-            }
-            #header .menu-style2 nav > ul > li > a {
-                color: var(--color-primary) !important;
-                text-shadow: none !important;
-            }
+        .modal-pie h3 span {
+            color: var(--color-accent);
+        }
+        .modal-pie p {
+            color: var(--color-gray);
+            font-size: 0.85rem;
+            margin-bottom: 14px;
+        }
+
+        .modal-boton-wa {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #25D366;
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+            text-decoration: none;
+        }
+        .modal-boton-wa:hover {
+            background: #20b85a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            color: #fff;
+        }
+        .modal-boton-wa i {
+            font-size: 1.2rem;
+        }
+
+        /* Ajustes en móviles */
+        @media (max-width: 576px) {
+            .modal-matriculas { padding: 10px; }
+            .modal-contenido { max-width: 280px; }
+            .modal-pie h3 { font-size: 1.1rem; }
+            .modal-boton-wa { padding: 8px 18px; font-size: 0.8rem; }
+            .modal-imagen { max-height: 140px; }
+            .modal-cerrar { width: 28px; height: 28px; font-size: 18px; top: 6px; right: 8px; }
         }
     </style>
 
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
-    <!-- Preloader -->
+    <!-- loading area start -->
     <div id="preloader">
         <div class="loading-container">
-            <video id="loadingVideo" autoplay muted playsinline preload="auto" webkit-playsinline>
+            <video id="loadingVideo" muted playsinline preload="auto" loop>
                 <source src="assets/images/recursos/pantalla-de-carga.webm" type="video/webm">
-                <img src="assets/images/recursos/pantalla-de-carga.webp" alt="Cargando..." style="width:100%;height:auto;display:block;"/>
+                <source src="assets/images/recursos/pantalla-de-ccarga.mp4" type="video/mp4">
             </video>
-            <p class="loading-text">Cargando...</p>
+            <div class="spinner"></div>
+            <div class="loading-text">Cargando...</div>
         </div>
     </div>
-
-    <!-- HEADER (fijo, independiente del hero) -->
+    <!-- loading area end -->
+    
+    <!-- header area start -->
     <header id="header">
         <div class="header-two">
             <div class="container-fluid px-0">
                 <div class="row align-items-center g-0 mx-0">
-                    <div class="col-lg-3 col-sm-6 d-block d-lg-none">
-                        <div class="logo"><a href="index.html"><img src="assets/images/icon/logo.png" alt="Logo Rafael Bucheli" decoding="async"></a></div>
+                    <div class="col-lg-3 col-6 d-block d-lg-none">
+                        <div class="logo">
+                            <a href="index.html"><img src="assets/images/icon/logo.png" alt="logo" decoding="async"></a>
+                        </div>
                     </div>
                     <div class="col-lg-9 offset-lg-1 d-none d-lg-block">
                         <div class="main-menu menu-style2">
-                            <nav aria-label="Menú principal">
+                            <nav>
                                 <ul id="m_menu_active">
                                     <li class="active"><a href="index.html">Inicio</a></li>
                                     <li><a href="javascript:void(0);">Oferta Académica</a>
-                                        <ul class="submenu"><li><a href="oferta_academica.html">Academia</a></li><li><a href="actividades_extracurriculares.html">Actividades Extracurriculares</a></li></ul>
+                                        <ul class="submenu">
+                                            <li><a href="oferta_academica.html">Academia</a></li>
+                                            <li><a href="actividades_extracurriculares.html">Actividades Extracurriculares</a></li>
+                                        </ul>
                                     </li>
                                     <li><a href="admisiones.html">Admisiones</a></li>
-                                    <li class="middle-logo"><a href="index.html"><img src="assets/images/icon/logo-middle.png" alt="Logo central" decoding="async"><img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="" loading="lazy" decoding="async"></a></li>
+                                    <li class="middle-logo">
+                                        <a href="index.html">
+                                            <img src="assets/images/icon/logo-middle.png" alt="logo" decoding="async">
+                                            <img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="logo" loading="lazy" decoding="async">
+                                        </a>
+                                    </li>
                                     <li><a href="servicios.html">Servicios</a></li>
-                                    <li><a href="nosotros.html">Nosotros</a><ul class="submenu"><li><a href="nosotros.html">Visión y Misión</a></li></ul></li>
+                                    <li><a href="nosotros.html">Nosotros</a>
+                                        <ul class="submenu">
+                                            <li><a href="nosotros.html">Visión y Misión</a></li>
+                                        </ul>
+                                    </li>
                                     <li><a href="contacto.html">Contacto</a></li>
                                 </ul>
                             </nav>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-sm-5">
+                    <div class="col-lg-2 col-6">
                         <div class="header-bottom-right-style-2">
                             <ul>
-                                <li><a href="https://app.rafaelbucheli.com/login/?next=/" class="btn btn-primary btn-round portal-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-user-graduate portal-icon"></i><span>Portal Web</span></a></li>
+                                <li>
+                                    <a href="https://app.rafaelbucheli.com/login/?next=/" 
+                                    class="btn btn-primary btn-round portal-btn" 
+                                    target="_blank" rel="noopener noreferrer"><i class="fas fa-user-graduate portal-icon"></i><span>Portal Web</span></a>
+                                </li>
+                                <li class="d-block d-lg-none"><div id="mobile_menu"></div></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-12 d-block d-lg-none"><div id="mobile_menu"></div></div>
                 </div>
             </div>
         </div>
     </header>
-
-    <div class="offset-search"><form action="#"><input type="text" name="search" placeholder="Buscar aquí..."><button type="submit" aria-label="Buscar"><i class="fas fa-search"></i></button></form></div>
+    <!-- header area end -->
+    
+    <!-- offset search area start -->
+    <div class="offset-search">
+        <form action="#">
+            <input type="text" name="search" placeholder="Buscar aquí...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
     <div class="body_overlay"></div>
 
-    <!-- ============================================================
-         HERO SLIDER — reconstruido, separado del header
-         ============================================================ -->
+    <!-- HERO SLIDER -->
     <main>
         <div class="hero-slider owl-carousel" id="heroSlider">
             <!-- Slide 1 -->
-            <div class="hero-slide" style="background-image: url('assets/images/recursos/inscripciones1.png');">
+            <div class="hero-slide slide-1" style="background-image: url('assets/images/recursos/slider_principal_3.jpg'); align-items: flex-end; padding-bottom: 45px;">
                 <div class="container">
                     <div class="hero-content">
-                        <span class="hero-badge"><i class="fas fa-star"></i> Institución Acreditada</span>
-                        <h1 class="hero-title">Construye el <span class="accent">Futuro</span> de tus Hijos</h1>
-
                         <div class="hero-actions">
                             <a href="admisiones.html" class="btn-primary-hero"><i class="fas fa-file-signature"></i> Inscripciones 2026-2027 <i class="fas fa-arrow-right"></i></a>
-                            <a href="contacto.html" class="btn-outline-hero"><i class="fas fa-info-circle"></i> Más Información</a>
+                            <a href="contacto.html" class="btn-azul-hero"><i class="fas fa-info-circle"></i> Más Información</a>
                         </div>
-                        <div class="static-fact-badge"><i class="fas fa-graduation-cap"></i><span>95% ingresan a universidades top</span></div>
                     </div>
                 </div>
             </div>
 
-        
-<div class="hero-slide" style="background-color: #ffffff; background-image: none;">
-    <div class="container">
-        <div class="hero-content">
-            <span class="hero-badge" style="background: rgba(31,35,102,0.08); border-color: #1F2366; color: #1F2366;">
-                <i class="fas fa-star" style="color: #FFC72C;"></i> Educación de calidad
-            </span>
-            <h1 class="hero-title" style="color: #1F2366;">
-                Excelencia <span class="accent" style="color: #FFC72C;">Académica</span>
-            </h1>
-            <div class="hero-stats-card-3d" style="background: rgba(31,35,102,0.06); border-color: rgba(31,35,102,0.15);">
-                <div class="stats-grid-premium">
-                    <div class="stat-item-premium">
-                        <span class="stat-number-premium counter" data-target="99" style="color: #1F2366;">0</span>
-                        <span class="stat-label-premium" style="color: #1F2366;">Años de Excelencia</span>
-                    </div>
-                    <div class="stat-item-premium">
-                        <span class="stat-number-premium counter" data-target="1000" style="color: #1F2366;">0</span>
-                        <span class="stat-label-premium" style="color: #1F2366;">Estudiantes Felices</span>
+            <!-- Slide 2 -->
+            <div class="hero-slide slide-2" style="background-image: url('assets/images/recursos/slider_principal.jpg');">
+                <div class="container">
+                    <div class="hero-content">
+                        <span class="hero-badge" style="background: rgba(31,35,102,0.08); border-color: #1F2366; color: #1F2366;">
+                            <i class="fas fa-star" style="color: #FFC72C;"></i> Educación de calidad
+                        </span>
+                        <h1 class="hero-title" style="color: #1F2366;">
+                            Excelencia <span class="accent" style="color: #FFC72C;">Académica</span>
+                        </h1>
+                        <div class="hero-stats-card-3d" style="background: rgba(31,35,102,0.06); border-color: rgba(31,35,102,0.15);">
+                            <div class="stats-grid-premium">
+                                <div class="stat-item-premium">
+                                    <span class="stat-number-premium counter" data-target="99" style="color: #1F2366;">0</span>
+                                    <span class="stat-label-premium" style="color: #1F2366;">Años de Excelencia</span>
+                                </div>
+                                <div class="stat-item-premium">
+                                    <span class="stat-number-premium counter" data-target="1000" style="color: #1F2366;">0</span>
+                                    <span class="stat-label-premium" style="color: #1F2366;">Estudiantes Felices</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-           
-            <!-- Slide 4 -->
-            <div class="hero-slide" style="background-image: url('assets/images/recursos/institucion1.webp');">
+
+            <!-- Slide 3 -->
+            <div class="hero-slide slide-3" style="background-image: url('assets/images/recursos/slider_principal_4.jpg');">
                 <div class="container">
                     <div class="hero-content">
                         <span class="hero-badge"><i class="fas fa-trophy"></i> 99 Años de Excelencia</span>
                         <h1 class="hero-title">Tu Mejor <span class="accent">Decisión</span> Educativa</h1>
-
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Barra de estadísticas, ahora fuera del slider (ya no se superpone) -->
+        <!-- Barra de estadísticas -->
         <div class="hero-stats-bar">
             <div class="container">
                 <div class="hero-stats-grid">
@@ -1024,9 +1017,7 @@
             </div>
         </div>
 
-        <!-- ============================================================
-             PROPUESTA DE VALOR
-             ============================================================ -->
+        <!-- VALUE PROPOSAL -->
         <section class="value-proposal-section" aria-label="Propuesta de valor">
             <div class="container">
                 <div class="row align-items-center">
@@ -1059,12 +1050,10 @@
             </div>
         </section>
 
-        <!-- ============================================================
-             CARRUSEL FULLSCREEN
-             ============================================================ -->
+        <!-- FULLSCREEN CAROUSEL -->
         <div class="fullscreen-carousel-area" aria-label="Carrusel de servicios">
             <div class="fullscreen-carousel owl-carousel">
-                <div class="fullscreen-slide" style="background-image: url('assets/images/slider/buchelino1.webp');">
+                <div class="fullscreen-slide" style="background-image: url('assets/images/recursos/buchelino11.jpg');">
                     <div class="slide-overlay-mejorado"></div><div class="slide-pattern"></div>
                     <div class="container-mejorado"><div class="row"><div class="col-lg-7">
                         <div class="slide-content-mejorado">
@@ -1077,6 +1066,7 @@
                     </div></div></div>
                     <div class="slide-info-card"><h4>Buchelino</h4><ul><li><i class="fas fa-check-circle"></i> Edades: 2 a 4 años</li><li><i class="fas fa-check-circle"></i> Metodología Montessori</li><li><i class="fas fa-check-circle"></i> Estimulación temprana</li><li><i class="fas fa-check-circle"></i> Horario extendido</li></ul></div>
                 </div>
+
                 <div class="fullscreen-slide" style="background-image: url('assets/images/slider/crecimiento1.webp');">
                     <div class="slide-overlay-mejorado"></div><div class="slide-pattern"></div>
                     <div class="container-mejorado"><div class="row"><div class="col-lg-7">
@@ -1090,6 +1080,7 @@
                     </div></div></div>
                     <div class="slide-info-card"><h4>Niveles Educativos</h4><ul><li><i class="fas fa-check-circle"></i> Primaria (6-11 años)</li><li><i class="fas fa-check-circle"></i> Secundaria (12-17 años)</li><li><i class="fas fa-check-circle"></i> Bachillerato Internacional</li><li><i class="fas fa-check-circle"></i> Orientación vocacional</li></ul></div>
                 </div>
+
                 <div class="fullscreen-slide" style="background-image: url('assets/images/slider/logoleon.webp');">
                     <div class="slide-overlay-mejorado"></div><div class="slide-pattern"></div>
                     <div class="container-mejorado"><div class="row"><div class="col-lg-7">
@@ -1103,6 +1094,7 @@
                     </div></div></div>
                     <div class="slide-info-card"><h4>Nuestros Valores</h4><ul><li><i class="fas fa-check-circle"></i> Excelencia académica</li><li><i class="fas fa-check-circle"></i> Formación ética</li><li><i class="fas fa-check-circle"></i> Respeto y responsabilidad</li><li><i class="fas fa-check-circle"></i> Liderazgo positivo</li></ul></div>
                 </div>
+
                 <div class="fullscreen-slide" style="background-image: url('assets/images/slider/motivacional1.webp');">
                     <div class="slide-overlay-mejorado"></div><div class="slide-pattern"></div>
                     <div class="container-mejorado"><div class="row"><div class="col-lg-7">
@@ -1116,6 +1108,7 @@
                     </div></div></div>
                     <div class="slide-info-card"><h4>Frases destacadas</h4><ul><li><i class="fas fa-check-circle"></i> "Nunca es tarde para aprender"</li><li><i class="fas fa-check-circle"></i> "El esfuerzo trae recompensas"</li><li><i class="fas fa-check-circle"></i> "Cree en ti mismo"</li></ul></div>
                 </div>
+
                 <div class="fullscreen-slide" style="background-image: url('assets/images/slider/rafaelbucheli1.webp');">
                     <div class="slide-overlay-mejorado"></div><div class="slide-pattern"></div>
                     <div class="container-mejorado"><div class="row"><div class="col-lg-7">
@@ -1129,6 +1122,7 @@
                     </div></div></div>
                     <div class="slide-info-card"><h4>Legado</h4><ul><li><i class="fas fa-check-circle"></i> Fundado en 1978</li><li><i class="fas fa-check-circle"></i> +5000 graduados</li><li><i class="fas fa-check-circle"></i> Excelencia educativa</li></ul></div>
                 </div>
+
                 <div class="fullscreen-slide" style="background-image: url('assets/images/slider/convenios.webp');">
                     <div class="slide-overlay-mejorado"></div><div class="slide-pattern"></div>
                     <div class="container-mejorado"><div class="row"><div class="col-lg-7">
@@ -1142,6 +1136,7 @@
                     </div></div></div>
                     <div class="slide-info-card"><h4>Instituciones aliadas</h4><ul><li><i class="fas fa-check-circle"></i> Universidades nacionales</li><li><i class="fas fa-check-circle"></i> Programas internacionales</li><li><i class="fas fa-check-circle"></i> Intercambios estudiantiles</li></ul></div>
                 </div>
+
                 <div class="fullscreen-slide" style="background-image: url('assets/images/slider/slider1.webp');">
                     <div class="slide-overlay-mejorado"></div><div class="slide-pattern"></div>
                     <div class="container-mejorado"><div class="row"><div class="col-lg-7">
@@ -1158,9 +1153,7 @@
             </div>
         </div>
 
-        <!-- ============================================================
-             METODOLOGÍAS
-             ============================================================ -->
+        <!-- METODOLOGÍAS -->
         <div class="teacher-area pb--100">
             <div class="container">
                 <div class="row"><div class="col-md-10 offset-md-1"><div class="section-title-style2 black-title title-tb text-center"><span>Aprende de los mejores</span><h2 class="primary-color" style="color: var(--color-primary) !important;">Nuestras metodologías</h2></div></div></div>
@@ -1172,9 +1165,7 @@
             </div>
         </div>
 
-        <!-- ============================================================
-             EVENTOS
-             ============================================================ -->
+        <!-- EVENTOS -->
         <div class="event-area pt--120 pb--80">
             <div class="container">
                 <div class="row"><div class="col-md-10 offset-md-1"><div class="section-title-style2 black-title text-center"><span>Únete a nosotros</span><h2>Próximos Eventos</h2></div></div></div>
@@ -1187,9 +1178,7 @@
             </div>
         </div>
 
-        <!-- ============================================================
-             TESTIMONIOS
-             ============================================================ -->
+        <!-- TESTIMONIOS -->
         <div class="testimonial-area ptb--120">
             <div class="container"><div class="row"><div class="col-lg-6 offset-lg-3 text-center"><div class="tst-carousel owl-carousel">
                 <div class="testimonial-content pb--40">
@@ -1210,16 +1199,12 @@
             </div></div></div></div>
         </div>
 
-        <!-- ============================================================
-             CONVENIOS
-             ============================================================ -->
+        <!-- CONVENIOS -->
         <div class="convenios-area" style="background-image: url('assets/images/slider/convenios.webp');">
             <div class="container"><div class="row"><div class="col-lg-12"><div class="convenios-content text-center"><span class="convenios-subtitle" style="color: var(--color-accent);">Socios Estratégicos</span><h2 class="convenios-title">Convenios</h2><a href="servicios.html" class="btn btn-primary btn-round convenios-btn" style="background: var(--color-accent); border-color: var(--color-accent); color: var(--color-primary);">Más información...</a></div></div></div></div>
         </div>
 
-        <!-- ============================================================
-             CTA – FORMACIÓN EN LÍDERES
-             ============================================================ -->
+        <!-- CTA -->
         <div class="cta-area secondary-bg has-color cta-area ptb--50" style="background: var(--cta-bg) !important;">
             <div class="container">
                 <div class="row align-items-center">
@@ -1236,18 +1221,14 @@
             </div>
         </div>
 
-        <!-- ============================================================
-             ACREDITACIONES
-             ============================================================ -->
+        <!-- ACREDITACIONES -->
         <div class="acreditados-fullscreen">
             <div class="acreditados-bg"></div>
             <div class="acreditados-overlay"></div>
         </div>
     </main>
 
-    <!-- ============================================================
-         FOOTER
-         ============================================================ -->
+    <!-- FOOTER -->
     <footer>
         <div class="footer-top has-color pt--120 pb--30" style="background: var(--color-primary);">
             <div class="container">
@@ -1298,8 +1279,31 @@
     </footer>
 
     <!-- ============================================================
-         SCRIPTS
+         MODAL MATRÍCULAS ABIERTAS (VERSIÓN COMPACTA)
          ============================================================ -->
+    <div id="modalMatriculas" class="modal-matriculas" role="dialog" aria-modal="true">
+        <div class="modal-contenido">
+            <!-- Botón cerrar (X) -->
+            <button class="modal-cerrar" id="cerrarModal" aria-label="Cerrar anuncio">&times;</button>
+
+            <!-- Imagen -->
+            <img src="assets/images/recursos/matriculas_abiertas.png" alt="Matrículas abiertas 2026-2027" class="modal-imagen" loading="lazy">
+
+            <!-- Pie con llamado a la acción -->
+            <div class="modal-pie">
+                <h3>¡<span>Matrículas</span> Abiertas!</h3>
+                <p>Inscríbete ahora y forma parte de nuestra comunidad.</p>
+                <a href="https://api.whatsapp.com/send/?phone=593995549605&text&type=phone_number&app_absent=0" 
+                   class="modal-boton-wa" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp"></i> Más información
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
     <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/owl.carousel.min.js"></script>
@@ -1308,89 +1312,46 @@
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/scripts.js"></script>
     <script src="assets/js/loading.js"></script>
+    <script src="assets/js/mobile-menu.js"></script>
     <script src="CHATBOT/CHATBOT.js" data-auto-init></script>
 
+    <!-- Control del modal (compacto) -->
     <script>
-        $(document).ready(function() {
-            // Hero Slider — ahora funciona correctamente porque animate.css
-            // ya está cargado en el <head> (animateOut/animateIn lo requieren).
-            $('#heroSlider').owlCarousel({
-                loop: true,
-                items: 1,
-                nav: false,
-                dots: true,
-                autoplay: true,
-                autoplayTimeout: 5500,
-                autoplayHoverPause: true,
-                smartSpeed: 800,
-                animateOut: 'fadeOut',
-                animateIn: 'fadeIn'
-            });
+        (function() {
+            const modal = document.getElementById('modalMatriculas');
+            const cerrarBtn = document.getElementById('cerrarModal');
 
-            $('.fullscreen-carousel').owlCarousel({
-                loop: true,
-                items: 1,
-                nav: true,
-                dots: true,
-                autoplay: true,
-                autoplayTimeout: 5000,
-                autoplayHoverPause: true,
-                animateOut: 'fadeOut',
-                animateIn: 'fadeIn',
-                smartSpeed: 800,
-                navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>']
-            });
-            $('.commn-carousel').owlCarousel({
-                loop: true,
-                margin: 30,
-                nav: true,
-                dots: false,
-                responsive: { 0: { items: 1 }, 600: { items: 2 }, 1000: { items: 3 } }
-            });
-            $('.tst-carousel').owlCarousel({
-                loop: true,
-                margin: 30,
-                nav: false,
-                dots: true,
-                items: 1
-            });
-
-            // Contador animado
-            function animateCounter(el) {
-                const target = parseInt(el.getAttribute('data-target'), 10);
-                const duration = 2000;
-                const startTime = Date.now();
-                function update() {
-                    const now = Date.now();
-                    const progress = Math.min((now - startTime) / duration, 1);
-                    const eased = 1 - Math.pow(1 - progress, 3);
-                    const current = Math.floor(eased * target);
-                    el.textContent = current.toLocaleString();
-                    if (progress < 1) {
-                        requestAnimationFrame(update);
-                    } else {
-                        el.textContent = target.toLocaleString();
-                    }
-                }
-                update();
+            function abrirModal() {
+                modal.classList.add('active');
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
             }
 
-            const counters = document.querySelectorAll('.counter');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateCounter(entry.target);
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.4 });
-            counters.forEach(c => observer.observe(c));
+            function cerrarModal() {
+                modal.classList.remove('active');
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
 
-            // Ocultar preloader
-            setTimeout(function() {
-                $('#preloader').fadeOut('slow');
-            }, 1500);
-        });
+            // Mostrar después de 1.5 segundos
+            setTimeout(abrirModal, 1500);
+
+            cerrarBtn.addEventListener('click', cerrarModal);
+
+            // Clic fuera del contenido (overlay) cierra
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    cerrarModal();
+                }
+            });
+
+            // Tecla ESC cierra
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    cerrarModal();
+                }
+            });
+        })();
     </script>
 </body>
 </html>

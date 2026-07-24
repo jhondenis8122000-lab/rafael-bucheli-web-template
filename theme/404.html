@@ -11,6 +11,12 @@
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/logo.png">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/typography.css">
+    <link rel="stylesheet" href="assets/css/default-css.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/loading.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary-blue: #252855;
@@ -22,17 +28,20 @@
         }
         * { box-sizing: border-box; }
         body {
-            min-height: 100vh;
             margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .not-found-page {
+            min-height: 100vh;
             display: flex;
             align-items: center;
             background: radial-gradient(circle at top left, rgba(245,160,0,0.14), transparent 34%), linear-gradient(135deg, #ffffff, var(--soft));
             color: var(--primary-blue);
-            font-family: Arial, sans-serif;
         }
         .not-found {
             width: min(960px, calc(100% - 28px));
-            margin: 0 auto;
+            margin: 120px auto 40px;
             padding: 44px;
             border: 1px solid var(--border);
             border-radius: 26px;
@@ -124,24 +133,114 @@
             .btn-outline { width: 100%; }
         }
     </style>
+    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
-    <main class="not-found" aria-labelledby="notFoundTitle">
-        <img class="logo" src="assets/images/icon/logo.png" alt="Unidad Educativa Rafael Bucheli" decoding="async">
-        <div class="error-code"><i class="fa fa-compass" aria-hidden="true"></i> Error 404</div>
-        <h1 id="notFoundTitle">No encontramos este enlace</h1>
-        <p>La página solicitada no existe, fue movida o el enlace está escrito de forma incorrecta. Puede volver al inicio y continuar navegando con normalidad.</p>
-        <div class="requested-url" id="requestedUrl">Enlace solicitado no disponible</div>
-        <div class="actions">
-            <a class="btn-home" href="/"><i class="fa fa-home" aria-hidden="true"></i> Volver al inicio</a>
-            <a class="btn-outline" href="/contacto"><i class="fa fa-envelope" aria-hidden="true"></i> Contactar</a>
+    <div id="preloader">
+        <div class="loading-container">
+            <video id="loadingVideo" muted playsinline preload="auto" poster="assets/images/icon/logo.png">
+                <source src="assets/images/recursos/pantalla-de-carga.webm" type="video/webm">
+                <source src="assets/images/recursos/pantalla-de-ccarga.mp4" type="video/mp4">
+            </video>
+            <div class="spinner"></div>
+            <div class="loading-text">Cargando...</div>
         </div>
-        <nav class="quick-links" aria-label="Enlaces útiles">
-            <a href="/admisiones">Admisiones</a>
-            <a href="/oferta-academica">Oferta académica</a>
-            <a href="/servicios">Servicios</a>
-        </nav>
-    </main>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="header-two">
+            <div class="container-fluid px-0">
+                <div class="row align-items-center g-0 mx-0">
+                    <div class="col-lg-3 col-6 d-block d-lg-none">
+                        <div class="logo">
+                            <a href="index.html"><img src="assets/images/icon/logo.png" alt="logo" decoding="async"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 offset-lg-1 d-none d-lg-block">
+                        <div class="main-menu menu-style2">
+                            <nav>
+                                <ul id="m_menu_active">
+                                    <li class="active"><a href="index.html">Inicio</a></li>
+                                    <li><a href="javascript:void(0);">Oferta Académica</a>
+                                        <ul class="submenu">
+                                            <li><a href="oferta_academica.html">Academia</a></li>
+                                            <li><a href="actividades_extracurriculares.html">Actividades Extracurriculares</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="admisiones.html">Admisiones</a></li>
+                                    <li class="middle-logo">
+                                        <a href="index.html">
+                                            <img src="assets/images/icon/logo-middle.png" alt="logo" decoding="async">
+                                            <img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="logo" loading="lazy" decoding="async">
+                                        </a>
+                                    </li>
+                                    <li><a href="servicios.html">Servicios</a></li>
+                                    <li><a href="nosotros.html">Nosotros</a>
+                                        <ul class="submenu">
+                                            <li><a href="nosotros.html">Visión y Misión</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="contacto.html">Contacto</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-6">
+                        <div class="header-bottom-right-style-2">
+                            <ul>
+                                <li>
+                                    <a href="https://app.rafaelbucheli.com/login/?next=/" 
+                                    class="btn btn-primary btn-round portal-btn" 
+                                    target="_blank" rel="noopener noreferrer"><i class="fas fa-user-graduate portal-icon"></i><span>Portal Web</span></a>
+                                </li>
+                                <li class="d-block d-lg-none"><div id="mobile_menu"></div></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Offset search -->
+    <div class="offset-search">
+        <form action="#">
+            <input type="text" name="search" placeholder="Buscar aquí...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+    <div class="body_overlay"></div>
+
+    <div class="not-found-page">
+        <main class="not-found" aria-labelledby="notFoundTitle">
+            <img class="logo" src="assets/images/icon/logo.png" alt="Unidad Educativa Rafael Bucheli" decoding="async">
+            <div class="error-code"><i class="fa fa-compass" aria-hidden="true"></i> Error 404</div>
+            <h1 id="notFoundTitle">No encontramos este enlace</h1>
+            <p>La página solicitada no existe, fue movida o el enlace está escrito de forma incorrecta. Puede volver al inicio y continuar navegando con normalidad.</p>
+            <div class="requested-url" id="requestedUrl">Enlace solicitado no disponible</div>
+            <div class="actions">
+                <a class="btn-home" href="index.html"><i class="fa fa-home" aria-hidden="true"></i> Volver al inicio</a>
+                <a class="btn-outline" href="contacto.html"><i class="fa fa-envelope" aria-hidden="true"></i> Contactar</a>
+            </div>
+            <nav class="quick-links" aria-label="Enlaces útiles">
+                <a href="admisiones.html">Admisiones</a>
+                <a href="oferta_academica.html">Oferta académica</a>
+                <a href="servicios.html">Servicios</a>
+            </nav>
+        </main>
+    </div>
+
+    <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/jquery.slicknav.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/loading.js"></script>
+    <script src="assets/js/mobile-menu.js"></script>
+
     <script>
         (function () {
             var currentPath = window.location.pathname.replace(/^\/+/, '') || 'inicio';

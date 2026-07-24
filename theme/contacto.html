@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="CHATBOT/CHATBOT.css">
     <!-- modernizr -->
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
-    
+
     <style>
         /* ===== ESTILOS PROPIOS DE CONTACTO ===== */
         :root {
@@ -55,11 +55,11 @@
             --sombra-suave: 0 10px 30px rgba(37, 40, 85, 0.08);
             --sombra-media: 0 15px 40px rgba(37, 40, 85, 0.12);
         }
-        
+
         body {
             font-family: 'Poppins', sans-serif;
         }
-        
+
         /* Ajustes de color para títulos */
         .page-header-contacto h1,
         .intro-contacto h2,
@@ -75,7 +75,7 @@
         .schedule-card-contacto h3 {
             color: var(--blanco) !important;
         }
-        
+
         /* Page Header */
         .page-header-contacto {
             position: relative;
@@ -84,7 +84,7 @@
             text-align: center;
             color: var(--blanco);
             overflow: hidden;
-            margin-top: 104px;
+            margin-top: 80px;
         }
         .page-header-contacto::before {
             content: '';
@@ -102,15 +102,15 @@
             font-size: 56px;
             font-weight: 800;
             margin-bottom: 20px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
         .page-header-contacto p {
             font-size: 20px;
             max-width: 700px;
             margin: 0 auto;
-            color: rgba(255,255,255,0.9);
+            color: rgba(255, 255, 255, 0.9);
         }
-        
+
         /* Intro */
         .intro-contacto {
             padding: 60px 0 40px;
@@ -129,7 +129,7 @@
             margin: 0 auto;
             line-height: 1.8;
         }
-        
+
         /* Contact Cards */
         .contact-info-section {
             padding: 40px 0 60px;
@@ -143,7 +143,7 @@
             box-shadow: var(--sombra-suave);
             transition: all 0.3s ease;
             height: 100%;
-            border: 1px solid rgba(37,40,85,0.05);
+            border: 1px solid rgba(37, 40, 85, 0.05);
             margin-bottom: 30px;
         }
         .contact-card:hover {
@@ -154,7 +154,7 @@
         .contact-icon {
             width: 80px;
             height: 80px;
-            background: rgba(37,40,85,0.05);
+            background: rgba(37, 40, 85, 0.05);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -196,7 +196,7 @@
         .contact-card .contact-link:hover {
             border-bottom-color: var(--azul-principal);
         }
-        
+
         /* Mapa y Formulario */
         .map-form-section {
             padding: 60px 0;
@@ -248,7 +248,7 @@
         .form-control:focus {
             outline: none;
             border-color: var(--azul-principal);
-            box-shadow: 0 0 0 3px rgba(37,40,85,0.1);
+            box-shadow: 0 0 0 3px rgba(37, 40, 85, 0.1);
         }
         textarea.form-control {
             border-radius: 20px;
@@ -273,9 +273,9 @@
         .btn-submit:hover {
             background: var(--degradado-interno);
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(37,40,85,0.2);
+            box-shadow: 0 10px 25px rgba(37, 40, 85, 0.2);
         }
-        
+
         /* Mensaje de éxito/error dinámico */
         .form-message {
             display: none;
@@ -285,7 +285,7 @@
             font-size: 14px;
             text-align: center;
         }
-        
+
         /* Horarios */
         .schedule-contacto {
             padding: 60px 0;
@@ -314,7 +314,7 @@
         .schedule-item-contacto {
             text-align: center;
             padding: 20px;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
             backdrop-filter: blur(10px);
         }
@@ -322,7 +322,7 @@
             font-size: 18px;
             font-weight: 700;
             margin-bottom: 10px;
-            color: rgba(255,255,255,0.9);
+            color: rgba(255, 255, 255, 0.9);
         }
         .schedule-item-contacto .time {
             font-size: 16px;
@@ -333,7 +333,7 @@
             margin-bottom: 10px;
             opacity: 0.8;
         }
-        
+
         /* CTA */
         .cta-contacto {
             background: var(--blanco);
@@ -360,43 +360,75 @@
             display: inline-block;
             transition: all 0.3s ease;
             text-decoration: none;
-            box-shadow: 0 10px 25px rgba(37,40,85,0.2);
+            box-shadow: 0 10px 25px rgba(37, 40, 85, 0.2);
         }
         .btn-cta-contacto:hover {
             background: var(--degradado-interno);
             transform: translateY(-3px);
             color: var(--blanco);
         }
-        
+
         @media (max-width: 991px) {
-            .page-header-contacto h1 { font-size: 48px; }
-            .schedule-grid { grid-template-columns: 1fr; gap: 15px; }
+            .page-header-contacto h1 {
+                font-size: 48px;
+            }
+            .schedule-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
         }
         @media (max-width: 768px) {
-            .page-header-contacto { padding: 160px 0 80px; }
-            .page-header-contacto h1 { font-size: 42px; }
-            .intro-contacto h2 { font-size: 36px; }
-            .form-container { padding: 30px 20px; }
-            .schedule-card-contacto { padding: 30px 20px; }
+            .page-header-contacto {
+                padding: 160px 0 80px;
+            }
+            .page-header-contacto h1 {
+                font-size: 42px;
+            }
+            .intro-contacto h2 {
+                font-size: 36px;
+            }
+            .form-container {
+                padding: 30px 20px;
+            }
+            .schedule-card-contacto {
+                padding: 30px 20px;
+            }
         }
         @media (max-width: 576px) {
-            .page-header-contacto h1 { font-size: 36px; }
-            .contact-card { padding: 25px 15px; }
+            .page-header-contacto h1 {
+                font-size: 36px;
+            }
+            .contact-card {
+                padding: 25px 15px;
+            }
         }
     </style>
 </head>
 
 <body>
     <!-- Preloader -->
-    <div id="preloader"><div class="spinner"></div></div>
-    
-    <!-- Header -->
+    <div id="preloader">
+        <div class="loading-container">
+            <video id="loadingVideo" muted playsinline preload="auto" poster="assets/images/icon/logo.png">
+                <source src="assets/images/recursos/pantalla-de-carga.webm" type="video/webm">
+                <source src="assets/images/recursos/pantalla-de-ccarga.mp4" type="video/mp4">
+            </video>
+            <div class="spinner"></div>
+            <div class="loading-text">Cargando...</div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- HEADER: Misma estructura y dimensiones que en nosotros.html   -->
+    <!-- ============================================================ -->
     <header id="header">
         <div class="header-two">
             <div class="container-fluid px-0">
                 <div class="row align-items-center g-0 mx-0">
-                    <div class="col-lg-3 col-sm-6 d-block d-lg-none">
-                        <div class="logo"><a href="index.html"><img src="assets/images/icon/logo.png" alt="logo" decoding="async"></a></div>
+                    <div class="col-lg-3 col-6 d-block d-lg-none">
+                        <div class="logo">
+                            <a href="index.html"><img src="assets/images/icon/logo.png" alt="logo" decoding="async"></a>
+                        </div>
                     </div>
                     <div class="col-lg-9 offset-lg-1 d-none d-lg-block">
                         <div class="main-menu menu-style2">
@@ -410,7 +442,12 @@
                                         </ul>
                                     </li>
                                     <li><a href="admisiones.html">Admisiones</a></li>
-                                    <li class="middle-logo"><a href="index.html"><img src="assets/images/icon/logo-middle.png" alt="logo" decoding="async"><img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="logo" loading="lazy" decoding="async"></a></li>
+                                    <li class="middle-logo">
+                                        <a href="index.html">
+                                            <img src="assets/images/icon/logo-middle.png" alt="logo" decoding="async">
+                                            <img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="logo" loading="lazy" decoding="async">
+                                        </a>
+                                    </li>
                                     <li><a href="servicios.html">Servicios</a></li>
                                     <li><a href="nosotros.html">Nosotros</a>
                                         <ul class="submenu">
@@ -422,31 +459,55 @@
                             </nav>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-sm-5">
+                    <div class="col-lg-2 col-6">
                         <div class="header-bottom-right-style-2">
-                            <ul><li><a href="https://app.rafaelbucheli.com/login/?next=/" class="btn btn-primary btn-round portal-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-user-graduate portal-icon"></i><span>Portal Web</span></a></li></ul>
+                            <ul>
+                                <li>
+                                    <a href="https://app.rafaelbucheli.com/login/?next=/" 
+                                       class="btn btn-primary btn-round portal-btn" 
+                                       target="_blank" rel="noopener noreferrer"><i class="fas fa-user-graduate portal-icon"></i><span>Portal Web</span></a>
+                                </li>
+                                <li class="d-block d-lg-none">
+                                    <div id="mobile_menu"></div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="col-12 d-block d-lg-none"><div id="mobile_menu"></div></div>
                 </div>
             </div>
         </div>
     </header>
-    
+    <!-- ============================================================ -->
+
     <!-- Offset search -->
-    <div class="offset-search"><form action="#"><input type="text" name="search" placeholder="Buscar aquí..."><button type="submit"><i class="fas fa-search"></i></button></form></div>
+    <div class="offset-search">
+        <form action="#">
+            <input type="text" name="search" placeholder="Buscar aquí...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
     <div class="body_overlay"></div>
-    
+
     <!-- PAGE HEADER -->
     <section class="page-header-contacto">
-        <div class="container"><div class="row"><div class="col-lg-12"><h1>Contacto</h1><p>Estamos aquí para atenderte y resolver todas tus inquietudes</p></div></div></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Contacto</h1>
+                    <p>Estamos aquí para atenderte y resolver todas tus inquietudes</p>
+                </div>
+            </div>
+        </div>
     </section>
-    
+
     <!-- INTRO -->
     <section class="intro-contacto">
-        <div class="container"><h2>Ponte en contacto con nosotros</h2><p>Estamos ubicados en el sector de Chillogallo, al sur de Quito. Puedes visitarnos, llamarnos o escribirnos. Te atenderemos con gusto.</p></div>
+        <div class="container">
+            <h2>Ponte en contacto con nosotros</h2>
+            <p>Estamos ubicados en el sector de Chillogallo, al sur de Quito. Puedes visitarnos, llamarnos o escribirnos. Te atenderemos con gusto.</p>
+        </div>
     </section>
-    
+
     <!-- CONTACT CARDS -->
     <section class="contact-info-section">
         <div class="container">
@@ -481,7 +542,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- MAPA Y FORMULARIO CON WEB3FORMS (SIN RECARGA) -->
     <section class="map-form-section">
         <div class="container">
@@ -512,26 +573,41 @@
             </div>
         </div>
     </section>
-    
+
     <!-- HORARIOS -->
     <section class="schedule-contacto">
         <div class="container">
             <div class="schedule-card-contacto">
                 <h3>Horarios de Atención</h3>
                 <div class="schedule-grid">
-                    <div class="schedule-item-contacto"><i class="far fa-clock"></i><div class="day">Lunes a Viernes</div><div class="time">08:00 am - 12:00 pm</div><div class="time">14:00 pm - 16:00 pm</div></div>
-                    <div class="schedule-item-contacto"><i class="far fa-calendar-check"></i><div class="day">Sábados, domingos y feriados</div><div class="time">Cerrado</div></div>
+                    <div class="schedule-item-contacto">
+                        <i class="far fa-clock"></i>
+                        <div class="day">Lunes a Viernes</div>
+                        <div class="time">08:00 am - 12:00 pm</div>
+                        <div class="time">14:00 pm - 16:00 pm</div>
+                    </div>
+                    <div class="schedule-item-contacto">
+                        <i class="far fa-calendar-check"></i>
+                        <div class="day">Sábados, domingos y feriados</div>
+                        <div class="time">Cerrado</div>
+                    </div>
                 </div>
-                <div style="text-align: center; margin-top: 30px;"><p style="color: rgba(255,255,255,0.9);"><i class="fab fa-whatsapp" style="margin-right: 10px;"></i> También puedes escribirnos por WhatsApp al <strong>+593 995549605</strong></p></div>
+                <div style="text-align: center; margin-top: 30px;">
+                    <p style="color: rgba(255,255,255,0.9);"><i class="fab fa-whatsapp" style="margin-right: 10px;"></i> También puedes escribirnos por WhatsApp al <strong>+593 995549605</strong></p>
+                </div>
             </div>
         </div>
     </section>
-    
+
     <!-- CTA -->
     <section class="cta-contacto">
-        <div class="container"><h2>¿Listo para formar parte?</h2><p>Solicita información sobre admisiones, servicios o actividades extracurriculares</p><a href="admisiones.html" class="btn-cta-contacto">Solicitar información</a></div>
+        <div class="container">
+            <h2>¿Listo para formar parte?</h2>
+            <p>Solicita información sobre admisiones, servicios o actividades extracurriculares</p>
+            <a href="admisiones.html" class="btn-cta-contacto">Solicitar información</a>
+        </div>
     </section>
-    
+
     <!-- FOOTER -->
     <footer>
         <div class="footer-top has-color pt--120 pb--30">
@@ -540,9 +616,18 @@
                     <div class="col-md-4">
                         <div class="widget widget-company">
                             <a href="index.html"><img src="assets/images/icon/logo.png" alt="image" decoding="async"></a>
-                            <div class="address"><h6>Dirección</h6><p>Unidad Educativa Rafael Bucheli, Quito, Ecuador.</p></div>
-                            <div class="address"><h6>Teléfono</h6><p>(02) 303-5139</p></div>
-                            <div class="address"><h6>Correo Electrónico</h6><p>secretaria@rafaelbucheli.edu.ec</p></div>
+                            <div class="address">
+                                <h6>Dirección</h6>
+                                <p>Unidad Educativa Rafael Bucheli, Quito, Ecuador.</p>
+                            </div>
+                            <div class="address">
+                                <h6>Teléfono</h6>
+                                <p>(02) 303-5139</p>
+                            </div>
+                            <div class="address">
+                                <h6>Correo Electrónico</h6>
+                                <p>secretaria@rafaelbucheli.edu.ec</p>
+                            </div>
                             <ul class="social">
                                 <li><a href="https://www.facebook.com/uerafaelbucheli/?locale=es_LA" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a></li>
                                 <li><a href="https://www.tiktok.com/@uerafaelbucheli" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a></li>
@@ -575,11 +660,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer-bottom"><p>Copyright © 2026 <span><a class="primary-color" href="https://rafaelbucheli.com/" target="_blank" rel="noopener noreferrer">Unidad Educativa Particular Rafael Bucheli</a></span> - Todos los derechos reservados.</p></div>
+                <div class="footer-bottom">
+                    <p>Copyright © 2026 <span><a class="primary-color" href="https://rafaelbucheli.com/" target="_blank" rel="noopener noreferrer">Unidad Educativa Particular Rafael Bucheli</a></span> - Todos los derechos reservados.</p>
+                </div>
             </div>
         </div>
     </footer>
-    
+
     <!-- Scripts necesarios -->
     <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
@@ -590,10 +677,11 @@
     <script src="assets/js/scripts.js"></script>
     <script src="assets/js/loading.js"></script>
     <script src="CHATBOT/CHATBOT.js" data-auto-init></script>
-    
+    <script src="assets/js/mobile-menu.js"></script>
+
     <!-- hCaptcha para Web3Forms -->
     <script src="https://web3forms.com/client/script.js" async defer></script>
-    
+
     <!-- Enlace inteligente para llamar (móvil / PC) y envío con fetch -->
     <script>
         // Detectar móvil y asignar href al teléfono o copiar
@@ -615,7 +703,7 @@
                 }
             }
         })();
-        
+
         // Función para mostrar mensajes en el formulario
         function showFormMessage(message, type) {
             const msgDiv = document.getElementById('formMessage');
@@ -629,7 +717,7 @@
             msgDiv.style.backgroundColor = type === 'success' ? '#d4edda' : '#f8d7da';
             msgDiv.style.color = type === 'success' ? '#155724' : '#721c24';
             msgDiv.style.border = type === 'success' ? '1px solid #c3e6cb' : '1px solid #f5c6cb';
-            
+
             setTimeout(() => {
                 msgDiv.style.opacity = '0';
                 msgDiv.style.transition = 'opacity 0.5s';
@@ -639,19 +727,19 @@
                 }, 500);
             }, 6000);
         }
-        
+
         // Envío con fetch (sin recarga)
         const contactForm = document.getElementById('contactForm');
         if (contactForm) {
             contactForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
-                
+
                 // Validar campos
                 const name = document.getElementById('contactName').value.trim();
                 const email = document.getElementById('contactEmail').value.trim();
                 const phone = document.getElementById('contactPhone').value.trim();
                 const message = document.getElementById('contactMessage').value.trim();
-                
+
                 if (!name) {
                     showFormMessage('Por favor ingrese su nombre', 'error');
                     document.getElementById('contactName').focus();
@@ -673,18 +761,18 @@
                     document.getElementById('contactMessage').focus();
                     return;
                 }
-                
+
                 // Deshabilitar botón y mostrar spinner
                 const submitBtn = document.getElementById('submitBtn');
                 const originalText = submitBtn.innerHTML;
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
                 submitBtn.disabled = true;
-                
+
                 // Recoger datos (hCaptcha se añade automáticamente)
                 const formData = new FormData(contactForm);
                 const data = {};
                 formData.forEach((value, key) => { data[key] = value; });
-                
+
                 try {
                     const response = await fetch('https://api.web3forms.com/submit', {
                         method: 'POST',
@@ -692,7 +780,7 @@
                         body: JSON.stringify(data)
                     });
                     const result = await response.json();
-                    
+
                     if (result.success) {
                         showFormMessage('¡Mensaje enviado exitosamente! Te responderemos en menos de 24 horas.', 'success');
                         // Limpiar formulario
@@ -715,4 +803,5 @@
         }
     </script>
 </body>
+
 </html>
