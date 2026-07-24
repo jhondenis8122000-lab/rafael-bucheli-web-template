@@ -1,19 +1,15 @@
-# TODO - Normalización de enlaces (.html)
+# Corrección del Loading / Preloader
 
-## Objetivo
-Que todas las páginas naveguen correctamente usando **solo rutas con extensión** (ej: `servicios.html`, `contacto.html`, etc.), sin rutas tipo `/servicios`.
+## Pasos a completar:
 
-## Checklist
-- [x] Recuperar/asegurar un `theme/servicios.html` válido (contenido provisto por el usuario).
-- [ ] Reemplazar `theme/servicios.html` en el repo con el contenido limpio provisto.
-- [ ] Normalizar enlaces internos en todas las páginas del menú/footer/CTAs:
-  - [ ] `theme/index.html`
-  - [ ] `theme/servicios.html`
-  - [ ] `theme/nosotros.html`
-  - [ ] `theme/admisiones.html`
-  - [ ] `theme/contacto.html`
-  - [ ] `theme/oferta_academica.html`
-  - [ ] `theme/actividades_extracurriculares.html`
-- [ ] Validar que no existan links con `href="/algo"` (sin `.html`).
-- [ ] Validar que no existan links mal formados (por ejemplo `href="servicios.html">Servicios` partidos).
+- [x] 1. Analizar el problema y crear plan
+- [x] 2. **loading.js** - Mejorar robustez del script
+- [x] 3. **loading.css** - Unificar estilos, remover !important excesivo
+- [x] 4. **index.html** - Agregar video y remover estilos duplicados
+- [x] 5. **servicios.html** - Agregar video en preloader
+- [x] 6. **nosotros.html** - Agregar video en preloader
+- [x] 7. **contacto.html** - Agregar video en preloader
+- [x] 8. **admisiones.html** - Agregar video en preloader
+- [x] 9. **oferta_academica.html** - Agregar video en preloader
+- [x] 10. **actividades_extracurriculares.html** - Agregar video en preloader
 
