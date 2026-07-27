@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Unidad Educativa Rafael Bucheli - Formando Líderes del Futuro</title>
     <meta name="description" content="Excelencia educativa con metodologías innovadoras. Formamos líderes con valores desde 1978.">
-    <meta name="robots" content="noindex, follow">
+    <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://rafaelbucheli.com/">
     <meta property="og:locale" content="es_EC">
     <meta property="og:type" content="website">
@@ -22,6 +22,7 @@
     <meta name="twitter:image" content="https://rafaelbucheli.com/assets/images/og-rafael-bucheli.jpg">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/logo.png">
+    <link rel="preload" as="image" href="assets/images/recursos/slider_principal_3.webp">
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -132,6 +133,45 @@
             align-items: center;
             justify-content: center;
         }
+        .slide-1 {
+            align-items: flex-end;
+            padding-bottom: 0;
+            background-image: url("assets/images/recursos/slider_principal_3.webp");
+            background-position: center center;
+        }
+        .slide-2 {
+            background-image: url("assets/images/recursos/slider_principal.webp");
+        }
+        .slide-3 {
+            background-image: url("assets/images/recursos/slider_principal_4.webp");
+        }
+        .slide-1 .container {
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            padding-bottom: clamp(88px, 10vh, 128px);
+        }
+        .slide-1 .hero-content {
+            width: auto;
+            max-width: min(100%, 560px);
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+        .slide-1 .hero-actions {
+            align-items: center;
+            justify-content: flex-start;
+            width: fit-content;
+            max-width: 100%;
+            padding: 10px;
+            margin: 0;
+            background: rgba(255,255,255,0.18);
+            border: 1px solid rgba(255,255,255,0.28);
+            border-radius: 999px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 14px 34px rgba(17, 22, 52, 0.18);
+        }
         .hero-slide::after {
             content: '';
             position: absolute;
@@ -240,6 +280,16 @@
             cursor: pointer;
             transition: var(--transition);
             box-shadow: 0 8px 28px rgba(244,184,0,0.35);
+        }
+        .slide-1 .btn-primary-hero,
+        .slide-1 .btn-azul-hero {
+            padding: 13px 24px;
+            font-size: 14px;
+            box-shadow: 0 8px 22px rgba(18, 21, 64, 0.18);
+        }
+        .slide-1 .btn-azul-hero {
+            background: rgba(31,35,102,0.86);
+            border-color: rgba(31,35,102,0.86);
         }
         .btn-primary-hero:hover {
             background: var(--white);
@@ -373,7 +423,23 @@
                 max-height: 92vh;
             }
             .hero-content { padding: 0 18px; }
+            .slide-1 .container {
+                justify-content: center;
+                padding-bottom: 82px;
+            }
+            .slide-1 .hero-content {
+                width: 100%;
+                max-width: 420px;
+                padding: 0 18px;
+                text-align: center;
+            }
             .hero-actions { flex-direction: column; }
+            .slide-1 .hero-actions {
+                width: 100%;
+                padding: 8px;
+                border-radius: 22px;
+                background: rgba(255,255,255,0.16);
+            }
             .btn-primary-hero, .btn-azul-hero, .btn-outline-hero {
                 width: 100%;
                 justify-content: center;
@@ -388,13 +454,13 @@
             .hero-stat-number { font-size: 1.5rem; }
 
             .slide-1 {
-                background-image: url("assets/images/recursos/slider_principal_3-mobile.jpg") !important;
+                background-image: url("assets/images/recursos/slider_principal_3-mobile.webp") !important;
             }
             .slide-2 {
-                background-image: url("assets/images/recursos/slider_principal.jpg") !important;
+                background-image: url("assets/images/recursos/slider_principal.webp") !important;
             }
             .slide-3 {
-                background-image: url("assets/images/recursos/slider_principal_4-mobile.jpg") !important;
+                background-image: url("assets/images/recursos/slider_principal_4-mobile-820.webp") !important;
             }
         }
 
@@ -894,34 +960,34 @@
                 <div class="row align-items-center g-0 mx-0">
                     <div class="col-lg-3 col-6 d-block d-lg-none">
                         <div class="logo">
-                            <a href="index.html"><img src="assets/images/icon/logo.png" alt="logo" decoding="async"></a>
+                            <a href="/"><img src="assets/images/icon/logo.png" alt="logo" decoding="async"></a>
                         </div>
                     </div>
                     <div class="col-lg-9 offset-lg-1 d-none d-lg-block">
                         <div class="main-menu menu-style2">
                             <nav>
                                 <ul id="m_menu_active">
-                                    <li class="active"><a href="index.html">Inicio</a></li>
+                                    <li class="active"><a href="/">Inicio</a></li>
                                     <li><a href="javascript:void(0);">Oferta Académica</a>
                                         <ul class="submenu">
-                                            <li><a href="oferta_academica.html">Academia</a></li>
-                                            <li><a href="actividades_extracurriculares.html">Actividades Extracurriculares</a></li>
+                                            <li><a href="/oferta-academica">Academia</a></li>
+                                            <li><a href="/actividades-extracurriculares">Actividades Extracurriculares</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="admisiones.html">Admisiones</a></li>
+                                    <li><a href="/admisiones">Admisiones</a></li>
                                     <li class="middle-logo">
-                                        <a href="index.html">
+                                        <a href="/">
                                             <img src="assets/images/icon/logo-middle.png" alt="logo" decoding="async">
                                             <img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="logo" loading="lazy" decoding="async">
                                         </a>
                                     </li>
-                                    <li><a href="servicios.html">Servicios</a></li>
-                                    <li><a href="nosotros.html">Nosotros</a>
+                                    <li><a href="/servicios">Servicios</a></li>
+                                    <li><a href="/nosotros">Nosotros</a>
                                         <ul class="submenu">
-                                            <li><a href="nosotros.html">Visión y Misión</a></li>
+                                            <li><a href="/nosotros">Visión y Misión</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="contacto.html">Contacto</a></li>
+                                    <li><a href="/contacto">Contacto</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -957,19 +1023,19 @@
     <main>
         <div class="hero-slider owl-carousel" id="heroSlider">
             <!-- Slide 1 -->
-            <div class="hero-slide slide-1" style="background-image: url('assets/images/recursos/slider_principal_3.jpg'); align-items: flex-end; padding-bottom: 45px;">
+            <div class="hero-slide slide-1">
                 <div class="container">
                     <div class="hero-content">
                         <div class="hero-actions">
-                            <a href="admisiones.html" class="btn-primary-hero"><i class="fas fa-file-signature"></i> Inscripciones 2026-2027 <i class="fas fa-arrow-right"></i></a>
-                            <a href="contacto.html" class="btn-azul-hero"><i class="fas fa-info-circle"></i> Más Información</a>
+                            <a href="/admisiones" class="btn-primary-hero"><i class="fas fa-file-signature"></i> Inscripciones 2026-2027 <i class="fas fa-arrow-right"></i></a>
+                            <a href="/contacto" class="btn-azul-hero"><i class="fas fa-info-circle"></i> Más Información</a>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Slide 2 -->
-            <div class="hero-slide slide-2" style="background-image: url('assets/images/recursos/slider_principal.jpg');">
+            <div class="hero-slide slide-2">
                 <div class="container">
                     <div class="hero-content">
                         <span class="hero-badge" style="background: rgba(31,35,102,0.08); border-color: #1F2366; color: #1F2366;">
@@ -995,11 +1061,11 @@
             </div>
 
             <!-- Slide 3 -->
-            <div class="hero-slide slide-3" style="background-image: url('assets/images/recursos/slider_principal_4.jpg');">
+            <div class="hero-slide slide-3">
                 <div class="container">
                     <div class="hero-content">
                         <span class="hero-badge"><i class="fas fa-trophy"></i> 99 Años de Excelencia</span>
-                        <h1 class="hero-title">Tu Mejor <span class="accent">Decisión</span> Educativa</h1>
+                        <h2 class="hero-title">Tu Mejor <span class="accent">Decisión</span> Educativa</h2>
                     </div>
                 </div>
             </div>
@@ -1053,7 +1119,7 @@
         <!-- FULLSCREEN CAROUSEL -->
         <div class="fullscreen-carousel-area" aria-label="Carrusel de servicios">
             <div class="fullscreen-carousel owl-carousel">
-                <div class="fullscreen-slide" style="background-image: url('assets/images/recursos/buchelino11.jpg');">
+                <div class="fullscreen-slide" style="background-image: url('assets/images/recursos/buchelino1.webp');">
                     <div class="slide-overlay-mejorado"></div><div class="slide-pattern"></div>
                     <div class="container-mejorado"><div class="row"><div class="col-lg-7">
                         <div class="slide-content-mejorado">
@@ -1061,13 +1127,13 @@
                             <h2 class="slide-title-mejorado">Buchelino<span>donde todo comienza</span></h2>
                             <p class="slide-description-mejorado">Un espacio diseñado para los más pequeños, donde aprenden jugando, explorando y desarrollando su creatividad en un ambiente seguro y afectuoso.</p>
                             <div class="slide-features"><div class="slide-feature-item"><i class="fas fa-heart"></i><span>Ambiente afectuoso</span></div><div class="slide-feature-item"><i class="fas fa-puzzle-piece"></i><span>Aprendizaje lúdico</span></div><div class="slide-feature-item"><i class="fas fa-users"></i><span>Grupos reducidos</span></div></div>
-                            <div class="slide-buttons-mejorado"><a href="actividades_extracurriculares.html" class="btn-slide-primary">Conocer más</a><a href="https://api.whatsapp.com/send/?phone=593995549605&text=Hola%2C%20me%20interesa%20conocer%20Buchelino" class="btn-slide-secondary" target="_blank" rel="noopener noreferrer">Agendar visita</a></div>
+                            <div class="slide-buttons-mejorado"><a href="/actividades-extracurriculares" class="btn-slide-primary">Conocer más</a><a href="https://api.whatsapp.com/send/?phone=593995549605&text=Hola%2C%20me%20interesa%20conocer%20Buchelino" class="btn-slide-secondary" target="_blank" rel="noopener noreferrer">Agendar visita</a></div>
                         </div>
                     </div></div></div>
                     <div class="slide-info-card"><h4>Buchelino</h4><ul><li><i class="fas fa-check-circle"></i> Edades: 2 a 4 años</li><li><i class="fas fa-check-circle"></i> Metodología Montessori</li><li><i class="fas fa-check-circle"></i> Estimulación temprana</li><li><i class="fas fa-check-circle"></i> Horario extendido</li></ul></div>
                 </div>
 
-                <div class="fullscreen-slide" style="background-image: url('assets/images/slider/crecimiento1.webp');">
+                <div class="fullscreen-slide" style="background-image: url('assets/images/slider/crecimiento.webp');">
                     <div class="slide-overlay-mejorado"></div><div class="slide-pattern"></div>
                     <div class="container-mejorado"><div class="row"><div class="col-lg-7">
                         <div class="slide-content-mejorado">
@@ -1075,7 +1141,7 @@
                             <h2 class="slide-title-mejorado">Crecimiento<span>acompañamos cada etapa</span></h2>
                             <p class="slide-description-mejorado">Desde primaria hasta secundaria, brindamos herramientas académicas y emocionales para que cada estudiante alcance su máximo potencial.</p>
                             <div class="slide-features"><div class="slide-feature-item"><i class="fas fa-book"></i><span>Excelencia académica</span></div><div class="slide-feature-item"><i class="fas fa-heartbeat"></i><span>Acompañamiento emocional</span></div><div class="slide-feature-item"><i class="fas fa-trophy"></i><span>Liderazgo</span></div></div>
-                            <div class="slide-buttons-mejorado"><a href="oferta_academica.html" class="btn-slide-primary">Descubrir niveles</a><a href="https://api.whatsapp.com/send/?phone=593995549605&text=Hola%2C%20informaci%C3%B3n%20sobre%20niveles%20educativos" class="btn-slide-secondary" target="_blank" rel="noopener noreferrer">Inscribirme</a></div>
+                            <div class="slide-buttons-mejorado"><a href="/oferta-academica" class="btn-slide-primary">Descubrir niveles</a><a href="https://api.whatsapp.com/send/?phone=593995549605&text=Hola%2C%20informaci%C3%B3n%20sobre%20niveles%20educativos" class="btn-slide-secondary" target="_blank" rel="noopener noreferrer">Inscribirme</a></div>
                         </div>
                     </div></div></div>
                     <div class="slide-info-card"><h4>Niveles Educativos</h4><ul><li><i class="fas fa-check-circle"></i> Primaria (6-11 años)</li><li><i class="fas fa-check-circle"></i> Secundaria (12-17 años)</li><li><i class="fas fa-check-circle"></i> Bachillerato Internacional</li><li><i class="fas fa-check-circle"></i> Orientación vocacional</li></ul></div>
@@ -1089,13 +1155,13 @@
                             <h2 class="slide-title-mejorado">Logo León<span>fortaleza y liderazgo</span></h2>
                             <p class="slide-description-mejorado">El león simboliza el coraje, la sabiduría y el liderazgo que formamos en cada estudiante. Valores que guían nuestra comunidad educativa.</p>
                             <div class="slide-features"><div class="slide-feature-item"><i class="fas fa-flag"></i><span>Identidad institucional</span></div><div class="slide-feature-item"><i class="fas fa-gem"></i><span>Valores sólidos</span></div><div class="slide-feature-item"><i class="fas fa-handshake"></i><span>Compromiso</span></div></div>
-                            <div class="slide-buttons-mejorado"><a href="nosotros.html" class="btn-slide-primary">Nuestra historia</a><a href="https://api.whatsapp.com/send/?phone=593995549605&text=Hola%2C%20quiero%20conocer%20la%20historia%20y%20visi%C3%B3n" class="btn-slide-secondary" target="_blank" rel="noopener noreferrer">Visión y misión</a></div>
+                            <div class="slide-buttons-mejorado"><a href="/nosotros" class="btn-slide-primary">Nuestra historia</a><a href="https://api.whatsapp.com/send/?phone=593995549605&text=Hola%2C%20quiero%20conocer%20la%20historia%20y%20visi%C3%B3n" class="btn-slide-secondary" target="_blank" rel="noopener noreferrer">Visión y misión</a></div>
                         </div>
                     </div></div></div>
                     <div class="slide-info-card"><h4>Nuestros Valores</h4><ul><li><i class="fas fa-check-circle"></i> Excelencia académica</li><li><i class="fas fa-check-circle"></i> Formación ética</li><li><i class="fas fa-check-circle"></i> Respeto y responsabilidad</li><li><i class="fas fa-check-circle"></i> Liderazgo positivo</li></ul></div>
                 </div>
 
-                <div class="fullscreen-slide" style="background-image: url('assets/images/slider/motivacional1.webp');">
+                <div class="fullscreen-slide" style="background-image: url('assets/images/slider/motivacional.webp');">
                     <div class="slide-overlay-mejorado"></div><div class="slide-pattern"></div>
                     <div class="container-mejorado"><div class="row"><div class="col-lg-7">
                         <div class="slide-content-mejorado">
@@ -1103,13 +1169,13 @@
                             <h2 class="slide-title-mejorado">Motivacional<span>frases que inspiran</span></h2>
                             <p class="slide-description-mejorado">"El futuro pertenece a quienes creen en la belleza de sus sueños." Cada día motivamos a nuestros estudiantes a perseguir sus metas con pasión.</p>
                             <div class="slide-features"><div class="slide-feature-item"><i class="fas fa-star"></i><span>Inspiración</span></div><div class="slide-feature-item"><i class="fas fa-rocket"></i><span>Superación</span></div><div class="slide-feature-item"><i class="fas fa-heart"></i><span>Pasión</span></div></div>
-                            <div class="slide-buttons-mejorado"><a href="nosotros.html" class="btn-slide-primary">Frases inspiradoras</a><a href="https://api.whatsapp.com/send/?phone=593995549605&text=Hola%2C%20comparto%20una%20frase%20inspiradora" class="btn-slide-secondary" target="_blank" rel="noopener noreferrer">Compartir la tuya</a></div>
+                            <div class="slide-buttons-mejorado"><a href="/nosotros" class="btn-slide-primary">Frases inspiradoras</a><a href="https://api.whatsapp.com/send/?phone=593995549605&text=Hola%2C%20comparto%20una%20frase%20inspiradora" class="btn-slide-secondary" target="_blank" rel="noopener noreferrer">Compartir la tuya</a></div>
                         </div>
                     </div></div></div>
                     <div class="slide-info-card"><h4>Frases destacadas</h4><ul><li><i class="fas fa-check-circle"></i> "Nunca es tarde para aprender"</li><li><i class="fas fa-check-circle"></i> "El esfuerzo trae recompensas"</li><li><i class="fas fa-check-circle"></i> "Cree en ti mismo"</li></ul></div>
                 </div>
 
-                <div class="fullscreen-slide" style="background-image: url('assets/images/slider/rafaelbucheli1.webp');">
+                <div class="fullscreen-slide" style="background-image: url('assets/images/slider/rafaelbucheli.webp');">
                     <div class="slide-overlay-mejorado"></div><div class="slide-pattern"></div>
                     <div class="container-mejorado"><div class="row"><div class="col-lg-7">
                         <div class="slide-content-mejorado">
@@ -1117,7 +1183,7 @@
                             <h2 class="slide-title-mejorado">Rafael Bucheli<span>legado de excelencia</span></h2>
                             <p class="slide-description-mejorado">Hace más de 99 años, Rafael Bucheli fundó esta institución con el sueño de formar líderes con valores. Hoy, su legado sigue vivo en cada aula.</p>
                             <div class="slide-features"><div class="slide-feature-item"><i class="fas fa-clock"></i><span>99+ años</span></div><div class="slide-feature-item"><i class="fas fa-graduation-cap"></i><span>Miles de graduados</span></div><div class="slide-feature-item"><i class="fas fa-heart"></i><span>Legado de amor</span></div></div>
-                            <div class="slide-buttons-mejorado"><a href="nosotros.html" class="btn-slide-primary">Conocer su historia</a><a href="https://api.whatsapp.com/send/?phone=593995549605&text=Hola%2C%20quiero%20ser%20parte%20del%20legado" class="btn-slide-secondary" target="_blank" rel="noopener noreferrer">Ser parte del legado</a></div>
+                            <div class="slide-buttons-mejorado"><a href="/nosotros" class="btn-slide-primary">Conocer su historia</a><a href="https://api.whatsapp.com/send/?phone=593995549605&text=Hola%2C%20quiero%20ser%20parte%20del%20legado" class="btn-slide-secondary" target="_blank" rel="noopener noreferrer">Ser parte del legado</a></div>
                         </div>
                     </div></div></div>
                     <div class="slide-info-card"><h4>Legado</h4><ul><li><i class="fas fa-check-circle"></i> Fundado en 1978</li><li><i class="fas fa-check-circle"></i> +5000 graduados</li><li><i class="fas fa-check-circle"></i> Excelencia educativa</li></ul></div>
@@ -1131,7 +1197,7 @@
                             <h2 class="slide-title-mejorado">Convenios<span>con las mejores instituciones</span></h2>
                             <p class="slide-description-mejorado">Gracias a nuestros convenios con universidades y organizaciones, nuestros estudiantes acceden a oportunidades únicas de formación.</p>
                             <div class="slide-features"><div class="slide-feature-item"><i class="fas fa-university"></i><span>Universidades top</span></div><div class="slide-feature-item"><i class="fas fa-globe"></i><span>Intercambios</span></div><div class="slide-feature-item"><i class="fas fa-briefcase"></i><span>Pasantías</span></div></div>
-                            <div class="slide-buttons-mejorado"><a href="servicios.html" class="btn-slide-primary">Ver convenios</a><a href="https://api.whatsapp.com/send/?phone=593995549605&text=Hola%2C%20informaci%C3%B3n%20sobre%20convenios" class="btn-slide-secondary" target="_blank" rel="noopener noreferrer">Más información</a></div>
+                            <div class="slide-buttons-mejorado"><a href="/servicios" class="btn-slide-primary">Ver convenios</a><a href="https://api.whatsapp.com/send/?phone=593995549605&text=Hola%2C%20informaci%C3%B3n%20sobre%20convenios" class="btn-slide-secondary" target="_blank" rel="noopener noreferrer">Más información</a></div>
                         </div>
                     </div></div></div>
                     <div class="slide-info-card"><h4>Instituciones aliadas</h4><ul><li><i class="fas fa-check-circle"></i> Universidades nacionales</li><li><i class="fas fa-check-circle"></i> Programas internacionales</li><li><i class="fas fa-check-circle"></i> Intercambios estudiantiles</li></ul></div>
@@ -1145,7 +1211,7 @@
                             <h2 class="slide-title-mejorado">Campus<span>espacios para aprender</span></h2>
                             <p class="slide-description-mejorado">Aulas modernas, laboratorios equipados, áreas deportivas y espacios verdes diseñados para inspirar y potenciar el aprendizaje.</p>
                             <div class="slide-features"><div class="slide-feature-item"><i class="fas fa-flask"></i><span>Laboratorios</span></div><div class="slide-feature-item"><i class="fas fa-book"></i><span>Biblioteca</span></div><div class="slide-feature-item"><i class="fas fa-futbol"></i><span>Canchas deportivas</span></div></div>
-                            <div class="slide-buttons-mejorado"><a href="https://api.whatsapp.com/send/?phone=593995549605&text=Hola%2C%20agendar%20visita%20al%20campus" class="btn-slide-primary" target="_blank" rel="noopener noreferrer">Agendar visita</a><a href="servicios.html" class="btn-slide-secondary">Conocer más</a></div>
+                            <div class="slide-buttons-mejorado"><a href="https://api.whatsapp.com/send/?phone=593995549605&text=Hola%2C%20agendar%20visita%20al%20campus" class="btn-slide-primary" target="_blank" rel="noopener noreferrer">Agendar visita</a><a href="/servicios" class="btn-slide-secondary">Conocer más</a></div>
                         </div>
                     </div></div></div>
                     <div class="slide-info-card"><h4>Instalaciones</h4><ul><li><i class="fas fa-check-circle"></i> 40+ aulas inteligentes</li><li><i class="fas fa-check-circle"></i> 8 laboratorios</li><li><i class="fas fa-check-circle"></i> 3 canchas deportivas</li><li><i class="fas fa-check-circle"></i> Biblioteca +10.000 libros</li></ul></div>
@@ -1158,9 +1224,9 @@
             <div class="container">
                 <div class="row"><div class="col-md-10 offset-md-1"><div class="section-title-style2 black-title title-tb text-center"><span>Aprende de los mejores</span><h2 class="primary-color" style="color: var(--color-primary) !important;">Nuestras metodologías</h2></div></div></div>
                 <div class="commn-carousel owl-carousel card-deck">
-                    <div class="card mb-5"><img src="assets/images/recursos/kindergarten.jpg" alt="Kindergarten" loading="lazy" decoding="async"><div class="card-body teacher-content p-25"><h4 class="card-title mb-4"><a href="oferta_academica.html" style="color: var(--color-primary);">Kindergarten</a></h4><span class="primary-color d-block mb-4" style="color: var(--color-accent);">Metodología Montessori</span><p class="card-text">Potenciamos el desarrollo integral, cultivando la autonomía y curiosidad de los niños en un ambiente diseñado para que aprendan explorando a su propio ritmo.</p><ul class="list-inline"><li><a href="https://www.facebook.com/uerafaelbucheli/?locale=es_LA" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li><li><a href="https://www.tiktok.com/@uerafaelbucheli" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a></li><li><a href="https://www.instagram.com/u.e.rafaelbucheli/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li><li><a href="https://www.youtube.com/@uecatolicaparticularrafael41" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li></ul></div></div>
-                    <div class="card mb-5"><img src="assets/images/recursos/primaria.jpg" alt="Primaria" loading="lazy" decoding="async"><div class="card-body teacher-content p-25"><h4 class="card-title mb-4"><a href="oferta_academica.html" style="color: var(--color-primary);">Primaria</a></h4><span class="primary-color d-block mb-4" style="color: var(--color-accent);">Metodología Singapur</span><p class="card-text">Impulsamos el razonamiento lógico y el liderazgo a nuestros alumnos de las herramientas necesarias para resolver problemas y triunfar en un mundo en constante cambio.</p><ul class="list-inline"><li><a href="https://www.facebook.com/uerafaelbucheli/?locale=es_LA" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li><li><a href="https://www.tiktok.com/@uerafaelbucheli" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a></li><li><a href="https://www.instagram.com/u.e.rafaelbucheli/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li><li><a href="https://www.youtube.com/@uecatolicaparticularrafael41" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li></ul></div></div>
-                    <div class="card mb-5"><img src="assets/images/recursos/secundaria.jpg" alt="Secundaria" loading="lazy" decoding="async"><div class="card-body teacher-content p-25"><h4 class="card-title mb-4"><a href="oferta_academica.html" style="color: var(--color-primary);">Secundaria</a></h4><span class="primary-color d-block mb-4" style="color: var(--color-accent);">Metodología TBL</span><p class="card-text">Implementamos la metodología TBL para desarrollar el pensamiento crítico y colaborativo, brindando un enfoque personalizado que fortalece la confianza y el liderazgo.</p><ul class="list-inline"><li><a href="https://www.facebook.com/uerafaelbucheli/?locale=es_LA" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li><li><a href="https://www.tiktok.com/@uerafaelbucheli" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a></li><li><a href="https://www.instagram.com/u.e.rafaelbucheli/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li><li><a href="https://www.youtube.com/@uecatolicaparticularrafael41" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li></ul></div></div>
+                    <div class="card mb-5"><img src="assets/images/recursos/kindergarten.jpg" alt="Kindergarten" loading="lazy" decoding="async"><div class="card-body teacher-content p-25"><h4 class="card-title mb-4"><a href="/oferta-academica" style="color: var(--color-primary);">Kindergarten</a></h4><span class="primary-color d-block mb-4" style="color: var(--color-accent);">Metodología Montessori</span><p class="card-text">Potenciamos el desarrollo integral, cultivando la autonomía y curiosidad de los niños en un ambiente diseñado para que aprendan explorando a su propio ritmo.</p><ul class="list-inline"><li><a href="https://www.facebook.com/uerafaelbucheli/?locale=es_LA" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li><li><a href="https://www.tiktok.com/@uerafaelbucheli" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a></li><li><a href="https://www.instagram.com/u.e.rafaelbucheli/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li><li><a href="https://www.youtube.com/@uecatolicaparticularrafael41" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li></ul></div></div>
+                    <div class="card mb-5"><img src="assets/images/recursos/primaria.jpg" alt="Primaria" loading="lazy" decoding="async"><div class="card-body teacher-content p-25"><h4 class="card-title mb-4"><a href="/oferta-academica" style="color: var(--color-primary);">Primaria</a></h4><span class="primary-color d-block mb-4" style="color: var(--color-accent);">Metodología Singapur</span><p class="card-text">Impulsamos el razonamiento lógico y el liderazgo a nuestros alumnos de las herramientas necesarias para resolver problemas y triunfar en un mundo en constante cambio.</p><ul class="list-inline"><li><a href="https://www.facebook.com/uerafaelbucheli/?locale=es_LA" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li><li><a href="https://www.tiktok.com/@uerafaelbucheli" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a></li><li><a href="https://www.instagram.com/u.e.rafaelbucheli/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li><li><a href="https://www.youtube.com/@uecatolicaparticularrafael41" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li></ul></div></div>
+                    <div class="card mb-5"><img src="assets/images/recursos/secundaria.jpg" alt="Secundaria" loading="lazy" decoding="async"><div class="card-body teacher-content p-25"><h4 class="card-title mb-4"><a href="/oferta-academica" style="color: var(--color-primary);">Secundaria</a></h4><span class="primary-color d-block mb-4" style="color: var(--color-accent);">Metodología TBL</span><p class="card-text">Implementamos la metodología TBL para desarrollar el pensamiento crítico y colaborativo, brindando un enfoque personalizado que fortalece la confianza y el liderazgo.</p><ul class="list-inline"><li><a href="https://www.facebook.com/uerafaelbucheli/?locale=es_LA" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li><li><a href="https://www.tiktok.com/@uerafaelbucheli" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a></li><li><a href="https://www.instagram.com/u.e.rafaelbucheli/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li><li><a href="https://www.youtube.com/@uecatolicaparticularrafael41" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li></ul></div></div>
                 </div>
             </div>
         </div>
@@ -1170,10 +1236,10 @@
             <div class="container">
                 <div class="row"><div class="col-md-10 offset-md-1"><div class="section-title-style2 black-title text-center"><span>Únete a nosotros</span><h2>Próximos Eventos</h2></div></div></div>
                 <div class="row">
-                    <div class="col-md-6"><div class="media align-items-center mb-5"><div class="media-head primary-bg" style="background: var(--color-primary);"><span><sub>MAR</sub>25</span><p>2026</p></div><div class="media-body"><h4><a href="actividades_extracurriculares.html" style="color: var(--color-primary);">Jornada de Puertas Abiertas</a></h4><p><i class="fa fa-clock-o"></i>08:00 AM - 12:00 PM</p></div></div></div>
-                    <div class="col-md-6"><div class="media align-items-center mb-5"><div class="media-head primary-bg" style="background: var(--color-primary);"><span><sub>OCT</sub>25</span><p>2026</p></div><div class="media-body"><h4><a href="actividades_extracurriculares.html" style="color: var(--color-primary);">Taller para Padres</a></h4><p><i class="fa fa-clock-o"></i>03:00 PM - 05:00 PM</p></div></div></div>
-                    <div class="col-md-6"><div class="media align-items-center mb-5"><div class="media-head primary-bg" style="background: var(--color-primary);"><span><sub>NOV</sub>25</span><p>2026</p></div><div class="media-body"><h4><a href="oferta_academica.html" style="color: var(--color-primary);">Feria Científica Anual</a></h4><p><i class="fa fa-clock-o"></i>09:00 AM - 02:00 PM</p></div></div></div>
-                    <div class="col-md-6"><div class="media align-items-center mb-5"><div class="media-head primary-bg" style="background: var(--color-primary);"><span><sub>DIC</sub>25</span><p>2026</p></div><div class="media-body"><h4><a href="actividades_extracurriculares.html" style="color: var(--color-primary);">Taller de Programación</a></h4><p><i class="fa fa-clock-o"></i>10:00 AM - 12:00 PM</p></div></div></div>
+                    <div class="col-md-6"><div class="media align-items-center mb-5"><div class="media-head primary-bg" style="background: var(--color-primary);"><span><sub>MAR</sub>25</span><p>2026</p></div><div class="media-body"><h4><a href="/actividades-extracurriculares" style="color: var(--color-primary);">Jornada de Puertas Abiertas</a></h4><p><i class="fa fa-clock-o"></i>08:00 AM - 12:00 PM</p></div></div></div>
+                    <div class="col-md-6"><div class="media align-items-center mb-5"><div class="media-head primary-bg" style="background: var(--color-primary);"><span><sub>OCT</sub>25</span><p>2026</p></div><div class="media-body"><h4><a href="/actividades-extracurriculares" style="color: var(--color-primary);">Taller para Padres</a></h4><p><i class="fa fa-clock-o"></i>03:00 PM - 05:00 PM</p></div></div></div>
+                    <div class="col-md-6"><div class="media align-items-center mb-5"><div class="media-head primary-bg" style="background: var(--color-primary);"><span><sub>NOV</sub>25</span><p>2026</p></div><div class="media-body"><h4><a href="/oferta-academica" style="color: var(--color-primary);">Feria Científica Anual</a></h4><p><i class="fa fa-clock-o"></i>09:00 AM - 02:00 PM</p></div></div></div>
+                    <div class="col-md-6"><div class="media align-items-center mb-5"><div class="media-head primary-bg" style="background: var(--color-primary);"><span><sub>DIC</sub>25</span><p>2026</p></div><div class="media-body"><h4><a href="/actividades-extracurriculares" style="color: var(--color-primary);">Taller de Programación</a></h4><p><i class="fa fa-clock-o"></i>10:00 AM - 12:00 PM</p></div></div></div>
                 </div>
             </div>
         </div>
@@ -1201,7 +1267,7 @@
 
         <!-- CONVENIOS -->
         <div class="convenios-area" style="background-image: url('assets/images/slider/convenios.webp');">
-            <div class="container"><div class="row"><div class="col-lg-12"><div class="convenios-content text-center"><span class="convenios-subtitle" style="color: var(--color-accent);">Socios Estratégicos</span><h2 class="convenios-title">Convenios</h2><a href="servicios.html" class="btn btn-primary btn-round convenios-btn" style="background: var(--color-accent); border-color: var(--color-accent); color: var(--color-primary);">Más información...</a></div></div></div></div>
+            <div class="container"><div class="row"><div class="col-lg-12"><div class="convenios-content text-center"><span class="convenios-subtitle" style="color: var(--color-accent);">Socios Estratégicos</span><h2 class="convenios-title">Convenios</h2><a href="/servicios" class="btn btn-primary btn-round convenios-btn" style="background: var(--color-accent); border-color: var(--color-accent); color: var(--color-primary);">Más información...</a></div></div></div></div>
         </div>
 
         <!-- CTA -->
@@ -1215,7 +1281,7 @@
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="cta-btn"><a class="btn btn-light btn-round" href="admisiones.html">Únete Ahora</a></div>
+                        <div class="cta-btn"><a class="btn btn-light btn-round" href="/admisiones">Únete Ahora</a></div>
                     </div>
                 </div>
             </div>
@@ -1235,7 +1301,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="widget widget-company">
-                            <a href="index.html"><img src="assets/images/icon/logo.png" alt="Logo Rafael Bucheli" decoding="async"></a>
+                            <a href="/"><img src="assets/images/icon/logo.png" alt="Logo Rafael Bucheli" decoding="async"></a>
                             <div class="address"><h6>Dirección</h6><p>Unidad Educativa Rafael Bucheli, Quito, Ecuador.</p></div>
                             <div class="address"><h6>Teléfono</h6><p>(02) 303-5139</p></div>
                             <div class="address"><h6>Correo Electrónico</h6><p>secretaria@rafaelbucheli.edu.ec</p></div>
@@ -1251,11 +1317,11 @@
                         <div class="widget footer-link">
                             <h4 class="fwidget-title mb-5 pb-3">Enlaces</h4>
                             <ul>
-                                <li><a href="servicios.html"><i class="fas fa-angle-right"></i>Servicios</a></li>
-                                <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Nosotros</a></li>
-                                <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Nuestra Historia</a></li>
-                                <li><a href="nosotros.html"><i class="fas fa-angle-right"></i>Admisiones</a></li>
-                                <li><a href="contacto.html"><i class="fas fa-angle-right"></i>Contacto</a></li>
+                                <li><a href="/servicios"><i class="fas fa-angle-right"></i>Servicios</a></li>
+                                <li><a href="/nosotros"><i class="fas fa-angle-right"></i>Nosotros</a></li>
+                                <li><a href="/nosotros"><i class="fas fa-angle-right"></i>Nuestra Historia</a></li>
+                                <li><a href="/admisiones"><i class="fas fa-angle-right"></i>Admisiones</a></li>
+                                <li><a href="/contacto"><i class="fas fa-angle-right"></i>Contacto</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1287,7 +1353,7 @@
             <button class="modal-cerrar" id="cerrarModal" aria-label="Cerrar anuncio">&times;</button>
 
             <!-- Imagen -->
-            <img src="assets/images/recursos/matriculas_abiertas.png" alt="Matrículas abiertas 2026-2027" class="modal-imagen" loading="lazy">
+            <img src="assets/images/recursos/matriculas_abiertas.webp" alt="Matrículas abiertas 2026-2027" class="modal-imagen" loading="lazy">
 
             <!-- Pie con llamado a la acción -->
             <div class="modal-pie">
@@ -1312,8 +1378,8 @@
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/scripts.js"></script>
     <script src="assets/js/loading.js"></script>
-    <script src="assets/js/mobile-menu.js"></script>
-    <script src="CHATBOT/CHATBOT.js" data-auto-init></script>
+    <script src="assets/js/mobile-menu.js?v=20260727"></script>
+    <script src="CHATBOT/CHATBOT.js?v=20260727" data-auto-init></script>
 
     <!-- Control del modal (compacto) -->
     <script>

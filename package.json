@@ -5,7 +5,8 @@
   "author": "furioustheme",
   "license": "MIT",
   "scripts": {
-    "dev": "gulp"
+    "dev": "gulp",
+    "serve": "node serve-local.js"
   },
   "dependencies": {
     "browser-sync": "^2.27.10",

@@ -33,7 +33,6 @@ window.CHATBOT_CONFIG = {
         window.CHATBOT_CONFIG.baseUrl = 'theme/CHATBOT/';
         window.CHATBOT_CONFIG.logoPath = 'theme/CHATBOT/logo-institucion.png';
     }
-    console.log('✅ Chatbot configurado con ruta:', window.CHATBOT_CONFIG.baseUrl);
 })();
 
 // Variables globales
@@ -51,7 +50,6 @@ let isInitialized = false;
 // Inicialización
 window.initChatbot = function(config = {}) {
     if (isInitialized) {
-        console.log('⚠️ Chatbot ya inicializado');
         return;
     }
     const settings = { ...window.CHATBOT_CONFIG, ...config };
@@ -99,7 +97,7 @@ function createChatbotElements(settings) {
             <span class="main-tooltip">¡Haz clic para ver opciones!</span>
         </div>
         <div id="floating-menu" class="floating-menu">
-            <a href="https://wa.me/${settings.whatsappNumber}" target="_blank" class="floating-btn secondary-btn whatsapp-btn">
+            <a href="https://wa.me/${settings.whatsappNumber}" target="_blank" rel="noopener noreferrer" class="floating-btn secondary-btn whatsapp-btn">
                 <i class="fab fa-whatsapp"></i>
                 <span class="btn-tooltip">WhatsApp Directo</span>
             </a>
@@ -192,7 +190,6 @@ function setupChatbot() {
     setInterval(updateConnectionStatus, 30000);
     addDynamicStyles();
     isInitialized = true;
-    console.log('✅ Chatbot inicializado correctamente');
 }
 
 function exposeGlobalFunctions() {
@@ -435,9 +432,10 @@ function startChat() {
 function initMenu() {
     if (!messages) return;
     showTyping(() => {
+        const safeUserName = escapeHtml(userName || '');
         const menuHTML = `
             <div class="bot-message">
-                ¡Hola <b>${userName}</b>! 👋<br>
+                ¡Hola <b>${safeUserName}</b>! 👋<br>
                 Soy el asistente virtual de la <b>U.E Rafael Bucheli</b>.
                 ¿En qué puedo ayudarte hoy?
                 <div style="font-size: 12px; color: #666; margin-top: 10px;">
@@ -1132,15 +1130,17 @@ function showMoreOptions(query) {
 function openContactFormWithMessage(query) {
     if (!messages) return;
     const decodedQuery = decodeURIComponent(query);
+    const safeUserName = escapeAttribute(userName || '');
+    const safeDecodedQuery = escapeHtml(decodedQuery);
     showTyping(() => {
         messages.innerHTML += `
             <div class="contact-form-container">
                 <b>📧 Formulario de Contacto</b><br>
                 <small>Completa tus datos y te responderemos por correo:</small>
-                <input type="text" id="contact-name2" class="interactive-input" placeholder="Tu nombre completo" value="${userName || ''}">
+                <input type="text" id="contact-name2" class="interactive-input" placeholder="Tu nombre completo" value="${safeUserName}">
                 <input type="email" id="contact-email2" class="interactive-input" placeholder="Correo electrónico">
                 <input type="tel" id="contact-phone2" class="interactive-input" placeholder="Teléfono / WhatsApp">
-                <textarea id="contact-message2" class="interactive-input" placeholder="Mensaje o consulta específica..." style="height: 100px;">${decodedQuery}</textarea>
+                <textarea id="contact-message2" class="interactive-input" placeholder="Mensaje o consulta específica..." style="height: 100px;">${safeDecodedQuery}</textarea>
                 <div style="display: flex; gap: 10px; margin-top: 15px;">
                     <button onclick="window.submitEmailForm2()" style="flex: 1; padding: 12px; background: linear-gradient(135deg, var(--azul-institucional), var(--azul-complementario)); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 600;"><i class="fas fa-paper-plane"></i> Enviar por Correo</button>
                     <button onclick="window.redirectToWhatsAppWithMessage('${query}')" style="padding: 12px 20px; background: linear-gradient(135deg, var(--whatsapp), var(--whatsapp-dark)); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 600;"><i class="fab fa-whatsapp"></i> WhatsApp</button>
@@ -1203,6 +1203,16 @@ function escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
+}
+
+function escapeAttribute(text) {
+    return String(text).replace(/[&<>"']/g, char => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+    }[char]));
 }
 
 // ========== UTILIDADES ==========
@@ -1308,4 +1318,3 @@ document.addEventListener('DOMContentLoaded', function() {
         window.initChatbot();
     }
 });
-console.log('✅ Chatbot completo cargado (paleta #1F2365, sin emojis duplicados)');
