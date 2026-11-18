@@ -1,0 +1,427 @@
+/* ============================================================
+   DOCK ÚNICO - Navegación flotante (escritorio >= 992px)
+   Un solo elemento flotante:
+   · escudo institucional en el centro
+   · enlaces repartidos a ambos lados
+   · Portal Web como botón circular sobrepuesto al extremo derecho
+   La barra superior desaparece por completo.
+   ============================================================ */
+@media (min-width: 992px) {
+    :root {
+        --dock-navy: #1F2366;
+        --dock-navy-deep: #151844;
+        --dock-gold: #FFC72C;
+        --dock-gold-soft: #FFD966;
+    }
+
+    /* ---------- No hay barra superior ---------- */
+    .header-two {
+        position: static !important;
+        width: 100% !important;
+        height: 0 !important;
+        min-height: 0 !important;
+        background: transparent !important;
+        border-bottom: 0 !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+    .header-two.scrolled {
+        background: transparent !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+    .header-two .container-fluid {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* ---------- La fila entera es el dock ---------- */
+    .header-two .container-fluid > .row {
+        position: fixed !important;
+        top: auto !important;
+        bottom: 26px !important;
+        left: calc(50% - 11px) !important;
+        right: auto !important;
+        transform: translateX(-50%) !important;
+        width: max-content !important;
+        max-width: calc(100vw - 48px) !important;
+        height: 62px !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        flex-wrap: nowrap !important;
+        z-index: 9990 !important;
+        transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease !important;
+    }
+    .header-two .container-fluid > .row.dock-oculto {
+        transform: translateX(-50%) translateY(calc(100% + 40px)) !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+    .header-two .container-fluid > .row.dock-visible {
+        transform: translateX(-50%) translateY(0) !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+
+    /* Logo de la barra antigua: fuera */
+    .header-two .container-fluid > .row > div:nth-child(1) {
+        display: none !important;
+    }
+
+    /* Columna del menú: dentro del dock */
+    .header-two .container-fluid > .row > div:nth-child(2) {
+        position: static !important;
+        top: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        transform: none !important;
+        width: auto !important;
+        max-width: none !important;
+        min-width: 0 !important;
+        height: auto !important;
+        flex: 0 0 auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Portal Web: botón circular sobrepuesto en el extremo derecho */
+    .header-two .container-fluid > .row > div:nth-child(3) {
+        position: absolute !important;
+        top: 50% !important;
+        bottom: auto !important;
+        left: auto !important;
+        right: -22px !important;
+        transform: translateY(-50%) !important;
+        width: auto !important;
+        height: auto !important;
+        flex: 0 0 auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        z-index: 5 !important;
+    }
+
+    /* ---------- La píldora ---------- */
+    .header-two .main-menu,
+    .header-two .main-menu nav {
+        display: block;
+        width: auto;
+        max-width: none;
+        float: none;
+    }
+    .header-two .main-menu nav > ul#m_menu_active {
+        display: flex !important;
+        align-items: center;
+        gap: 2px;
+        height: 62px;
+        margin: 0 !important;
+        padding: 6px 46px 6px 16px !important;
+        list-style: none;
+        background: rgba(255, 255, 255, 0.86);
+        border: 1px solid rgba(255, 255, 255, 0.75);
+        border-radius: 999px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 18px 46px rgba(12, 16, 48, 0.26);
+        backdrop-filter: blur(14px) saturate(1.2);
+        -webkit-backdrop-filter: blur(14px) saturate(1.2);
+    }
+    .header-two .main-menu nav > ul > li {
+        position: relative;
+        float: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* ---------- Enlaces ---------- */
+    .header-two .main-menu nav > ul > li > a {
+        display: inline-flex !important;
+        align-items: center;
+        gap: 6px;
+        padding: 12px 15px !important;
+        margin: 0 !important;
+        border: 0 !important;
+        border-radius: 999px;
+        background: transparent !important;
+        color: var(--dock-navy) !important;
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 13.5px !important;
+        font-weight: 600 !important;
+        line-height: 1 !important;
+        letter-spacing: 0 !important;
+        text-transform: none !important;
+        text-shadow: none !important;
+        white-space: nowrap;
+        box-shadow: none !important;
+        transition: color 0.2s ease, background 0.2s ease !important;
+    }
+    .header-two .main-menu nav > ul > li > a::before,
+    .header-two .main-menu nav > ul > li > a::after {
+        display: none !important;
+    }
+    .header-two .main-menu nav > ul > li > a:hover,
+    .header-two .main-menu nav > ul > li > a:focus-visible {
+        color: var(--dock-navy) !important;
+        background: rgba(31, 35, 102, 0.09) !important;
+        outline: none;
+    }
+    .header-two.scrolled .main-menu.menu-style2 nav > ul > li:not(.middle-logo) > a {
+        color: var(--dock-navy) !important;
+        background: transparent !important;
+        text-shadow: none !important;
+    }
+    .header-two .main-menu nav > ul > li.active > a,
+    .header-two.scrolled .main-menu.menu-style2 nav > ul > li.active > a {
+        color: var(--dock-navy) !important;
+        background: var(--dock-gold) !important;
+    }
+
+    .header-two .main-menu nav > ul > li:has(> ul.submenu) > a::after {
+        content: '\f077';
+        display: inline-block !important;
+        position: static !important;
+        width: auto !important;
+        height: auto !important;
+        background: none !important;
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        font-size: 8px;
+        color: currentColor;
+        opacity: 0.75;
+        top: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        transform: none !important;
+    }
+
+    /* ---------- Escudo en el centro del dock ---------- */
+    .header-two .main-menu nav > ul > li.middle-logo {
+        display: block !important;
+        margin: 0 8px !important;
+        transform: translateY(-15px);
+        z-index: 3;
+    }
+    .header-two .main-menu nav > ul > li.middle-logo > a {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 76px !important;
+        height: 76px !important;
+        padding: 8px !important;
+        margin: 0 !important;
+        border: 3px solid var(--dock-gold) !important;
+        border-radius: 50% !important;
+        background: var(--dock-navy) !important;
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.9), 0 12px 28px rgba(12, 16, 48, 0.38) !important;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease !important;
+    }
+    .header-two .main-menu nav > ul > li.middle-logo > a:hover {
+        transform: scale(1.06) !important;
+        background: var(--dock-gold) !important;
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.95), 0 18px 36px rgba(12, 16, 48, 0.5) !important;
+    }
+    .header-two .main-menu nav > ul > li.middle-logo > a::after {
+        display: none !important;
+    }
+    .header-two .main-menu nav > ul > li.middle-logo > a img:not(.hb-bottom-shape),
+    .header-two.scrolled .main-menu.menu-style2 nav > ul > li.middle-logo > a img:not(.hb-bottom-shape) {
+        width: 56px !important;
+        max-width: 56px !important;
+        height: auto !important;
+        max-height: none !important;
+        filter: brightness(0) invert(1) !important;
+    }
+    .header-two .main-menu nav > ul > li.middle-logo > a:hover img:not(.hb-bottom-shape) {
+        filter: none !important;
+    }
+    .header-two .main-menu nav > ul > li.middle-logo .hb-bottom-shape {
+        display: none !important;
+    }
+
+    /* ---------- Submenús: se abren hacia arriba ---------- */
+    .header-two .main-menu nav > ul > li > ul.submenu {
+        position: absolute !important;
+        top: auto !important;
+        bottom: calc(100% + 18px) !important;
+        left: 50% !important;
+        right: auto !important;
+        transform: translateX(-50%) translateY(8px) !important;
+        display: block;
+        width: 230px !important;
+        min-width: 230px !important;
+        margin: 0 !important;
+        padding: 8px !important;
+        list-style: none;
+        background: #fff !important;
+        border: 0 !important;
+        border-radius: 18px !important;
+        box-shadow: 0 18px 45px rgba(12, 16, 48, 0.24) !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        transition: opacity 0.22s ease, transform 0.22s ease !important;
+    }
+    .header-two .main-menu nav > ul > li:hover > ul.submenu,
+    .header-two .main-menu nav > ul > li:focus-within > ul.submenu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        transform: translateX(-50%) translateY(0) !important;
+    }
+    .header-two .main-menu nav > ul > li > ul.submenu li {
+        margin: 0;
+        padding: 0;
+    }
+    .header-two .main-menu nav > ul > li > ul.submenu li a {
+        display: block !important;
+        padding: 11px 14px !important;
+        margin: 0 !important;
+        border: 0 !important;
+        border-radius: 10px;
+        background: transparent !important;
+        color: var(--dock-navy) !important;
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        line-height: 1.3 !important;
+        text-shadow: none !important;
+    }
+    .header-two .main-menu nav > ul > li > ul.submenu li a:hover,
+    .header-two .main-menu nav > ul > li > ul.submenu li a:focus-visible {
+        background: #f1f2f9 !important;
+        color: var(--dock-navy) !important;
+        outline: none;
+    }
+
+    /* ---------- Portal Web como botón circular ---------- */
+    .header-two .header-bottom-right-style-2 ul {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    .header-two .header-bottom-right-style-2 li a.portal-btn {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0 !important;
+        width: 58px !important;
+        height: 58px !important;
+        min-width: 58px !important;
+        min-height: 58px !important;
+        padding: 0 !important;
+        border: 3px solid var(--dock-navy) !important;
+        border-radius: 50% !important;
+        background: var(--dock-gold) !important;
+        color: var(--dock-navy) !important;
+        font-size: 0 !important;
+        box-shadow: 0 12px 28px rgba(12, 16, 48, 0.36) !important;
+        text-transform: none !important;
+        transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease !important;
+    }
+    .header-two .header-bottom-right-style-2 li a.portal-btn:hover,
+    .header-two .header-bottom-right-style-2 li a.portal-btn:focus-visible {
+        background: var(--dock-gold-soft) !important;
+        color: var(--dock-navy) !important;
+        transform: translateY(-3px) !important;
+        box-shadow: 0 18px 34px rgba(12, 16, 48, 0.45) !important;
+        outline: none !important;
+    }
+    .header-two .header-bottom-right-style-2 li a.portal-btn span {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        white-space: nowrap !important;
+    }
+    .header-two .header-bottom-right-style-2 li a.portal-btn .portal-icon {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 100% !important;
+        height: 100% !important;
+        flex: 1 1 100% !important;
+        border-radius: 50% !important;
+        background: transparent !important;
+        color: var(--dock-navy) !important;
+        font-size: 22px !important;
+    }
+
+    /* ---------- El + del chatbot comparte la paleta ---------- */
+    .main-floating-btn {
+        background: var(--dock-navy) !important;
+        border: 3px solid var(--dock-gold) !important;
+        box-shadow: 0 14px 30px rgba(12, 16, 48, 0.38) !important;
+    }
+    .main-floating-btn.active {
+        background: var(--dock-gold) !important;
+        color: var(--dock-navy) !important;
+    }
+    .main-floating-btn .main-tooltip {
+        top: auto !important;
+        right: 0 !important;
+        bottom: calc(100% + 14px) !important;
+        transform: none !important;
+    }
+    .main-floating-btn .main-tooltip::after {
+        top: 100% !important;
+        left: 50% !important;
+        right: auto !important;
+        transform: translateX(-50%) !important;
+        border-width: 6px 6px 0 6px !important;
+        border-color: var(--dock-navy) transparent transparent transparent !important;
+    }
+
+    /* ---------- El hero ocupa toda la altura: no hay header ---------- */
+    .hero-slider {
+        margin-top: 0 !important;
+        height: 100vh !important;
+        max-height: none !important;
+    }
+    .hero-area,
+    .hero-area.premium-hero {
+        margin-top: 0 !important;
+    }
+
+    /* Los puntos del slider suben por encima del dock */
+    .hero-slider .owl-dots {
+        bottom: 112px !important;
+    }
+    .slide-1 .container {
+        padding-bottom: clamp(140px, 16vh, 184px) !important;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1279px) {
+    .header-two .main-menu nav > ul > li > a {
+        padding: 11px 11px !important;
+        font-size: 12.5px !important;
+    }
+    .header-two .main-menu nav > ul > li.middle-logo > a {
+        width: 68px !important;
+        height: 68px !important;
+    }
+    .header-two .main-menu nav > ul > li.middle-logo > a img:not(.hb-bottom-shape) {
+        width: 48px !important;
+        max-width: 48px !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .header-two .main-menu nav > ul > li > ul.submenu,
+    .header-two .main-menu nav > ul > li > a,
+    .header-two .main-menu nav > ul > li.middle-logo > a,
+    .header-two .header-bottom-right-style-2 li a.portal-btn {
+        transition: none !important;
+    }
+    .header-two .container-fluid > .row {
+        transition: opacity 0.2s ease !important;
+    }
+    .header-two .container-fluid > .row.dock-oculto {
+        transform: translateX(-50%) !important;
+    }
+}

@@ -1,113 +1,84 @@
 /*============================
-   scripts.js - COMPLETO
+   scripts.js - Comportamiento del sitio
    ============================*/
 
 (function($) {
     "use strict";
 
-    /*================================
-    INICIALIZACIÓN PRINCIPAL
-    ==================================*/
     $(document).ready(function() {
-        // 1. Efectos del header (scroll)
         initHeaderEffects();
-
-        // 2. Animaciones al hacer scroll
-        initAnimations();
-
-        // 3. Búsqueda (offcanvas)
-        initSearch();
-
-        // 4. Scroll suave para anclas
+        initDock();
         initSmoothScroll();
-
-        // 5. Contadores animados
         initCounters();
-
-        // 6. Carruseles (todos los que usa el sitio)
         initCarousels();
-
-        // 7. Video popup (magnific)
-        initVideoPopup();
-
-        // 8. Efectos de tarjetas (retrasos de animación)
-        initCardEffects();
+        initHeroMotion();
+        initScrollMotion();
+        initScrollFX();
+        initRevealFX();
     });
 
     /*================================
-    1. HEADER EFFECTS (SCROLL + SLICKNAV)
-    ==================================*/
+     1. HEADER EFFECTS
+     ==================================*/
     function initHeaderEffects() {
-        // Cambiar clase al hacer scroll
         $(window).on('scroll', function() {
-            var scroll = $(window).scrollTop();
-            $('.header-two').toggleClass('scrolled', scroll > 50);
+            $('.header-two').toggleClass('scrolled', $(window).scrollTop() > 50);
         });
-
-        // INICIALIZACIÓN DE SLICKNAV (MENÚ MÓVIL)
-        // Eliminado: el menú móvil fue rediseñado sin slicknav.
-
-        // initMobileMenu ahora vive en assets/js/mobile-menu.js (nuevo menú sin slicknav)
     }
 
     /*================================
-      INIT MOBILE MENU
-      (Ahora manejado por assets/js/mobile-menu.js)
-    ==================================*/
-    // La función initMobileMenu y sus helpers fueron movidos a mobile-menu.js
-    // para evitar duplicación de código.
+     1b. DOCK FLOTANTE: baja y sube
+     ==================================*/
+    function initDock() {
+        var $dock = $('.header-two .container-fluid > .row');
+        if (!$dock.length || !window.matchMedia) return;
 
+        var desktop = window.matchMedia('(min-width: 992px)');
+        var ultimo = window.pageYOffset;
+        var ticking = false;
+        var pausado = false;
 
+        function mostrar() {
+            $dock.removeClass('dock-oculto').addClass('dock-visible').attr('aria-hidden', 'false');
+        }
 
-    /*================================
-    2. ANIMACIONES AL SCROLL
-    ==================================*/
-    function initAnimations() {
-        function animateOnScroll() {
-            $('.animate-fadeInUp, .animate-fadeInLeft, .animate-fadeInRight, .animate-zoomIn').each(function() {
-                if (isElementInViewport($(this))) {
-                    $(this).addClass('animated');
-                }
+        function aplicar() {
+            ticking = false;
+            var actual = window.pageYOffset;
+            if (desktop.matches && !pausado && actual > 220 && actual > ultimo + 4) {
+                $dock.addClass('dock-oculto').removeClass('dock-visible').attr('aria-hidden', 'true');
+            } else if (actual < 120 || actual < ultimo - 4 || pausado) {
+                mostrar();
+            }
+            ultimo = actual;
+        }
+
+        $(window).on('scroll', function() {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(aplicar);
+        });
+
+        $dock.on('mouseenter focusin', function() {
+            pausado = true;
+            mostrar();
+        }).on('mouseleave focusout', function() {
+            pausado = false;
+        });
+
+        if (desktop.addEventListener) {
+            desktop.addEventListener('change', function() {
+                mostrar();
+                ultimo = window.pageYOffset;
             });
         }
 
-        function isElementInViewport($element, offset = 0) {
-            var elementTop = $element.offset().top;
-            var elementBottom = elementTop + $element.outerHeight();
-            var viewportTop = $(window).scrollTop();
-            var viewportBottom = viewportTop + $(window).height();
-            return (elementBottom > viewportTop && elementTop < viewportBottom - offset);
-        }
-
-        $(window).on('scroll', animateOnScroll);
-        $(window).on('load', animateOnScroll);
+        mostrar();
     }
 
     /*================================
-    3. BÚSQUEDA OFFCANVAS
-    ==================================*/
-    function initSearch() {
-        var $offsetSearch = $('.offset-search');
-        var $bodyOverlay = $('.body_overlay');
-
-        $('.search_btn').on('click', function() {
-            toggleSearch(true);
-        });
-
-        $bodyOverlay.on('click', function() {
-            toggleSearch(false);
-        });
-
-        function toggleSearch(show) {
-            var method = show ? 'addClass' : 'removeClass';
-            $offsetSearch[method]('show_hide');
-            $bodyOverlay[method]('show_hide');
-        }
-    }
-
-    /*================================
-    4. SCROLL SUAVE PARA ANCLAS
-    ==================================*/
+     2. SCROLL SUAVE PARA ANCLAS
+     ==================================*/
     function initSmoothScroll() {
         $(document).on('click', 'a[href^="#"]', function(event) {
             var href = $(this).attr('href');
@@ -121,54 +92,46 @@
     }
 
     /*================================
-    5. CONTADORES ANIMADOS
-    ==================================*/
+     3. CONTADORES ANIMADOS
+     ==================================*/
     function initCounters() {
-        var countersStarted = false;
-
-        function startCounters() {
+        if (!document.querySelectorAll || !('IntersectionObserver' in window)) {
             $('.counter').each(function() {
-                var $this = $(this);
-                var target = parseInt($this.data('target'));
-                $this.text('0');
-                var currentNum = 0;
-                var increment = Math.ceil(target / 50);
-                var timer = setInterval(function() {
-                    currentNum += increment;
-                    if (currentNum >= target) {
-                        $this.text(target + (target > 100 ? '+' : ''));
-                        clearInterval(timer);
-                    } else {
-                        $this.text(currentNum + (target > 100 ? '+' : ''));
-                    }
-                }, 30);
+                $(this).text($(this).data('target'));
             });
+            return;
         }
 
-        function checkCounters() {
-            if (countersStarted) return;
-            var $statsCard = $('.hero-stats-card-3d');
-            if ($statsCard.length && isElementInViewport($statsCard, 100)) {
-                startCounters();
-                countersStarted = true;
-            }
-        }
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (!entry.isIntersecting) return;
+                observer.unobserve(entry.target);
 
-        checkCounters();
-        $(window).on('scroll', checkCounters);
-    }
+                var el = entry.target;
+                var target = parseInt(el.getAttribute('data-target'), 10) || 0;
+                var inicio = Date.now();
+                var duracion = 1600;
+                var sufijo = target > 100 ? '+' : '';
 
-    function isElementInViewport($element, offset = 0) {
-        var elementTop = $element.offset().top;
-        var viewportBottom = $(window).scrollTop() + $(window).height();
-        return elementTop < viewportBottom - offset;
+                function actualizar() {
+                    var progreso = Math.min((Date.now() - inicio) / duracion, 1);
+                    var valor = Math.floor((1 - Math.pow(1 - progreso, 3)) * target);
+                    el.textContent = (progreso < 1 ? valor : target).toLocaleString('es-EC') + sufijo;
+                    if (progreso < 1) requestAnimationFrame(actualizar);
+                }
+                actualizar();
+            });
+        }, { threshold: 0.4 });
+
+        document.querySelectorAll('.counter').forEach(function(el) {
+            observer.observe(el);
+        });
     }
 
     /*================================
-    6. CARRUSELES (todos)
-    ==================================*/
+     4. CARRUSELES
+     ==================================*/
     function initCarousels() {
-        // 6.1 Hero Slider (principal)
         if ($('#heroSlider').length) {
             $('#heroSlider').owlCarousel({
                 loop: true,
@@ -184,7 +147,6 @@
             });
         }
 
-        // 6.2 Fullscreen Carousel (sección de servicios)
         if ($('.fullscreen-carousel').length) {
             $('.fullscreen-carousel').owlCarousel({
                 loop: true,
@@ -201,7 +163,6 @@
             });
         }
 
-        // 6.3 Carrusel común (metodologías, docentes, etc.)
         if ($('.commn-carousel').length) {
             $('.commn-carousel').owlCarousel({
                 loop: true,
@@ -218,25 +179,6 @@
             });
         }
 
-        // 6.4 Blog carousel (si existe)
-        if ($('.blog-carousel').length) {
-            $('.blog-carousel').owlCarousel({
-                loop: true,
-                autoplay: false,
-                dots: false,
-                nav: true,
-                navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-                smartSpeed: 800,
-                responsive: {
-                    0: { items: 1 },
-                    480: { items: 1 },
-                    768: { items: 2 },
-                    1024: { items: 3 }
-                }
-            });
-        }
-
-        // 6.5 Testimonios
         if ($('.tst-carousel').length) {
             $('.tst-carousel').owlCarousel({
                 loop: true,
@@ -250,42 +192,281 @@
     }
 
     /*================================
-    7. VIDEO POPUP
-    ==================================*/
-    function initVideoPopup() {
-        $('.expand-video').magnificPopup({
-            type: 'iframe',
-            gallery: { enabled: true }
-        });
+     4b. PROGRESO DEL HERO
+     ==================================*/
+    function initHeroMotion() {
+        var $slider = $('#heroSlider');
+        var $progress = $('.hero-progress');
+        if (!$slider.length || !$progress.length) return;
+
+        function reiniciar() {
+            $progress.removeClass('activo');
+            void $progress[0].offsetWidth;
+            $progress.addClass('activo');
+        }
+
+        function activar() {
+            $slider.addClass('hero-motion-on');
+            reiniciar();
+        }
+
+        $slider.on('changed.owl.carousel', reiniciar);
+        document.addEventListener('rb:loaded', activar, { once: true });
+        setTimeout(activar, 5000);
     }
 
     /*================================
-    8. EFECTOS DE TARJETAS (retrasos)
-    ==================================*/
-    function initCardEffects() {
-        $('.course-area .card, .teacher-area .card, .feature-blog .card').each(function(index) {
-            $(this).css('animation-delay', (index * 0.2) + 's');
+     4c. PROGRESO DE LECTURA (fallback)
+     ==================================*/
+    function initScrollMotion() {
+        var bar = document.querySelector('.scroll-progress span');
+        if (!bar || (window.CSS && CSS.supports && CSS.supports('animation-timeline', 'scroll()'))) return;
+
+        var ticking = false;
+        function actualizar() {
+            var maximo = document.documentElement.scrollHeight - window.innerHeight;
+            var avance = maximo > 0 ? window.pageYOffset / maximo : 0;
+            bar.style.transform = 'scaleX(' + Math.min(1, Math.max(0, avance)) + ')';
+            ticking = false;
+        }
+        window.addEventListener('scroll', function() {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(actualizar);
+        }, { passive: true });
+        actualizar();
+    }
+
+    /*================================
+     4d. PARALLAX Y EFECTOS DE SCROLL
+     ==================================*/
+    function initScrollFX() {
+        if (!window.requestAnimationFrame || !window.matchMedia) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        var hero = document.querySelector('.hero-slider');
+        var fullscreen = document.querySelector('.fullscreen-carousel-area');
+        var acreditados = document.querySelector('.acreditados-fullscreen');
+        var acreditadosBg = acreditados ? acreditados.querySelector('.acreditados-bg') : null;
+        var valueSection = document.querySelector('.value-proposal-section');
+        var valueGrid = valueSection ? valueSection.querySelector('.value-image-grid') : null;
+        var ticker = document.querySelector('.hero-ticker-track');
+        var tickerBox = document.querySelector('.hero-ticker');
+
+        var vh = window.innerHeight;
+        var heroH = hero ? hero.offsetHeight : 0;
+        var vTop = 0, vH = 0, fTop = 0, fH = 0, aTop = 0, aH = 0;
+        var ticking = false;
+
+        function clamp(valor) {
+            return valor < 0 ? 0 : valor > 1 ? 1 : valor;
+        }
+
+        function medir(el) {
+            if (!el) return null;
+            var r = el.getBoundingClientRect();
+            return { top: r.top + window.pageYOffset, height: r.height };
+        }
+
+        function avance(seccion, y) {
+            return clamp((y + vh - seccion.top) / (vh + seccion.height));
+        }
+
+        function medirSecciones() {
+            vh = window.innerHeight;
+            heroH = hero ? hero.offsetHeight : 0;
+            var v = medir(valueSection);
+            var f = medir(fullscreen);
+            var a = medir(acreditados);
+            if (v) { vTop = v.top; vH = v.height; }
+            if (f) { fTop = f.top; fH = f.height; }
+            if (a) { aTop = a.top; aH = a.height; }
+        }
+
+        function actualizar() {
+            ticking = false;
+            var y = window.pageYOffset;
+
+            if (hero) {
+                var hp = clamp(y / Math.max(heroH, 1));
+                hero.style.setProperty('--hero-bg-y', (hp * 64).toFixed(2) + 'px');
+            }
+            if (fullscreen) {
+                var fp = avance({ top: fTop, height: fH }, y);
+                fullscreen.style.setProperty('--fs-bg-y', ((0.5 - fp) * 90).toFixed(2) + 'px');
+                fullscreen.style.setProperty('--fs-content-y', ((0.5 - fp) * 30).toFixed(2) + 'px');
+            }
+            if (acreditadosBg) {
+                var ap = avance({ top: aTop, height: aH }, y);
+                acreditadosBg.style.transform = 'translate3d(0, ' + ((0.5 - ap) * 80).toFixed(2) + 'px, 0) scale(1.1)';
+            }
+            if (valueGrid) {
+                var vp = avance({ top: vTop, height: vH }, y);
+                valueGrid.style.transform = 'translate3d(0, ' + ((0.5 - vp) * 46).toFixed(2) + 'px, 0)';
+            }
+        }
+
+        function alScroll() {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(actualizar);
+        }
+
+        medirSecciones();
+        actualizar();
+        window.addEventListener('scroll', alScroll, { passive: true });
+        window.addEventListener('resize', function() {
+            medirSecciones();
+            alScroll();
+        }, { passive: true });
+        window.addEventListener('load', function() {
+            medirSecciones();
+            alScroll();
+        });
+        document.addEventListener('rb:loaded', function() {
+            medirSecciones();
+            alScroll();
+        });
+        if ('ResizeObserver' in window) {
+            new ResizeObserver(function() {
+                medirSecciones();
+                alScroll();
+            }).observe(document.body);
+        }
+
+        if (ticker && tickerBox && 'IntersectionObserver' in window) {
+            document.documentElement.classList.add('fx-ticker');
+
+            var mitad = 0;
+            var recorrido = 0;
+            var ultimo = 0;
+            var visible = false;
+            var rafId = 0;
+
+            function medirCinta() {
+                var hijos = ticker.children;
+                if (hijos && hijos.length > 2) {
+                    mitad = Math.round(hijos[hijos.length / 2].offsetLeft - hijos[0].offsetLeft);
+                }
+                if (!mitad) mitad = ticker.scrollWidth / 2;
+            }
+
+            function frame(ts) {
+                if (!visible) {
+                    rafId = 0;
+                    return;
+                }
+                if (!ultimo) ultimo = ts;
+                var dt = Math.min(48, ts - ultimo);
+                ultimo = ts;
+                recorrido += dt * 0.028;
+                if (mitad > 0) {
+                    var offset = (window.pageYOffset * 0.55 + recorrido) % mitad;
+                    if (offset < 0) offset += mitad;
+                    ticker.style.transform = 'translate3d(-' + offset.toFixed(2) + 'px, 0, 0)';
+                }
+                rafId = requestAnimationFrame(frame);
+            }
+
+            medirCinta();
+            window.addEventListener('load', medirCinta);
+            window.addEventListener('resize', medirCinta, { passive: true });
+            if (document.fonts && document.fonts.ready && document.fonts.ready.then) {
+                document.fonts.ready.then(medirCinta);
+            }
+
+            new IntersectionObserver(function(entries) {
+                visible = entries[0].isIntersecting;
+                if (visible) {
+                    ultimo = 0;
+                    if (!rafId) rafId = requestAnimationFrame(frame);
+                }
+            }, { rootMargin: '120px 0px' }).observe(tickerBox);
+        }
+    }
+
+    /*================================
+     5. REVEALS COREOGRAFIADOS
+     ==================================*/
+    function initRevealFX() {
+        if (!window.IntersectionObserver || !document.querySelector) return;
+        if (!document.querySelector('[data-fx]')) return;
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        var grupos = [];
+
+        function perteneceAlGrupo(el, grupo) {
+            var padre = el.parentElement;
+            while (padre && padre !== grupo) {
+                if (padre.hasAttribute('data-fx-group')) return false;
+                padre = padre.parentElement;
+            }
+            return padre === grupo;
+        }
+
+        document.querySelectorAll('[data-fx-group]').forEach(function(grupo) {
+            var paso = parseInt(grupo.getAttribute('data-fx-step'), 10);
+            if (isNaN(paso) || paso < 0) paso = 90;
+
+            var items = [];
+            grupo.querySelectorAll('[data-fx]').forEach(function(el) {
+                if (perteneceAlGrupo(el, grupo)) items.push(el);
+            });
+            if (!items.length) return;
+
+            items.forEach(function(el, i) {
+                if (!el.hasAttribute('data-fx-delay')) {
+                    el.style.setProperty('--fx-delay', (i * paso) + 'ms');
+                }
+            });
+
+            grupos.push({ el: grupo, items: items });
+        });
+
+        document.querySelectorAll('[data-fx][data-fx-delay]').forEach(function(el) {
+            var retraso = parseInt(el.getAttribute('data-fx-delay'), 10);
+            if (!isNaN(retraso)) el.style.setProperty('--fx-delay', retraso + 'ms');
+        });
+
+        document.documentElement.classList.add('fx-ready');
+
+        function itemsDelGrupo(el) {
+            for (var i = 0; i < grupos.length; i++) {
+                if (grupos[i].el === el) return grupos[i].items;
+            }
+            return null;
+        }
+
+        var observador = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                var items = itemsDelGrupo(entry.target);
+                if (!items) items = [entry.target];
+
+                if (entry.isIntersecting && entry.intersectionRatio >= 0.12) {
+                    items.forEach(function(el) { el.classList.add('fx-in'); });
+                } else if (!entry.isIntersecting) {
+                    items.forEach(function(el) {
+                        var r = el.getBoundingClientRect();
+                        if (r.bottom <= 0 || r.top >= window.innerHeight || r.right <= 0 || r.left >= window.innerWidth) {
+                            el.classList.remove('fx-in');
+                        }
+                    });
+                }
+            });
+        }, { threshold: [0, 0.12] });
+
+        grupos.forEach(function(grupo) {
+            observador.observe(grupo.el);
+        });
+
+        document.querySelectorAll('[data-fx]').forEach(function(el) {
+            var padre = el.parentElement;
+            while (padre) {
+                if (padre.hasAttribute('data-fx-group')) return;
+                padre = padre.parentElement;
+            }
+            observador.observe(el);
         });
     }
 
 })(jQuery);
-
-/*================================
-GOOGLE MAPS (opcional)
-==================================*/
-function initMap() {
-    var mapElement = document.getElementById('google_map');
-    if (!mapElement) return;
-    var map = new google.maps.Map(mapElement, {
-        center: { lat: 40.674, lng: -73.945 },
-        scrollwheel: false,
-        zoom: 12
-    });
-    new google.maps.Marker({
-        position: map.getCenter(),
-        map: map
-    });
-}
-
-
-

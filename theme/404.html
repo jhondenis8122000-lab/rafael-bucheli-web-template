@@ -10,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/logo.png">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/typography.css">
     <link rel="stylesheet" href="assets/css/default-css.css">
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -133,17 +132,14 @@
             .btn-outline { width: 100%; }
         }
     </style>
-    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <link rel="stylesheet" href="assets/css/nav-dock.css">
 </head>
 <body>
-    <div id="preloader">
+        <div id="preloader" role="status" aria-live="polite">
         <div class="loading-container">
-            <video id="loadingVideo" muted playsinline preload="auto" poster="assets/images/icon/logo.png">
-                <source src="assets/images/recursos/pantalla-de-carga.webm" type="video/webm">
-                <source src="assets/images/recursos/pantalla-de-ccarga.mp4" type="video/mp4">
-            </video>
-            <div class="spinner"></div>
-            <div class="loading-text">Cargando...</div>
+            <img class="loading-logo" src="assets/images/icon/logo.png" alt="" decoding="async">
+            <div class="loading-bar"><span></span></div>
+            <p class="loading-text">Cargando...</p>
         </div>
     </div>
 
@@ -210,7 +206,6 @@
             <button type="submit"><i class="fas fa-search"></i></button>
         </form>
     </div>
-    <div class="body_overlay"></div>
 
     <div class="not-found-page">
         <main class="not-found" aria-labelledby="notFoundTitle">
@@ -233,9 +228,6 @@
 
     <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
-    <script src="assets/js/jquery.slicknav.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/scripts.js"></script>
     <script src="assets/js/loading.js"></script>

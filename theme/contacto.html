@@ -26,9 +26,6 @@
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/logo.png">
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="assets/css/slicknav.min.css">
     <link rel="stylesheet" href="assets/css/typography.css">
     <link rel="stylesheet" href="assets/css/default-css.css">
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -39,7 +36,6 @@
     <!-- Chatbot styles -->
     <link rel="stylesheet" href="CHATBOT/CHATBOT.css">
     <!-- modernizr -->
-    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
 
     <style>
         /* ===== ESTILOS PROPIOS DE CONTACTO ===== */
@@ -403,18 +399,16 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="assets/css/nav-dock.css">
 </head>
 
 <body>
     <!-- Preloader -->
-    <div id="preloader">
+        <div id="preloader" role="status" aria-live="polite">
         <div class="loading-container">
-            <video id="loadingVideo" muted playsinline preload="auto" poster="assets/images/icon/logo.png">
-                <source src="assets/images/recursos/pantalla-de-carga.webm" type="video/webm">
-                <source src="assets/images/recursos/pantalla-de-ccarga.mp4" type="video/mp4">
-            </video>
-            <div class="spinner"></div>
-            <div class="loading-text">Cargando...</div>
+            <img class="loading-logo" src="assets/images/icon/logo.png" alt="" decoding="async">
+            <div class="loading-bar"><span></span></div>
+            <p class="loading-text">Cargando...</p>
         </div>
     </div>
 
@@ -486,7 +480,6 @@
             <button type="submit"><i class="fas fa-search"></i></button>
         </form>
     </div>
-    <div class="body_overlay"></div>
 
     <!-- PAGE HEADER -->
     <section class="page-header-contacto">
@@ -670,9 +663,6 @@
     <!-- Scripts necesarios -->
     <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
-    <script src="assets/js/jquery.slicknav.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/scripts.js"></script>
     <script src="assets/js/loading.js"></script>

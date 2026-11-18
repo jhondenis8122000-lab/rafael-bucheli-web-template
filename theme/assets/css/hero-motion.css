@@ -1,0 +1,172 @@
+/* ============================================================
+   HERO MOTION - Coreografía de la primera pantalla
+   Solo transform + opacity (GPU). Curva ease-out y stagger 70ms.
+   ============================================================ */
+:root {
+    --ease-out-hero: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+main { position: relative; }
+
+/* El bloque completo ya no entra de golpe: entran sus partes. */
+.hero-slider .owl-item.active .hero-content {
+    animation: none !important;
+}
+
+@keyframes heroRise {
+    from { opacity: 0; transform: translate3d(0, 28px, 0); }
+    to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes heroAccent {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+}
+@keyframes heroProgress {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+}
+@keyframes heroFadeSoft {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.hero-slider.hero-motion-on .owl-item.active .hero-badge,
+.hero-slider.hero-motion-on .owl-item.active .hero-title,
+.hero-slider.hero-motion-on .owl-item.active .hero-subtitle,
+.hero-slider.hero-motion-on .owl-item.active .hero-stats-card-3d,
+.hero-slider.hero-motion-on .owl-item.active .hero-actions {
+    animation: heroRise 720ms var(--ease-out-hero) both;
+}
+.hero-slider.hero-motion-on .owl-item.active .hero-badge { animation-delay: 60ms; }
+.hero-slider.hero-motion-on .owl-item.active .hero-title { animation-delay: 130ms; }
+.hero-slider.hero-motion-on .owl-item.active .hero-subtitle { animation-delay: 200ms; }
+.hero-slider.hero-motion-on .owl-item.active .hero-stats-card-3d { animation-delay: 200ms; }
+.hero-slider.hero-motion-on .owl-item.active .hero-actions { animation-delay: 270ms; }
+
+/* Subrayado cinético de la palabra destacada */
+.hero-title .accent {
+    position: relative;
+    display: inline-block;
+}
+.hero-title .accent::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.08em;
+    height: 0.06em;
+    min-height: 3px;
+    border-radius: 999px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left center;
+}
+.hero-slider.hero-motion-on .owl-item.active .hero-title .accent::after {
+    animation: heroAccent 560ms var(--ease-out-hero) 480ms both;
+}
+
+/* Barra de progreso del autoplay */
+.hero-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.16);
+    z-index: 6;
+    overflow: hidden;
+    pointer-events: none;
+}
+.hero-progress span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: left center;
+}
+.hero-progress.activo span {
+    animation: heroProgress 5500ms linear both;
+}
+main:has(.hero-slider:hover) .hero-progress span {
+    animation-play-state: paused;
+}
+
+/* El tema fuerza tamaños grandes de subtitle: se corrige aquí */
+.slide-0 .hero-subtitle,
+.slide-1 .hero-subtitle {
+    font-size: clamp(14px, 1.25vw, 17px) !important;
+    line-height: 1.55 !important;
+    font-weight: 400 !important;
+    letter-spacing: 0 !important;
+    max-width: 620px;
+}
+.slide-0 .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Scrim y espacio para que el slide fotográfico respire */
+.slide-1::after {
+    background: linear-gradient(180deg, rgba(8, 23, 43, 0) 35%, rgba(8, 23, 43, 0.18) 62%, rgba(8, 23, 43, 0.66) 100%);
+}
+.slide-1 .container {
+    padding-bottom: clamp(124px, 15vh, 180px) !important;
+}
+.slide-1 .hero-content {
+    max-width: min(100%, 620px);
+}
+.slide-1 .hero-actions {
+    margin-top: 4px;
+}
+
+/* Feedback de botones: subida al hover, presión corta al pulsar */
+@media (hover: hover) and (pointer: fine) {
+    .hero-actions a.btn-primary-hero:hover,
+    .hero-actions a.btn-outline-hero:hover,
+    .hero-actions a.btn-azul-hero:hover {
+        transform: translate3d(0, -3px, 0);
+    }
+}
+.hero-actions a.btn-primary-hero:active,
+.hero-actions a.btn-outline-hero:active,
+.hero-actions a.btn-azul-hero:active {
+    transform: translate3d(0, 0, 0) scale(0.97);
+}
+
+@media (max-width: 767px) {
+    @keyframes heroRise {
+        from { opacity: 0; transform: translate3d(0, 18px, 0); }
+        to   { opacity: 1; transform: translate3d(0, 0, 0); }
+    }
+    .hero-slider.hero-motion-on .owl-item.active .hero-badge,
+    .hero-slider.hero-motion-on .owl-item.active .hero-title,
+    .hero-slider.hero-motion-on .owl-item.active .hero-subtitle,
+    .hero-slider.hero-motion-on .owl-item.active .hero-stats-card-3d,
+    .hero-slider.hero-motion-on .owl-item.active .hero-actions {
+        animation-duration: 580ms;
+    }
+}
+
+/* Movimiento reducido: se conserva la aparición, se quita el desplazamiento */
+@media (prefers-reduced-motion: reduce) {
+    .hero-slider.hero-motion-on .owl-item.active .hero-badge,
+    .hero-slider.hero-motion-on .owl-item.active .hero-title,
+    .hero-slider.hero-motion-on .owl-item.active .hero-subtitle,
+    .hero-slider.hero-motion-on .owl-item.active .hero-stats-card-3d,
+    .hero-slider.hero-motion-on .owl-item.active .hero-actions {
+        animation: heroFadeSoft 200ms both;
+        animation-delay: 0ms;
+    }
+    .hero-slider.hero-motion-on .owl-item.active .hero-title .accent::after {
+        animation: none;
+        transform: scaleX(1);
+    }
+    .hero-progress.activo span {
+        animation: none;
+        transform: scaleX(1);
+    }
+    .hero-actions a:active {
+        transform: none;
+    }
+}

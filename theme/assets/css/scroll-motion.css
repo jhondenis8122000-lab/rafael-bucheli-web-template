@@ -1,0 +1,317 @@
+/* ============================================================
+   SCROLL MOTION - Animación ligada al desplazamiento real
+   Requiere scroll-driven animations (Baseline 2026).
+   Todo se mantiene en transform/opacity para no bloquear frames.
+   ============================================================ */
+
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    z-index: 10001;
+    pointer-events: none;
+}
+.scroll-progress span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: left center;
+}
+
+@supports (animation-timeline: scroll()) {
+    @keyframes scrollFill {
+        to { transform: scaleX(1); }
+    }
+    .scroll-progress span {
+        animation: scrollFill 1ms linear both;
+        animation-timeline: scroll(root block);
+    }
+
+    @keyframes heroDrift {
+        to {
+            transform: translate3d(0, -104px, 0) scale(0.96);
+            opacity: 0.1;
+        }
+    }
+    .hero-slider .owl-item.active .hero-content,
+    .slide-0-wrap {
+        animation: heroDrift 1ms linear both;
+        animation-timeline: scroll(root block);
+        animation-range: 0 100vh;
+        will-change: transform, opacity;
+    }
+
+    /* El emblema crece y se hunde mientras el texto se va */
+    @keyframes emblemDrift {
+        to {
+            transform: scale(1.14) translate3d(0, -2%, 0);
+        }
+    }
+    .slide-0-bg {
+        animation: emblemDrift 1ms linear both;
+        animation-timeline: scroll(root block);
+        animation-range: 0 110vh;
+    }
+
+    /* El velo se cierra para dar profundidad al hacer scroll */
+    @keyframes veilClose {
+        from { opacity: 0.8; }
+        to { opacity: 1; }
+    }
+    .slide-0-veil {
+        animation: veilClose 1ms linear both;
+        animation-timeline: scroll(root block);
+        animation-range: 0 90vh;
+    }
+
+    /* Cinta: se desliza en horizontal conforme avanza el viewport */
+    @keyframes tickerScroll {
+        from { transform: translate3d(0, 0, 0); }
+        to { transform: translate3d(-18%, 0, 0); }
+    }
+    .hero-ticker-track {
+        animation: tickerScroll 1ms linear both;
+        animation-timeline: view();
+        animation-range: entry 0% exit 100%;
+    }
+}
+
+/* Cuando el parallax JS está activo, la cinta la mueve scripts.js
+   (responde a la dirección del scroll: baja = izquierda, sube = derecha). */
+.fx-ticker .hero-ticker-track {
+    animation: none !important;
+}
+
+@supports (animation-timeline: view()) {
+    @keyframes scrollReveal {
+        from {
+            opacity: 0;
+            transform: translate3d(0, 46px, 0) scale(0.985);
+        }
+        to {
+            opacity: 1;
+            transform: translate3d(0, 0, 0) scale(1);
+        }
+    }
+    .scroll-reveal {
+        animation: scrollReveal 1ms linear both;
+        animation-timeline: view();
+        animation-range: entry 4% cover 34%;
+    }
+
+    @keyframes scrollRevealWide {
+        from {
+            opacity: 0;
+            transform: translate3d(0, 64px, 0);
+        }
+        to {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+    .scroll-reveal-wide {
+        animation: scrollRevealWide 1ms linear both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 40%;
+    }
+}
+
+/* Los ancestros con overflow:hidden crean scroll containers y dejan
+   inactivo el timeline view(); clip recorta igual sin crear scroller. */
+.value-proposal-section,
+.cta-area.secondary-bg {
+    overflow: hidden !important;
+    overflow: clip !important;
+}
+
+/* El reveal ancho arranca en scale(1.04); recorta ese desborde horizontal
+   sin convertir el body en scroll container (no rompe los timelines). */
+body {
+    overflow-x: clip;
+}
+
+/* El template fuerza animaciones con !important en algunas secciones;
+   estas reglas recuperan el control para el reveal ligado al scroll. */
+@supports (animation-timeline: view()) {
+    .scroll-reveal,
+    .scroll-reveal-wide {
+        animation: scrollReveal 1ms linear both !important;
+        animation-timeline: view() !important;
+        animation-range: entry 4% cover 34% !important;
+    }
+    .scroll-reveal-wide {
+        animation-name: scrollRevealWide !important;
+        animation-range: entry 0% cover 40% !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scroll-progress span {
+        animation: none !important;
+        transform: scaleX(1) !important;
+    }
+    .hero-slider .owl-item.active .hero-content,
+    .slide-0-wrap,
+    .slide-0-bg,
+    .slide-0-veil,
+    .hero-ticker-track,
+    .scroll-reveal,
+    .scroll-reveal-wide {
+        animation: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}
+
+/* ============================================================
+   FX REVEAL - Coreografía de entrada por elemento
+   scripts.js agrega .fx-ready al html y .fx-in a cada bloque
+   cuando entra en pantalla. Al salir por completo se rearma,
+   así el efecto se repite al bajar y al subir.
+   Solo transform/opacity/clip-path. Sin animación en reduced.
+   ============================================================ */
+
+html.fx-ready [data-fx]:not(.fx-in) {
+    opacity: 0;
+}
+
+html.fx-ready [data-fx].fx-in {
+    animation-duration: 860ms;
+    animation-timing-function: var(--ease-out-hero);
+    animation-fill-mode: backwards;
+    animation-delay: var(--fx-delay, 0ms);
+}
+
+[data-fx="up"].fx-in { animation-name: fxUp; }
+[data-fx="down"].fx-in { animation-name: fxDown; }
+[data-fx="left"].fx-in { animation-name: fxLeft; }
+[data-fx="right"].fx-in { animation-name: fxRight; }
+[data-fx="zoom"].fx-in { animation-name: fxZoom; }
+[data-fx="tilt"].fx-in { animation-name: fxTilt; }
+[data-fx="flip"].fx-in { animation-name: fxFlip; }
+[data-fx="pop"].fx-in { animation-name: fxPop; }
+[data-fx="fade"].fx-in { animation-name: fxFade; }
+[data-fx="mask"].fx-in { animation-name: fxMask; }
+[data-fx="mask-left"].fx-in { animation-name: fxMaskLeft; }
+[data-fx="open-x"].fx-in { animation-name: fxOpenX; }
+[data-fx="open-y"].fx-in { animation-name: fxOpenY; }
+
+@keyframes fxUp {
+    from { opacity: 0; transform: translate3d(0, 64px, 0) scale(0.98); }
+    to   { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+@keyframes fxDown {
+    from { opacity: 0; transform: translate3d(0, -56px, 0) scale(0.98); }
+    to   { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+@keyframes fxLeft {
+    from { opacity: 0; transform: translate3d(-120px, 18px, 0) rotate(-4deg) scale(0.97); }
+    to   { opacity: 1; transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+}
+@keyframes fxRight {
+    from { opacity: 0; transform: translate3d(120px, 18px, 0) rotate(4deg) scale(0.97); }
+    to   { opacity: 1; transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+}
+@keyframes fxZoom {
+    from { opacity: 0; transform: scale(0.86); }
+    to   { opacity: 1; transform: scale(1); }
+}
+@keyframes fxTilt {
+    from { opacity: 0; transform: translate3d(0, 70px, 0) rotate(-4deg) scale(0.94); }
+    to   { opacity: 1; transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+}
+@keyframes fxFlip {
+    from { opacity: 0; transform: perspective(1400px) rotateX(22deg) translate3d(0, 50px, -80px); }
+    to   { opacity: 1; transform: perspective(1400px) rotateX(0deg) translate3d(0, 0, 0); }
+}
+@keyframes fxPop {
+    0%   { opacity: 0; transform: scale(0.8) rotate(-8deg); }
+    60%  { opacity: 1; transform: scale(1.03) rotate(1deg); }
+    100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+@keyframes fxFade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@keyframes fxMask {
+    from { opacity: 0; clip-path: inset(0 0 100% 0); }
+    55%  { opacity: 1; }
+    to   { opacity: 1; clip-path: inset(0 0 0 0); }
+}
+@keyframes fxMaskLeft {
+    from { opacity: 0; clip-path: inset(0 100% 0 0); }
+    55%  { opacity: 1; }
+    to   { opacity: 1; clip-path: inset(0 0 0 0); }
+}
+@keyframes fxOpenX {
+    from { opacity: 0.2; clip-path: inset(0 50% 0 50%); transform: scale(1.03); }
+    to   { opacity: 1; clip-path: inset(0 0 0 0); transform: scale(1); }
+}
+@keyframes fxOpenY {
+    from { opacity: 0.2; clip-path: inset(50% 0 50% 0); transform: scale(1.03); }
+    to   { opacity: 1; clip-path: inset(0 0 0 0); transform: scale(1); }
+}
+
+[data-fx="mask"].fx-in,
+[data-fx="mask-left"].fx-in,
+[data-fx="open-x"].fx-in,
+[data-fx="open-y"].fx-in {
+    animation-duration: 1000ms;
+}
+[data-fx="pop"].fx-in { animation-duration: 720ms; }
+[data-fx="fade"].fx-in { animation-duration: 600ms; }
+
+/* Contenido del carrusel fullscreen: se rearma cada vez que
+   Owl marca un slide como activo. */
+@keyframes fsContentRise {
+    from { opacity: 0; transform: translate3d(0, 34px, 0); }
+    to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+.fullscreen-carousel .owl-item.active .slide-badge,
+.fullscreen-carousel .owl-item.active .slide-title-mejorado,
+.fullscreen-carousel .owl-item.active .slide-description-mejorado,
+.fullscreen-carousel .owl-item.active .slide-features,
+.fullscreen-carousel .owl-item.active .slide-buttons-mejorado {
+    animation: fsContentRise 680ms var(--ease-out-hero) backwards;
+}
+.fullscreen-carousel .owl-item.active .slide-badge { animation-delay: 80ms; }
+.fullscreen-carousel .owl-item.active .slide-title-mejorado { animation-delay: 150ms; }
+.fullscreen-carousel .owl-item.active .slide-description-mejorado { animation-delay: 220ms; }
+.fullscreen-carousel .owl-item.active .slide-features { animation-delay: 290ms; }
+.fullscreen-carousel .owl-item.active .slide-buttons-mejorado { animation-delay: 360ms; }
+
+/* Parallax interno del contenido del carrusel (lo escribe initScrollFX) */
+.fullscreen-carousel .owl-item.active .slide-content-mejorado,
+.fullscreen-carousel .owl-item.active .slide-info-card {
+    translate: 0 var(--fs-content-y, 0px);
+}
+
+@media (max-width: 767px) {
+    html.fx-ready [data-fx].fx-in { animation-duration: 700ms; }
+    [data-fx="mask"].fx-in,
+    [data-fx="mask-left"].fx-in,
+    [data-fx="open-x"].fx-in,
+    [data-fx="open-y"].fx-in { animation-duration: 820ms; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html.fx-ready [data-fx] {
+        opacity: 1 !important;
+        animation: none !important;
+        transform: none !important;
+        clip-path: none !important;
+    }
+    .fullscreen-carousel .owl-item.active .slide-badge,
+    .fullscreen-carousel .owl-item.active .slide-title-mejorado,
+    .fullscreen-carousel .owl-item.active .slide-description-mejorado,
+    .fullscreen-carousel .owl-item.active .slide-features,
+    .fullscreen-carousel .owl-item.active .slide-buttons-mejorado {
+        animation: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}

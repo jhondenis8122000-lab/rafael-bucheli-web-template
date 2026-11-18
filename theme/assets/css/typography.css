@@ -51,8 +51,8 @@ blockquote {
 
 blockquote::before {
     color: #4e5665;
-    content: "\f10d";  /* Código corregido de FontAwesome (comillas) */
-    font-family: 'FontAwesome';
+    content: "\201C";
+    font-family: Georgia, serif;
     font-size: 36px;
     left: 20px;
     line-height: 0;

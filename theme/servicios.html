@@ -26,9 +26,6 @@
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/logo.png">
     <!-- all css here -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="assets/css/slicknav.min.css">
     <link rel="stylesheet" href="assets/css/typography.css">
     <link rel="stylesheet" href="assets/css/default-css.css">
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -43,7 +40,6 @@
     <link rel="stylesheet" href="CHATBOT/CHATBOT.css">
 
     <!-- modernizr css -->
-    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
 
     <style>
         /* ===== ESTILOS ADICIONALES SOLO PARA LA PÁGINA DE SERVICIOS ===== */
@@ -521,6 +517,7 @@
         }
         /* NOTA: Se ha eliminado el bloque "FIX DE CONFLICTOS" que sobrescribía los estilos del header */
     </style>
+    <link rel="stylesheet" href="assets/css/nav-dock.css">
 </head>
 
 <body>
@@ -529,14 +526,11 @@
         <![endif]-->
 
     <!-- loading area start -->
-    <div id="preloader">
+        <div id="preloader" role="status" aria-live="polite">
         <div class="loading-container">
-            <video id="loadingVideo" muted playsinline preload="auto" poster="assets/images/icon/logo.png">
-                <source src="assets/images/recursos/pantalla-de-carga.webm" type="video/webm">
-                <source src="assets/images/recursos/pantalla-de-ccarga.mp4" type="video/mp4">
-            </video>
-            <div class="spinner"></div>
-            <div class="loading-text">Cargando...</div>
+            <img class="loading-logo" src="assets/images/icon/logo.png" alt="" decoding="async">
+            <div class="loading-bar"><span></span></div>
+            <p class="loading-text">Cargando...</p>
         </div>
     </div>
     <!-- loading area end -->
@@ -608,7 +602,6 @@
     <!-- offset search area end -->
 
     <!-- body overlay area start -->
-    <div class="body_overlay"></div>
     <!-- body overlay area end -->
 
     <!-- PAGE HEADER - SERVICIOS -->
@@ -873,9 +866,6 @@
     <!-- bootstrap 4 js -->
     <script src="assets/js/bootstrap.min.js"></script>
     <!-- others plugins -->
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
-    <script src="assets/js/jquery.slicknav.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/scripts.js"></script>
     <script src="assets/js/mobile-menu.js?v=20260727"></script>
