@@ -1,6 +1,9 @@
 User-agent: *
 Allow: /
 
-Disallow: /CHATBOT/CHATBOT.html
+# Rastreadores de recopilacion; no aplica a Googlebot, Bingbot ni OAI-SearchBot.
+User-agent: GPTBot
+User-agent: CCBot
+Disallow: /
 
 Sitemap: https://rafaelbucheli.com/sitemap.xml

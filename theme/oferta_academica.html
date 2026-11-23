@@ -3,31 +3,32 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Oferta Académica - UE Rafael Bucheli</title>
-    <meta name="description" content="Conoce nuestra oferta académica: Inicial, Primaria y Bachillerato con metodologías innovadoras.">
-    <meta name="robots" content="index, follow">
+    <title>Oferta académica | Unidad Educativa Rafael Bucheli</title>
+    <meta name="description" content="Conoce los niveles de Educación Inicial, Educación General Básica y Bachillerato de la Unidad Educativa Rafael Bucheli, en Chillogallo, Quito.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://rafaelbucheli.com/oferta-academica">
     <meta property="og:locale" content="es_EC">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Oferta Académica - UE Rafael Bucheli">
-    <meta property="og:description" content="Conoce nuestra oferta académica: Inicial, Primaria y Bachillerato con metodologías innovadoras.">
+    <meta property="og:title" content="Oferta académica | Unidad Educativa Rafael Bucheli">
+    <meta property="og:description" content="Conoce los niveles de Educación Inicial, Educación General Básica y Bachillerato de la Unidad Educativa Rafael Bucheli, en Chillogallo, Quito.">
     <meta property="og:url" content="https://rafaelbucheli.com/oferta-academica">
     <meta property="og:site_name" content="Unidad Educativa Rafael Bucheli">
     <meta property="og:image" content="https://rafaelbucheli.com/assets/images/og-rafael-bucheli.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Unidad Educativa Rafael Bucheli">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Oferta Académica - UE Rafael Bucheli">
-    <meta name="twitter:description" content="Conoce nuestra oferta académica: Inicial, Primaria y Bachillerato con metodologías innovadoras.">
+    <meta name="twitter:title" content="Oferta académica | Unidad Educativa Rafael Bucheli">
+    <meta name="twitter:description" content="Conoce los niveles de Educación Inicial, Educación General Básica y Bachillerato de la Unidad Educativa Rafael Bucheli, en Chillogallo, Quito.">
     <meta name="twitter:image" content="https://rafaelbucheli.com/assets/images/og-rafael-bucheli.jpg">
+    <meta name="twitter:image:alt" content="Unidad Educativa Rafael Bucheli">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="assets/images/icon/logo.png">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/typography.css">
-    <link rel="stylesheet" href="assets/css/default-css.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/default-css.css?v=20261123">
+    <link rel="stylesheet" href="assets/css/styles.css?v=20261123d">
     <link rel="stylesheet" href="assets/css/responsive.css">
-    <link rel="stylesheet" href="assets/css/loading.css">
     
     <!-- ===== FONT AWESOME 6 ===== -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -67,44 +68,8 @@
            RESTO DE ESTILOS (se mantienen igual que antes)
            ============================================================ */
         main { position: relative; z-index: 1; }
-        .page-header {
-            position: relative;
-            background: #ffffff;
-            padding: 180px 0 100px;
-            text-align: center;
-            color: #182e4e;
-            overflow: hidden;
-            margin-top: 80px;
-        }
-        .page-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255,255,255,0.04);
-            opacity: 0.02;  /* Más sutil para fondo blanco */
-        }
-        .page-header h1 {
-            font-size: 52px;
-            font-weight: 800;
-            margin-bottom: 0px;
-            position: relative;
-            color: #182e4e !important;
-            text-shadow: none;
-        }
-        .page-header p {
-            font-size: 20px;
-            max-width: 700px;
-            margin: 0 auto;
-            opacity: 1;
-            position: relative;
-            color: #666;
-        }
         .scroll-down-btn {
             display: inline-block;
-            margin-top: 30px;
             color: var(--color-primary);
             font-size: 32px;
             width: 60px;
@@ -124,6 +89,13 @@
             background: var(--color-primary);
             color: #fff;
             box-shadow: 0 12px 35px rgba(31, 35, 102, 0.3);
+        }
+        .scroll-down-btn:focus-visible {
+            outline: 2px solid #fff;
+            outline-offset: 4px;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .scroll-down-btn { animation: none; }
         }
         @keyframes bounce {
             0%,20%,50%,80%,100%{transform:translateY(0)}
@@ -861,8 +833,6 @@
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 991px) {
-            .page-header { padding: 160px 0 80px; }
-            .page-header h1 { font-size: 42px; }
             .intro-section { padding: 60px 0 30px; }
             .intro-content h2 { font-size: 36px; }
             .psy-servicios { grid-template-columns: repeat(2, 1fr); }
@@ -870,9 +840,6 @@
             .psy-equipo .member { max-width: 500px; margin: 0 auto; }
         }
         @media (max-width: 768px) {
-            .page-header { padding: 140px 0 60px; }
-            .page-header h1 { font-size: 36px; }
-            .page-header p { font-size: 18px; }
             .intro-content h2 { font-size: 30px; }
             .intro-content .lead { font-size: 18px; }
             .level-img { height: 200px; }
@@ -897,7 +864,6 @@
             }
         }
         @media (max-width: 576px) {
-            .page-header { padding: 200px 0 50px; }
             .intro-content h2 { font-size: 28px; }
         }
 
@@ -915,52 +881,40 @@
         <p class="browserupgrade">Estás usando un navegador <strong>obsoleto</strong>. Por favor <a href="http://browsehappy.com/">actualiza tu navegador</a> para mejorar tu experiencia.</p>
     <![endif]-->
     
-    <!-- loading area start -->
-        <div id="preloader" role="status" aria-live="polite">
-        <div class="loading-container">
-            <img class="loading-logo" src="assets/images/icon/logo.png" alt="" decoding="async">
-            <div class="loading-bar"><span></span></div>
-            <p class="loading-text">Cargando...</p>
-        </div>
-    </div>
-    <!-- loading area end -->
     
     <!-- ============================================================ -->
     <!-- HEADER: CLONADO EXACTO DE LA PÁGINA DE CONTACTO              -->
     <!-- ============================================================ -->
+    <!-- NAV:site-header -->
     <header id="header">
         <div class="header-two">
             <div class="container-fluid px-0">
                 <div class="row align-items-center g-0 mx-0">
                     <div class="col-lg-3 col-6 d-block d-lg-none">
                         <div class="logo">
-                            <a href="/"><img src="assets/images/icon/logo.png" alt="logo" decoding="async"></a>
+                            <a href="/"><img src="/assets/images/icon/logo.png" alt="Unidad Educativa Rafael Bucheli" decoding="async"></a>
                         </div>
                     </div>
                     <div class="col-lg-9 offset-lg-1 d-none d-lg-block">
                         <div class="main-menu menu-style2">
-                            <nav>
+                            <nav aria-label="Navegación principal">
                                 <ul id="m_menu_active">
                                     <li><a href="/">Inicio</a></li>
-                                    <li class="active"><a href="javascript:void(0);">Oferta Académica</a>
+                                    <li class="active">
+                                        <a href="/oferta-academica">Oferta Académica</a>
                                         <ul class="submenu">
-                                            <li><a href="/oferta-academica">Academia</a></li>
+                                            <li><a href="/oferta-academica" aria-current="page">Niveles educativos</a></li>
                                             <li><a href="/actividades-extracurriculares">Actividades Extracurriculares</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="/admisiones">Admisiones</a></li>
                                     <li class="middle-logo">
                                         <a href="/">
-                                            <img src="assets/images/icon/logo-middle.png" alt="logo" decoding="async">
-                                            <img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="logo" loading="lazy" decoding="async">
+                                            <img src="/assets/images/icon/logo-middle.png" alt="Unidad Educativa Rafael Bucheli" decoding="async">
+                                            <img class="hb-bottom-shape" src="/assets/images/icon/hb-bottom-shape.png" alt="" loading="lazy" decoding="async">
                                         </a>
                                     </li>
                                     <li><a href="/servicios">Servicios</a></li>
-                                    <li><a href="/nosotros">Nosotros</a>
-                                        <ul class="submenu">
-                                            <li><a href="/nosotros">Visión y Misión</a></li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="/nosotros">Nosotros</a></li>
                                     <li><a href="/contacto">Contacto</a></li>
                                 </ul>
                             </nav>
@@ -970,9 +924,7 @@
                         <div class="header-bottom-right-style-2">
                             <ul>
                                 <li>
-                                    <a href="https://app.rafaelbucheli.com/login/?next=/" 
-                                    class="btn btn-primary btn-round portal-btn" 
-                                    target="_blank" rel="noopener noreferrer"><i class="fas fa-user-graduate portal-icon"></i><span>Portal Web</span></a>
+                                    <a href="https://app.rafaelbucheli.com/login/?next=/" class="btn btn-primary btn-round portal-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-user-graduate portal-icon" aria-hidden="true"></i><span>Portal Web</span></a>
                                 </li>
                                 <li class="d-block d-lg-none"><div id="mobile_menu"></div></li>
                             </ul>
@@ -982,6 +934,7 @@
             </div>
         </div>
     </header>
+    <!-- /NAV:site-header -->
     <!-- ============================================================ -->
     
     <!-- offset search area start -->
@@ -994,7 +947,7 @@
     <!-- offset search area end -->
     
     <!-- ===== PAGE HEADER ===== -->
-    <section class="page-header">
+    <section class="interior-banner interior-banner-academia">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -1273,9 +1226,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
-                    <h2>¿Listo para formar parte?</h2>
-                    <p>Inscripciones abiertas para el año lectivo 2026. Cupos limitados.</p>
-                    <a href="https://api.whatsapp.com/send/?phone=593995549605&text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20la%20oferta%20acad%C3%A9mica%20y%20el%20proceso%20de%20admisiones%20para%20el%20a%C3%B1o%20lectivo%202026.&type=phone_number&app_absent=0" class="btn-cta" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Quiero información</a>
+                    <h2>¿Tienes preguntas sobre nuestra oferta?</h2>
+                    <p>Conoce más sobre nuestros niveles y metodologías educativas.</p>
+                    <a href="/contacto" class="btn-cta"><i class="fas fa-envelope" aria-hidden="true"></i> Quiero información</a>
                 </div>
             </div>
         </div>
@@ -1312,13 +1265,15 @@
                     <div class="col-md-3">
                         <div class="widget footer-link">
                             <h4 class="fwidget-title mb-5 pb-3 primary-color">Enlaces</h4> 
+                            <!-- NAV:footer-links -->
                             <ul>
-                                <li><a href="/servicios"><i class="fas fa-angle-right"></i>Servicios</a></li>
-                                <li><a href="/nosotros"><i class="fas fa-angle-right"></i>Nosotros</a></li>
-                                <li><a href="/nosotros"><i class="fas fa-angle-right"></i>Nuestra Historia</a></li>
-                                <li><a href="/admisiones"><i class="fas fa-angle-right"></i>Admisiones</a></li>
-                                <li><a href="/contacto"><i class="fas fa-angle-right"></i>Contacto</a></li>
+                                <li><a href="/oferta-academica"><i class="fas fa-angle-right" aria-hidden="true"></i>Oferta académica</a></li>
+                                <li><a href="/actividades-extracurriculares"><i class="fas fa-angle-right" aria-hidden="true"></i>Actividades extracurriculares</a></li>
+                                <li><a href="/servicios"><i class="fas fa-angle-right" aria-hidden="true"></i>Servicios</a></li>
+                                <li><a href="/nosotros"><i class="fas fa-angle-right" aria-hidden="true"></i>Nosotros</a></li>
+                                <li><a href="/contacto"><i class="fas fa-angle-right" aria-hidden="true"></i>Contacto</a></li>
                             </ul>
+                            <!-- /NAV:footer-links -->
                         </div>
                     </div>
                     <div class="col-md-5">
@@ -1327,7 +1282,6 @@
                             <ul>
                                 <li><span>Lunes a viernes :</span>08:00 - 16:00</li>
                                 <li><span>Secretaría :</span>08:00 - 16:00</li>
-                                <li><span>Admisiones :</span>09:00 - 16:00</li>
                                 <li><span>Fines de semana :</span>Cerrado</li>
                             </ul>
                         </div>
@@ -1344,12 +1298,11 @@
     <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/plugins.js"></script>
-    <script src="assets/js/scripts.js"></script>
-    <script src="assets/js/loading.js"></script>
-    <script src="assets/js/mobile-menu.js?v=20260727"></script>
+    <script src="assets/js/scripts.js?v=20261123"></script>
+    <script src="assets/js/mobile-menu.js?v=20261123d"></script>
     
     <!-- ===== CHATBOT ===== -->
-    <script src="CHATBOT/CHATBOT.js?v=20260727" data-auto-init></script>
+    <script src="CHATBOT/CHATBOT.js?v=20261123e" data-auto-init></script>
 
     <script>
         (function() {

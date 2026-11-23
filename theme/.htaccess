@@ -9,8 +9,12 @@ AddType image/webp .webp
     RewriteEngine On
     RewriteBase /
 
-    RewriteCond %{HTTPS} !=on
-    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    RewriteRule ^\.well-known/(acme-challenge|pki-validation)/[^/]+$ - [L]
+    RewriteRule (^|/)\.(?!well-known(?:/|$)) - [R=404,L]
+
+    RewriteCond %{HTTPS} !=on [OR]
+    RewriteCond %{HTTP_HOST} ^www\.rafaelbucheli\.com(?::[0-9]+)?$ [NC]
+    RewriteRule ^ https://rafaelbucheli.com%{REQUEST_URI} [L,R=301]
 
     RewriteCond %{THE_REQUEST} \s/+inicio\.html[\s?] [NC]
     RewriteRule ^inicio\.html$ / [L,R=301]
@@ -42,6 +46,11 @@ AddType image/webp .webp
     RewriteCond %{THE_REQUEST} \s/+404\.html[\s?] [NC]
     RewriteRule ^404\.html$ /404 [L,R=301]
 
+    RewriteRule ^(admisiones|oferta-academica|actividades-extracurriculares|servicios|nosotros|contacto|landing-page)/+$ /$1 [L,R=301]
+    RewriteRule ^oferta_academica/?$ /oferta-academica [L,R=301]
+    RewriteRule ^actividades_extracurriculares/?$ /actividades-extracurriculares [L,R=301]
+    RewriteRule ^landing_page/?$ /landing-page [L,R=301]
+
     RewriteRule ^admisiones/?$ admisiones.html [L]
     RewriteRule ^oferta-academica/?$ oferta_academica.html [L]
     RewriteRule ^actividades-extracurriculares/?$ actividades_extracurriculares.html [L]
@@ -49,7 +58,7 @@ AddType image/webp .webp
     RewriteRule ^nosotros/?$ nosotros.html [L]
     RewriteRule ^contacto/?$ contacto.html [L]
     RewriteRule ^landing-page/?$ landing_page.html [L]
-    RewriteRule ^404/?$ 404.html [L]
+    RewriteRule ^404/?$ - [R=404,L]
 
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME}.html -f
@@ -62,6 +71,8 @@ AddType image/webp .webp
     Header always set Referrer-Policy "strict-origin-when-cross-origin"
     Header always set X-Frame-Options "SAMEORIGIN"
     Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(self)"
+    Header always set Content-Security-Policy "object-src 'none'; base-uri 'self'; frame-ancestors 'self'; form-action 'self' https://api.web3forms.com"
+    Header always set Strict-Transport-Security "max-age=86400" "expr=%{HTTPS} == 'on'"
 
     <FilesMatch "\.(css|js|png|jpg|jpeg|gif|webp|svg|ico|woff|woff2|ttf|otf|eot|mp4|webm)$">
         Header set Cache-Control "public, max-age=2592000"
@@ -80,6 +91,6 @@ AddType image/webp .webp
     Require all denied
 </FilesMatch>
 
-<FilesMatch "\.(bak|config|dist|env|git|ini|log|old|orig|save|sql|swp|tmp|yaml|yml)$">
+<FilesMatch "(?i)\.(bak|config|dist|env|git|ini|log|old|orig|save|sql|swp|tmp|yaml|yml|zip|tar|tgz|gz|7z|rar)$">
     Require all denied
 </FilesMatch>

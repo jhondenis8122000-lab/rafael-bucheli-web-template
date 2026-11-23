@@ -6,7 +6,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "gulp",
-    "serve": "node serve-local.js"
+    "serve": "node serve-local.js",
+    "nav:sync": "node scripts/sync-navigation.js",
+    "nav:check": "node scripts/sync-navigation.js --check"
   },
   "dependencies": {
     "browser-sync": "^2.27.10",

@@ -248,10 +248,6 @@
 
 /* === TABLETS (768px - 991px) === */
 @media (min-width: 768px) and (max-width: 991px) {
-    .page-header-servicios { padding: 160px 0 80px; }
-    .page-header-servicios h1 { font-size: 42px; }
-    .page-header-contacto { padding: 160px 0 80px; }
-    .page-header-actividades { padding: 160px 0 80px; }
 
     .guide-dialog { padding: 30px; }
     .process-grid { grid-template-columns: repeat(2, 1fr); }
@@ -267,12 +263,6 @@
 
 /* === MÓVILES GRANDES (480px - 767px) === */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-    .page-header-servicios { padding: 140px 0 60px; }
-    .page-header-servicios h1 { font-size: 36px; }
-    .page-header-contacto { padding: 140px 0 60px; }
-    .page-header-contacto h1 { font-size: 36px; }
-    .page-header-actividades { padding: 140px 0 60px; }
-    .page-header-actividades h1 { font-size: 36px; }
 
     .service-card .service-img { height: 180px; }
 
@@ -309,12 +299,6 @@
 
 /* === MÓVILES PEQUEÑOS (hasta 479px) === */
 @media (min-width: 240px) and (max-width: 479px) {
-    .page-header-servicios { padding: 130px 0 50px; }
-    .page-header-servicios h1 { font-size: 32px; }
-    .page-header-contacto { padding: 130px 0 50px; }
-    .page-header-contacto h1 { font-size: 32px; }
-    .page-header-actividades { padding: 130px 0 50px; }
-    .page-header-actividades h1 { font-size: 32px; }
 
     .service-card .service-img { height: 160px; }
     .service-content { padding: 20px 15px; }
@@ -353,9 +337,6 @@
 
 /* === AJUSTES PARA DISPOSITIVOS MUY PEQUEÑOS (hasta 360px) === */
 @media (max-width: 360px) {
-    .page-header-servicios h1 { font-size: 28px; }
-    .page-header-contacto h1 { font-size: 28px; }
-    .page-header-actividades h1 { font-size: 28px; }
     .testimonial-card p { font-size: 14px; }
     .psy-header h2 { font-size: 20px; }
 }

@@ -1,195 +1,189 @@
-/*
-  mobile-menu.js
-  Menú móvil FULL SCREEN overlay.
-  - El botón toggle se renderiza dentro de #mobile_menu (en el header)
-  - El overlay se adjunta directamente al <body> para evitar problemas
-    con backdrop-filter del header que rompe position:fixed en algunos navegadores
-  - Submenús tipo acordeón
-  - Cierra al hacer clic en toggle (X), overlay, ESC, o en enlaces
-*/
-(function($){
-  "use strict";
+(() => {
+    'use strict';
 
-  function escapeHtml(str){
-    return String(str)
-      .replace(/&/g,'&amp;')
-      .replace(/</g,'<')
-      .replace(/>/g,'>')
-      .replace(/"/g,'"')
-      .replace(/'/g,'&#039;');
-  }
+    const container = document.getElementById('mobile_menu');
+    const source = document.getElementById('m_menu_active');
+    if (!container || !source || container.children.length ||
+        typeof HTMLDialogElement === 'undefined' || !HTMLDialogElement.prototype.showModal) return;
 
-  function buildSubmenuLinks($submenuUl){
-    var html = '';
-    $submenuUl.children('li').each(function(){
-      var $li = $(this);
-      var $a = $li.children('a').first();
-      var label = ($a.text()||'').trim();
-      var href = $a.attr('href') || '#';
-      html += '<a class="bb-mobile-sublink" href="' + href + '">' + escapeHtml(label) + '</a>';
-    });
-    return html;
-  }
+    const mobile = window.matchMedia('(max-width: 991px)');
+    const cleanPath = (pathname) => pathname.replace(/\/+$/, '') || '/';
+    const current = cleanPath(location.pathname);
+    const linkIcons = {
+        '/': 'fa-home',
+        '/oferta-academica': 'fa-graduation-cap',
+        '/servicios': 'fa-briefcase',
+        '/nosotros': 'fa-school',
+        '/contacto': 'fa-envelope',
+    };
 
-  function buildMobileMenuItems($ul){
-    var html = '';
-    $ul.children('li').each(function(){
-      var $li = $(this);
-      var $a = $li.children('a').first();
-      var label = ($a.text()||'').trim();
-      var href = $a.attr('href') || '#';
-
-      var $submenu = $li.children('ul.submenu').first();
-      var hasSub = $submenu && $submenu.length;
-
-      if (hasSub){
-        var subId = 'bbSub_' + Math.random().toString(36).slice(2);
-        html +=
-          '<div class="bb-mobile-item bb-mobile-item-parent">' +
-            '<a class="bb-mobile-link" href="#" role="button" data-bb-accordion-toggle ' +
-              'aria-controls="' + subId + '" aria-expanded="false">' +
-                escapeHtml(label) +
-                '<span class="bb-mobile-arrow" aria-hidden="true">▾</span>' +
-            '</a>' +
-            '<div class="bb-mobile-submenu" id="' + subId + '">' +
-              buildSubmenuLinks($submenu) +
-            '</div>' +
-          '</div>';
-      } else {
-        html +=
-          '<div class="bb-mobile-item">' +
-            '<a class="bb-mobile-link" href="' + href + '">' +
-              escapeHtml(label) +
-            '</a>' +
-          '</div>';
-      }
-    });
-    return html;
-  }
-
-  function initMobileMenu(){
-    var $container = $('#mobile_menu');
-    var $sourceMenu = $('ul#m_menu_active');
-    if (!$container.length || !$sourceMenu.length) return;
-
-    if ($container.data('mobile-menu-ready')) return;
-    $container.data('mobile-menu-ready', true);
-
-    // ================================================================
-    // (1) Render toggle button DENTRO de #mobile_menu
-    // ================================================================
-    $container.html(
-      '<button class="bb-mobile-toggle" type="button" aria-label="Menú" aria-expanded="false">' +
-        '<span class="bb-mobile-toggle-bars" aria-hidden="true">' +
-          '<span></span><span></span><span></span>' +
-        '</span>' +
-      '</button>'
-    );
-
-    var $toggle = $container.find('.bb-mobile-toggle');
-
-    // ================================================================
-    // (2) Render overlay DIRECTAMENTE en <body>
-    //     Esto evita que el 'backdrop-filter' del header interfiera
-    //     con 'position: fixed'
-    // ================================================================
-    var overlayMarkup =
-      '<div class="bb-mobile-overlay" aria-hidden="true">' +
-        '<div class="bb-mobile-fullscreen">' +
-          '<div class="bb-mobile-header">' +
-            '<span class="bb-mobile-title">Menú</span>' +
-            '<button class="bb-mobile-close-btn" type="button" aria-label="Cerrar menú">' +
-              '<i class="fas fa-times"></i>' +
-            '</button>' +
-          '</div>' +
-          '<nav class="bb-mobile-nav" aria-label="Menú móvil">' +
-            buildMobileMenuItems($sourceMenu) +
-          '</nav>' +
-        '</div>' +
-      '</div>';
-
-    $('body').append(overlayMarkup);
-
-    var $overlay = $('body > .bb-mobile-overlay');
-
-    // ================================================================
-    // (3) Open / Close functions
-    // ================================================================
-    function open(){
-      $overlay.addClass('open');
-      $overlay.attr('aria-hidden','false');
-      $toggle.attr('aria-expanded','true');
-      $('body').addClass('bb-mobile-menu-open');
+    function element(tag, className, text) {
+        const node = document.createElement(tag);
+        if (className) node.className = className;
+        if (text) node.textContent = text;
+        return node;
     }
 
-    function close(){
-      $overlay.removeClass('open');
-      $overlay.attr('aria-hidden','true');
-      $toggle.attr('aria-expanded','false');
-      $('body').removeClass('bb-mobile-menu-open');
-      $overlay.find('[data-bb-accordion-toggle]').attr('aria-expanded','false');
-      $overlay.find('.bb-mobile-submenu').removeClass('open');
+    function icon(name) {
+        const node = element('i', 'fas ' + name);
+        node.setAttribute('aria-hidden', 'true');
+        return node;
     }
 
-    // Toggle hamburguesa
-    $toggle.on('click', function(){
-      var isOpen = $toggle.attr('aria-expanded') === 'true';
-      if (isOpen) { close(); } else { open(); }
-    });
+    function linkData(anchor) {
+        if (!anchor) return null;
+        const label = anchor.textContent.trim();
+        const url = new URL(anchor.href, document.baseURI);
+        if (!label || !/^https?:$/.test(url.protocol) || url.origin !== location.origin) return null;
+        return { label, url };
+    }
 
-    // Close button inside overlay
-    $overlay.find('.bb-mobile-close-btn').on('click', function(){ close(); });
+    function navLink(data, isChild = false) {
+        const link = element('a', isChild ? 'bb-mobile-sublink' : 'bb-mobile-link');
+        link.href = data.url.href;
+        const path = cleanPath(data.url.pathname);
+        if (path === current) link.setAttribute('aria-current', 'page');
+        if (!isChild) link.append(icon(linkIcons[path] || 'fa-chevron-right'));
+        link.append(element('span', '', data.label));
+        return link;
+    }
 
-    // Click on overlay backdrop (fuera del contenedor blanco)
-    $overlay.on('click', function(e){
-      if (e.target === this) close();
-    });
+    const toggle = element('button', 'bb-mobile-toggle');
+    toggle.type = 'button';
+    toggle.setAttribute('aria-label', 'Abrir menú');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-haspopup', 'dialog');
+    toggle.setAttribute('aria-controls', 'bb-mobile-menu-dialog');
+    const bars = element('span', 'bb-mobile-toggle-bars');
+    bars.setAttribute('aria-hidden', 'true');
+    bars.append(element('span'), element('span'), element('span'));
+    toggle.append(bars);
 
-    // ESC key
-    $(document).off('keydown.bbMobileMenu').on('keydown.bbMobileMenu', function(e){
-      if (e.key === 'Escape' || e.keyCode === 27) close();
-    });
+    const dialog = element('dialog', 'bb-mobile-overlay');
+    dialog.id = 'bb-mobile-menu-dialog';
+    dialog.setAttribute('aria-labelledby', 'bb-mobile-menu-title');
 
-    // Cerrar al hacer clic en enlaces de navegación
-    $overlay.on('click', '.bb-mobile-link[href]:not([href="#"]):not([role="button"]), .bb-mobile-sublink', function(){
-      close();
-    });
+    const header = element('div', 'bb-mobile-header');
+    const brand = element('div', 'bb-mobile-brand');
+    const logo = document.querySelector('#header .logo img');
+    if (logo) {
+        const image = logo.cloneNode(false);
+        image.alt = '';
+        brand.append(image);
+    }
+    const title = element('h2', '', 'Menú');
+    title.id = 'bb-mobile-menu-title';
+    brand.append(title);
 
-    // ================================================================
-    // (4) Accordion for submenus
-    // ================================================================
-    $overlay.off('click.bbMobileAccordion').on('click.bbMobileAccordion', '[data-bb-accordion-toggle]', function(e){
-      e.preventDefault();
-      var $btn = $(this);
-      var targetId = $btn.attr('aria-controls');
-      var $target = $('#'+targetId);
-      if(!$target.length) return;
+    const closeButton = element('button', 'bb-mobile-close-btn');
+    closeButton.type = 'button';
+    closeButton.setAttribute('aria-label', 'Cerrar menú');
+    closeButton.setAttribute('autofocus', '');
+    closeButton.append(icon('fa-times'));
+    header.append(brand, closeButton);
 
-      var isOpen = $btn.attr('aria-expanded') === 'true';
+    const content = element('div', 'bb-mobile-content');
+    const nav = element('nav', 'bb-mobile-nav');
+    nav.setAttribute('aria-label', 'Navegación principal');
+    const list = element('ul', 'bb-mobile-list');
+    nav.append(list);
+    const groups = [];
 
-      // Cerrar otros submenús abiertos
-      $overlay.find('[data-bb-accordion-toggle]').each(function(){
-        var $otherBtn = $(this);
-        if($otherBtn[0] === $btn[0]) return;
-        if($otherBtn.attr('aria-expanded') === 'true'){
-          $('#'+$otherBtn.attr('aria-controls')).removeClass('open');
-          $otherBtn.attr('aria-expanded','false');
+    Array.from(source.children).forEach((item, index) => {
+        if (item.classList.contains('middle-logo')) return;
+        const parent = linkData(item.querySelector(':scope > a'));
+        const children = Array.from(item.querySelectorAll(':scope > ul > li > a'))
+            .map(linkData).filter(Boolean);
+        const row = element('li', 'bb-mobile-item');
+
+        if (!children.length || (children.length === 1 && parent && children[0].url.href === parent.url.href)) {
+            if (!parent) return;
+            row.append(navLink(parent));
+        } else {
+            const label = item.querySelector(':scope > a').textContent.trim();
+            if (children[0].label === 'Academia') children[0].label = 'Niveles educativos';
+            const button = element('button', 'bb-mobile-link bb-mobile-disclosure');
+            button.type = 'button';
+            button.append(icon('fa-graduation-cap'), element('span', '', label), icon('fa-chevron-down'));
+
+            const submenu = element('ul', 'bb-mobile-submenu');
+            submenu.id = 'bb-mobile-submenu-' + index;
+            const active = children.some((child) => cleanPath(child.url.pathname) === current);
+            if (active) button.classList.add('bb-mobile-section-current');
+            button.setAttribute('aria-controls', submenu.id);
+            children.forEach((child) => {
+                const subrow = element('li');
+                subrow.append(navLink(child, true));
+                submenu.append(subrow);
+            });
+
+            const group = { button, submenu, active };
+            groups.push(group);
+            button.addEventListener('click', () => {
+                const expand = submenu.hidden;
+                groups.forEach((other) => setExpanded(other, other === group && expand));
+            });
+            row.append(button, submenu);
         }
-      });
-
-      if(isOpen){
-        $target.removeClass('open');
-        $btn.attr('aria-expanded','false');
-      } else {
-        $target.addClass('open');
-        $btn.attr('aria-expanded','true');
-      }
+        list.append(row);
     });
-  }
 
-  $(document).ready(function(){
-    initMobileMenu();
-  });
+    function setExpanded({ button, submenu }, expanded) {
+        submenu.hidden = !expanded;
+        button.setAttribute('aria-expanded', String(expanded));
+    }
 
-})(jQuery);
+    const portalSource = document.querySelector('#header a.portal-btn');
+    content.append(nav);
+    if (portalSource && /^https?:$/.test(portalSource.protocol)) {
+        const portal = element('a', 'bb-mobile-portal');
+        portal.href = portalSource.href;
+        portal.target = '_blank';
+        portal.rel = 'noopener noreferrer';
+        portal.setAttribute('aria-label', 'Portal Web (abre en otra pestaña)');
+        portal.append(icon('fa-user-graduate'), element('span', '', 'Portal Web'), icon('fa-external-link-alt'));
+        content.append(portal);
+    }
+
+    dialog.append(header, content);
+    container.append(toggle);
+    document.body.append(dialog);
+
+    let scrollTop = 0;
+    function openMenu() {
+        if (!mobile.matches || dialog.open) return;
+        scrollTop = window.scrollY;
+        groups.forEach((group) => setExpanded(group, group.active));
+        content.scrollTop = 0;
+        dialog.showModal();
+        document.body.style.setProperty('--bb-menu-scroll-top', -scrollTop + 'px');
+        document.body.classList.add('bb-mobile-menu-open');
+        toggle.setAttribute('aria-expanded', 'true');
+        closeButton.focus({ preventScroll: true });
+    }
+
+    function closeMenu(restoreFocus = true) {
+        if (!dialog.open) return;
+        document.body.classList.remove('bb-mobile-menu-open');
+        document.body.style.removeProperty('--bb-menu-scroll-top');
+        toggle.setAttribute('aria-expanded', 'false');
+        dialog.close();
+        if (restoreFocus && mobile.matches) toggle.focus({ preventScroll: true });
+        window.scrollTo({ top: scrollTop, behavior: 'instant' });
+    }
+
+    toggle.addEventListener('click', openMenu);
+    closeButton.addEventListener('click', () => closeMenu());
+    dialog.addEventListener('cancel', (event) => {
+        event.preventDefault();
+        closeMenu();
+    });
+    dialog.addEventListener('click', (event) => {
+        if (event.target.closest('a[href]')) closeMenu();
+    });
+    mobile.addEventListener('change', () => {
+        if (!mobile.matches) closeMenu(false);
+    });
+    window.addEventListener('pagehide', () => closeMenu(false));
+})();
 

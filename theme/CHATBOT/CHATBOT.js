@@ -9,8 +9,8 @@ window.CHATBOT_CONFIG = {
     institutionName: 'Institución Educativa Rafael Bucheli',
     logoPath: '',
     baseUrl: '',
-    version: '1.0.0',
-    web3formsKey: '814d1db1-ce19-48fb-b395-910b5a947ae1'
+    showAdmissions: false,
+    version: '1.0.0'
 };
 
 // Detectar rutas base automáticamente
@@ -38,7 +38,7 @@ window.CHATBOT_CONFIG = {
 // Variables globales
 let mainFloatingBtn, floatingMenu, mainTooltip, chatbotFloatingBtn, formFloatingBtn;
 let whatsappBtn, chatbotWindow, messages, leadForm, inputArea, userInput;
-let nameInput, typingIndicator, statusText, formWindow, overlay;
+let nameInput, typingIndicator, statusText, overlay;
 let isMenuOpen = false;
 let userName = "";
 let tooltipTimeout;
@@ -84,7 +84,6 @@ function assignDOMElements() {
     nameInput = document.getElementById("user-name");
     typingIndicator = document.getElementById("typing-indicator");
     statusText = document.getElementById("status-text");
-    formWindow = document.getElementById("form-window");
     overlay = document.getElementById("chatbot-overlay");
 }
 
@@ -142,38 +141,11 @@ function createChatbotElements(settings) {
                 <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
             </div>
         </div>
-        <div id="form-window" class="form-window">
-            <div class="window-header form-header">
-                <div class="header-title"><i class="fas fa-file-alt"></i> <b>Formulario de Contacto</b></div>
-                <div class="window-controls">
-                    <button class="window-btn close-btn" id="close-form-btn"><i class="fas fa-times"></i></button>
-                </div>
-            </div>
-            <form id="floating-form">
-                <input type="hidden" name="access_key" value="${settings.web3formsKey}">
-                <input type="hidden" name="_subject" value="Nuevo Mensaje de Contacto - Rafael Bucheli">
-                <div class="form-content">
-                    <p class="form-instruction"><i class="fas fa-info-circle"></i> Completa tus datos y te responderemos por correo en menos de 24 horas.</p>
-                    <div id="floatingFormMessage" style="display: none; margin-bottom: 15px; padding: 10px; border-radius: 8px; text-align: center;"></div>
-                    <div class="input-with-icon"><i class="fas fa-user"></i><input type="text" name="Nombre" class="interactive-input" placeholder="Nombre completo" required></div>
-                    <div class="input-with-icon"><i class="fas fa-envelope"></i><input type="email" name="Correo" class="interactive-input" placeholder="Correo electrónico" required></div>
-                    <div class="input-with-icon"><i class="fas fa-phone"></i><input type="tel" name="Telefono" class="interactive-input" placeholder="Teléfono / WhatsApp" required></div>
-                    <div class="input-with-icon"><i class="fas fa-edit"></i><textarea name="Mensaje" class="interactive-input textarea-input" placeholder="¿En qué podemos ayudarte?" required></textarea></div>
-                    <div class="h-captcha" data-captcha="true"></div>
-                    <div class="form-buttons">
-                        <button type="submit" class="submit-btn" id="floatingSubmitBtn"><i class="fas fa-paper-plane"></i> Enviar Formulario</button>
-                        <button type="button" id="cancel-form-btn" class="cancel-btn"><i class="fas fa-times"></i></button>
-                    </div>
-                    <p class="privacy-note"><i class="fas fa-lock"></i> Tus datos están protegidos</p>
-                </div>
-            </form>
-        </div>
     `;
     const container = document.createElement('div');
     container.id = 'chatbot-container';
     container.innerHTML = chatbotHTML;
     document.body.appendChild(container);
-    loadWeb3FormsCaptcha();
 }
 
 function setupChatbot() {
@@ -184,7 +156,6 @@ function setupChatbot() {
     }
     exposeGlobalFunctions();
     setupEventListeners();
-    setupFloatingFormFetch();
     setTimeout(() => showMainTooltip(), 1000);
     updateConnectionStatus();
     setInterval(updateConnectionStatus, 30000);
@@ -207,10 +178,7 @@ function exposeGlobalFunctions() {
     window.showMoreContactOptions = showMoreContactOptions;
     window.showCallOptions = showCallOptions;
     window.openContactForm = openContactForm;
-    window.submitEmailForm = submitEmailForm;
-    window.submitEmailForm2 = submitEmailForm2;
     window.showMoreOptions = showMoreOptions;
-    window.openContactFormWithMessage = openContactFormWithMessage;
     window.redirectToWhatsAppWithMessage = redirectToWhatsAppWithMessage;
     window.cleanOptions = cleanOptions;
 }
@@ -229,12 +197,10 @@ function setupEventListeners() {
         chatbotFloatingBtn.addEventListener("click", () => openWindow(chatbotWindow));
     }
     if (formFloatingBtn) {
-        formFloatingBtn.addEventListener("click", () => openWindow(formWindow));
+        formFloatingBtn.addEventListener("click", openContactForm);
     }
     if (whatsappBtn) whatsappBtn.addEventListener("click", toggleFloatingMenu);
     document.getElementById('close-chat-btn')?.addEventListener('click', closeAllWindows);
-    document.getElementById('close-form-btn')?.addEventListener('click', closeAllWindows);
-    document.getElementById('cancel-form-btn')?.addEventListener('click', closeAllWindows);
     document.getElementById('minimize-chat-btn')?.addEventListener('click', toggleMinimizeChat);
     if (overlay) overlay.addEventListener('click', closeAllWindows);
     document.getElementById('start-btn')?.addEventListener('click', startChat);
@@ -264,103 +230,13 @@ function closeAllWindows() {
             if (btn) btn.innerHTML = '<i class="fas fa-window-minimize"></i>';
         }
     }
-    if (formWindow) formWindow.style.display = 'none';
     if (overlay) overlay.classList.remove('active');
     mainFloatingBtn.classList.remove('active');
     showMainTooltip();
 }
 
 function isWindowOpen() {
-    return (chatbotWindow && chatbotWindow.style.display === 'flex') || (formWindow && formWindow.style.display === 'flex');
-}
-
-// ========== FORMULARIO FLOTANTE CON FETCH ==========
-function setupFloatingFormFetch() {
-    const floatingForm = document.getElementById('floating-form');
-    if (!floatingForm) return;
-    
-    floatingForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        const formData = new FormData(floatingForm);
-        const data = {};
-        formData.forEach((value, key) => { data[key] = value; });
-        
-        if (!data.Nombre || !data.Correo) {
-            showFloatingFormMessage('Por favor complete nombre y correo electrónico', 'error');
-            return;
-        }
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(data.Correo)) {
-            showFloatingFormMessage('Por favor ingrese un correo electrónico válido', 'error');
-            return;
-        }
-        if (!data['h-captcha-response']) {
-            showFloatingFormMessage('Por favor complete la verificación de seguridad', 'error');
-            return;
-        }
-        
-        const submitBtn = document.getElementById('floatingSubmitBtn');
-        const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-        submitBtn.disabled = true;
-        
-        try {
-            const response = await fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            });
-            const result = await response.json();
-            
-            if (result.success) {
-                showFloatingFormMessage('¡Mensaje enviado exitosamente! Te responderemos en menos de 24 horas.', 'success');
-                floatingForm.reset();
-                if (window.hcaptcha) window.hcaptcha.reset();
-                setTimeout(() => {
-                    closeAllWindows();
-                }, 3000);
-            } else {
-                showFloatingFormMessage('Error al enviar: ' + (result.message || 'Intente más tarde'), 'error');
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            }
-        } catch (error) {
-            console.error('Error de conexión:', error);
-            showFloatingFormMessage('Error de conexión. Revise su internet e intente nuevamente.', 'error');
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-        }
-    });
-}
-
-function showFloatingFormMessage(msg, type) {
-    const msgDiv = document.getElementById('floatingFormMessage');
-    if (!msgDiv) return;
-    const icon = type === 'success' ? 'fas fa-check-circle' : 'fas fa-exclamation-triangle';
-    msgDiv.style.display = 'block';
-    msgDiv.textContent = '';
-    const iconEl = document.createElement('i');
-    iconEl.className = icon;
-    iconEl.setAttribute('aria-hidden', 'true');
-    msgDiv.appendChild(iconEl);
-    msgDiv.appendChild(document.createTextNode(' ' + msg));
-    msgDiv.style.backgroundColor = type === 'success' ? '#d4edda' : '#f8d7da';
-    msgDiv.style.color = type === 'success' ? '#155724' : '#721c24';
-    msgDiv.style.border = type === 'success' ? '1px solid #c3e6cb' : '1px solid #f5c6cb';
-    
-    setTimeout(() => {
-        if (msgDiv) msgDiv.style.display = 'none';
-    }, 5000);
-}
-
-function loadWeb3FormsCaptcha() {
-    if (document.querySelector('script[src*="web3forms.com/client/script.js"]')) return;
-    const script = document.createElement('script');
-    script.src = 'https://web3forms.com/client/script.js';
-    script.async = true;
-    script.defer = true;
-    document.body.appendChild(script);
+    return chatbotWindow && chatbotWindow.style.display === 'flex';
 }
 
 // ========== FUNCIONES DE CHAT ==========
@@ -446,9 +322,9 @@ function initMenu() {
                 <button style="animation-delay: 0.1s" onclick="window.selectOption('academica')">
                     <i class="fas fa-graduation-cap"></i> Oferta Académica
                 </button>
-                <button style="animation-delay: 0.2s" onclick="window.selectOption('admisiones')">
+                ${window.CHATBOT_CONFIG.showAdmissions ? `<button style="animation-delay: 0.2s" onclick="window.selectOption('admisiones')">
                     <i class="fas fa-file-invoice-dollar"></i> Admisiones y Costos
-                </button>
+                </button>` : ''}
                 <button style="animation-delay: 0.3s" onclick="window.selectOption('h_atencion')">
                     <i class="fas fa-clock"></i> Horarios de Atención
                 </button>
@@ -471,7 +347,7 @@ function initMenu() {
 }
 
 function selectOption(option) {
-    if (!messages) return;
+    if (!messages || (option === 'admisiones' && !window.CHATBOT_CONFIG.showAdmissions)) return;
     cleanOptions();
     let response = "", btnExtra = "";
     switch(option) {
@@ -548,12 +424,12 @@ function getAcademicOffer() {
             </div>
         </div>
         
-        <div style="background: linear-gradient(135deg, #fff8e1, #ffecb3); padding: 15px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #ffc107;">
+        ${window.CHATBOT_CONFIG.showAdmissions ? `<div style="background: linear-gradient(135deg, #fff8e1, #ffecb3); padding: 15px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #ffc107;">
             <b><i class="fas fa-calendar-check" style="color: #ff9800;"></i> Periodo Lectivo 2025-2026:</b><br>
             • <b>Inscripciones:</b> Julio y agosto 2025<br>
             • <b>Inicio de clases:</b> Septiembre 2025<br>
             • <b>Fin de año lectivo:</b> Junio 2026
-        </div>
+        </div>` : ''}
     `;
 }
 
@@ -681,7 +557,7 @@ function getAttentionHours() {
         
         <div style="background: linear-gradient(135deg, #fce4ec, #f8bbd9); padding: 12px; border-radius: 10px; margin-top: 15px;">
             <small><i class="fas fa-lightbulb" style="color: #e91e63;"></i> <b>Recomendación:</b><br>
-            Para trámites extensos (admisiones), se sugiere acudir en la mañana para mayor disponibilidad.</small>
+            Para trámites extensos, se sugiere acudir en la mañana para mayor disponibilidad.</small>
         </div>
     `;
 }
@@ -813,7 +689,7 @@ function getAdvisorInfo() {
             <div class="advisor-icon">👨‍🏫</div>
             <div class="advisor-title">Atención Personalizada con Asesor</div>
             <div class="advisor-description">
-                Perfecto <b>${userName}</b>. Un asesor educativo especializado te atenderá personalmente para resolver todas tus dudas sobre admisiones, horarios y más.
+                Perfecto <b>${escapeHtml(userName)}</b>. Un asesor educativo te ayudará con tus dudas sobre el colegio, sus horarios y servicios.
             </div>
             
             <div style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); padding: 15px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #4CAF50;">
@@ -822,9 +698,6 @@ function getAdvisorInfo() {
                     <li>Atención inmediata vía WhatsApp</li>
                     <li>Asesoría personalizada según tus necesidades</li>
                     <li>Resolución de dudas específicas en tiempo real</li>
-                    <li>Proceso de inscripción guiado paso a paso</li>
-                    <li>Información actualizada sobre becas y descuentos</li>
-                    <li>Seguimiento continuo hasta tu inscripción</li>
                 </ul>
             </div>
         </div>
@@ -848,9 +721,9 @@ function getSectionButtons(section) {
                 <button class="section-btn academic-section-btn" onclick="window.contactAdvisor('${sectionName}')">
                     <i class="fab fa-whatsapp"></i> Consultar sobre ${sectionName}
                 </button>
-                <button class="section-btn admission-section-btn" onclick="window.selectOption('admisiones')">
+                ${window.CHATBOT_CONFIG.showAdmissions ? `<button class="section-btn admission-section-btn" onclick="window.selectOption('admisiones')">
                     <i class="fas fa-file-invoice-dollar"></i> Ver información de admisión
-                </button>
+                </button>` : ''}
             `;
         case 'admisiones':
             sectionName = "Admisiones";
@@ -878,9 +751,9 @@ function getSectionButtons(section) {
                 <button class="section-btn schedule-section-btn" onclick="window.contactAdvisor('${sectionName}')">
                     <i class="fab fa-whatsapp"></i> Consultar sobre ${sectionName}
                 </button>
-                <button class="section-btn admission-section-btn" onclick="window.selectOption('admisiones')">
+                ${window.CHATBOT_CONFIG.showAdmissions ? `<button class="section-btn admission-section-btn" onclick="window.selectOption('admisiones')">
                     <i class="fas fa-file-signature"></i> Iniciar proceso de inscripción
-                </button>
+                </button>` : ''}
             `;
         case 'ubicacion':
             sectionName = "Ubicación";
@@ -920,10 +793,10 @@ function contactAdvisor(topic) {
             <div class="redirect-message">
                 <i class="fas fa-external-link-alt" style="color: #ff9800;"></i>
                 <b>¡Perfecto! Redireccionando a WhatsApp...</b><br>
-                <small>Estás siendo conectado con un asesor especializado en <b>${topic}</b>.</small>
+                <small>Estás siendo conectado con un asesor especializado en <b>${escapeHtml(topic)}</b>.</small>
             </div>
             <div class="user-query">
-                <i class="fas fa-user-circle"></i> <b>Consulta:</b> ${topic}
+                <i class="fas fa-user-circle"></i> <b>Consulta:</b> ${escapeHtml(topic)}
             </div>
         `;
         messages.scrollTop = messages.scrollHeight;
@@ -933,7 +806,7 @@ function contactAdvisor(topic) {
         messages.appendChild(redirectMsg);
         setTimeout(() => {
             redirectMsg.innerHTML = `<div style="display: flex; align-items: center; gap: 10px;"><i class="fas fa-check-circle" style="color: #4CAF50;"></i><span><b>Conexión lista</b> - Redirigiendo a WhatsApp...</span></div>`;
-            setTimeout(() => { window.open(whatsappUrl, '_blank'); }, 800);
+            setTimeout(() => { window.open(whatsappUrl, '_blank', 'noopener,noreferrer'); }, 800);
         }, 1500);
         chatHistory.push({ type: 'action', content: `Redirigido a WhatsApp: ${topic}` });
     });
@@ -941,24 +814,24 @@ function contactAdvisor(topic) {
 
 function contactAdvisorDirect() {
     if (!messages) return;
-    const text = encodeURIComponent(`Hola, soy ${userName || 'un interesado'}. Me gustaría recibir asesoría personalizada sobre admisiones. Me comunico desde el asistente virtual de la Unidad Educativa Particular Rafael Bucheli.`);
+    const text = encodeURIComponent(`Hola, soy ${userName || 'un interesado'}. Me gustaría recibir información sobre el colegio. Me comunico desde el asistente virtual de la Unidad Educativa Particular Rafael Bucheli.`);
     const whatsappUrl = `https://wa.me/${window.CHATBOT_CONFIG.whatsappNumber}?text=${text}`;
     showTyping(() => {
         messages.innerHTML += `
             <div class="redirect-message">
                 <i class="fas fa-user-tie" style="color: #ff9800;"></i>
                 <b>Conectando con asesor educativo...</b><br>
-                <small>Serás atendido por un especialista en admisiones.</small>
+                <small>Serás atendido por un asesor educativo.</small>
             </div>
             <div style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); padding: 15px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #4CAF50;">
                 <b><i class="fas fa-info-circle" style="color: #4CAF50;"></i> Preparando tu consulta:</b><br>
-                • Nombre: <b>${userName || 'Por confirmar'}</b><br>
+                • Nombre: <b>${escapeHtml(userName || 'Por confirmar')}</b><br>
                 • Tipo de consulta: <b>Asesoría personalizada</b><br>
                 • Canal: <b>WhatsApp Business</b>
             </div>
         `;
         messages.scrollTop = messages.scrollHeight;
-        setTimeout(() => { window.open(whatsappUrl, '_blank'); }, 1200);
+        setTimeout(() => { window.open(whatsappUrl, '_blank', 'noopener,noreferrer'); }, 1200);
         chatHistory.push({ type: 'action', content: 'Contacto directo con asesor' });
     });
 }
@@ -981,7 +854,7 @@ function openGoogleMaps() {
             </div>
         `;
         messages.scrollTop = messages.scrollHeight;
-        setTimeout(() => { window.open(mapsUrl, '_blank'); }, 1000);
+        setTimeout(() => { window.open(mapsUrl, '_blank', 'noopener,noreferrer'); }, 1000);
     });
 }
 
@@ -1042,70 +915,18 @@ function showCallOptions() {
 }
 
 function openContactForm() {
-    if (!messages) return;
-    cleanOptions();
-    showTyping(() => {
-        messages.innerHTML += `
-            <div class="contact-form-container">
-                <b>📧 Formulario de Contacto</b><br>
-                <small>Complete los datos y le responderemos por correo:</small>
-                <input type="text" id="contact-name" class="interactive-input" placeholder="Tu nombre completo" value="${userName || ''}">
-                <input type="email" id="contact-email" class="interactive-input" placeholder="Correo electrónico">
-                <input type="tel" id="contact-phone" class="interactive-input" placeholder="Teléfono / WhatsApp">
-                <textarea id="contact-message" class="interactive-input" placeholder="Mensaje o consulta específica..." style="height: 100px;"></textarea>
-                <div style="display: flex; gap: 10px; margin-top: 15px;">
-                    <button onclick="window.submitEmailForm()" style="flex: 1; padding: 12px; background: linear-gradient(135deg, var(--azul-institucional), var(--azul-complementario)); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 600;">
-                        <i class="fas fa-paper-plane"></i> Enviar por Correo
-                    </button>
-                    <button onclick="window.contactAdvisorDirect()" style="padding: 12px 20px; background: linear-gradient(135deg, var(--whatsapp), var(--whatsapp-dark)); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 600;">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
-                    </button>
-                </div>
-            </div>
-            <button class="back-btn" onclick="window.showMoreContactOptions()"><i class="fas fa-arrow-left"></i> Volver a opciones</button>
-        `;
-        messages.scrollTop = messages.scrollHeight;
-    });
+    const contactForm = document.getElementById('contactForm');
+    const contactName = document.getElementById('contactName');
+    if (contactForm && contactName) {
+        closeAllWindows();
+        floatingMenu?.classList.remove('active');
+        isMenuOpen = false;
+        contactForm.scrollIntoView();
+        contactName.focus({ preventScroll: true });
+        return;
+    }
+    window.location.assign('/contacto#contactForm');
 }
-
-function submitEmailForm() {
-    if (!messages) return;
-    const name = document.getElementById('contact-name')?.value;
-    const email = document.getElementById('contact-email')?.value;
-    const phone = document.getElementById('contact-phone')?.value;
-    const message = document.getElementById('contact-message')?.value;
-    if (!name || !email) { alert('Por favor ingrese su nombre y correo electrónico'); return; }
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) { alert('Por favor ingrese un correo electrónico válido'); return; }
-
-    const data = {
-        access_key: window.CHATBOT_CONFIG.web3formsKey,
-        name: name,
-        email: email,
-        phone: phone,
-        message: message,
-        subject: "Mensaje desde el Chatbot - Rafael Bucheli"
-    };
-    fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(resp => {
-        if (resp.success) {
-            showTyping(() => {
-                messages.innerHTML += `<div class="bot-message success-message"><i class="fas fa-check-circle" style="color: #4CAF50;"></i> <b>¡Formulario enviado exitosamente!</b><br>Hemos recibido su consulta. Te contactaremos en:<br><b>📧 ${escapeHtml(email)}</b><br>en las próximas 24 horas hábiles.</div>`;
-                messages.scrollTop = messages.scrollHeight;
-            });
-        } else {
-            alert('Error al enviar: ' + (resp.message || 'Intente más tarde'));
-        }
-    })
-    .catch(err => { alert('Error de conexión. Revise su internet.'); console.error(err); });
-}
-
-function submitEmailForm2() { submitEmailForm(); }
 
 function showMoreOptions(query) {
     if (!messages) return;
@@ -1117,36 +938,11 @@ function showMoreOptions(query) {
                 Elige el método que prefieras para tu consulta:
             </div>
             <div class="options">
-                <button onclick="window.redirectToWhatsAppWithMessage('${query}')" class="whatsapp-option"><i class="fab fa-whatsapp"></i> WhatsApp Inmediato</button>
-                <button onclick="window.openContactFormWithMessage('${query}')" class="form-option"><i class="fas fa-envelope"></i> Correo Electrónico</button>
+                <button data-query="${escapeAttribute(query)}" onclick="window.redirectToWhatsAppWithMessage(this.dataset.query)" class="whatsapp-option"><i class="fab fa-whatsapp"></i> WhatsApp Inmediato</button>
+                <button onclick="window.openContactForm()" class="form-option"><i class="fas fa-envelope"></i> Correo Electrónico</button>
                 <button onclick="window.showCallOptions()" class="call-option"><i class="fas fa-phone"></i> Llamada Telefónica</button>
                 <button onclick="window.initMenu()" class="back-option">Volver al menú principal</button>
             </div>
-        `;
-        messages.scrollTop = messages.scrollHeight;
-    });
-}
-
-function openContactFormWithMessage(query) {
-    if (!messages) return;
-    const decodedQuery = decodeURIComponent(query);
-    const safeUserName = escapeAttribute(userName || '');
-    const safeDecodedQuery = escapeHtml(decodedQuery);
-    showTyping(() => {
-        messages.innerHTML += `
-            <div class="contact-form-container">
-                <b>📧 Formulario de Contacto</b><br>
-                <small>Completa tus datos y te responderemos por correo:</small>
-                <input type="text" id="contact-name2" class="interactive-input" placeholder="Tu nombre completo" value="${safeUserName}">
-                <input type="email" id="contact-email2" class="interactive-input" placeholder="Correo electrónico">
-                <input type="tel" id="contact-phone2" class="interactive-input" placeholder="Teléfono / WhatsApp">
-                <textarea id="contact-message2" class="interactive-input" placeholder="Mensaje o consulta específica..." style="height: 100px;">${safeDecodedQuery}</textarea>
-                <div style="display: flex; gap: 10px; margin-top: 15px;">
-                    <button onclick="window.submitEmailForm2()" style="flex: 1; padding: 12px; background: linear-gradient(135deg, var(--azul-institucional), var(--azul-complementario)); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 600;"><i class="fas fa-paper-plane"></i> Enviar por Correo</button>
-                    <button onclick="window.redirectToWhatsAppWithMessage('${query}')" style="padding: 12px 20px; background: linear-gradient(135deg, var(--whatsapp), var(--whatsapp-dark)); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 600;"><i class="fab fa-whatsapp"></i> WhatsApp</button>
-                </div>
-            </div>
-            <button class="back-btn" onclick="window.showMoreOptions('${query}')"><i class="fas fa-arrow-left"></i> Ver otras opciones</button>
         `;
         messages.scrollTop = messages.scrollHeight;
     });
@@ -1159,19 +955,20 @@ function redirectToWhatsAppWithMessage(query) {
     const whatsappUrl = `https://wa.me/${window.CHATBOT_CONFIG.whatsappNumber}?text=${text}`;
     showTyping(() => {
         messages.innerHTML += `<div class="redirect-message"><i class="fas fa-external-link-alt"></i> Redireccionando a WhatsApp...</div>`;
-        setTimeout(() => { window.open(whatsappUrl, '_blank'); }, 1200);
+        setTimeout(() => { window.open(whatsappUrl, '_blank', 'noopener,noreferrer'); }, 1200);
     });
 }
 
 function sendCustomMessage() {
     if (!messages || !userInput) return;
-    const text = userInput.value.trim();
+    const text = userInput.value.trim().slice(0, 2000);
     if (!text) return;
     messages.innerHTML += `<div class="user-message">${escapeHtml(text)}</div>`;
     userInput.value = "";
     messages.scrollTop = messages.scrollHeight;
     chatHistory.push({ type: 'user', content: text });
     if (isChatMinimized) updateMessageBadge();
+    const query = escapeAttribute(encodeURIComponent(text));
     showTyping(() => {
         const responseHTML = `
             <div class="bot-message">
@@ -1183,8 +980,8 @@ function sendCustomMessage() {
                 <div class="advisor-title">Conectando con especialista</div>
                 <div class="advisor-description">Tu consulta será atendida por un asesor educativo especializado.</div>
                 <div class="advisor-buttons">
-                    <button class="advisor-primary-btn" onclick="window.redirectToWhatsAppWithMessage('${encodeURIComponent(text)}')"><i class="fab fa-whatsapp"></i> 💬 Continuar en WhatsApp</button>
-                    <button class="advisor-secondary-btn" onclick="window.showMoreOptions('${encodeURIComponent(text)}')"><i class="fas fa-info-circle"></i> Más opciones de contacto</button>
+                    <button class="advisor-primary-btn" data-query="${query}" onclick="window.redirectToWhatsAppWithMessage(this.dataset.query)"><i class="fab fa-whatsapp"></i> 💬 Continuar en WhatsApp</button>
+                    <button class="advisor-secondary-btn" data-query="${query}" onclick="window.showMoreOptions(this.dataset.query)"><i class="fas fa-info-circle"></i> Más opciones de contacto</button>
                 </div>
             </div>
             <button class="back-btn" onclick="window.initMenu()"><i class="fas fa-arrow-left"></i> Volver al menú principal</button>

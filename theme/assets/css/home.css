@@ -94,6 +94,7 @@
         .hero-slider .owl-stage-outer,
         .hero-slider .owl-stage,
         .hero-slider .owl-item { height: 100%; }
+        .hero-slider.owl-carousel:not(.owl-loaded) { display: block; }
         .hero-slider:not(.owl-loaded) .hero-slide { display: none; }
         .hero-slider:not(.owl-loaded) .hero-slide:first-child { display: flex; }
 
@@ -253,7 +254,7 @@
         .slide-1 {
             align-items: flex-end;
             padding-bottom: 0;
-            background-image: url("../images/recursos/slider_principal_3.webp");
+            background-image: url("../images/recursos/slider-buchelinos-v3.webp");
             background-position: center center;
         }
         .slide-2 {
@@ -633,7 +634,7 @@
             .slide-0-bottom { justify-content: center; }
 
             .slide-1 {
-                background-image: url("../images/recursos/slider_principal_3-mobile.webp") !important;
+                background-position: 60% center;
             }
             .slide-2 {
                 background-image: url("../images/recursos/slider_principal.webp") !important;

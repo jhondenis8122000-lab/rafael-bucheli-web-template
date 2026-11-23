@@ -5,13 +5,13 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Landing Page - Unidad Educativa Rafael Bucheli</title>
     <meta name="description" content="Página informativa de la Unidad Educativa Rafael Bucheli para campañas y solicitudes de información.">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://rafaelbucheli.com/">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://rafaelbucheli.com/landing-page">
     <meta property="og:locale" content="es_EC">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Unidad Educativa Rafael Bucheli">
     <meta property="og:description" content="Página informativa de la Unidad Educativa Rafael Bucheli para campañas y solicitudes de información.">
-    <meta property="og:url" content="https://rafaelbucheli.com/">
+    <meta property="og:url" content="https://rafaelbucheli.com/landing-page">
     <meta property="og:site_name" content="Unidad Educativa Rafael Bucheli">
     <meta property="og:image" content="https://rafaelbucheli.com/assets/images/og-rafael-bucheli.jpg">
     <meta property="og:image:width" content="1200">
@@ -26,10 +26,9 @@
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/typography.css">
-    <link rel="stylesheet" href="assets/css/default-css.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/default-css.css?v=20261123">
+    <link rel="stylesheet" href="assets/css/styles.css?v=20261123d">
     <link rel="stylesheet" href="assets/css/responsive.css">
-    <link rel="stylesheet" href="assets/css/loading.css">
     
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -87,7 +86,8 @@
             overflow: hidden;
             padding: 0;
             margin-top: 80px; /* Altura del header */
-            background: var(--pure-white);
+            background: linear-gradient(90deg, rgba(255, 255, 255, .96) 0%, rgba(255, 255, 255, .88) 55%, rgba(255, 255, 255, .72) 100%),
+                        url("assets/images/recursos/institucion.webp") center / cover no-repeat;
         }
 
         .hero-pattern {
@@ -645,50 +645,40 @@
 
 <body>
     <!-- Preloader -->
-        <div id="preloader" role="status" aria-live="polite">
-        <div class="loading-container">
-            <img class="loading-logo" src="assets/images/icon/logo.png" alt="" decoding="async">
-            <div class="loading-bar"><span></span></div>
-            <p class="loading-text">Cargando...</p>
-        </div>
-    </div>
     
     <!-- ============================================================ -->
     <!-- HEADER: CLONADO EXACTO DE LA PÁGINA DE CONTACTO              -->
     <!-- ============================================================ -->
+    <!-- NAV:site-header -->
     <header id="header">
         <div class="header-two">
             <div class="container-fluid px-0">
                 <div class="row align-items-center g-0 mx-0">
                     <div class="col-lg-3 col-6 d-block d-lg-none">
                         <div class="logo">
-                            <a href="/"><img src="assets/images/icon/logo.png" alt="logo" decoding="async"></a>
+                            <a href="/"><img src="/assets/images/icon/logo.png" alt="Unidad Educativa Rafael Bucheli" decoding="async"></a>
                         </div>
                     </div>
                     <div class="col-lg-9 offset-lg-1 d-none d-lg-block">
                         <div class="main-menu menu-style2">
-                            <nav>
+                            <nav aria-label="Navegación principal">
                                 <ul id="m_menu_active">
-                                    <li class="active"><a href="/">Inicio</a></li>
-                                    <li><a href="javascript:void(0);">Oferta Académica</a>
+                                    <li><a href="/">Inicio</a></li>
+                                    <li>
+                                        <a href="/oferta-academica">Oferta Académica</a>
                                         <ul class="submenu">
-                                            <li><a href="/oferta-academica">Academia</a></li>
+                                            <li><a href="/oferta-academica">Niveles educativos</a></li>
                                             <li><a href="/actividades-extracurriculares">Actividades Extracurriculares</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="/admisiones">Admisiones</a></li>
                                     <li class="middle-logo">
                                         <a href="/">
-                                            <img src="assets/images/icon/logo-middle.png" alt="logo" decoding="async">
-                                            <img class="hb-bottom-shape" src="assets/images/icon/hb-bottom-shape.png" alt="logo" loading="lazy" decoding="async">
+                                            <img src="/assets/images/icon/logo-middle.png" alt="Unidad Educativa Rafael Bucheli" decoding="async">
+                                            <img class="hb-bottom-shape" src="/assets/images/icon/hb-bottom-shape.png" alt="" loading="lazy" decoding="async">
                                         </a>
                                     </li>
                                     <li><a href="/servicios">Servicios</a></li>
-                                    <li><a href="/nosotros">Nosotros</a>
-                                        <ul class="submenu">
-                                            <li><a href="/nosotros">Visión y Misión</a></li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="/nosotros">Nosotros</a></li>
                                     <li><a href="/contacto">Contacto</a></li>
                                 </ul>
                             </nav>
@@ -698,9 +688,7 @@
                         <div class="header-bottom-right-style-2">
                             <ul>
                                 <li>
-                                    <a href="https://app.rafaelbucheli.com/login/?next=/" 
-                                    class="btn btn-primary btn-round portal-btn" 
-                                    target="_blank" rel="noopener noreferrer"><i class="fas fa-user-graduate portal-icon"></i><span>Portal Web</span></a>
+                                    <a href="https://app.rafaelbucheli.com/login/?next=/" class="btn btn-primary btn-round portal-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-user-graduate portal-icon" aria-hidden="true"></i><span>Portal Web</span></a>
                                 </li>
                                 <li class="d-block d-lg-none"><div id="mobile_menu"></div></li>
                             </ul>
@@ -710,6 +698,7 @@
             </div>
         </div>
     </header>
+    <!-- /NAV:site-header -->
     <!-- ============================================================ -->
     
     <!-- Offset Search -->
@@ -759,7 +748,7 @@
                         </div>
                         
                         <div class="hero-buttons">
-                            <a href="/admisiones" class="btn-primary-custom">
+                            <a href="#contactForm" class="btn-primary-custom">
                                 <i class="fas fa-pen-to-square"></i> Solicitar Información
                             </a>
                             <a href="/contacto" class="btn-secondary-custom">
@@ -771,7 +760,7 @@
                 
                 <div class="col-lg-5">
                     <div class="hero-form float">
-                        <h3>Informacion de Inscripciones 2026</h3>
+                        <h3>Solicita información del colegio</h3>
                         <form id="contactForm">
                             <div class="form-group">
                                 <input type="text" class="form-control" id="nombre" placeholder="Nombre completo" required>
@@ -873,13 +862,15 @@
                     <div class="col-md-3">
                         <div class="widget footer-link">
                             <h4 class="fwidget-title mb-5 pb-3 primary-color">Enlaces</h4> 
+                            <!-- NAV:footer-links -->
                             <ul>
-                                <li><a href="/servicios"><i class="fas fa-angle-right"></i>Servicios</a></li>
-                                <li><a href="/nosotros"><i class="fas fa-angle-right"></i>Nosotros</a></li>
-                                <li><a href="/nosotros"><i class="fas fa-angle-right"></i>Nuestra Historia</a></li>
-                                <li><a href="/admisiones"><i class="fas fa-angle-right"></i>Admisiones</a></li>
-                                <li><a href="/contacto"><i class="fas fa-angle-right"></i>Contacto</a></li>
+                                <li><a href="/oferta-academica"><i class="fas fa-angle-right" aria-hidden="true"></i>Oferta académica</a></li>
+                                <li><a href="/actividades-extracurriculares"><i class="fas fa-angle-right" aria-hidden="true"></i>Actividades extracurriculares</a></li>
+                                <li><a href="/servicios"><i class="fas fa-angle-right" aria-hidden="true"></i>Servicios</a></li>
+                                <li><a href="/nosotros"><i class="fas fa-angle-right" aria-hidden="true"></i>Nosotros</a></li>
+                                <li><a href="/contacto"><i class="fas fa-angle-right" aria-hidden="true"></i>Contacto</a></li>
                             </ul>
+                            <!-- /NAV:footer-links -->
                         </div>
                     </div>
                     
@@ -889,7 +880,6 @@
                             <ul>
                                 <li><span>Lunes a viernes :</span>08:00 - 16:00</li>
                                 <li><span>Secretaría :</span>08:00 - 16:00</li>
-                                <li><span>Admisiones :</span>09:00 - 16:00</li>
                                 <li><span>Fines de semana :</span>Cerrado</li>
                             </ul>
                         </div>
@@ -908,18 +898,13 @@
     <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/plugins.js"></script>
-    <script src="assets/js/scripts.js"></script>
-    <script src="assets/js/loading.js"></script>
-    <script src="assets/js/mobile-menu.js?v=20260727"></script>
+    <script src="assets/js/scripts.js?v=20261123"></script>
+    <script src="assets/js/mobile-menu.js?v=20261123d"></script>
     
     <!-- Chatbot -->
-    <script src="CHATBOT/CHATBOT.js?v=20260727" data-auto-init></script>
+    <script src="CHATBOT/CHATBOT.js?v=20261123e" data-auto-init></script>
     
     <script>
-        $(window).on('load', function() {
-            $('#preloader').fadeOut('slow');
-        });
-
         // ============================================================
         // VALIDACIÓN DEL FORMULARIO CON CHECKBOXES
         // ============================================================

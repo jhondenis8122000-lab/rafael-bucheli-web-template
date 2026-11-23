@@ -14,7 +14,6 @@ const routes = new Map([
   ['/nosotros', 'nosotros.html'],
   ['/contacto', 'contacto.html'],
   ['/landing-page', 'landing_page.html'],
-  ['/404', '404.html'],
 ]);
 
 const redirects = new Map([
@@ -22,11 +21,14 @@ const redirects = new Map([
   ['/inicio.html', '/'],
   ['/admisiones.html', '/admisiones'],
   ['/oferta_academica.html', '/oferta-academica'],
+  ['/oferta_academica', '/oferta-academica'],
   ['/actividades_extracurriculares.html', '/actividades-extracurriculares'],
+  ['/actividades_extracurriculares', '/actividades-extracurriculares'],
   ['/servicios.html', '/servicios'],
   ['/nosotros.html', '/nosotros'],
   ['/contacto.html', '/contacto'],
   ['/landing_page.html', '/landing-page'],
+  ['/landing_page', '/landing-page'],
   ['/404.html', '/404'],
 ]);
 
@@ -52,15 +54,20 @@ const types = {
 };
 
 function safePath(relativePath) {
-  const normalized = path.normalize(relativePath).replace(/^(\.\.[/\\])+/, '');
-  const filePath = path.join(root, normalized);
-  return filePath.startsWith(root) ? filePath : null;
+  if (relativePath.split('/').some((segment) => segment.startsWith('.'))) return null;
+  const filePath = path.resolve(root, relativePath);
+  return filePath.startsWith(root + path.sep) ? filePath : null;
 }
 
 function sendFile(res, filePath, status = 200) {
   fs.readFile(filePath, (error, data) => {
     if (error) {
-      send404(res);
+      if (status === 404) {
+        res.writeHead(404, { 'Content-Type': types['.txt'] });
+        res.end('Pagina no encontrada');
+      } else {
+        send404(res);
+      }
       return;
     }
 
@@ -79,12 +86,30 @@ function send404(res) {
 }
 
 const server = http.createServer((req, res) => {
-  const url = new URL(req.url, `http://${req.headers.host}`);
-  const pathname = decodeURIComponent(url.pathname).replace(/\/+$/, '') || '/';
-
-  if (redirects.has(pathname)) {
-    res.writeHead(301, { Location: redirects.get(pathname) });
+  let url;
+  let decodedPath;
+  try {
+    url = new URL(req.url, 'http://localhost');
+    decodedPath = decodeURIComponent(url.pathname);
+    if (!decodedPath.startsWith('/') || /[\x00-\x1f\x7f\\]/.test(decodedPath)) throw new URIError();
+  } catch {
+    res.writeHead(400);
     res.end();
+    return;
+  }
+
+  const pathname = decodedPath.replace(/\/+$/, '') || '/';
+  const redirect = redirects.get(pathname) ||
+    (pathname !== decodedPath && routes.has(pathname) ? pathname : null);
+
+  if (redirect) {
+    res.writeHead(301, { Location: redirect + url.search });
+    res.end();
+    return;
+  }
+
+  if (pathname === '/404') {
+    send404(res);
     return;
   }
 

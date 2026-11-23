@@ -291,6 +291,57 @@ span.post-date i { color: var(--azul-principal); margin-right: 5px; }
 .hb-s3-right { text-align: right; }
 .crumbs-area { position: relative; z-index: 1; background: url(../images/bg/bg1.webp); padding: 213px 0 114px; background-size: cover; }
 .crumbs-area:before { content: ""; position: absolute; left: 0; top: 0; z-index: -1; height: 100%; width: 100%; opacity: 0.7; background: var(--color-linea); }
+
+/* Encabezados de las secciones interiores. */
+.interior-banner {
+    padding: 11.2rem 0 4.4rem;
+    text-align: center;
+    background-color: #1f2366;
+    background-image: linear-gradient(180deg, rgba(15, 21, 47, .64), rgba(15, 21, 47, .75)), var(--banner-photo);
+    background-position: center, var(--banner-position, center);
+    background-size: cover;
+}
+.interior-banner h1 {
+    margin: 0 0 1.2rem;
+    color: #fff !important;
+    font-size: 3rem;
+    line-height: 1.15;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+.interior-banner p {
+    max-width: 64rem;
+    margin: 0 auto;
+    color: #fff;
+    font-size: 1.7rem;
+    line-height: 1.55;
+}
+.interior-banner-nosotros {
+    --banner-photo: url("../images/recursos/uniformes.jpg");
+    --banner-position: center 52%;
+}
+.interior-banner-contacto {
+    --banner-photo: url("../images/recursos/institucion.webp");
+    --banner-position: center 43%;
+}
+.interior-banner-actividades {
+    --banner-photo: url("../images/recursos/bastoneras.webp");
+    --banner-position: center 43%;
+}
+.interior-banner-servicios {
+    --banner-photo: url("../images/recursos/transporte-escolar.webp");
+}
+.interior-banner-academia {
+    --banner-photo: url("../images/recursos/educacion_basica1.webp");
+}
+@media (min-width: 768px) {
+    .interior-banner h1 { font-size: 4.4rem; }
+}
+@media (min-width: 992px) {
+    .interior-banner { padding: 8.8rem 0; }
+    .interior-banner h1 { font-size: 5.2rem; }
+    .interior-banner p { font-size: 1.9rem; }
+}
 .crumb-content h4 { font-size: 55px; color: var(--blanco); font-weight: 900; letter-spacing: 0; text-transform: uppercase; line-height: 59px; margin-bottom: 18px; font-family: 'Poppins', sans-serif; }
 .crumb-content h4 span { color: var(--azul-principal); }
 .crumb-title { font-size: 30px; font-weight: 500; color: var(--blanco); text-transform: uppercase; letter-spacing: 0; padding-left: 80px; position: relative; font-family: 'Poppins', sans-serif; }
@@ -587,275 +638,200 @@ span.post-date i { color: var(--azul-principal); margin-right: 5px; }
 .header-two.scrolled .header-bottom-right-style-2 li a.portal-btn { background: var(--amarillo-oro, #F6BE00) !important; border-color: var(--amarillo-oro, #F6BE00) !important; color: var(--azul-principal, #1F2366) !important; }
 @media (max-width: 991px) { .header-bottom-right-style-2 li a.portal-btn { min-width: 112px !important; min-height: 42px !important; padding: 10px 18px !important; font-size: 14px !important; } }
 @media (max-width: 575px) { .header-bottom-right-style-2 li a.portal-btn { min-width: 104px !important; min-height: 40px !important; padding: 9px 14px !important; font-size: 13px !important; } .header-bottom-right-style-2 li a.portal-btn .portal-icon { width: 23px !important; height: 23px !important; flex-basis: 23px !important; font-size: 12px !important; } }
-/* ============================================================
-   MENÚ MÓVIL - FULL SCREEN OVERLAY (slide from top)
-   ============================================================ */
-@media (max-width: 991px) {
-    /* ===== CONTENEDOR INLINE ===== */
-    #mobile_menu {
-        position: relative !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        width: auto !important;
-        max-width: none !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        clear: none !important;
-    }
+/* Navegacion movil y panel modal. */
+.bb-mobile-overlay { display: none; }
 
-    /* ===== Botón toggle hamburguesa ===== */
-    .bb-mobile-toggle {
-        display: inline-flex !important;
-        flex-direction: column;
+@media (max-width: 991px) {
+    #mobile_menu {
+        display: flex !important;
         align-items: center;
-        justify-content: center;
-        width: 36px !important;
-        height: 36px !important;
-        min-width: 36px !important;
-        margin: 0 0 0 8px !important;
-        padding: 6px !important;
-        background: rgba(31, 35, 102, 0.06) !important;
-        border: 1px solid rgba(31, 35, 102, 0.12) !important;
-        border-radius: 8px !important;
-        cursor: pointer !important;
-        position: relative !important;
-        z-index: 100000 !important;
-        transition: background 0.2s ease, border-color 0.2s ease !important;
+        margin: 0;
     }
-    .bb-mobile-toggle:hover {
-        background: rgba(31, 35, 102, 0.1) !important;
-        border-color: rgba(31, 35, 102, 0.2) !important;
+    .header-two .header-bottom-right-style-2 {
+        display: flex !important;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .header-two .header-bottom-right-style-2 ul {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .header-two .header-bottom-right-style-2 li { display: flex !important; }
+
+    .bb-mobile-toggle,
+    .bb-mobile-close-btn {
+        display: grid;
+        flex: 0 0 44px;
+        width: 44px;
+        height: 44px;
+        place-items: center;
+        padding: 0;
+        border: 1px solid #dce1ed;
+        border-radius: 8px;
+        background: #f4f6fa;
+        color: #1f2366;
+        cursor: pointer;
     }
     .bb-mobile-toggle-bars {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 3px;
+        display: grid;
+        gap: 4px;
     }
     .bb-mobile-toggle-bars span {
-        display: block;
-        width: 20px !important;
-        height: 2.5px !important;
-        background-color: #1F2366 !important;
-        border-radius: 3px !important;
-        transition: all 0.25s ease !important;
+        width: 20px;
+        height: 2px;
+        border-radius: 2px;
+        background: currentColor;
     }
-    /* Animación X cuando está abierto */
-    .bb-mobile-toggle[aria-expanded="true"] .bb-mobile-toggle-bars span:nth-child(1) {
-        transform: translateY(5.5px) rotate(45deg);
-    }
-    .bb-mobile-toggle[aria-expanded="true"] .bb-mobile-toggle-bars span:nth-child(2) {
-        opacity: 0;
-        transform: scaleX(0);
-    }
-    .bb-mobile-toggle[aria-expanded="true"] .bb-mobile-toggle-bars span:nth-child(3) {
-        transform: translateY(-5.5px) rotate(-45deg);
-    }
+    .bb-mobile-close-btn { font-size: 20px; }
 
-    /* ===== Overlay fixeado al body ===== */
-    body > .bb-mobile-overlay {
+    .bb-mobile-overlay[open] {
         position: fixed;
-        top: 0;
-        left: 0;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
         width: 100%;
         height: 100%;
-        z-index: 99999;
-        background: rgba(14, 21, 38, 0.65);
-        backdrop-filter: blur(6px);
-        -webkit-backdrop-filter: blur(6px);
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.35s ease, visibility 0.35s ease;
+        height: 100dvh;
+        max-width: none;
+        max-height: none;
+        margin: 0;
+        padding: 0;
+        border: 0;
         overflow: hidden;
+        background: #fff;
+        color: #1f2366;
+        animation: bb-mobile-enter 160ms ease-out;
     }
-    body > .bb-mobile-overlay.open {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    /* ===== Full screen container (slide from top) ===== */
-    body > .bb-mobile-overlay .bb-mobile-fullscreen {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #ffffff;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-        transform: translateY(-100%);
-        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    body > .bb-mobile-overlay.open .bb-mobile-fullscreen {
-        transform: translateY(0);
+    .bb-mobile-overlay::backdrop { background: #fff; }
+    @keyframes bb-mobile-enter {
+        from { opacity: .7; transform: translateY(-6px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ===== Header del menú (logo + botón cerrar) ===== */
     .bb-mobile-header {
         display: flex;
-        align-items: center;
+        flex: 0 0 auto;
         justify-content: space-between;
-        padding: 14px 18px;
-        border-bottom: 1px solid rgba(31, 35, 102, 0.08);
-        background: #ffffff;
-        position: sticky;
-        top: 0;
-        z-index: 2;
+        align-items: center;
+        gap: 12px;
+        padding: max(12px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right))
+                 12px max(16px, env(safe-area-inset-left));
+        border-bottom: 1px solid #dce1ed;
     }
-    .bb-mobile-header .bb-mobile-logo {
-        max-height: 36px;
-        width: auto;
-    }
-    .bb-mobile-close-btn {
-        width: 36px;
-        height: 36px;
-        border: none;
-        border-radius: 50%;
-        background: rgba(31, 35, 102, 0.08);
-        color: #1F2366;
-        font-size: 22px;
-        cursor: pointer;
+    .bb-mobile-brand {
         display: flex;
         align-items: center;
-        justify-content: center;
-        transition: background 0.2s;
-        line-height: 1;
-        padding: 0;
+        gap: 14px;
     }
-    .bb-mobile-close-btn:hover {
-        background: rgba(31, 35, 102, 0.15);
+    .bb-mobile-brand img {
+        display: block;
+        width: 52px;
+        height: 40px;
+        object-fit: contain;
     }
-
-    /* ===== Navegación ===== */
-    .bb-mobile-nav {
-        padding: 6px 0 12px;
-    }
-    .bb-mobile-item {
-        border-bottom: 1px solid rgba(31, 35, 102, 0.06);
-    }
-    .bb-mobile-item:last-child {
-        border-bottom: none;
-    }
-    .bb-mobile-link {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 16px 24px;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 500;
-        color: #1F2366;
-        text-decoration: none;
-        font-size: 16px;
-        transition: background 0.15s ease;
-    }
-    .bb-mobile-link:hover {
-        background: rgba(255, 199, 44, 0.1);
-        color: #1F2366;
-    }
-    .bb-mobile-arrow {
-        color: #FFC72C;
-        font-size: 14px;
-        transition: transform 0.25s ease;
-    }
-    .bb-mobile-item-parent > .bb-mobile-link[aria-expanded="true"] .bb-mobile-arrow {
-        transform: rotate(180deg);
+    .bb-mobile-brand h2 {
+        margin: 0;
+        color: #1f2366 !important;
+        font-size: 20px;
+        line-height: 1.2;
     }
 
+    .bb-mobile-content {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow-y: auto;
+        overscroll-behavior-y: contain;
+        padding: 12px max(16px, env(safe-area-inset-right))
+                 max(20px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+    }
+    .bb-mobile-nav,
+    .bb-mobile-portal {
+        max-width: 560px;
+        margin-inline: auto;
+    }
+    .bb-mobile-list,
     .bb-mobile-submenu {
-        display: none;
-        padding: 0 0 4px 0;
-        background: rgba(31, 35, 102, 0.02);
+        margin: 0;
+        padding: 0;
+        list-style: none;
     }
-    .bb-mobile-submenu.open {
-        display: block;
-    }
-    .bb-mobile-sublink {
-        display: block;
-        padding: 12px 38px;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 400;
-        color: #2E4FA3;
+    .bb-mobile-item + .bb-mobile-item { border-top: 1px solid #edf0f5; }
+    .bb-mobile-link,
+    .bb-mobile-sublink,
+    .bb-mobile-portal {
+        width: 100%;
+        min-height: 52px;
+        display: grid;
+        grid-template-columns: 24px minmax(0, 1fr) 16px;
+        align-items: center;
+        gap: 12px;
+        border: 0;
+        border-radius: 8px;
+        padding: 10px 12px;
+        color: #1f2366;
+        background: transparent;
+        font: 600 16px/1.35 'Poppins', sans-serif;
+        letter-spacing: 0;
+        text-align: left;
+        overflow-wrap: anywhere;
         text-decoration: none;
-        border-bottom: 1px solid rgba(31, 35, 102, 0.03);
+    }
+    .bb-mobile-link > i,
+    .bb-mobile-portal > i { text-align: center; }
+    button.bb-mobile-link { cursor: pointer; }
+    .bb-mobile-link:hover,
+    .bb-mobile-sublink:hover,
+    .bb-mobile-close-btn:hover,
+    .bb-mobile-toggle:hover {
+        background: #edf0f8;
+        color: #1f2366;
+    }
+    .bb-mobile-nav [aria-current="page"] {
+        background: #fff4d2;
+        color: #1f2366;
+        box-shadow: inset 3px 0 #cf9200;
+    }
+    .bb-mobile-section-current { background: #f4f6fa; }
+    .bb-mobile-disclosure[aria-expanded="true"] .fa-chevron-down { transform: rotate(180deg); }
+    .bb-mobile-submenu {
+        margin: 0 0 8px 22px;
+        padding-left: 12px;
+        border-left: 2px solid #e1e7f1;
+    }
+    .bb-mobile-submenu[hidden] { display: none; }
+    .bb-mobile-sublink {
+        display: flex;
+        min-height: 48px;
         font-size: 14px;
-        transition: background 0.15s ease;
     }
-    .bb-mobile-sublink:hover {
-        background: rgba(255, 199, 44, 0.08);
-        color: #1F2366;
+    .bb-mobile-portal {
+        margin-top: 18px;
+        background: #ffc72c;
+        color: #171b49;
+        font-weight: 700;
     }
-    .bb-mobile-sublink:last-child {
-        border-bottom: none;
+    .bb-mobile-portal:hover {
+        background: #f3b900;
+        color: #171b49;
     }
-
+    .bb-mobile-overlay :focus-visible,
+    .bb-mobile-toggle:focus-visible {
+        outline: 2px solid #1f2366;
+        outline-offset: -3px;
+    }
     body.bb-mobile-menu-open {
+        position: fixed;
+        inset: var(--bb-menu-scroll-top, 0) 0 auto;
         overflow: hidden;
     }
 
-    /* ===== Header bottom right alignment ===== */
-    .header-bottom-right-style-2 {
-        display: flex !important;
-        align-items: center !important;
-        gap: 4px !important;
-    }
-    .header-bottom-right-style-2 ul {
-        display: flex !important;
-        align-items: center !important;
-        gap: 4px !important;
-    }
-    .header-bottom-right-style-2 ul li {
-        display: flex !important;
-        align-items: center !important;
-    }
-
-    /* Ocultar slicknav legacy */
-    .slicknav_nav,
-    .slicknav_btn,
-    .slicknav_menu,
-    .slicknav_collapsed .submenu {
-        display: none !important;
+    @media (prefers-reduced-motion: reduce) {
+        .bb-mobile-overlay[open] { animation: none; }
     }
 }
-#preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #1F2366; z-index: 99999; display: flex; align-items: center; justify-content: center; flex-direction: column; }
-.loading-container { text-align: center; max-width: 90%; }
-.loading-container video, .loading-container img { max-width: 100%; max-height: 70vh; display: block; margin: 0 auto; border-radius: 12px; }
-.loading-text { color: #ffffff; font-family: 'Montserrat', sans-serif; margin-top: 20px; font-size: 18px; letter-spacing: 2px; animation: pulse 1.5s infinite; }
-
-/* ============================================================
-   FIX: OCULTAR MENÚ MÓVIL COMPLETAMENTE EN DESKTOP
-   ============================================================ */
 @media (min-width: 992px) {
-    #mobile_menu,
-    #mobile_menu *,
-    .bb-mobile-toggle,
-    .bb-mobile-overlay,
-    .bb-mobile-overlay-inner,
-    .bb-mobile-fullscreen,
-    .bb-mobile-overlay.open,
-    .bb-mobile-brand,
-    .bb-mobile-header,
-    .bb-mobile-close-btn,
-    .bb-mobile-nav,
-    .bb-mobile-item,
-    .bb-mobile-link,
-    .bb-mobile-submenu,
-    .bb-mobile-sublink,
-    .bb-mobile-arrow {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-        width: 0 !important;
-        height: 0 !important;
-        overflow: hidden !important;
-        position: absolute !important;
-        left: -9999px !important;
-        top: -9999px !important;
-    }
-    body.bb-mobile-menu-open {
-        overflow: visible !important;
-    }
+    #mobile_menu { display: none !important; }
 }
 /* ============================================================
    FIX: HEADER DESKTOP - FONDO BLANCO SIEMPRE

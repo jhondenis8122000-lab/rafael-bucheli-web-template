@@ -81,11 +81,11 @@
      ==================================*/
     function initSmoothScroll() {
         $(document).on('click', 'a[href^="#"]', function(event) {
-            var href = $(this).attr('href');
-            if (href && href.length > 1 && href !== '#' && $(href).length) {
+            var target = document.getElementById(this.hash.slice(1));
+            if (target && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
                 event.preventDefault();
                 $('html, body').stop().animate({
-                    scrollTop: $(href).offset().top - 50
+                    scrollTop: $(target).offset().top - 50
                 }, 1000);
             }
         });
@@ -132,13 +132,16 @@
      4. CARRUSELES
      ==================================*/
     function initCarousels() {
+        if (!$.fn.owlCarousel) return;
+        var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
         if ($('#heroSlider').length) {
             $('#heroSlider').owlCarousel({
                 loop: true,
                 items: 1,
                 nav: false,
                 dots: true,
-                autoplay: true,
+                autoplay: !reducedMotion,
                 autoplayTimeout: 5500,
                 autoplayHoverPause: true,
                 smartSpeed: 800,
@@ -153,7 +156,7 @@
                 items: 1,
                 nav: true,
                 dots: true,
-                autoplay: true,
+                autoplay: !reducedMotion,
                 autoplayTimeout: 5000,
                 autoplayHoverPause: true,
                 animateOut: 'fadeOut',
@@ -205,14 +208,9 @@
             $progress.addClass('activo');
         }
 
-        function activar() {
-            $slider.addClass('hero-motion-on');
-            reiniciar();
-        }
-
+        $slider.addClass('hero-motion-on');
+        reiniciar();
         $slider.on('changed.owl.carousel', reiniciar);
-        document.addEventListener('rb:loaded', activar, { once: true });
-        setTimeout(activar, 5000);
     }
 
     /*================================
@@ -320,10 +318,6 @@
             alScroll();
         }, { passive: true });
         window.addEventListener('load', function() {
-            medirSecciones();
-            alScroll();
-        });
-        document.addEventListener('rb:loaded', function() {
             medirSecciones();
             alScroll();
         });
